@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://threalwinky.github.io/sitemap.xml
