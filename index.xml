@@ -31,6 +31,26 @@
     </item>
     
     <item>
+      <title>Dreamhack training</title>
+      <link>https://threalwinky.github.io/posts/dreamhack/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
+      <guid>https://threalwinky.github.io/posts/dreamhack/</guid>
+      <description>Dreamhack writeup</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://threalwinky.github.io/posts/dreamhack/feature.png" />
+    </item>
+    
+    <item>
+      <title>picoCTF</title>
+      <link>https://threalwinky.github.io/posts/picoctf/</link>
+      <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
+      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
+      <guid>https://threalwinky.github.io/posts/picoctf/</guid>
+      <description>picoCTF writeup</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://threalwinky.github.io/posts/picoctf/feature.jpg" />
+    </item>
+    
+    <item>
       <title></title>
       <link>https://threalwinky.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

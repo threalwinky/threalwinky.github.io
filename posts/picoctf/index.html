@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>USC CTF FALL 2024 &middot; Yuki Shiroi</title>
-  <meta name="title" content="USC CTF FALL 2024 &middot; Yuki Shiroi" />
+  <title>picoCTF &middot; Yuki Shiroi</title>
+  <meta name="title" content="picoCTF &middot; Yuki Shiroi" />
   
-  <meta name="description" content="USC CTF FALL 2024 writeup" />
-  <meta name="keywords" content="Web, Forensics, " />
+  <meta name="description" content="picoCTF writeup" />
+  <meta name="keywords" content="Web, " />
   
   
-  <link rel="canonical" href="https://threalwinky.github.io/posts/usc/" />
+  <link rel="canonical" href="https://threalwinky.github.io/posts/picoctf/" />
   
   
   
@@ -64,24 +64,23 @@
   
   
   
-  <meta property="og:url" content="https://threalwinky.github.io/posts/usc/">
+  <meta property="og:url" content="https://threalwinky.github.io/posts/picoctf/">
   <meta property="og:site_name" content="Yuki Shiroi">
-  <meta property="og:title" content="USC CTF FALL 2024">
-  <meta property="og:description" content="USC CTF FALL 2024">
+  <meta property="og:title" content="picoCTF">
+  <meta property="og:description" content="picoCTF">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-11-08T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-11-08T00:00:00+00:00">
+    <meta property="article:published_time" content="2024-10-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-10T00:00:00+00:00">
     <meta property="article:tag" content="Web">
-    <meta property="article:tag" content="Forensics">
-    <meta property="og:image" content="https://threalwinky.github.io/posts/usc/feature.jpg">
+    <meta property="og:image" content="https://threalwinky.github.io/posts/picoctf/feature.jpg">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://threalwinky.github.io/posts/usc/feature.jpg">
-  <meta name="twitter:title" content="USC CTF FALL 2024">
-  <meta name="twitter:description" content="USC CTF FALL 2024">
+  <meta name="twitter:image" content="https://threalwinky.github.io/posts/picoctf/feature.jpg">
+  <meta name="twitter:title" content="picoCTF">
+  <meta name="twitter:description" content="picoCTF">
 
   
   <script type="application/ld+json">
@@ -89,26 +88,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "USC CTF FALL 2024",
-    "headline": "USC CTF FALL 2024",
-    "description": "USC CTF FALL 2024",
-    "abstract": "USC CTF FALL 2024 writeup",
+    "name": "picoCTF",
+    "headline": "picoCTF",
+    "description": "picoCTF",
+    "abstract": "picoCTF writeup",
     "inLanguage": "en",
-    "url" : "https:\/\/threalwinky.github.io\/posts\/usc\/",
+    "url" : "https:\/\/threalwinky.github.io\/posts\/picoctf\/",
     "author" : {
       "@type": "Person",
       "name": "Yuki Shiroi"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-11-08T00:00:00\u002b00:00",
-    "datePublished": "2024-11-08T00:00:00\u002b00:00",
+    "dateCreated": "2024-10-10T00:00:00\u002b00:00",
+    "datePublished": "2024-10-10T00:00:00\u002b00:00",
     
-    "dateModified": "2024-11-08T00:00:00\u002b00:00",
+    "dateModified": "2024-10-10T00:00:00\u002b00:00",
     
-    "keywords": ["Web","Forensics"],
+    "keywords": ["Web"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "291"
+    "wordCount": "227"
   }]
   </script>
 
@@ -465,7 +464,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/posts/usc/feature.jpg);">
+    style="background-image:url(/posts/picoctf/feature.jpg);">
     
 
 
@@ -518,8 +517,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/posts/usc/"
-      >USC CTF FALL 2024</a
+      href="/posts/picoctf/"
+      >picoCTF</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -528,7 +527,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      USC CTF FALL 2024
+      picoCTF
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -571,7 +570,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-11-08T00:00:00&#43;00:00">8 November 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  <time datetime="2024-10-10T00:00:00&#43;00:00">10 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
   
 
   
@@ -627,14 +626,6 @@
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Web
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/forensics/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Forensics
   </span>
 </span>
   </span>
@@ -813,32 +804,22 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#weirdtraffic">weirdtraffic</a>
+    <li><a href="#findme">findme</a>
       <ul>
         <li>
           <ul>
             <li><a href="#hints">Hints</a></li>
-            <li><a href="#solution">Solution</a></li>
+            <li><a href="#solutions">Solutions</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#irobots">iRobots</a>
+    <li><a href="#jawt-scratchpad">JaWT Scratchpad</a>
       <ul>
         <li>
           <ul>
             <li><a href="#hints-1">Hints</a></li>
-            <li><a href="#solution-1">Solution</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#tommys-artventures">Tommy&rsquo;s Artventures</a>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#hints-2">Hints</a></li>
-            <li><a href="#solution-2">Solution</a></li>
+            <li><a href="#solutions-1">Solutions</a></li>
           </ul>
         </li>
       </ul>
@@ -856,32 +837,22 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#weirdtraffic">weirdtraffic</a>
+    <li><a href="#findme">findme</a>
       <ul>
         <li>
           <ul>
             <li><a href="#hints">Hints</a></li>
-            <li><a href="#solution">Solution</a></li>
+            <li><a href="#solutions">Solutions</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#irobots">iRobots</a>
+    <li><a href="#jawt-scratchpad">JaWT Scratchpad</a>
       <ul>
         <li>
           <ul>
             <li><a href="#hints-1">Hints</a></li>
-            <li><a href="#solution-1">Solution</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#tommys-artventures">Tommy&rsquo;s Artventures</a>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#hints-2">Hints</a></li>
-            <li><a href="#solution-2">Solution</a></li>
+            <li><a href="#solutions-1">Solutions</a></li>
           </ul>
         </li>
       </ul>
@@ -939,37 +910,32 @@
   </thead>
   <tbody>
       <tr>
-          <td>Forensics</td>
-          <td>weirdtraffic</td>
-          <td>Easy</td>
+          <td>Web</td>
+          <td>findme</td>
+          <td>Medium</td>
       </tr>
       <tr>
           <td>Web</td>
-          <td>iRobots</td>
-          <td>Easy</td>
-      </tr>
-      <tr>
-          <td>Web</td>
-          <td>Tommy&rsquo;s Artventures</td>
-          <td>Easy</td>
+          <td>JaWT Scratchpad</td>
+          <td>Medium</td>
       </tr>
   </tbody>
 </table>
 
 
-<h2 class="relative group">weirdtraffic 
-    <div id="weirdtraffic" class="anchor"></div>
+<h2 class="relative group">findme 
+    <div id="findme" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#weirdtraffic" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#findme" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <p>
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BJpUqnVWyl.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HkG-DzagJl.png" alt="" />
     
   </figure>
 </p>
@@ -986,49 +952,74 @@
     
 </h4>
 <ul>
-<li>Đọc wireshark</li>
+<li>Bài này để ý vào thanh address sẽ thấy request lạ</li>
+<li>Sử dụng Burpsuite để catch request</li>
 </ul>
 
 
-<h4 class="relative group">Solution 
-    <div id="solution" class="anchor"></div>
+<h4 class="relative group">Solutions 
+    <div id="solutions" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#solution" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#solutions" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>Sau khi tải file pcapng về mình mở lên bằng wireshark và phát hiện một protocol chứa flag</p>
-<p>
+<p>Giao diện website :
+
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ryb65h4Zkg.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/H1zBKfpx1x.png" alt="" />
     
   </figure>
-</p>
-<p>
+
+Nhập username và password theo yêu cầu
+
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/r1EAqnVZJl.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/B1uLFMTxye.png" alt="" />
     
   </figure>
-</p>
-<p>Flag : CYBORG{hping3-is-a-cool-tool}</p>
+
+Tiếp tục thoát ra và nhập lại theo yêu cầu
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/B1P9FGal1l.png" alt="" />
+    
+  </figure>
+
+Ở ô target của Burpsuite ta catch được 2 request với 2 id lạ
+<strong>bF90aGVfd2F5XzI1YmJhZTlhfQ==</strong>
+<strong>cGljb0NURntwcm94aWVzX2Fs</strong>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/S1H3FzTx1x.png" alt="" />
+    
+  </figure>
+
+Ta nhận thấy 2 id đã được mã hoá base64 nên ta tiến hành dịch ngược lại
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJJScfagJl.png" alt="" />
+    
+  </figure>
+
+Và nhận được flag là picoCTF{proxies_all_the_way_25bbae9a}</p>
 
 
-<h2 class="relative group">iRobots 
-    <div id="irobots" class="anchor"></div>
+<h2 class="relative group">JaWT Scratchpad 
+    <div id="jawt-scratchpad" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#irobots" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#jawt-scratchpad" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <p>
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Sku1AiVWyx.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/S109cM6gJe.png" alt="Screenshot 2024-10-25 225121" />
     
   </figure>
 </p>
@@ -1045,166 +1036,85 @@
     
 </h4>
 <ul>
-<li>Tôi yêu Burpsuite Pro</li>
+<li>Bài này sử dụng kĩ thuật tấn công JWT</li>
 </ul>
 
 
-<h4 class="relative group">Solution 
-    <div id="solution-1" class="anchor"></div>
+<h4 class="relative group">Solutions 
+    <div id="solutions-1" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#solution-1" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#solutions-1" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>Giao diện website :</p>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BJpgRoEbkl.png" alt="image" />
-    
-  </figure>
-</p>
-<p>Mình thử mở devtool để xem và thấy đoạn script sau</p>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/B1850o4WJe.png" alt="image" />
-    
-  </figure>
-</p>
-<p>Mình gõ thử mật khẩu là as1m0v và đến trang này</p>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SyF6RjE-Jl.png" alt="image" />
-    
-  </figure>
-</p>
-<p>Sau một hồi suy nghĩ thì hình như nó đang đề cập đến một page ẩn nên mình xài Burpsuite để scan page</p>
-<p>Sau khi crawl thì mình nhận được kết quả sau</p>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SyhGJnN-1e.png" alt="image" />
-    
-  </figure>
-</p>
-<p>Thử truy cập vào file /hidden/flag.txt và mình đã có flag</p>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BJaSy2VWJl.png" alt="image" />
-    
-  </figure>
-</p>
-<p>Flag : CYBORG{robots_txt_is_fun}</p>
-
-
-<h2 class="relative group">Tommy&rsquo;s Artventures 
-    <div id="tommys-artventures" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#tommys-artventures" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rkp_JiEWkg.png" alt="image" />
-    
-  </figure>
-</p>
-
-
-<h4 class="relative group">Hints 
-    <div id="hints-2" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#hints-2" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>Bài này mình sẽ vào trang admin bằng flask session</li>
-</ul>
-
-
-<h4 class="relative group">Solution 
-    <div id="solution-2" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#solution-2" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>Đề bài cho ta một file secret_key.txt với nội dung là 4a6282bf78c344a089a2dc5d2ca93ae6</p>
-<p>Giao diện website chỉ có một nút login :</p>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ryWklo4b1x.png" alt="image" />
-    
-  </figure>
-</p>
-<p>Mình sẽ thử đăng ký và đăng nhập một tài khoản ngẫu nhiên</p>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HkBqgsEZJx.png" alt="image" />
-    
-  </figure>
-</p>
-<p>Sau khi đăng nhập mình thấy có một button curate và phải là admin mới xem được
+<p>Giao diện website :
 
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HkbPgoEbke.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HyWbiGTgkg.png" alt="Screenshot 2024-10-26 140516" />
     
   </figure>
 
+Nhập username là admin và bị chặn
 
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ryKDgs4bkg.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Sku1jGpgJg.png" alt="Screenshot 2024-10-26 142201" />
     
   </figure>
-</p>
-<p>Mình thử bật devtool và thấy trang web chứa session</p>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HJ2y-sNWkg.png" alt="image" />
-    
-  </figure>
-</p>
-<p>Mình thử tìm một vài tool để encode và decode session này và mình sẽ sử dụng tool <a href="https://github.com/noraj/flask-session-cookie-manager" target="_blank">này</a></p>
-<p>Thực hiện git clone tool về và decode đoạn session trên mình biết được session giữ thông tin json dạng {&ldquo;user&rdquo; : username}
+
+Tiếp tục thoát ra và nhập username ngẫu nhiên
 
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HJxwZoVZkl.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SyUNjGpeJl.png" alt="Screenshot 2024-10-26 140624" />
     
   </figure>
-</p>
-<p>Sau đó mình encode một đoạn session khác với &ldquo;user&rdquo; là &ldquo;admin&rdquo; và secret_key có trong file của đề</p>
-<p>
+
+Ở cookie ta bắt được jwt của user winky
+
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJKQGoE-1l.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/r1SBjGTekl.png" alt="Screenshot 2024-10-26 140846" />
     
   </figure>
-</p>
-<p>Thay đổi session của web bằng đoạn session trên sau đó refresh trang, ta sẽ vào được user admin và thu được flag</p>
-<p>
+
+Tiến hành vào trang web <a href="https://jwt.io" target="_blank">jwt.io</a> để giải mã jwt trên
+
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SyYFMsNWke.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJmOofpxke.png" alt="Screenshot 2024-10-26 140934" />
     
   </figure>
-</p>
-<p>
+
+Trường payload đang giữ thông tin user nên ta sẽ thay đổi lại user trong payload cũng như tìm secret key
+Tiến hành tìm secret key bằng hashcat và wordlist từ trang web <a href="https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt" target="_blank">https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt</a>
+
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HknKMj4Zyg.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/B1psoMpgJx.png" alt="Screenshot 2024-10-26 142014" />
+    
+  </figure>
+
+sau khi giải mã ta có secretkey ở sau là ilovepico
+ta sẽ thay vào trang web vừa nãy để lấy jwt của user admin
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ryu2jfpe1g.png" alt="Screenshot 2024-10-26 142046" />
+    
+  </figure>
+
+thay jwt này vào devtool để thay đổi user
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Skp3iGal1l.png" alt="Screenshot 2024-10-26 142111" />
+    
+  </figure>
+
+reload lại page và ta có flag : picoCTF{jawt_was_just_what_you_thought_f859ab2f}
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BkeCoMagyg.png" alt="Screenshot 2024-10-26 142131" />
     
   </figure>
 </p>
-<p>Flag : CYBORG{oce4n5_auth3N71ca7i0N}</p>
 
           
           
@@ -1218,279 +1128,6 @@
 
         
 
-
-<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
-<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-  
-  
-
-  <a href="/posts/picoctf/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/picoctf/feature.jpg);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/picoctf/">picoCTF</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2024-10-10T00:00:00&#43;00:00">10 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/winky/&#34;,'_self')">Winky</div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/writeup/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Writeup
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Web
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/posts/dreamhack/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/dreamhack/feature.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/dreamhack/">Dreamhack training</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2024-10-18T00:00:00&#43;00:00">18 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">10 mins</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/winky/&#34;,'_self')">Winky</div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/writeup/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Writeup
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Web
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-</section>
 
   
       </div>
@@ -1503,8 +1140,8 @@
           
         
       <script>
-        var oid = "views_posts\/usc\/index.md"
-        var oid_likes = "likes_posts\/usc\/index.md"
+        var oid = "views_posts\/picoctf\/index.md"
+        var oid_likes = "likes_posts\/picoctf\/index.md"
       </script>
       
       
@@ -1524,15 +1161,10 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/dreamhack/">
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/dreamhack/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
@@ -1541,23 +1173,6 @@
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
                     <time datetime="2024-10-18T00:00:00&#43;00:00">18 October 2024</time>
-                  
-                </span>
-              </span>
-            </a>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/1337up/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >1337UP LIVE CTF 2024</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2024-11-18T00:00:00&#43;00:00">18 November 2024</time>
                   
                 </span>
               </span>
