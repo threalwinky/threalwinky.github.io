@@ -101,7 +101,7 @@
     "keywords": ["Web"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "227"
+    "wordCount": "913"
   }]
   </script>
 
@@ -564,7 +564,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-10T00:00:00&#43;00:00">10 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  <time datetime="2024-10-10T00:00:00&#43;00:00">10 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
   
 
   
@@ -818,6 +818,56 @@
         </li>
       </ul>
     </li>
+    <li><a href="#more-sqli">More SQLi</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-2">Hints</a></li>
+            <li><a href="#solution">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#soap">SOAP</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-3">Hints</a></li>
+            <li><a href="#solution-1">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#matchtheregex">MatchTheRegex</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-4">Hints</a></li>
+            <li><a href="#solution-2">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#sqlilite">SQLiLite</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-5">Hints</a></li>
+            <li><a href="#solution-3">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#who-are-you">Who are you?</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-6">Hints</a></li>
+            <li><a href="#solution-4">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -847,6 +897,56 @@
           <ul>
             <li><a href="#hints-1">Hints</a></li>
             <li><a href="#solutions-1">Solutions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#more-sqli">More SQLi</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-2">Hints</a></li>
+            <li><a href="#solution">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#soap">SOAP</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-3">Hints</a></li>
+            <li><a href="#solution-1">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#matchtheregex">MatchTheRegex</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-4">Hints</a></li>
+            <li><a href="#solution-2">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#sqlilite">SQLiLite</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-5">Hints</a></li>
+            <li><a href="#solution-3">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#who-are-you">Who are you?</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-6">Hints</a></li>
+            <li><a href="#solution-4">Solution</a></li>
           </ul>
         </li>
       </ul>
@@ -894,7 +994,19 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <table>
+          
+
+<h1 class="relative group">PicoCTF Write-ups 
+    <div id="picoctf-write-ups" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#picoctf-write-ups" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<table>
 <thead>
 <tr>
 <th>Category</th>
@@ -911,6 +1023,31 @@
 <tr>
 <td>Web</td>
 <td>JaWT Scratchpad</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>More SQLi</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>SOAP</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>MatchTheRegex</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>SQLiLite</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>Who are you?</td>
 <td>Medium</td>
 </tr>
 </tbody>
@@ -1110,6 +1247,437 @@ reload lại page và ta có flag : picoCTF{jawt_was_just_what_you_thought_f859a
   </figure>
 </p>
 
+
+<h2 class="relative group">More SQLi 
+    <div id="more-sqli" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#more-sqli" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rJpwvvwNyg.png" alt="image" />
+    
+  </figure>
+</p>
+
+
+<h4 class="relative group">Hints 
+    <div id="hints-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hints-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>SQL Injection</li>
+</ul>
+
+
+<h4 class="relative group">Solution 
+    <div id="solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Đề bài cho ta một trang đăng nhập sau</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJtuQvD4kx.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Mình thử nhập username và password và đi đến trang sau</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SkrjmwvVyl.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Có lẽ là phần password được đưa lên đầu nên mình thử payload mật khẩu sau</p>
+<p><code>' OR 1=1 --</code> để leak ra tất cả id từ đó đăng nhập vào được</p>
+<p>Sau khi đăng nhập thì web đưa ta đến trang welcome sau</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJbSNvv4yg.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Sau khi nhìn syntax ban nãy ở phần đăng nhập thì mình đoán trang web sử dụng SQLite làm database nên mình thử payload sau để check</p>
+<p><code>'union select sqlite_version(), null, null--</code></p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rJ1vBwvVye.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Vậy ta có thể sử dụng sqlite_master để leak tất cả các bảng trong database qua payload sau</p>
+<p><code>'union select name, sql, null from sqlite_master--</code></p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/H1jTSPPEJx.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Ta có thể thấy flag nằm trong bảng more_table nên chỉ cần đọc column flag của bảng đó là có được flag
+Payload :</p>
+<p><code>'union select flag, null, null from more_table--</code></p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/H14NLvwNke.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Flag : picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_e3e46aae}</p>
+
+
+<h2 class="relative group">SOAP 
+    <div id="soap" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#soap" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJnLDvPN1x.png" alt="image" />
+    
+  </figure>
+</p>
+
+
+<h4 class="relative group">Hints 
+    <div id="hints-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hints-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>XML external entity (XXE) injection</li>
+</ul>
+
+
+<h4 class="relative group">Solution 
+    <div id="solution-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Đề bài cho mình một trang web sau</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rJLcPwDEkg.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Sau khi click thử details của một vài trang thì mình nhận được kết quả và request sau</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HJDawvvE1x.png" alt="image" />
+    
+  </figure>
+</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rymCDDPEke.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Qua đó mình có thể đoán web bị lỗi xxe nên mình giải bài này bằng payload xxe sau</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE replace [&lt;!ENTITY xxe SYSTEM &#34;file:///etc/passwd&#34;&gt;</span> ]&gt;
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;data&gt;&lt;ID&gt;</span><span class="ni">&amp;xxe;</span><span class="nt">&lt;/ID&gt;&lt;/data&gt;</span>
+</span></span></code></pre></div><p>Và chúng ta đã có flag</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BJCQuDvVke.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Flag : picoCTF{XML_3xtern@l_3nt1t1ty_0e13660d}</p>
+
+
+<h2 class="relative group">MatchTheRegex 
+    <div id="matchtheregex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#matchtheregex" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/S1OnOvD4Jg.png" alt="image" />
+    
+  </figure>
+</p>
+
+
+<h4 class="relative group">Hints 
+    <div id="hints-4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hints-4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>No hint</li>
+</ul>
+
+
+<h4 class="relative group">Solution 
+    <div id="solution-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Đề bài cho ta một trang web có một input để nhập vào</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ryXCOPvNkx.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Mình thử mở devtools và xem được đoạn script sau dùng để request lên và kiểm tra có match regex <strong>^p&hellip;..F!?</strong> không</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/H19CuPwV1l.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Ở đây regex này có nghĩa là phần đầu của chuỗi ta nhập phải có dạng &ldquo;p&hellip;..F!?&rdquo; nên mình cứ nhập lại và thêm bao nhiêu ký tự tuỳ thích thôi, không thêm cũng được :v</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJ5EKwPNye.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Flag: picoCTF{succ3ssfully_matchtheregex_f89ea585}</p>
+
+
+<h2 class="relative group">SQLiLite 
+    <div id="sqlilite" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sqlilite" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SkUeqPPV1x.png" alt="image" />
+    
+  </figure>
+</p>
+
+
+<h4 class="relative group">Hints 
+    <div id="hints-5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hints-5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>SQL Injection</li>
+</ul>
+
+
+<h4 class="relative group">Solution 
+    <div id="solution-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Đề bài cho mình trang web sau và yêu cầu đăng nhập</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rJ0Z5ww4yg.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Mình thử nhập ngẫu nhiên username và password và được redirect tới trang web này</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Bk2LcPPN1e.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Có lẽ trang web bị dính lỗi SQLi nên mình thử sử dụng payload sau và đăng nhập được</p>
+<p><code>admin' --</code></p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/B1btqvvEJe.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Ở đây flag đã được giấy nên mình mò thử devtools và có flag</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rkEj9wDVyg.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Flag: picoCTF{L00k5_l1k3_y0u_solv3d_it_9b0a4e21}</p>
+
+
+<h2 class="relative group">Who are you? 
+    <div id="who-are-you" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#who-are-you" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rybHiPDEyg.png" alt="image" />
+    
+  </figure>
+</p>
+
+
+<h4 class="relative group">Hints 
+    <div id="hints-6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hints-6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Header</li>
+</ul>
+
+
+<h4 class="relative group">Solution 
+    <div id="solution-4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution-4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Đề bài cho mình trang web sau</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Bk5LjvP4ye.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Web yêu cầu phải sử dụng trình duyệt PicoBrowser nên mình thay đổi lại User agent</p>
+<p><code>User-Agent: PicoBrowser</code></p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BkmrhvPNkg.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Tiếp theo mình vẫn bị chặn do không phải là người dùng tin cậy
+Có lẽ web muốn request của mình phải có nguồn từ web chính nên thêm header referer vào <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer</a></p>
+<p><code>Referer: &lt;url&gt;</code></p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SkGE6PPVyg.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Tiếp theo vẫn bị chặn do request phải có thời gian là năm 2018. Sau khi search thì mình thấy có header Date sẽ giữ thông tin về thời gian nên mình thêm vào <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date</a></p>
+<p><code>Date: Tue, 1 1 2018 1:1:1 GMT</code></p>
+<p>Sau khi thay vào thì ta tiếp tục bị chặn</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HJcx0PDVye.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Web yêu cầu là user không bị theo dõi. Sau khi tìm hiểu thì chúng ta có header DNT (Do Not Track) có chức năng tuỳ chỉnh nội dung người dùng là private thay vì personalized <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/DNT" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/DNT</a></p>
+<p><code>DNT: 1</code></p>
+<p>Sau khi thay vào thì ta tiếp tục bị chặn</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BJnjAPwNJx.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Web yêu cầu request chúng ta phải từ Sweden nên mình tìm thử header liên quan đến địa chỉ và đó là X-Forwarded-For. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For</a>. Sau đó chúng ta cần tìm IP từ sweden trên mạng và thay vào</p>
+<p><code>X-Forwarded-For: &lt;Sweden IP&gt;</code></p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ByhtxODNJg.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Sau khi thay vào thì ta tiếp tục bị chặn</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BJnjAPwNJx.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Web yêu cầu request chúng ta phải có language là Swedish nên mình tìm thử header liên quan đến ngồn ngữ và đó là Accept-Language. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language</a>. Chúng ta cần tìm mã language của sweden và đó là sv</p>
+<p><code>Accept-Language: sv</code></p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Hy0Py_vNyl.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Sau khi thay vào thì ta có được flag</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BJiAeOD4yx.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Flag: picoCTF{http_h34d3rs_v3ry_c0Ol_much_w0w_20ace0e4}</p>
+
           
           
           
@@ -1162,7 +1730,7 @@ reload lại page và ta có flag : picoCTF{jawt_was_just_what_you_thought_f859a
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Dreamhack training</span
+                  >Dreamhack Wargame</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
