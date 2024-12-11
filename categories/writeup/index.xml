@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writeup on Yuki Shiroi</title>
-    <link>https://threalwinky.github.io/categories/writeup/</link>
+    <link>http://localhost:1313/categories/writeup/</link>
     <description>Recent content in Writeup on Yuki Shiroi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>voquangvu09112006@gmail.com (Yuki Shiroi)</managingEditor>
     <webMaster>voquangvu09112006@gmail.com (Yuki Shiroi)</webMaster>
     <copyright>&amp;copy; 2024 Yuki Shiroi. All right reserved.</copyright>
-    <lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://threalwinky.github.io/categories/writeup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/writeup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1337UP LIVE CTF 2024</title>
-      <link>https://threalwinky.github.io/posts/1337up/</link>
+      <link>http://localhost:1313/posts/1337up/</link>
       <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
       <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>https://threalwinky.github.io/posts/1337up/</guid>
+      <guid>http://localhost:1313/posts/1337up/</guid>
       <description>1337UP LIVE CTF 2024 writeup</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://threalwinky.github.io/posts/1337up/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1337up/feature.jpg" />
     </item>
     
     <item>
       <title>USC CTF FALL 2024</title>
-      <link>https://threalwinky.github.io/posts/usc/</link>
+      <link>http://localhost:1313/posts/usc/</link>
       <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate>
       <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>https://threalwinky.github.io/posts/usc/</guid>
+      <guid>http://localhost:1313/posts/usc/</guid>
       <description>USC CTF FALL 2024 writeup</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://threalwinky.github.io/posts/usc/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/usc/feature.jpg" />
     </item>
     
     <item>
       <title>Dreamhack training</title>
-      <link>https://threalwinky.github.io/posts/dreamhack/</link>
+      <link>http://localhost:1313/posts/dreamhack/</link>
       <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
       <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>https://threalwinky.github.io/posts/dreamhack/</guid>
+      <guid>http://localhost:1313/posts/dreamhack/</guid>
       <description>Dreamhack writeup</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://threalwinky.github.io/posts/dreamhack/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/dreamhack/feature.png" />
     </item>
     
     <item>
       <title>picoCTF</title>
-      <link>https://threalwinky.github.io/posts/picoctf/</link>
+      <link>http://localhost:1313/posts/picoctf/</link>
       <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
       <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>https://threalwinky.github.io/posts/picoctf/</guid>
+      <guid>http://localhost:1313/posts/picoctf/</guid>
       <description>picoCTF writeup</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://threalwinky.github.io/posts/picoctf/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/picoctf/feature.jpg" />
     </item>
     
   </channel>

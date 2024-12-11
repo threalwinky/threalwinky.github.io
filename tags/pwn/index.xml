@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pwn on Yuki Shiroi</title>
-    <link>https://threalwinky.github.io/tags/pwn/</link>
+    <link>http://localhost:1313/tags/pwn/</link>
     <description>Recent content in Pwn on Yuki Shiroi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>voquangvu09112006@gmail.com (Yuki Shiroi)</managingEditor>
     <webMaster>voquangvu09112006@gmail.com (Yuki Shiroi)</webMaster>
     <copyright>&amp;copy; 2024 Yuki Shiroi. All right reserved.</copyright>
-    <lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://threalwinky.github.io/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1337UP LIVE CTF 2024</title>
-      <link>https://threalwinky.github.io/posts/1337up/</link>
+      <link>http://localhost:1313/posts/1337up/</link>
       <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
       <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>https://threalwinky.github.io/posts/1337up/</guid>
+      <guid>http://localhost:1313/posts/1337up/</guid>
       <description>1337UP LIVE CTF 2024 writeup</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://threalwinky.github.io/posts/1337up/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1337up/feature.jpg" />
     </item>
     
   </channel>
