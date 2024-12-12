@@ -101,7 +101,7 @@
     "keywords": ["Web"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "913"
+    "wordCount": "1946"
   }]
   </script>
 
@@ -564,7 +564,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-10T00:00:00&#43;00:00">10 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  <time datetime="2024-10-10T00:00:00&#43;00:00">10 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">10 mins</span>
   
 
   
@@ -868,6 +868,16 @@
         </li>
       </ul>
     </li>
+    <li><a href="#some-assembly-required-2">Some Assembly Required 2</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-7">Hints</a></li>
+            <li><a href="#solution-5">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -947,6 +957,16 @@
           <ul>
             <li><a href="#hints-6">Hints</a></li>
             <li><a href="#solution-4">Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#some-assembly-required-2">Some Assembly Required 2</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#hints-7">Hints</a></li>
+            <li><a href="#solution-5">Solution</a></li>
           </ul>
         </li>
       </ul>
@@ -1048,6 +1068,11 @@
 <tr>
 <td>Web</td>
 <td>Who are you?</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>Some Assembly Required 2</td>
 <td>Medium</td>
 </tr>
 </tbody>
@@ -1677,6 +1702,299 @@ Có lẽ web muốn request của mình phải có nguồn từ web chính nên 
   </figure>
 </p>
 <p>Flag: picoCTF{http_h34d3rs_v3ry_c0Ol_much_w0w_20ace0e4}</p>
+
+
+<h2 class="relative group">Some Assembly Required 2 
+    <div id="some-assembly-required-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#some-assembly-required-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/S1KCbk_Ekg.png" alt="image" />
+    
+  </figure>
+</p>
+
+
+<h4 class="relative group">Hints 
+    <div id="hints-7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hints-7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Wasm and JS deobfuscation</li>
+</ul>
+<p>Bài này theo mình đánh giá là khá hard với mình</p>
+
+
+<h4 class="relative group">Solution 
+    <div id="solution-5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution-5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Đề bài cho mình một trang web như sau</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rkN-GkON1e.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Sau khi thử bấm một vài thứ thì web trả ra incorret nên mình chuyển qua xem source</p>
+<p>Có thể thấy khi click submit thì event onButtonPress sẽ được trigger</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJ4NG1dNye.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Xem thử qua các file khác thì mình thấy hàm này ở file Y8splx37qY.js đã được JS obfuscate</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HyJZau_Eke.png" alt="image" />
+    
+  </figure>
+</p>
+<details>
+<summary>Y8splx37qY.js</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">_0x6d8f</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;copy_char&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;207aLjBod&#39;</span><span class="p">,</span> <span class="s1">&#39;1301420SaUSqf&#39;</span><span class="p">,</span> <span class="s1">&#39;233ZRpipt&#39;</span><span class="p">,</span> <span class="s1">&#39;2224QffgXU&#39;</span><span class="p">,</span> <span class="s1">&#39;check_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;408533hsoVYx&#39;</span><span class="p">,</span> <span class="s1">&#39;instance&#39;</span><span class="p">,</span> <span class="s1">&#39;278338GVFUrH&#39;</span><span class="p">,</span> <span class="s1">&#39;Correct!&#39;</span><span class="p">,</span> <span class="s1">&#39;549933ZVjkwI&#39;</span><span class="p">,</span> <span class="s1">&#39;innerHTML&#39;</span><span class="p">,</span> <span class="s1">&#39;charCodeAt&#39;</span><span class="p">,</span> <span class="s1">&#39;./aD8SvhyVkb&#39;</span><span class="p">,</span> <span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="s1">&#39;977AzKzwq&#39;</span><span class="p">,</span> <span class="s1">&#39;Incorrect!&#39;</span><span class="p">,</span> <span class="s1">&#39;exports&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;getElementById&#39;</span><span class="p">,</span> <span class="s1">&#39;1jIrMBu&#39;</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;615361geljRK&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">_0x5c00</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">_0x58505a</span><span class="p">,</span> <span class="nx">_0x4d6e6c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">_0x58505a</span> <span class="o">=</span> <span class="nx">_0x58505a</span> <span class="o">-</span> <span class="mh">0xc3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">_0x6d8fc4</span> <span class="o">=</span> <span class="nx">_0x6d8f</span><span class="p">[</span><span class="nx">_0x58505a</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">_0x6d8fc4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">_0x12fd07</span><span class="p">,</span> <span class="nx">_0x4e9d05</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">_0x4f7b75</span> <span class="o">=</span> <span class="nx">_0x5c00</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!!</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">_0x1bb902</span> <span class="o">=</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xc8</span><span class="p">))</span> <span class="o">*</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xc9</span><span class="p">))</span> <span class="o">+</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xcd</span><span class="p">))</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xcf</span><span class="p">))</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xc3</span><span class="p">))</span> <span class="o">+</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xc6</span><span class="p">))</span> <span class="o">*</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xd4</span><span class="p">))</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xcb</span><span class="p">))</span> <span class="o">+</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xd9</span><span class="p">))</span> <span class="o">*</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">_0x4f7b75</span><span class="p">(</span><span class="mh">0xc7</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">_0x1bb902</span> <span class="o">===</span> <span class="nx">_0x4e9d05</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">_0x12fd07</span><span class="p">[</span><span class="s1">&#39;push&#39;</span><span class="p">](</span><span class="nx">_0x12fd07</span><span class="p">[</span><span class="s1">&#39;shift&#39;</span><span class="p">]());</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">_0x4f8a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">_0x12fd07</span><span class="p">[</span><span class="s1">&#39;push&#39;</span><span class="p">](</span><span class="nx">_0x12fd07</span><span class="p">[</span><span class="s1">&#39;shift&#39;</span><span class="p">]());</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}(</span><span class="nx">_0x6d8f</span><span class="p">,</span> <span class="mh">0x4bb06</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">exports</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">_0x835967</span> <span class="o">=</span> <span class="nx">_0x5c00</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">_0x1adb5f</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">_0x835967</span><span class="p">(</span><span class="mh">0xd2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">,</span> <span class="nx">_0x355961</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">WebAssembly</span><span class="p">[</span><span class="s1">&#39;instantiate&#39;</span><span class="p">](</span><span class="kr">await</span> <span class="nx">_0x1adb5f</span><span class="p">[</span><span class="s1">&#39;arrayBuffer&#39;</span><span class="p">]())</span>
+</span></span><span class="line"><span class="cl">      <span class="p">,</span> <span class="nx">_0x5c0ffa</span> <span class="o">=</span> <span class="nx">_0x355961</span><span class="p">[</span><span class="nx">_0x835967</span><span class="p">(</span><span class="mh">0xcc</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span> <span class="o">=</span> <span class="nx">_0x5c0ffa</span><span class="p">[</span><span class="nx">_0x835967</span><span class="p">(</span><span class="mh">0xd6</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)();</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">onButtonPress</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">_0x50ea62</span> <span class="o">=</span> <span class="nx">_0x5c00</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">_0x5f4170</span> <span class="o">=</span> <span class="nb">document</span><span class="p">[</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xd8</span><span class="p">)](</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xda</span><span class="p">))[</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xc5</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">_0x19d3ca</span> <span class="o">=</span> <span class="mh">0x0</span><span class="p">;</span> <span class="nx">_0x19d3ca</span> <span class="o">&lt;</span> <span class="nx">_0x5f4170</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">];</span> <span class="nx">_0x19d3ca</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exports</span><span class="p">[</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xc4</span><span class="p">)](</span><span class="nx">_0x5f4170</span><span class="p">[</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xd1</span><span class="p">)](</span><span class="nx">_0x19d3ca</span><span class="p">),</span> <span class="nx">_0x19d3ca</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span><span class="p">[</span><span class="s1">&#39;copy_char&#39;</span><span class="p">](</span><span class="mh">0x0</span><span class="p">,</span> <span class="nx">_0x5f4170</span><span class="p">[</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xd7</span><span class="p">)]),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span><span class="p">[</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xca</span><span class="p">)]()</span> <span class="o">==</span> <span class="mh">0x1</span> <span class="o">?</span> <span class="nb">document</span><span class="p">[</span><span class="s1">&#39;getElementById&#39;</span><span class="p">](</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xd3</span><span class="p">))[</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xd0</span><span class="p">)]</span> <span class="o">=</span> <span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xce</span><span class="p">)</span> <span class="o">:</span> <span class="nb">document</span><span class="p">[</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xd8</span><span class="p">)](</span><span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xd3</span><span class="p">))[</span><span class="s1">&#39;innerHTML&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">_0x50ea62</span><span class="p">(</span><span class="mh">0xd5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></details>
+<p>Ok thì mình sẽ tiến hành deobfuscate file này. Đầu tiên mình sẽ thay các hex value bằng tên để cho dễ đọc</p>
+<details>
+<summary>Y8splx37qY.js</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;copy_char&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;207aLjBod&#39;</span><span class="p">,</span> <span class="s1">&#39;1301420SaUSqf&#39;</span><span class="p">,</span> <span class="s1">&#39;233ZRpipt&#39;</span><span class="p">,</span> <span class="s1">&#39;2224QffgXU&#39;</span><span class="p">,</span> <span class="s1">&#39;check_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;408533hsoVYx&#39;</span><span class="p">,</span> <span class="s1">&#39;instance&#39;</span><span class="p">,</span> <span class="s1">&#39;278338GVFUrH&#39;</span><span class="p">,</span> <span class="s1">&#39;Correct!&#39;</span><span class="p">,</span> <span class="s1">&#39;549933ZVjkwI&#39;</span><span class="p">,</span> <span class="s1">&#39;innerHTML&#39;</span><span class="p">,</span> <span class="s1">&#39;charCodeAt&#39;</span><span class="p">,</span> <span class="s1">&#39;./aD8SvhyVkb&#39;</span><span class="p">,</span> <span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="s1">&#39;977AzKzwq&#39;</span><span class="p">,</span> <span class="s1">&#39;Incorrect!&#39;</span><span class="p">,</span> <span class="s1">&#39;exports&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;getElementById&#39;</span><span class="p">,</span> <span class="s1">&#39;1jIrMBu&#39;</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;615361geljRK&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">get_array_value</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">_0x4d6e6c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">index</span> <span class="o">=</span> <span class="nx">index</span> <span class="o">-</span> <span class="mi">195</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">array_value</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">array_value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">g1</span> <span class="o">=</span> <span class="nx">get_array_value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!!</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span> <span class="o">*</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">201</span><span class="p">))</span> <span class="o">+</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">205</span><span class="p">))</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">207</span><span class="p">))</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">195</span><span class="p">))</span> <span class="o">+</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">198</span><span class="p">))</span> <span class="o">*</span>  <span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">212</span><span class="p">))</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">203</span><span class="p">))</span> <span class="o">+</span> <span class="o">-</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">217</span><span class="p">))</span> <span class="o">*</span>  <span class="nb">parseInt</span><span class="p">(</span><span class="nx">g1</span><span class="p">(</span><span class="mi">199</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">===</span> <span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">a</span><span class="p">[</span><span class="s1">&#39;push&#39;</span><span class="p">](</span><span class="nx">a</span><span class="p">[</span><span class="s1">&#39;shift&#39;</span><span class="p">]());</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">_0x4f8a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">a</span><span class="p">[</span><span class="s1">&#39;push&#39;</span><span class="p">](</span><span class="nx">a</span><span class="p">[</span><span class="s1">&#39;shift&#39;</span><span class="p">]());</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}(</span><span class="nx">array</span><span class="p">,</span> <span class="mi">310022</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">exports</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">g2</span> <span class="o">=</span> <span class="nx">get_array_value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">f</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">g2</span><span class="p">(</span><span class="mi">210</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">,</span> <span class="nx">wasm</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">WebAssembly</span><span class="p">[</span><span class="s1">&#39;instantiate&#39;</span><span class="p">](</span><span class="kr">await</span> <span class="nx">f</span><span class="p">[</span><span class="s1">&#39;arrayBuffer&#39;</span><span class="p">]())</span>
+</span></span><span class="line"><span class="cl">      <span class="p">,</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">wasm</span><span class="p">[</span><span class="nx">g2</span><span class="p">(</span><span class="mi">204</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span> <span class="o">=</span> <span class="nx">res</span><span class="p">[</span><span class="nx">g2</span><span class="p">(</span><span class="mi">214</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">onButtonPress</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">g3</span> <span class="o">=</span> <span class="nx">get_array_value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">216</span><span class="p">)](</span><span class="nx">g3</span><span class="p">(</span><span class="mi">218</span><span class="p">))[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">197</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">input</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">];</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exports</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">196</span><span class="p">)](</span><span class="nx">input</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">209</span><span class="p">)](</span><span class="nx">i</span><span class="p">),</span> <span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span><span class="p">[</span><span class="s1">&#39;copy_char&#39;</span><span class="p">](</span><span class="mi">0</span><span class="p">,</span> <span class="nx">input</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">215</span><span class="p">)]),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">202</span><span class="p">)]()</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="nb">document</span><span class="p">[</span><span class="s1">&#39;getElementById&#39;</span><span class="p">](</span><span class="nx">g3</span><span class="p">(</span><span class="mi">211</span><span class="p">))[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">208</span><span class="p">)]</span> <span class="o">=</span> <span class="nx">g3</span><span class="p">(</span><span class="mi">206</span><span class="p">)</span> <span class="o">:</span> <span class="nb">document</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">216</span><span class="p">)](</span><span class="nx">g3</span><span class="p">(</span><span class="mi">211</span><span class="p">))[</span><span class="s1">&#39;innerHTML&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">g3</span><span class="p">(</span><span class="mi">213</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></details>
+<p>Ngó qua hàm thứ 2 thấy có sử dụng mảng array làm param nên mình nghĩ sẽ có thay đổi gì đó trong mảng. Mình thực hiện debug trước và sau khi hàm chạy và nhận được kết quả sau</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/B1XDmy_N1x.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Ok và mình đã đúng, và chúng ta có mảng array mới như sau và bỏ được hàm thay đổi đó</p>
+<details>
+<summary>Y8splx37qY.js</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">array</span> <span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;615361geljRK&#39;</span><span class="p">,</span>  <span class="s1">&#39;copy_char&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;value&#39;</span><span class="p">,</span>         <span class="s1">&#39;207aLjBod&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;1301420SaUSqf&#39;</span><span class="p">,</span> <span class="s1">&#39;233ZRpipt&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;2224QffgXU&#39;</span><span class="p">,</span>    <span class="s1">&#39;check_flag&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;408533hsoVYx&#39;</span><span class="p">,</span>  <span class="s1">&#39;instance&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;278338GVFUrH&#39;</span><span class="p">,</span>  <span class="s1">&#39;Correct!&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;549933ZVjkwI&#39;</span><span class="p">,</span>  <span class="s1">&#39;innerHTML&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;charCodeAt&#39;</span><span class="p">,</span>    <span class="s1">&#39;./aD8SvhyVkb&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;result&#39;</span><span class="p">,</span>        <span class="s1">&#39;977AzKzwq&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;Incorrect!&#39;</span><span class="p">,</span>    <span class="s1">&#39;exports&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;length&#39;</span><span class="p">,</span>        <span class="s1">&#39;getElementById&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;1jIrMBu&#39;</span><span class="p">,</span>       <span class="s1">&#39;input&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">get_array_value</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">_0x4d6e6c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">index</span> <span class="o">=</span> <span class="nx">index</span> <span class="o">-</span> <span class="mi">195</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">array_value</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">array_value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">exports</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">g2</span> <span class="o">=</span> <span class="nx">get_array_value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">f</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">g2</span><span class="p">(</span><span class="mi">210</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">,</span> <span class="nx">wasm</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">WebAssembly</span><span class="p">[</span><span class="s1">&#39;instantiate&#39;</span><span class="p">](</span><span class="kr">await</span> <span class="nx">f</span><span class="p">[</span><span class="s1">&#39;arrayBuffer&#39;</span><span class="p">]())</span>
+</span></span><span class="line"><span class="cl">      <span class="p">,</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">wasm</span><span class="p">[</span><span class="nx">g2</span><span class="p">(</span><span class="mi">204</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span> <span class="o">=</span> <span class="nx">res</span><span class="p">[</span><span class="nx">g2</span><span class="p">(</span><span class="mi">214</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">onButtonPress</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">g3</span> <span class="o">=</span> <span class="nx">get_array_value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">216</span><span class="p">)](</span><span class="nx">g3</span><span class="p">(</span><span class="mi">218</span><span class="p">))[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">197</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">input</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">];</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exports</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">196</span><span class="p">)](</span><span class="nx">input</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">209</span><span class="p">)](</span><span class="nx">i</span><span class="p">),</span> <span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span><span class="p">[</span><span class="s1">&#39;copy_char&#39;</span><span class="p">](</span><span class="mi">0</span><span class="p">,</span> <span class="nx">input</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">215</span><span class="p">)]),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">202</span><span class="p">)]()</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="nb">document</span><span class="p">[</span><span class="s1">&#39;getElementById&#39;</span><span class="p">](</span><span class="nx">g3</span><span class="p">(</span><span class="mi">211</span><span class="p">))[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">208</span><span class="p">)]</span> <span class="o">=</span> <span class="nx">g3</span><span class="p">(</span><span class="mi">206</span><span class="p">)</span> <span class="o">:</span> <span class="nb">document</span><span class="p">[</span><span class="nx">g3</span><span class="p">(</span><span class="mi">216</span><span class="p">)](</span><span class="nx">g3</span><span class="p">(</span><span class="mi">211</span><span class="p">))[</span><span class="s1">&#39;innerHTML&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">g3</span><span class="p">(</span><span class="mi">213</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></details>
+<p>Tiếp theo mình thay các giá trị trong array vào thông qua hàm get_array_value và mình có được đoạn code trông clean hơn lúc đầu như sau</p>
+<details>
+<summary>Y8splx37qY.js</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">exports</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">f</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">&#34;./aD8SvhyVkb&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">,</span> <span class="nx">wasm</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">WebAssembly</span><span class="p">.</span><span class="nx">instantiate</span><span class="p">(</span><span class="kr">await</span> <span class="nx">f</span><span class="p">.</span><span class="nx">arrayBuffer</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="p">,</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">wasm</span><span class="p">.</span><span class="nx">instance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">exports</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">onButtonPress</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">.</span><span class="nx">input</span><span class="p">(</span><span class="s2">&#34;value&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">input</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exports</span><span class="p">.</span><span class="nx">copy_char</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span><span class="p">.</span><span class="nx">copy_char</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">input</span><span class="p">.</span><span class="nx">length</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">exports</span><span class="p">.</span><span class="nx">check_flag</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;result&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Correct!&#34;</span> <span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;result&#34;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Incorrect!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></details>
+<p>Phân tích về luồng chạy của hàm trên :</p>
+<ul>
+<li>Đầu tiên khai báo biến exports</li>
+<li>Biến f sẽ fetch endpoint ./aD8SvhyVkb để lấy nội dung gì đó mình nghĩ đây sẽ là wasm vì sau đó biến wasm tiến hành decompile file đó và lấy các wasm.instance.exports để gắn vào exports</li>
+<li>Khi button submit được click, input của người dùng được đưa vào export thông qua hàm copy_char của wasm</li>
+<li>Cuối cùng hàm check_flag của wasm sẽ check xem có trùng với flag không và trả ra kết quả tương ứng</li>
+</ul>
+<p>Qua đó, mình thử tải về file aD8SvhyVkb để tiến hành decompile</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rk2cc__EJe.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Mình sẽ sử dụng một tool khá ngon của ghidra để chuyển binary wasm sang code c
+<a href="https://github.com/nneonneo/ghidra-wasm-plugin" target="_blank">https://github.com/nneonneo/ghidra-wasm-plugin</a></p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ryDi9ddV1e.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Sau khi decompile thì mình nhận được 2 hàm là copy_char và check_flag như sau, có 1 hàm str_cmp nữa nhưng chắc chỉ là so sánh 2 sring nên mình bỏ qua</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BykR9_dEkx.png" alt="image" />
+    
+  </figure>
+</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rJQkidO41x.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Phân tích :</p>
+<ul>
+<li>Hàm copy_char sẽ lấy má ascii của char và xor với 8 sau đó gán vào vị trí tương ứng trên địa chỉ 0x430 + param2(ở code js là vị trí của char)</li>
+<li>Hàm check_flag sẽ so sánh char* ở hai địa chỉ 0x400 và 0x430 nhưng vì 0x430 là input của mình ở trên nên chắc chắn flag nằm ở 0x400</li>
+<li>Xem thử ở vị trí 0x400 và mình thấy có một chuỗi kí tự như sau:</li>
+</ul>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJX-su_Vkl.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Vì đây là các kí tự sau khi input được xor 8 nên mình tiến thành decode lại bằng cách xor 8. it works because a xor b = c so a xor c = b. Đây là đoạn code decrypt của mình bằng python sau khi chạy thì ta có flag như sau</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="s2">&#34;xakgK</span><span class="se">\\</span><span class="s2">Ns&gt;n;jl90;9:mjn9m&lt;0n9::0::881&lt;00?&gt;u&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">^</span> <span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HkK_WYO4yx.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Flag : picoCTF{6f3bd18312ebf1e48f12282200948876}</p>
+<p>P/S: Bài này mình dành 1 thời gian khá lâu mới giải được và đây là số lượng file mình đã tạo ra 🐧</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/SJXSfFuVyx.png" alt="image" />
+    
+  </figure>
+</p>
 
           
           
