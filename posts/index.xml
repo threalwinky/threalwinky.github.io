@@ -11,6 +11,16 @@
     <copyright>&amp;copy; 2024 Yuki Shiroi. All right reserved.</copyright>
     <lastBuildDate>Mon, 13 Jun 2022 20:55:37 +0100</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>WannaGame Championship 2024</title>
+      <link>http://localhost:1313/posts/w1champ/</link>
+      <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
+      <guid>http://localhost:1313/posts/w1champ/</guid>
+      <description>WannaGame Championship 2024 writeup</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/w1champ/feature.png" />
+    </item>
+    
+    <item>
       <title>1337UP LIVE CTF 2024</title>
       <link>http://localhost:1313/posts/1337up/</link>
       <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
@@ -31,7 +41,7 @@
     </item>
     
     <item>
-      <title>Dreamhack Wargame</title>
+      <title>Dreamhack training</title>
       <link>http://localhost:1313/posts/dreamhack/</link>
       <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
       <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
