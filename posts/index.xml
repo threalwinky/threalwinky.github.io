@@ -11,6 +11,16 @@
     <copyright>&amp;copy; 2024 Yuki Shiroi. All right reserved.</copyright>
     <lastBuildDate>Mon, 13 Jun 2022 20:55:37 +0100</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>TSG CTF 2024</title>
+      <link>http://localhost:1313/posts/tsg/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
+      <guid>http://localhost:1313/posts/tsg/</guid>
+      <description>TSG CTF 2024 writeup</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/tsg/feature.png" />
+    </item>
+    
+    <item>
       <title>WannaGame Championship 2024</title>
       <link>http://localhost:1313/posts/w1champ/</link>
       <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
