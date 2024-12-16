@@ -1115,7 +1115,7 @@
     
   </figure>
 </p>
-<p>Có thể thấy /endpoint bị dính regex của location đầu tiên và trả ra i catch you. Vậy làm sao để bypass và qua được location / ? Thì mình có thể sử dụng CR-LF injection bằng cách thêm các ký tự %0A(new line) và %0D(carriage return) để insert một line trên firefly từ đó bypass được regex</p>
+<p>Có thể thấy endpoint bị dính regex của location đầu tiên và trả ra i catch you. Vậy làm sao để bypass và qua được location / ? Thì mình có thể sử dụng CR-LF injection bằng cách thêm các ký tự %0A(new line) và %0D(carriage return) để insert một line trên firefly từ đó bypass được regex</p>
 <p>
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Hygy-UsNJx.png" alt="image" />
@@ -1138,7 +1138,7 @@
   </figure>
 </p>
 <p>Từ đó mình có thể thay / bằng \ thế là lại path traversal được thôi 😎 Mình thử test với payload sau</p>
-<p>/firefly..\firefly\jxx%0a%0d</p>
+<p>/firefly\..\firefly\jxx%0a%0d</p>
 <p>
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HkkVb8iVyg.png" alt="image" />
@@ -1146,7 +1146,7 @@
   </figure>
 </p>
 <p>Bumppph, it works. So now, mình chỉ cần redirect tới flag thôi. Cơ mà, phải lưu ý có đoạn replace regex chữ flag nên mình chỉ cần bypass bằng flflagag, ez man</p>
-<p>/firefly..\firefly\jxx....\flflagag%0a%0d</p>
+<p>/firefly\..\firefly\jxx\..\..\flflagag%0a%0d</p>
 <p>
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ryytb8iVye.png" alt="image" />
