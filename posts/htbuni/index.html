@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>TSG CTF 2024 &middot; Yuki Shiroi</title>
-  <meta name="title" content="TSG CTF 2024 &middot; Yuki Shiroi" />
+  <title>HTB University CTF 2024 &middot; Yuki Shiroi</title>
+  <meta name="title" content="HTB University CTF 2024 &middot; Yuki Shiroi" />
   
-  <meta name="description" content="TSG CTF 2024 writeup" />
+  <meta name="description" content="HTB University CTF 2024 writeup" />
   <meta name="keywords" content="Web, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/tsg/" />
+  <link rel="canonical" href="http://localhost:1313/posts/htbuni/" />
   
   
   
@@ -64,17 +64,17 @@
   
   
   
-  <meta property="og:title" content="TSG CTF 2024" />
-<meta property="og:description" content="TSG CTF 2024" />
+  <meta property="og:title" content="HTB University CTF 2024" />
+<meta property="og:description" content="HTB University CTF 2024" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/tsg/" /><meta property="og:image" content="http://localhost:1313/posts/tsg/feature.png" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-12-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-12-15T00:00:00+00:00" />
+<meta property="og:url" content="http://localhost:1313/posts/htbuni/" /><meta property="og:image" content="http://localhost:1313/posts/htbuni/feature.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-12-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-12-16T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:1313/posts/tsg/feature.png" /><meta name="twitter:title" content="TSG CTF 2024"/>
-<meta name="twitter:description" content="TSG CTF 2024"/>
+<meta name="twitter:image" content="http://localhost:1313/posts/htbuni/feature.jpg" /><meta name="twitter:title" content="HTB University CTF 2024"/>
+<meta name="twitter:description" content="HTB University CTF 2024"/>
 
   
   <script type="application/ld+json">
@@ -82,26 +82,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "TSG CTF 2024",
-    "headline": "TSG CTF 2024",
-    "description": "TSG CTF 2024",
-    "abstract": "TSG CTF 2024 writeup",
+    "name": "HTB University CTF 2024",
+    "headline": "HTB University CTF 2024",
+    "description": "HTB University CTF 2024",
+    "abstract": "HTB University CTF 2024 writeup",
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/posts\/tsg\/",
+    "url" : "http:\/\/localhost:1313\/posts\/htbuni\/",
     "author" : {
       "@type": "Person",
       "name": "Yuki Shiroi"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-12-15T00:00:00\u002b00:00",
-    "datePublished": "2024-12-15T00:00:00\u002b00:00",
+    "dateCreated": "2024-12-16T00:00:00\u002b00:00",
+    "datePublished": "2024-12-16T00:00:00\u002b00:00",
     
-    "dateModified": "2024-12-15T00:00:00\u002b00:00",
+    "dateModified": "2024-12-16T00:00:00\u002b00:00",
     
     "keywords": ["Web"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "290"
+    "wordCount": "1025"
   }]
   </script>
 
@@ -458,7 +458,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/posts/tsg/feature.png);">
+    style="background-image:url(/posts/htbuni/feature.jpg);">
     
 
 
@@ -511,8 +511,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/posts/tsg/"
-      >TSG CTF 2024</a
+      href="/posts/htbuni/"
+      >HTB University CTF 2024</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -521,7 +521,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      TSG CTF 2024
+      HTB University CTF 2024
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -564,7 +564,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-12-15T00:00:00&#43;00:00">15 December 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  <time datetime="2024-12-16T00:00:00&#43;00:00">16 December 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
   
 
   
@@ -798,7 +798,7 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#toolong-tea">Toolong tea</a>
+    <li><a href="#armaxis">Armaxis</a>
       <ul>
         <li>
           <ul>
@@ -822,7 +822,7 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#toolong-tea">Toolong tea</a>
+    <li><a href="#armaxis">Armaxis</a>
       <ul>
         <li>
           <ul>
@@ -878,22 +878,16 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Toolong tea 
-    <div id="toolong-tea" class="anchor"></div>
+<h2 class="relative group">Armaxis 
+    <div id="armaxis" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#toolong-tea" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#armaxis" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/ByUz0w341g.png" alt="image" />
-    
-  </figure>
-</p>
 
 
 <h4 class="relative group">Source 
@@ -906,7 +900,7 @@
     </span>        
     
 </h4>
-<p><a href="https://drive.google.com/file/d/1e8EKn0oWDwhx2dvTnD87heEfQ3ZvO2Wr/view?usp=sharing" target="_blank">https://drive.google.com/file/d/1e8EKn0oWDwhx2dvTnD87heEfQ3ZvO2Wr/view?usp=sharing</a></p>
+<p><a href="https://drive.google.com/file/d/1UxpqCJGXklVGBE1C1BwcnFUfJ3WEpb9V/view?usp=sharing" target="_blank">https://drive.google.com/file/d/1UxpqCJGXklVGBE1C1BwcnFUfJ3WEpb9V/view?usp=sharing</a></p>
 
 
 <h4 class="relative group">Hints 
@@ -920,7 +914,7 @@
     
 </h4>
 <ul>
-<li>Array parseInt</li>
+<li>Bypass OTP, command injection</li>
 </ul>
 
 
@@ -934,69 +928,313 @@
     </span>        
     
 </h4>
-<p>Đề bài cho mình một trang web như sau</p>
+<p>Đề bài cho mình 2 trang web như sau</p>
 <p>
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/H1sw0v3NJg.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Hk5QYHHBJl.png" alt="image" />
     
   </figure>
 </p>
-<p>Source :</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">serve</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@hono/node-server&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">serveStatic</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@hono/node-server/serve-static&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Hono</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;hono&#34;</span><span class="p">;</span>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/By94YHHBJe.png" alt="image" />
+    
+  </figure>
+</p>
+<details>
+<summary>Dockerfile</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="c"># Use Node.js base image with Alpine Linux</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> node:alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install required dependencies for MailHog and supervisord</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk add --no-cache <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    wget <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    supervisor <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    apache2-utils <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    curl<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install MailHog binary</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> wget https://github.com/mailhog/MailHog/releases/download/v1.0.1/MailHog_linux_amd64<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> chmod +x MailHog_linux_amd64<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Prepare email directory and copy app files</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> mkdir -p /email<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> email-app /email<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /email</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> npm install<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Generate a random password and create authentication file for MailHog</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nv">RANDOM_VALUE</span><span class="o">=</span><span class="k">$(</span>cat /dev/urandom <span class="p">|</span> tr -dc <span class="s1">&#39;a-zA-Z0-9&#39;</span> <span class="p">|</span> fold -w <span class="m">32</span> <span class="p">|</span> head -n 1<span class="k">)</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> htpasswd -nbBC <span class="m">10</span> <span class="nb">test</span> <span class="s2">&#34;</span><span class="nv">$RANDOM_VALUE</span><span class="s2">&#34;</span> &gt; /mailhog-auth <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$RANDOM_VALUE</span> &gt; /email/password.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Set working directory for the main app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy challenge files and install dependencies</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> challenge .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> npm install<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy supervisord configuration</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Expose ports for the app and email client</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8080</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 1337</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> flag.txt /flag.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Start supervisord</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;supervisord&#34;</span><span class="p">,</span> <span class="s2">&#34;-c&#34;</span><span class="p">,</span> <span class="s2">&#34;/etc/supervisor/conf.d/supervisord.conf&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div></details>
+<details>
+<summary>supervisord.conf</summary>
+<pre tabindex="0"><code class="language-conf=" data-lang="conf=">[supervisord]
+user=root
+nodaemon=true
+logfile=/dev/null
+logfile_maxbytes=0
+pidfile=/run/supervisord.pid
+
+[program:node]
+command=node index.js
+directory=/app
+autostart=true
+autorestart=true
+stdout_logfile=/dev/stdout
+stderr_logfile=/dev/stderr
+stdout_logfile_maxbytes=0
+stderr_logfile_maxbytes=0
+
+
+[program:mailhog]
+command=/MailHog_linux_amd64 -api-bind-addr 127.0.0.1:9000 -ui-bind-addr 127.0.0.1:9000  -maildir-path /var/mail/ -storage maildir -auth-file=/mailhog-auth
+stdout_logfile=/dev/stdout
+stdout_logfile_maxbytes=0
+stderr_logfile=/dev/stderr
+stderr_logfile_maxbytes=0
+
+[program:email]
+directory=/email
+command=node index.js
+autostart=true
+autorestart=true
+stdout_logfile=/dev/stdout
+stdout_logfile_maxbytes=0
+stderr_logfile=/dev/stderr
+stderr_logfile_maxbytes=0
+</code></pre></details>
+<p>Đọc qua cấu hình của web thì nó sẽ có 3 service, một là /app của web được expose trên port 1337, hai là email client được expose ở port 8080, ba là mailhog ở port 9000 dùng để gửi email</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/H19LKBHr1g.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Đầu tiên mình tạo một account và đăng nhập nhưng không có gì hot cả nên mình đọc lại source</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rkNYeLBH1g.png" alt="image" />
+    
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">initializeDatabase</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">await</span> <span class="nx">run</span><span class="p">(</span><span class="sb">`CREATE TABLE IF NOT EXISTS users (
+</span></span></span><span class="line"><span class="cl"><span class="sb">            id INTEGER PRIMARY KEY AUTOINCREMENT,
+</span></span></span><span class="line"><span class="cl"><span class="sb">            email VARCHAR(255) UNIQUE,
+</span></span></span><span class="line"><span class="cl"><span class="sb">            password VARCHAR(255),
+</span></span></span><span class="line"><span class="cl"><span class="sb">            role VARCHAR(50)
+</span></span></span><span class="line"><span class="cl"><span class="sb">        )`</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">flag</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">FLAG</span> <span class="o">??</span> <span class="s2">&#34;TSGCTF{DUMMY}&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">await</span> <span class="nx">run</span><span class="p">(</span><span class="sb">`CREATE TABLE IF NOT EXISTS weapons (
+</span></span></span><span class="line"><span class="cl"><span class="sb">            id INTEGER PRIMARY KEY AUTOINCREMENT,
+</span></span></span><span class="line"><span class="cl"><span class="sb">            name VARCHAR(255),
+</span></span></span><span class="line"><span class="cl"><span class="sb">            price REAL,
+</span></span></span><span class="line"><span class="cl"><span class="sb">            note TEXT,
+</span></span></span><span class="line"><span class="cl"><span class="sb">            dispatched_to VARCHAR(255),
+</span></span></span><span class="line"><span class="cl"><span class="sb">            FOREIGN KEY (dispatched_to) REFERENCES users (email)
+</span></span></span><span class="line"><span class="cl"><span class="sb">        )`</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Hono</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">await</span> <span class="nx">run</span><span class="p">(</span><span class="sb">`CREATE TABLE IF NOT EXISTS password_resets (
+</span></span></span><span class="line"><span class="cl"><span class="sb">            id INTEGER PRIMARY KEY AUTOINCREMENT,
+</span></span></span><span class="line"><span class="cl"><span class="sb">            user_id INTEGER NOT NULL,
+</span></span></span><span class="line"><span class="cl"><span class="sb">            token VARCHAR(64) NOT NULL,
+</span></span></span><span class="line"><span class="cl"><span class="sb">            expires_at INTEGER NOT NULL,
+</span></span></span><span class="line"><span class="cl"><span class="sb">            FOREIGN KEY (user_id) REFERENCES users (id)
+</span></span></span><span class="line"><span class="cl"><span class="sb">        )`</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;*&#34;</span><span class="p">,</span> <span class="nx">serveStatic</span><span class="p">({</span> <span class="nx">root</span><span class="o">:</span> <span class="s2">&#34;./public&#34;</span> <span class="p">}));</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">userCount</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">get</span><span class="p">(</span><span class="sb">`SELECT COUNT(*) as count FROM users`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">userCount</span><span class="p">.</span><span class="nx">count</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">insertUser</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="sb">`INSERT INTO users (email, password, role) VALUES (?, ?, ?)`</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">runInsertUser</span> <span class="o">=</span> <span class="nx">promisify</span><span class="p">(</span><span class="nx">insertUser</span><span class="p">.</span><span class="nx">run</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">insertUser</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">,</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">try</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="kr">const</span> <span class="p">{</span> <span class="nx">num</span> <span class="p">}</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">req</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="nx">num</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="p">[...</span><span class="nx">num</span><span class="p">].</span><span class="nx">every</span><span class="p">((</span><span class="nx">d</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="o">/</span><span class="err">\</span><span class="nx">d</span><span class="o">/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">d</span><span class="p">)))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="kr">const</span> <span class="nx">i</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">65536</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="sb">`Congratulations! </span><span class="si">${</span><span class="nx">flag</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">			<span class="p">}</span>
-</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&#34;Please send 65536&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="nx">num</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&#34;Too long!&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&#34;Please send 3-digit integer&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&#34;Invalid JSON&#34;</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">await</span> <span class="nx">runInsertUser</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;admin@armaxis.htb&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="sb">`</span><span class="si">${</span><span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">69</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s2">&#34;hex&#34;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;admin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">insertUser</span><span class="p">.</span><span class="nx">finalize</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Seeded initial users.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;Error initializing database:&#34;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">initializeDatabase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">createUser</span><span class="p">(</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">role</span> <span class="o">=</span> <span class="s2">&#34;user&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="sb">`INSERT INTO users (email, password, role) VALUES (?, ?, ?)`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">run</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="p">[</span><span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">role</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Có thể thấy các account tạo ra đều có role là user nhưng chỉ có email <a href="mailto:admin@armaxis.htb">admin@armaxis.htb</a> là mang role admin nên mình tìm xem có hàm nào liên quan đến role này không. Mình thử đọc qua file index.js trong router và file markdown.js và thấy có một điều thú vị</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">//index.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&#34;/weapons/dispatch&#34;</span><span class="p">,</span> <span class="nx">authenticate</span><span class="p">,</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">{</span> <span class="nx">role</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">role</span> <span class="o">!==</span> <span class="s2">&#34;admin&#34;</span><span class="p">)</span> <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">403</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&#34;Access denied.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">price</span><span class="p">,</span> <span class="nx">note</span><span class="p">,</span> <span class="nx">dispatched_to</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">name</span> <span class="o">||</span> <span class="o">!</span><span class="nx">price</span> <span class="o">||</span> <span class="o">!</span><span class="nx">note</span> <span class="o">||</span> <span class="o">!</span><span class="nx">dispatched_to</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&#34;All fields are required.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">parsedNote</span> <span class="o">=</span> <span class="nx">parseMarkdown</span><span class="p">(</span><span class="nx">note</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">await</span> <span class="nx">dispatchWeapon</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">price</span><span class="p">,</span> <span class="nx">parsedNote</span><span class="p">,</span> <span class="nx">dispatched_to</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&#34;Weapon dispatched successfully.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;Error dispatching weapon:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">500</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&#34;Error dispatching weapon.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">serve</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fetch</span><span class="o">:</span> <span class="nx">app</span><span class="p">.</span><span class="nx">fetch</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">port</span><span class="o">:</span> <span class="mi">4932</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pre></div><p>Phân tích :</p>
-<ul>
-<li>Biến num được truyền vào lấy từ json của request và sau đó được check length = 3 và regex tất cả phải là chữ số</li>
-<li>Sau đó num sẽ được parseInt vào biến i và xem có phải là số 65536 không nếu có thì sẽ trả ra flag</li>
-<li>Từ đó, mình nghĩ là không thể nào truyền một biến string được vì &lsquo;65536&rsquo; không phải length 3 nên mình nghĩ đến việc truyền một array. Vì sao lại thế ? Theo document của hàm parseInt, khi truyền vào  một mảng thì nó sẽ lấy phần tử đầu để chuyển đổi.</li>
-</ul>
+</span></span><span class="line"><span class="cl"><span class="c1">//markdown.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">parseMarkdown</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">content</span><span class="p">)</span> <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">md</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">content</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\!\[.*?\]\((.*?)\)/g</span><span class="p">,</span> <span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">fileContent</span> <span class="o">=</span> <span class="nx">execSync</span><span class="p">(</span><span class="sb">`curl -s </span><span class="si">${</span><span class="nx">url</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">base64Content</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">fileContent</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="sb">`&lt;img src=&#34;data:image/*;base64,</span><span class="si">${</span><span class="nx">base64Content</span><span class="si">}</span><span class="sb">&#34; alt=&#34;Embedded Image&#34;&gt;`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="sb">`Error fetching image from URL </span><span class="si">${</span><span class="nx">url</span><span class="si">}</span><span class="sb">:`</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="sb">`&lt;p&gt;Error loading image: </span><span class="si">${</span><span class="nx">url</span><span class="si">}</span><span class="sb">&lt;/p&gt;`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Sau khi phân tích thì mình hiểu là chỉ có admin mới xài được hàm parseMarkdown dùng để gửi một markdown cho một user nào đó. Nhưng mà ở trong hàm parseMarkdown đó lại có <code>const fileContent = execSync(`curl -s ${url}`);</code> nên mình xác nhận đã bị dính lỗi command injection. Tại sao lại thế? Khi admin tạo một markdown có image thì hàm parseMarkdown sẽ lấy url source và đưa vào lệnh execSync nhưng nếu ta truyền vào một linux command thì sao? Giả sử như truyền một url source là &lsquo;1.1.1.1; id&rsquo; thì ngoài thực hiện curl lệnh execSync sẽ thực hiện luôn cả lệnh id từ đó leak được nội dung ra.</p>
+<p>Ok thì ý tưởng là vậy nhưng làm sao có được role admin ?
+Thì mình có ngó lại file database.js</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">createPasswordReset</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">expiresAt</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="sb">`INSERT INTO password_resets (user_id, token, expires_at) VALUES (?, ?, ?)`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">await</span> <span class="nx">run</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="p">[</span><span class="nx">userId</span><span class="p">,</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">expiresAt</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">getPasswordReset</span><span class="p">(</span><span class="nx">token</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="sb">`SELECT * FROM password_resets WHERE token = ? AND expires_at &gt; ?`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">reset</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">get</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="p">[</span><span class="nx">token</span><span class="p">,</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()]);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">reset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Trong truy vấn tạo OTP thì có thêm vào param used_id nhưng khi get thì lại không. Qua đó mình có thể lấy OTP của user khác để đổi mật khẩu mail admin. Nên mình thực hiện đổi mật khẩu của mail <code>test@email.htb</code> mà đã được đề bài đưa lên port 8080 ở trong file trên</p>
 <p>
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HkJlldnV1e.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HJmqKSSBkl.png" alt="image" />
     
   </figure>
 </p>
-<ul>
-<li>Qua đó, ta có thể dưa số 65536 vào một mảng có 3 phần tử và dễ dàng bypass được hàm check length lẫn hàm check số. Thêm nữa khi truyền vào một mảng toàn số cũng sẽ bypass được hàm regex do nó sẽ bung hết giá trị số trong mảng đó ra.</li>
-</ul>
+<p>Sau khi đổi mật khẩu thì mình catch được một cái request như sau</p>
 <p>
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BkvCMdnN1g.png" alt="image" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Bk20X8rSJg.png" alt="image" />
     
   </figure>
 </p>
-<p>Flag : TSGCTF{A_holy_night_with_no_dawn_my_dear&hellip;}</p>
+<p>Ok thì mình thử gen ra một cái token khác và thử đổi mật khẩu của mail admin và Bumphhh</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rkzN9SHSyl.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Vậy là mình đã đổi được mật khẩu của admin nên mình sẽ đăng nhập vào</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/r1UwcrBrJe.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Đây là nơi mà ta tạo note khi nãy</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/By4ucSBB1g.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Mình thử test một cái note xem</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/HyT-jBHHkx.png" alt="image" />
+    
+  </figure>
+</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/Hk4GsBBBJe.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Ok ngon rồi, bây giờ chỉ cần thêm image trong markdown để lấy flag là xong.</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/BkMUTBSSye.png" alt="image" />
+    
+  </figure>
+</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/S1SATSSBkg.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Vậy là mình đã command injection thành công ở đây mình check source của image thì đã thấy bị base64 encode nên mình tiến hành decode lại.</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/H1Jx0SSr1x.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Và chúng ta đã có flag</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://hackmd.io/_uploads/rkd70HBBkl.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Flag : HTB{FAKE_FLAG_FOR_TESTING}</p>
 
           
           
@@ -1013,6 +1251,140 @@
 
 <h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
 <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/posts/tsg/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/tsg/feature.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/tsg/">TSG CTF 2024</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-12-15T00:00:00&#43;00:00">15 December 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/winky/&#34;,'_self')">Winky</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/writeup/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Writeup
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
   
   
 
@@ -1298,148 +1670,6 @@
   </a>
 
   
-  
-
-  <a href="/posts/usc/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/usc/feature.jpg);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/usc/">USC CTF FALL 2024</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2024-11-08T00:00:00&#43;00:00">8 November 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/winky/&#34;,'_self')">Winky</div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/writeup/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Writeup
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Web
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/forensics/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Forensics
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
 </section>
 
   
@@ -1453,8 +1683,8 @@
           
         
       <script>
-        var oid = "views_posts\/tsg\/index.md"
-        var oid_likes = "likes_posts\/tsg\/index.md"
+        var oid = "views_posts\/htbuni\/index.md"
+        var oid_likes = "likes_posts\/htbuni\/index.md"
       </script>
       
       
@@ -1474,7 +1704,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/w1champ/">
+            <a class="flex group mr-3" href="/posts/tsg/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1486,11 +1716,11 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >WannaGame Championship 2024</span
+                  >TSG CTF 2024</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-12-14T00:00:00&#43;00:00">14 December 2024</time>
+                    <time datetime="2024-12-15T00:00:00&#43;00:00">15 December 2024</time>
                   
                 </span>
               </span>
@@ -1498,28 +1728,6 @@
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/htbuni/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >HTB University CTF 2024</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2024-12-16T00:00:00&#43;00:00">16 December 2024</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
