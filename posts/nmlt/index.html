@@ -107,7 +107,7 @@
     "keywords": ["Web"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "5152"
+    "wordCount": "5319"
   }]
   </script>
 
@@ -979,7 +979,7 @@
     
   </figure>
 </p>
-<p>Flag : W1{welcome_to_assembly}</p>
+<p>Bài này em đọc không kĩ yêu cầu nên em tưởng là free flag 😥</p>
 
 
 <h2 class="relative group">Guess me 
@@ -1137,6 +1137,7 @@
 </span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;encrypted.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
 </span></span></code></pre></div></details>
+<p>Nói qua về code này thì nó sẽ encrypt flag dựa vào mảng KEY nên mình sẽ duyệt từng phần tử của KEY xem giá trị nào trùng với ký tự của flag thì lấy key đó</p>
 <details>
 <summary>exploit.py</summary>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">KEY</span> <span class="o">=</span> <span class="p">{</span>
@@ -1224,7 +1225,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">string</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">hashlib</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
-</span></span><span class="line"><span class="cl"><span class="n">ct</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ct</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;f189636f8eef640b55d03387864fd17efd324453cc9276be5ff6bd4da88b13fca72438daaab00830a6d14330d37c0f7bee1e7c32d5dda0541a171f66a2343dc1&#39;</span><span class="p">,</span> <span class="s1">&#39;1388cafa58065fa0c04372ce57f303cc4ec9fe62&#39;</span><span class="p">,</span> <span class="s1">&#39;f6266e2849bf8b8575701814cc3f3eb5369e887db54b34e85b1e4608b4fbf5e5&#39;</span><span class="p">,</span> <span class="s1">&#39;31f33ac191e818db784cf8321d70f84763db2b2e599f90cf65868eec85a10f20ae0e23aa1cd48c2f13eec355b2975089490761a291ac2a1bcf33f5fbecead431&#39;</span><span class="p">,</span> <span class="s1">&#39;981e4bce5dede3faa51a936f650e2c1d64169493860c67d68a1ffbbfa32f58598e7869f3f11aefc1620ee8d3ebe4e5f5&#39;</span><span class="p">,</span> <span class="s1">&#39;f06ffaaa6290bf47d26ba2c09c28dddd8f5bcad6ac464ec17fea48040acf1214d10bc109b7c47cffddb6bccd6b61b61a9e629a8f47ab26b80593f29c8c297489&#39;</span><span class="p">,</span> <span class="s1">&#39;a7d95b3bbde885b4eaa76afc6572e18e4483351005f637fe1f5a7bc0b000fe1f&#39;</span><span class="p">,</span> <span class="s1">&#39;85245de371c327440a5f343f27d6df361225806e679950bab3a5a336&#39;</span><span class="p">,</span> <span class="s1">&#39;ea1923e909de3c3c3384ad9ae7696d73&#39;</span><span class="p">,</span> <span class="s1">&#39;21df20aab35967470aada32375f535d4a735789bf0789fd421f85163c4d75c6e&#39;</span><span class="p">,</span> <span class="s1">&#39;b9491ae1a9de40d30a86c00139bd7d6f496f5bf4ce013bc2d5a43a97&#39;</span><span class="p">,</span> <span class="s1">&#39;03f061f60f3527b15ff31d31dcce0761&#39;</span><span class="p">,</span> <span class="s1">&#39;981e4bce5dede3faa51a936f650e2c1d64169493860c67d68a1ffbbfa32f58598e7869f3f11aefc1620ee8d3ebe4e5f5&#39;</span><span class="p">,</span> <span class="s1">&#39;f2a1a7e9dd5e6363050b0cdb0579ebfebdc5e348ab538bdcf47616139351cf2b9f92cb4d14446b3ad8bf182875b81e75&#39;</span><span class="p">,</span> <span class="s1">&#39;24aaafc58a2b897aed5829b2e96d73b1de7cd680d76a1143cdc8baef&#39;</span><span class="p">,</span> <span class="s1">&#39;6d80d11e5f1161ef86619dcdb186852b5218d6ac224b81b63555fe73741631c36ae0bcb5b3228fbed796c22dedeed587c9d65ddb825aee4fae92b6619e7ffd8f&#39;</span><span class="p">,</span> <span class="s1">&#39;6f8b39550106044625102ee0cabf9fe1393f0013388633d5742fcc7e8df7708793a96885b9d18b795a2b0d9014704b9f&#39;</span><span class="p">,</span> <span class="s1">&#39;ddf3c543be9cac44f3af078583fe5fddb64104d93308c146c23f52ff25b2a6e23606c42dc0060a4dd9b11b446759cb5de1844471eb3d6d25c43c6fcc0d8d60c4&#39;</span><span class="p">,</span> <span class="s1">&#39;95f2739053cf64555b0c0662b5e2d63822433f7fcac6960de6d57efda427461a58c6e2ffac6da6f4caa9407df10cc0be&#39;</span><span class="p">,</span> <span class="s1">&#39;a1bd4e0efc7ce8bd1d63433a0baa87e3a486fbfe2729d73d1dbf7d2822d201ee8726c6d94da1f09f1a53554e440ad6041ecab545b2085dc28c6f6849f0fcea23&#39;</span><span class="p">,</span> <span class="s1">&#39;a7d95b3bbde885b4eaa76afc6572e18e4483351005f637fe1f5a7bc0b000fe1f&#39;</span><span class="p">,</span> <span class="s1">&#39;2b4561a521a82af6a26dfb76078ca97ba53a720f7ee67d923a6d3a13&#39;</span><span class="p">,</span> <span class="s1">&#39;b21ed1f3d501a8a842ef1b26ed3863cf10cf8231ee23a079f749cfa322702c8e&#39;</span><span class="p">,</span> <span class="s1">&#39;d798a32b52384219f8779dccf8b2173f4b73f075cbeb4507ee83c94e&#39;</span><span class="p">,</span> <span class="s1">&#39;b863fa3492fb87edcdef766f38a508ed&#39;</span><span class="p">,</span> <span class="s1">&#39;9f876db4b58c1b7e499f35cdbd533a810060a0c8250bfc5421e0f42b2715b027&#39;</span><span class="p">,</span> <span class="s1">&#39;4b14748ba0f3da581ddd7ec49dac41d34ea1ee6dae90818333b11501&#39;</span><span class="p">,</span> <span class="s1">&#39;85153b2a5f8dea7f5488906cb65d61e9ac0666057636ff6b356dd4d8d0fc5d20&#39;</span><span class="p">,</span> <span class="s1">&#39;6b91d6259827176bcb3f312a8faca297e56c7e627235b930cf8163b3e7a5328b&#39;</span><span class="p">,</span> <span class="s1">&#39;b21ed1f3d501a8a842ef1b26ed3863cf10cf8231ee23a079f749cfa322702c8e&#39;</span><span class="p">,</span> <span class="s1">&#39;4c8740f90af1055f194a4c8e1b69522da228812465eb72b82b35c927bc48bf9d&#39;</span><span class="p">,</span> <span class="s1">&#39;b248b6b2f2c9365aa9a0e9b37a8057effd29bb2f34c79ec0b40124d08986832b5d227db95cb97b176541589985762d9a&#39;</span><span class="p">,</span> <span class="s1">&#39;7260f9b5d1c58d0609523114ed324f396335d940f852dba558461b34c5a53630&#39;</span><span class="p">,</span> <span class="s1">&#39;a1bd4e0efc7ce8bd1d63433a0baa87e3a486fbfe2729d73d1dbf7d2822d201ee8726c6d94da1f09f1a53554e440ad6041ecab545b2085dc28c6f6849f0fcea23&#39;</span><span class="p">,</span> <span class="s1">&#39;1077caf3ed754ed8fbd49c76134906e8&#39;</span><span class="p">,</span> <span class="s1">&#39;f3565219d115ec74a85056997cc25e98e3e4912a31c858c1e45b841047698e93&#39;</span><span class="p">,</span> <span class="s1">&#39;83315b8fa07a35b12e3f47ebb365268b4a4a8ef2&#39;</span><span class="p">,</span> <span class="s1">&#39;64c008d6460c2b98aba616b1d0d11a06b9df564b87d3aeedda83b36aacd3d0c160465109eb06c62e86e360cf026faa27a616dbbf2bec269be9ad128af96073bb&#39;</span><span class="p">,</span> <span class="s1">&#39;60bbd94b3ac3ea7149fc6cd850d72d4f1750601275832815dd9a23d4c3757d84aca29d716da5dd72a0045f15ff969925&#39;</span><span class="p">,</span> <span class="s1">&#39;94327e8c8321421e72f52cd726336e824630ec7dda31b07ce83f11b8234aea7a&#39;</span><span class="p">,</span> <span class="s1">&#39;a69ef62254280226cc4223a2341c727afcd7ce4e3ffd3f2f1c57d9d3cd30659b52b1c2b56f911a7157041b5f0ff8176f&#39;</span><span class="p">,</span> <span class="s1">&#39;3c904622c8d8d79c6704d50ae0175b049b3a5708705ecdce932fe426b9f46f1bd6585b8288c1d38f6301c31af5feac02&#39;</span><span class="p">,</span> <span class="s1">&#39;a3939bf491ffd9824056e249d6e355d8423855f0&#39;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;md5&#39;</span><span class="p">,</span> <span class="s1">&#39;sha256&#39;</span><span class="p">,</span> <span class="s1">&#39;sha3_256&#39;</span><span class="p">,</span> <span class="s1">&#39;sha3_512&#39;</span><span class="p">,</span> <span class="s1">&#39;sha3_384&#39;</span><span class="p">,</span> <span class="s1">&#39;sha1&#39;</span><span class="p">,</span> <span class="s1">&#39;sha384&#39;</span><span class="p">,</span> <span class="s1">&#39;sha3_224&#39;</span><span class="p">,</span> <span class="s1">&#39;sha512&#39;</span><span class="p">,</span> <span class="s1">&#39;sha224&#39;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">130</span><span class="p">):</span>
@@ -1335,7 +1336,19 @@
 </span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="o">=</span> <span class="mi">2103083080159597422706551446020625757109756570951674830166998494220734179439318911618156966499109201221652320384817270671579741987575328177442670242481963924501204498</span>
 </span></span><span class="line"><span class="cl"><span class="n">encrypted</span> <span class="o">=</span> <span class="s2">&#34;240e7b7678aaaa0dcbe06de7c5598a1ca0be7e2ae584bc7dfd2388cdb1d4fb6a37ceb94556757afc293999cbe5a5a2dbb4071ebf6cfd4332088555f9b2de1922&#34;</span>
 </span></span></code></pre></div></details>
-<p>Tóm tắt thì đề sẽ sử dụng thuật toán Diffie-Hellman để encrypt flag</p>
+<p>Tóm tắt thì đề sẽ sử dụng thuật toán Diffie-Hellman để encrypt flag
+Đọc source thì mình thấy in ra các giá trị g, p, A, B như trong hình sau</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://www.researchgate.net/profile/Sura-Fahmy-2/publication/349609600/figure/fig1/AS:995430716428288@1614340585363/Block-diagram-of-the-Diffie-Hellman-algorithm.png" alt="image" />
+    
+  </figure>
+</p>
+<p>Các bước để giải bài này bao gồm :</p>
+<p>Tính khoá bí mật của A hoặc B dựa vào hàm discrete_log để tính logarithm của A theo cơ số g modulo p</p>
+<p>Tính khoá chung ss bằng cách lấy B ^ a mod p</p>
+<p>Tạo khoá AES bằng hàm sha256</p>
+<p>Tạo một decrypt AES để giải mã ct</p>
 <p>Từ đó mình có exploit script sau để solve bài này</p>
 <details>
 <summary>exploit.py</summary>
