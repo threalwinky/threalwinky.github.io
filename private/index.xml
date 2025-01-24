@@ -31,5 +31,15 @@
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/private/tsg/feature.png" />
     </item>
     
+    <item>
+      <title>USC CTF FALL 2024</title>
+      <link>http://localhost:1313/private/usc/</link>
+      <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate>
+      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
+      <guid>http://localhost:1313/private/usc/</guid>
+      <description>USC CTF FALL 2024 writeup</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/private/usc/feature.jpg" />
+    </item>
+    
   </channel>
 </rss>
