@@ -9,7 +9,17 @@
     <managingEditor>voquangvu09112006@gmail.com (Yuki Shiroi)</managingEditor>
     <webMaster>voquangvu09112006@gmail.com (Yuki Shiroi)</webMaster>
     <copyright>&amp;copy; 2024 Yuki Shiroi. All right reserved.</copyright>
-    <lastBuildDate>Mon, 27 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/authors/winky/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/authors/winky/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>TUCTF 2024</title>
+      <link>http://localhost:1313/posts/tuctf/</link>
+      <pubDate>Wed, 29 Jan 2025 00:00:00 +0000</pubDate>
+      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
+      <guid>http://localhost:1313/posts/tuctf/</guid>
+      <description>TUCTF 2024 writeup</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/tuctf/feature.png" />
+    </item>
     
     <item>
       <title>Insecure deserialization and process memory exploit</title>
@@ -27,7 +37,7 @@
       <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
       <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/posts/knight/</guid>
-      <description>Knight CTF2025 writeup</description>
+      <description>KnightCTF 2025 writeup</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/knight/feature.jpg" />
     </item>
     
@@ -42,16 +52,6 @@
     </item>
     
     <item>
-      <title>BackdoorCTF 2024</title>
-      <link>http://localhost:1313/private/backdoor/</link>
-      <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
-      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/private/backdoor/</guid>
-      <description>BackdoorCTF 2024 writeup</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/private/backdoor/feature.png" />
-    </item>
-    
-    <item>
       <title>HTB University CTF 2024</title>
       <link>http://localhost:1313/posts/htbuni/</link>
       <pubDate>Mon, 16 Dec 2024 00:00:00 +0000</pubDate>
@@ -63,12 +63,12 @@
     
     <item>
       <title>TSG CTF 2024</title>
-      <link>http://localhost:1313/private/tsg/</link>
+      <link>http://localhost:1313/posts/tsg/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
       <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/private/tsg/</guid>
+      <guid>http://localhost:1313/posts/tsg/</guid>
       <description>TSG CTF 2024 writeup</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/private/tsg/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/tsg/feature.png" />
     </item>
     
     <item>
@@ -93,12 +93,12 @@
     
     <item>
       <title>USC CTF FALL 2024</title>
-      <link>http://localhost:1313/private/usc/</link>
+      <link>http://localhost:1313/posts/usc/</link>
       <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate>
       <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/private/usc/</guid>
+      <guid>http://localhost:1313/posts/usc/</guid>
       <description>USC CTF FALL 2024 writeup</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/private/usc/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/usc/feature.jpg" />
     </item>
     
     <item>
