@@ -12,6 +12,26 @@
     <lastBuildDate>Mon, 13 Jun 2022 20:55:37 +0100</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>EHAX CTF 2025</title>
+      <link>http://localhost:1313/posts/ehax/</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
+      <guid>http://localhost:1313/posts/ehax/</guid>
+      <description>EHAX CTF 2025 writeup</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/ehax/feature.png" />
+    </item>
+    
+    <item>
+      <title>LA CTF 2025</title>
+      <link>http://localhost:1313/posts/lactf/</link>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
+      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
+      <guid>http://localhost:1313/posts/lactf/</guid>
+      <description>LA CTF 2025 writeup</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/lactf/feature.gif" />
+    </item>
+    
+    <item>
       <title>Nullcon HackIM CTF Goa 2025</title>
       <link>http://localhost:1313/posts/nullcon/</link>
       <pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate>
