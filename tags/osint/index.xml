@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Reverse on Yuki Shiroi</title>
-    <link>http://localhost:1313/tags/reverse/</link>
-    <description>Recent content in Reverse on Yuki Shiroi</description>
+    <title>Osint on Yuki Shiroi</title>
+    <link>http://localhost:1313/tags/osint/</link>
+    <description>Recent content in Osint on Yuki Shiroi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>voquangvu09112006@gmail.com (Yuki Shiroi)</managingEditor>
     <webMaster>voquangvu09112006@gmail.com (Yuki Shiroi)</webMaster>
     <copyright>&amp;copy; 2024 Yuki Shiroi. All right reserved.</copyright>
-    <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/reverse/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/osint/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ACECTF 1.0</title>
@@ -19,16 +19,6 @@
       <guid>http://localhost:1313/posts/acectf/</guid>
       <description>ACECTF 1.0 writeup</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/acectf/feature.png" />
-    </item>
-    
-    <item>
-      <title>WannaGame NMLT</title>
-      <link>http://localhost:1313/posts/nmlt/</link>
-      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
-      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/nmlt/</guid>
-      <description>WannaGame NMLT writeup</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/nmlt/feature.png" />
     </item>
     
   </channel>
