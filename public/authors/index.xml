@@ -4,22 +4,18 @@
     <title>Authors on Yuki Shiroi</title>
     <link>http://localhost:1313/authors/</link>
     <description>Recent content in Authors on Yuki Shiroi</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>voquangvu09112006@gmail.com (Yuki Shiroi)</managingEditor>
     <webMaster>voquangvu09112006@gmail.com (Yuki Shiroi)</webMaster>
-    <copyright>&amp;copy; 2024 Yuki Shiroi. All right reserved.</copyright>
-    <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/authors/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/authors/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Winky</title>
       <link>http://localhost:1313/authors/winky/</link>
-      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
-      <author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/authors/winky/</guid>
       <description></description>
-      
     </item>
-    
   </channel>
 </rss>

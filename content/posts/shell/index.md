@@ -259,19 +259,19 @@ For example :
 
 ![image](https://hackmd.io/_uploads/r1GOKwoukl.png)
 
-{{< alert >}}
+{%< alert >%}
 
 Note: For large files or folders, you can compress them using formats like tar, 7z, or zip before sending them to achieve the fastest transfer speed.
 
-{{< /alert >}}
+{%< /alert >%}
 
 
 
 ## Hacking with shell
 
-{{< alert  cardColor="#c4921d" textColor="#ffffff" >}}
+{%< alert  cardColor="#c4921d" textColor="#ffffff" >%}
 All thing below are just for reference, not persuading to do something illegal.
-{{< /alert >}}
+{%< /alert >%}
 
 Now, you may ask what does this have to do with ethical hacking. In ethical hacking, a hacker or pentester gains access to a machine, the first thing he tries to gain access to on the target system is a shell. There are two types of shells in hacking and cyber security are Bind shell and Reverse shell.
 
@@ -391,9 +391,9 @@ In this case, the victim machine will connect to the attacker's IP address (192.
 
 
 
-{{< alert >}}
+{%< alert >%}
 The choice to use a reverse shell or a bind shell will, therefore, be determined by configurations of the network, the firewall, and the extent of access the attacker has to the target machine.
-{{< /alert >}}
+{%< /alert >%}
 
 ## Some shell commands
 
