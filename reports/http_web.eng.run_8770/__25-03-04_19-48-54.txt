@@ -1,0 +1,4 @@
+# Dirsearch started Tue Mar  4 19:56:06 2025 as: /usr/lib/python3/dist-packages/dirsearch/dirsearch.py -u http://web.eng.run:8770/
+
+400   167B   http://web.eng.run:8770/console
+200     2KB  http://web.eng.run:8770/index.html
