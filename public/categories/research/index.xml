@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Research on Yuki Shiroi</title>
+    <title>Research on Welcome to my site. I&#39;m winky 👋</title>
     <link>http://localhost:1313/categories/research/</link>
-    <description>Recent content in Research on Yuki Shiroi</description>
+    <description>Recent content in Research on Welcome to my site. I&#39;m winky 👋</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>voquangvu09112006@gmail.com (Yuki Shiroi)</managingEditor>
-    <webMaster>voquangvu09112006@gmail.com (Yuki Shiroi)</webMaster>
+    <language>en-us</language>
     <lastBuildDate>Sun, 02 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/research/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell and something else</title>
-      <link>http://localhost:1313/posts/shell/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/shell/</guid>
+      <link>http://localhost:1313/post/shell/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/shell/</guid>
       <description>Shell and something else</description>
     </item>
   </channel>

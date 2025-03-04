@@ -1,154 +1,145 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Yuki Shiroi</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Yuki Shiroi</description>
+    <title>Welcome to my site. I&#39;m winky 👋</title>
+    <link>http://localhost:1313/algolia.json</link>
+    <description>Recent content on Welcome to my site. I&#39;m winky 👋</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>voquangvu09112006@gmail.com (Yuki Shiroi)</managingEditor>
-    <webMaster>voquangvu09112006@gmail.com (Yuki Shiroi)</webMaster>
+    <language>en-us</language>
     <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ACECTF 1.0</title>
-      <link>http://localhost:1313/posts/acectf/</link>
-      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/acectf/</guid>
+      <link>http://localhost:1313/post/acectf2025/</link>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/acectf2025/</guid>
       <description>ACECTF 1.0 writeup</description>
     </item>
     <item>
+      <title>What about me?</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Thu, 20 Feb 2025 20:12:52 +0800</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>About me Hi, I&amp;rsquo;m Yuki Shiroi, but you can call me winky for simplicity.&#xA;I&amp;rsquo;m a student from VNUHCM - University of Information Technology&#xA;I love playing CTFs and I&amp;rsquo;m already diving into Web exploitation</description>
+    </item>
+    <item>
       <title>EHAX CTF 2025</title>
-      <link>http://localhost:1313/posts/ehax/</link>
-      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/ehax/</guid>
+      <link>http://localhost:1313/post/ehaxctf2025/</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/ehaxctf2025/</guid>
       <description>EHAX CTF 2025 writeup</description>
     </item>
     <item>
       <title>LA CTF 2025</title>
-      <link>http://localhost:1313/posts/lactf/</link>
-      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/lactf/</guid>
+      <link>http://localhost:1313/post/lactf2025/</link>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/lactf2025/</guid>
       <description>LA CTF 2025 writeup</description>
     </item>
     <item>
       <title>Nullcon HackIM CTF Goa 2025</title>
-      <link>http://localhost:1313/posts/nullcon/</link>
-      <pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/nullcon/</guid>
+      <link>http://localhost:1313/post/nullcon/</link>
+      <pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/nullcon/</guid>
       <description>Nullcon HackIM CTF Goa 2025 writeup</description>
     </item>
     <item>
       <title>Shell and something else</title>
-      <link>http://localhost:1313/posts/shell/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/shell/</guid>
+      <link>http://localhost:1313/post/shell/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/shell/</guid>
       <description>Shell and something else</description>
     </item>
     <item>
       <title>TUCTF 2024</title>
-      <link>http://localhost:1313/posts/tuctf/</link>
-      <pubDate>Wed, 29 Jan 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/tuctf/</guid>
+      <link>http://localhost:1313/post/tuctf2024/</link>
+      <pubDate>Wed, 29 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/tuctf2024/</guid>
       <description>TUCTF 2024 writeup</description>
     </item>
     <item>
       <title>Insecure deserialization and process memory exploit</title>
-      <link>http://localhost:1313/posts/insecure-deserialization-and-process-memory/</link>
-      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/insecure-deserialization-and-process-memory/</guid>
+      <link>http://localhost:1313/post/insecure-deserialization-and-process-memory/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/insecure-deserialization-and-process-memory/</guid>
       <description>Insecure deserialization and process memory exploit</description>
     </item>
     <item>
       <title>KnightCTF 2025</title>
-      <link>http://localhost:1313/posts/knight/</link>
-      <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/knight/</guid>
+      <link>http://localhost:1313/post/knight2024/</link>
+      <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/knight2024/</guid>
       <description>KnightCTF 2025 writeup</description>
     </item>
     <item>
       <title>WannaGame NMLT</title>
-      <link>http://localhost:1313/posts/nmlt/</link>
-      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/nmlt/</guid>
+      <link>http://localhost:1313/post/nmlt/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/nmlt/</guid>
       <description>WannaGame NMLT writeup</description>
     </item>
     <item>
-      <title>BackdoorCTF 2024</title>
-      <link>http://localhost:1313/private/backdoor/</link>
-      <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/private/backdoor/</guid>
-      <description>BackdoorCTF 2024 writeup</description>
-    </item>
-    <item>
       <title>HTB University CTF 2024</title>
-      <link>http://localhost:1313/posts/htbuni/</link>
-      <pubDate>Mon, 16 Dec 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/htbuni/</guid>
+      <link>http://localhost:1313/post/htbuni2024/</link>
+      <pubDate>Mon, 16 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/htbuni2024/</guid>
       <description>HTB University CTF 2024 writeup</description>
     </item>
     <item>
       <title>TSG CTF 2024</title>
-      <link>http://localhost:1313/posts/tsg/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/tsg/</guid>
-      <description>TSG CTF 2024 writeup</description>
-    </item>
-    <item>
-      <title>TSG CTF 2024</title>
-      <link>http://localhost:1313/private/tsg/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/private/tsg/</guid>
+      <link>http://localhost:1313/post/tsgctf2024/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/tsgctf2024/</guid>
       <description>TSG CTF 2024 writeup</description>
     </item>
     <item>
       <title>WannaGame Championship 2024</title>
-      <link>http://localhost:1313/posts/w1champ/</link>
-      <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/w1champ/</guid>
+      <link>http://localhost:1313/post/w1champ2024/</link>
+      <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/w1champ2024/</guid>
       <description>WannaGame Championship 2024 writeup</description>
     </item>
     <item>
       <title>1337UP LIVE CTF 2024</title>
-      <link>http://localhost:1313/posts/1337up/</link>
-      <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/1337up/</guid>
+      <link>http://localhost:1313/post/1337up2024/</link>
+      <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/1337up2024/</guid>
       <description>1337UP LIVE CTF 2024 writeup</description>
     </item>
     <item>
       <title>USC CTF FALL 2024</title>
-      <link>http://localhost:1313/posts/usc/</link>
-      <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/usc/</guid>
-      <description>USC CTF FALL 2024 writeup</description>
-    </item>
-    <item>
-      <title>USC CTF FALL 2024</title>
-      <link>http://localhost:1313/private/usc/</link>
-      <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/private/usc/</guid>
+      <link>http://localhost:1313/post/usc2024/</link>
+      <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/usc2024/</guid>
       <description>USC CTF FALL 2024 writeup</description>
     </item>
     <item>
       <title>Dreamhack Wargame</title>
-      <link>http://localhost:1313/posts/dreamhack/</link>
-      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/dreamhack/</guid>
+      <link>http://localhost:1313/post/dreamhack/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/dreamhack/</guid>
       <description>Dreamhack Wargame writeup</description>
     </item>
     <item>
       <title>picoCTF</title>
-      <link>http://localhost:1313/posts/picoctf/</link>
-      <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/picoctf/</guid>
+      <link>http://localhost:1313/post/picoctf/</link>
+      <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/picoctf/</guid>
       <description>picoCTF writeup</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/about/</guid>
+      <link>http://localhost:1313/achievements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/achievements/</guid>
       <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/</guid>
+      <description> Hello </description>
     </item>
   </channel>
 </rss>

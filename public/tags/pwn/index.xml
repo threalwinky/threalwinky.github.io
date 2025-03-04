@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pwn on Yuki Shiroi</title>
+    <title>Pwn on Welcome to my site. I&#39;m winky 👋</title>
     <link>http://localhost:1313/tags/pwn/</link>
-    <description>Recent content in Pwn on Yuki Shiroi</description>
+    <description>Recent content in Pwn on Welcome to my site. I&#39;m winky 👋</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>voquangvu09112006@gmail.com (Yuki Shiroi)</managingEditor>
-    <webMaster>voquangvu09112006@gmail.com (Yuki Shiroi)</webMaster>
+    <language>en-us</language>
     <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WannaGame NMLT</title>
-      <link>http://localhost:1313/posts/nmlt/</link>
-      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/nmlt/</guid>
+      <link>http://localhost:1313/post/nmlt/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/nmlt/</guid>
       <description>WannaGame NMLT writeup</description>
     </item>
     <item>
       <title>1337UP LIVE CTF 2024</title>
-      <link>http://localhost:1313/posts/1337up/</link>
-      <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><author>voquangvu09112006@gmail.com (Yuki Shiroi)</author>
-      <guid>http://localhost:1313/posts/1337up/</guid>
+      <link>http://localhost:1313/post/1337up2024/</link>
+      <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/1337up2024/</guid>
       <description>1337UP LIVE CTF 2024 writeup</description>
     </item>
   </channel>
