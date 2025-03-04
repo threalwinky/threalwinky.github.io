@@ -141,8 +141,8 @@ anchor_icon: # default use '#' icon, you can use a hexadecimal representation of
 reimu_cursor:
   enable: true
   cursor:
-    default: ../images/cursor/cursor-pointer.png  # this path is relative to the css/main.css, so it needs to go up one level to reach the images folder
-    pointer: ../images/cursor/cursor-pointer.png
+    default: ../images/cursor/cursor.png  # this path is relative to the css/main.css, so it needs to go up one level to reach the images folder
+    pointer: ../images/cursor/cursor2.png
     text: ../images/cursor/cursor-text.png
 
 icon_font: 4552607_0khxww3tj3q9

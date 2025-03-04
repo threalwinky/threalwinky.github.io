@@ -12,6 +12,7 @@ authors:
   - winky
 ---
 
+
 ## Introduction
 
 One day, I wanted to transfer some files between two computers, but it took a long time. Another solution I considered was Google Drive, but it only provides 15GB of storage, which is not enough 😢. This made me to think about file transfer over a TCP connection. To do this securely and quickly, I would need to use the shell to connect the two machines using Secure Shell (SSH) in order to transfer files faster and more securely. On the other hand, after giving a period of time playing CTF (Capture The Flag) with some challenges about shell, I write this blog to jot down some of my research about it.
@@ -260,19 +261,17 @@ For example :
 
 ![image](https://hackmd.io/_uploads/r1GOKwoukl.png)
 
-{%< alert >%}
-
+:::info
 Note: For large files or folders, you can compress them using formats like tar, 7z, or zip before sending them to achieve the fastest transfer speed.
-
-{%< /alert >%}
-
+:::
 
 
 ## Hacking with shell
 
-{%< alert  cardColor="#c4921d" textColor="#ffffff" >%}
+:::warning
 All thing below are just for reference, not persuading to do something illegal.
-{%< /alert >%}
+:::
+
 
 Now, you may ask what does this have to do with ethical hacking. In ethical hacking, a hacker or pentester gains access to a machine, the first thing he tries to gain access to on the target system is a shell. There are two types of shells in hacking and cyber security are Bind shell and Reverse shell.
 
@@ -392,9 +391,9 @@ In this case, the victim machine will connect to the attacker's IP address (192.
 
 
 
-{%< alert >%}
+:::info
 The choice to use a reverse shell or a bind shell will, therefore, be determined by configurations of the network, the firewall, and the extent of access the attacker has to the target machine.
-{%< /alert >%}
+:::
 
 ## Some shell commands
 
