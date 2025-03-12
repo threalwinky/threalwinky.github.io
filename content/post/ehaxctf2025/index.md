@@ -564,7 +564,3 @@ Sau khi chạy trên thì mình lấy được flag bằng lệnh cat
 ![image](https://hackmd.io/_uploads/B1O_uXy9Jg.png)
 
 `Flag: E4HX{oh_h3l1_n44www_y0u_8r0k3_5th_w4l1}`
-
-## Route (53)²
-
-Updating...

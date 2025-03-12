@@ -434,7 +434,7 @@ https://drive.google.com/file/d/1nYXBK08TOdMrT6koHSYCiiXKav_zBcIP/view?usp=shari
 
 ### Hints
 
-XSS and SSTI
+XSS and format string
 
 ### Solution
 
@@ -559,7 +559,3 @@ Lấy lệnh sys và lấy environment của máy. Và từ đó ta có flag đ�
 ```{0.__globals__[app].__init__.__globals__[sys].modules[os].environ}```
 
 ![image](https://hackmd.io/_uploads/H1G11M4skg.png)
-
-## Hack The Bot 2
-
-Updating ...
