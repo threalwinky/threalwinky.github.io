@@ -8,8 +8,10 @@ lastmod: 2025-02-20T20:12:52+08:00
 ---
 ## About me
 
-Hi, I'm **Yuki Shiroi**, you can call me **winky** for simplicity.
+Hi, I'm **Yuki Shiroi**, you can call me **winky** for short.
 
-I'm a student from [VNUHCM - University of Information Technology](https://en.uit.edu.vn/)
+I'm a student from [VNUHCM - University of Information Technology](https://en.uit.edu.vn/). 
 
 I love playing **CTFs** and I'm already diving into **Web exploitation**
+
+For further details, please visit my personal page: https://threalwinky.id.vn/

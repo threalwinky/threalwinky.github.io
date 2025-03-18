@@ -490,9 +490,9 @@ Ok lúc này thì hết cách bypass rồi chúng ta quan sát và thấy /heade
 
 ![image](https://hackmd.io/_uploads/SktIHfpiyx.png)
 
-Lúc này mình mới research và biết rằng có thể lấy biến từ environment mà flag thì nằm trong đó.
+Lúc này mình mới research và biết rằng có template có thể lấy biến từ environment mà flag thì nằm trong đó. https://caddyserver.com/docs/modules/http.handlers.templates
 
-![image](https://hackmd.io/_uploads/HyUlOfajJg.png)
+![image](https://hackmd.io/_uploads/rJ8i55HnJx.png)
 
 Craft payload vào header và ta đã thực hiện SSTI thành công.
 
