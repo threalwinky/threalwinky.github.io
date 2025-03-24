@@ -402,6 +402,8 @@ Bài này có 2 flag một là random nên mình bấm vào cái ra flag luôn, 
 
 ## web/secure-email-service
 
+![image](https://hackmd.io/_uploads/Byig4y1T1g.png)
+
 ### Hints
 
 XSS, Cracking
