@@ -6,8 +6,15 @@
     <description>Recent content in Pwn on Welcome to my site. I&#39;m winky 👋</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>picoCTF 2025</title>
+      <link>http://localhost:1313/post/picoctf2025/</link>
+      <pubDate>Sun, 23 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/picoctf2025/</guid>
+      <description>picoCTF 2025 writeup</description>
+    </item>
     <item>
       <title>WannaGame NMLT</title>
       <link>http://localhost:1313/post/nmlt/</link>

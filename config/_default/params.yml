@@ -504,6 +504,11 @@ player:
     enable: true
     options:
       audio: 
+        - name: "Without Knowing (feat. Akala Kai)"
+          artist: "MIMI"
+          url: /songs/without.mp3
+          cover: /songs/without.png
+          lrc: /songs/without.lrc
         - name: "Lemon"
           artist: "yurisa"
           url: /songs/lemon.mp3
