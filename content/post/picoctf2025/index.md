@@ -15,7 +15,7 @@ authors:
 
 
 
-Giải picoCTF vừa rồi team mình đã hardcore và giải được gần hết trừ 3 bài siêu khó vip pro. Sau đây là writeup các challenge mà mình làm được trong giải và 1 bài mình làm lại sau giải.
+Giải picoCTF vừa rồi team mình đã hardcore và giải được gần hết trừ 3 bài siêu khó vip pro. Sau đây là writeup các bài mà mình làm được trong giải và 1 bài mình làm lại sau giải.
 
 ![image](https://hackmd.io/_uploads/BkcgoK5hkl.png)
 
