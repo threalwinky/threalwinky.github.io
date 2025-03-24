@@ -509,6 +509,11 @@ player:
           url: /songs/without.mp3
           cover: /songs/without.png
           lrc: /songs/without.lrc
+        - name: "Die for You"
+          artist: "The Weeknd"
+          url: /songs/dfu.mp3
+          cover: /songs/dfu.png
+          lrc: /songs/dfu.lrc
         - name: "Lemon"
           artist: "yurisa"
           url: /songs/lemon.mp3
