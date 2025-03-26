@@ -509,6 +509,11 @@ player:
           url: /songs/without.mp3
           cover: /songs/without.png
           lrc: /songs/without.lrc
+        - name: "Từng Ngày Yêu Em"
+          artist: "buitruonglinh"
+          url: /songs/tnye.mp3
+          cover: /songs/tnye.png
+          lrc: /songs/tnye.lrc
         - name: "Die for You"
           artist: "The Weeknd"
           url: /songs/dfu.mp3
