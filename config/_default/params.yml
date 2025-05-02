@@ -509,6 +509,11 @@ player:
           url: /songs/tabun.mp3
           cover: /songs/tabun.png
           lrc: /songs/tabun.lrc
+        - name: "BIRDS OF A FEATHER"
+          artist: "Billie Eilish"
+          url: /songs/birds.mp3
+          cover: /songs/birds.jpg
+          lrc: /songs/birds.lrc
         - name: "Without Knowing (feat. Akala Kai)"
           artist: "MIMI"
           url: /songs/without.mp3
@@ -534,16 +539,12 @@ player:
           url: /songs/espresso.mp3
           cover: /songs/espresso.png
           lrc: /songs/espresso.lrc
-        - name: "Mất Kết Nối"
-          artist: "Dương Domic"
-          url: /songs/mkn.mp3
-          cover: /songs/mkn.jpg
-          lrc: /songs/mkn.lrc
-        - name: "twilight"
-          artist: "Stray Kids"
-          url: /songs/twilight.mp3
-          cover: /songs/twilight.jpg
-          lrc: /songs/twilight.lrc
+        - name: "điệu valse cuối"
+          artist: "Hekii"
+          url: /songs/dvc.mp3
+          cover: /songs/dvc.jpeg
+          lrc: /songs/dvc.lrc
+        
       
       fixed: 
       mini: false
