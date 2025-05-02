@@ -14,7 +14,7 @@ authors:
 
 
 
-Last weekend, I join UMDCTF with team aespaFanClub. There were 4 web challenges, but there is nothing to talk about the first three. Only the last web challenge was related to HTTP/3 and Rust, which I had never learned about before. I spent three days researching and redoing that challenge. there are many things new and great so i write this blog to save something benefitical for my future.
+Last weekend, I played UMDCTF with team aespaFanClub. There were four web challenges, but there is nothing to talk about the first three. Only the last web challenge was related to HTTP/3 and Rust, which I had never learned about before. I spent three days researching and redoing that challenge. There are many new and great things so I write this blog to save something beneficial for my future.
 
 ![image](https://hackmd.io/_uploads/SJNEKiWlee.png)
 
@@ -28,27 +28,27 @@ QUIC and HTTP/3 are newer internet technologies designed to make online communic
 
 In HTTP (TCP), all data packets must arrive in order. If one packet is delayed or lost, everything waits causing a head-of-line blocking problem. In QUIC (UDP), packets are sent independently. If one is delayed, others can still be processed making it faster and more efficient, especially on unreliable networks.
 
-More specified things can be read at https://www.auvik.com/franklyit/blog/what-is-quic-protocol/
+More specified details can be read at https://www.auvik.com/franklyit/blog/what-is-quic-protocol/
 
 ## HTTP/3
 
 HTTP/3 is a significant advance over HTTP/2. It essentially relies on QUIC for security and integrity of data, peer authentication, and reliable, in-order data delivery with improved performance. These are improvements on top of HTTP/2 that cannot be easily accommodated by TCP, which is why it is necessary to switch the underlying protocol.
 
-More specified things can be read at https://portswigger.net/daily-swig/http-3-everything-you-need-to-know-about-the-next-generation-web-protocol
+More specified details can be read at https://portswigger.net/daily-swig/http-3-everything-you-need-to-know-about-the-next-generation-web-protocol
 
 ## web/gambling challenge
 
 ![image](https://hackmd.io/_uploads/Hkz_tjZlxx.png)
 
-The web gave us two backend files written in Rust. The hard thing started when i used Burpsuite proxy to catch request but ...
+The web gave us two back-end files written in Rust. The hard thing started when I used Burpsuite proxy to catch request but ...
 
 ![image](https://hackmd.io/_uploads/S1Esqs-exg.png)
 
-It tells something like the web browser we used must use broswer which supports HTTP/3 and no custom HTTP client. Moreover, HTTP/3 is created using QUIC which used UDP protocol in transport layer and Burpsuite only catch TCP request. But why the website can not load ? That is because BurpSuite can only catch HTTP/1.1 and HTTP/2 in my current version now. And when i turned off proxy: 
+It says something like the web browser we use must use a browser which supports HTTP/3 and no custom HTTP client. Moreover, HTTP/3 is created using QUIC which uses UDP protocol in transport layer and Burpsuite only catch TCP request. But why can't the website load ? That is because BurpSuite can only catch HTTP/1.1 and HTTP/2 in my current version now. And when I turned off the proxy: 
 
 ![image](https://hackmd.io/_uploads/HJe4cioZggg.png)
 
-So in this challenge, we will use script to automate and perform some method to website. Firstly, we will read the source code to find out how the web works.
+So in this challenge, we will use script to automate and perform some method to website. First, we will read the source code to find out how the web works.
 
 ```rust
 //user.rs
@@ -476,7 +476,7 @@ pub fn test_ratelimited(&self, ip: IpAddr) -> bool {
 
 #### - flag
 
-* check if user has 300 credit, if yes give the flag
+* Check if the user has 300 credits; if so, give the flag
 
 ```rust
 pub async fn flag(
@@ -503,9 +503,9 @@ pub async fn flag(
 
 ## IP spoofing
 
-To exploit this website using Burpsuite, we can use some available extension scripts in this blog https://dtm.uk/playing-with-http3. 
+To exploit this website using Burpsuite, we can use some available extension scripts in this blog: https://dtm.uk/playing-with-http3. 
 
-To test if the web uses HTTP/3, we will use try_http3_proxy.py.  First, we run this script to open a proxy in port 8081 
+To test if the web uses HTTP/3, we will use try_http3_proxy.py.  First, we run this script to open a proxy on port 8081 
 
 ![image](https://hackmd.io/_uploads/BJVnznZegl.png)
 
@@ -513,19 +513,19 @@ In Firefox or other browsers, we set the proxy to the above address
 
 ![image](https://hackmd.io/_uploads/rkfJ73bxgx.png)
 
-now when we go to the web challenge we will see data come from 
+Now when we go to the web challenge we will see data come from 
 
 ![image](https://hackmd.io/_uploads/HkCIXhWxeg.png)
 
-OK, so HTTP/3 request are supported, how can i "play" with it? 
+OK, so HTTP/3 requests are supported, how can I "play" with it? 
 
-In blog the author also explain about how to send request using minimal_http3_client.py and how it works. It is as the pictures below
+In the blog, the author also explains how to send a request using minimal_http3_client.py and how it works. It is as the pictures below
 
 ![image](https://hackmd.io/_uploads/S14KS2bxgx.png)
 
-HOW IP WAS SPOOFED IN THE ABOVE DATAGRAM?
+HOW WAS THE IP SPOOFED IN THE DATAGRAM ABOVE?
 
-The author of this challenge told me that when send headers, the code starts to run and after that we can pause to change IP
+The author of this challenge told me that when sending headers, the code starts to run and after that we can pause to change IP
 
 ![image](https://hackmd.io/_uploads/HJ0Z_3Zgxl.png)
 
@@ -539,7 +539,7 @@ So the insertion point in the datagram is
 
 ## Solution
 
-we will use the minimal_http3_client.py to modify and exploit. First we can see where to insert the wait for IP change is after the send headers block and befofe the send data block. We remember that only the second and the third redeem need to change IP so I add a counter to verify.
+We will use the minimal_http3_client.py to modify and exploit. First we can see where to insert the wait for IP change is after the send headers block and before the send data block. We remember that only the second and the third redeem need to change IP so I add a counter to verify.
 
 ```python
 class Config:
@@ -634,9 +634,9 @@ class H3ClientProtocol(QuicConnectionProtocol):
 
 ### THE PROBLEM
 
-Before sending the third packet we need to disconnect the VPN so that the headers of third packet will use original IP to validate the function. If not, the server will tells us that the IP was spoofed.
+Before sending the third packet we need to disconnect the VPN so that the headers of the third packet will use original IP to validate the function. If not, the server will tell us that the IP was spoofed.
 
-So i add the disconnect block to use original IP in each request and use counter for faster execution.
+So I added a disconnect block to use the original IP in each request and use a counter for faster execution.
 
 ```python
 class Config:
@@ -739,13 +739,13 @@ class H3ClientProtocol(QuicConnectionProtocol):
 
 ###  Register
 
-To perform post request we will see how the api works based on the source code and browser. For example, when i register, i see a request as 
+To perform a post request we will see how the api works based on the source code and browser. For example, when I register, I see a request as 
 
 ![image](https://hackmd.io/_uploads/rJFkypbgel.png)
 
 ![image](https://hackmd.io/_uploads/SkIC0hWeeg.png)
 
-So the register use application/json Content-Type to use for body request. And it requires two parameters is username and password. So the register function i can perform as
+So the register uses application/json Content-Type to use for body request. It requires two parameters, which are username and password. So the register function i can perform as
 
 ```python
 async def register(url: str, debug: bool = False):
@@ -764,13 +764,13 @@ async def register(url: str, debug: bool = False):
 
 ### Redeem
 
-As the register api, the redeem api also requires application/json data. Moreover, it includes authorization header to find the user to add money.
+Like the register api, the redeem api also requires application/json data. It also includes an authorization header to find the user to add money.
 
 ![image](https://hackmd.io/_uploads/HkF3lpWexx.png)
 
 ![image](https://hackmd.io/_uploads/BJcol6blxg.png)
 
-And the redeem function can be used as
+The redeem function can be used as
 
 ```python
 async def redeem(username, password, url: str, debug: bool=False):
@@ -790,7 +790,7 @@ async def redeem(username, password, url: str, debug: bool=False):
 
 ### Change IP
 
-To change IP there are many programs to do that. For me, I prefer [Warp](https://developers.cloudflare.com/warp-client/) which is free and secured. Moreover you can use other VPN programs like ProtonVPN, windscribe, etc.
+To change IP there are many programs to do that. For me, I prefer [Warp](https://developers.cloudflare.com/warp-client/), which is free and secure. Moreover you can use other VPN programs like ProtonVPN, Windscribe, etc.
 
 ## Full exploit script
 
@@ -1007,7 +1007,7 @@ if __name__ == "__main__":
 
 ### Without IP changing
 
-If you don't change the IP while the script running as default the result is
+If you don't change the IP while the script is running as default the result is
 
 ![image](https://hackmd.io/_uploads/HJBBEpZelg.png)
 
@@ -1019,7 +1019,7 @@ First, the script will pause at
 
 ![image](https://hackmd.io/_uploads/r1rlUpZlgx.png)
 
-use warp to change IP
+Use warp to change IP
 
 ![image](https://hackmd.io/_uploads/SkvZUa-llx.png)
 
@@ -1027,9 +1027,9 @@ And the result is
 
 ![image](https://hackmd.io/_uploads/r15Q86Zelx.png)
 
-YEEEEE, the status code is 204 tells us that IP was spoofed and the code was redeemed the second time
+YEEEEE, the status code is 204 which tells us that the IP was spoofed and the code was redeemed for the second time
 
-Before the third redeem's data transmited we must disconnect from VPN and connect again. Finally, the result is we will get three status 204 response. 
+Before the third redeem's data transmited we must disconnect from VPN and connect again. The end result is that we will get three status 204 responses. 
 
 ![image](https://hackmd.io/_uploads/SJ5jDTWxxl.png)
 
@@ -1045,6 +1045,5 @@ Click buy flag and we finally solve the challenge
 
 ## Conclusion
 
-This such a nice challenge that teaches me lots of things about new technology. Thank @tahmid123 for explaining me how the IP was spoofed.
-
+This is such a nice challenge that teaches me lots of things about new technology. Thank @tahmid123 for explaining to me how the IP was spoofed.
 
