@@ -527,7 +527,7 @@ HOW WAS THE IP SPOOFED IN THE DATAGRAM ABOVE?
 
 The author of this challenge told me that when sending headers, the code starts to run and after that we can pause to change IP
 
-![image](https://hackmd.io/_uploads/HJ0Z_3Zgxl.png)
+![image](https://hackmd.io/_uploads/SkhQmGzexl.png)
 
 Ok, for short the attack can be displayed: 
 
@@ -1045,5 +1045,5 @@ Click buy flag and we finally solve the challenge
 
 ## Conclusion
 
-This is such a nice challenge that teaches me lots of things about new technology. Thank @tahmid123 for explaining to me how the IP was spoofed.
+This is such a nice challenge that teaches me lots of things about new technology. 
 
