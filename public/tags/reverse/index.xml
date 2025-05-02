@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Reverse on Welcome to my site. I&#39;m winky 👋</title>
+    <title>Reverse on Welcome to my blog. I&#39;m winky 👋</title>
     <link>http://localhost:1313/tags/reverse/</link>
-    <description>Recent content in Reverse on Welcome to my site. I&#39;m winky 👋</description>
-    <generator>Hugo</generator>
+    <description>Recent content in Reverse on Welcome to my blog. I&#39;m winky 👋</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/reverse/index.xml" rel="self" type="application/rss+xml" />
@@ -14,13 +14,6 @@
       <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/acectf2025/</guid>
       <description>ACECTF 1.0 writeup</description>
-    </item>
-    <item>
-      <title>WannaGame NMLT</title>
-      <link>http://localhost:1313/post/nmlt/</link>
-      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/nmlt/</guid>
-      <description>WannaGame NMLT writeup</description>
     </item>
   </channel>
 </rss>

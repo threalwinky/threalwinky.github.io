@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Web on Welcome to my site. I&#39;m winky 👋</title>
+    <title>Web on Welcome to my blog. I&#39;m winky 👋</title>
     <link>http://localhost:1313/tags/web/</link>
-    <description>Recent content in Web on Welcome to my site. I&#39;m winky 👋</description>
-    <generator>Hugo</generator>
+    <description>Recent content in Web on Welcome to my blog. I&#39;m winky 👋</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP/3 and IP spoofing</title>
+      <link>http://localhost:1313/post/umdctf2025/</link>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/umdctf2025/</guid>
+      <description>HTTP/3 and IP spoofing</description>
+    </item>
+    <item>
+      <title>OverTheWire Natas</title>
+      <link>http://localhost:1313/post/natas/</link>
+      <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/natas/</guid>
+      <description>OverTheWire Natas writeup</description>
+    </item>
     <item>
       <title>picoCTF 2025</title>
       <link>http://localhost:1313/post/picoctf2025/</link>
@@ -59,13 +73,6 @@
     </item>
     <item>
       <title>Nullcon HackIM CTF Goa 2025</title>
-      <link>http://localhost:1313/post/natas/</link>
-      <pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/natas/</guid>
-      <description>Nullcon HackIM CTF Goa 2025 writeup</description>
-    </item>
-    <item>
-      <title>Nullcon HackIM CTF Goa 2025</title>
       <link>http://localhost:1313/post/nullcon/</link>
       <pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/nullcon/</guid>
@@ -98,13 +105,6 @@
       <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/knight2024/</guid>
       <description>KnightCTF 2025 writeup</description>
-    </item>
-    <item>
-      <title>WannaGame NMLT</title>
-      <link>http://localhost:1313/post/nmlt/</link>
-      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/nmlt/</guid>
-      <description>WannaGame NMLT writeup</description>
     </item>
     <item>
       <title>HTB University CTF 2024</title>

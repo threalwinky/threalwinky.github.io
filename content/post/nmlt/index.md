@@ -6,7 +6,7 @@ categories: ["Writeup"]
 tags: ["Web", "Reverse", "Pwn", "Crypto"]
 #externalUrl: ""
 date: 2025-01-04
-draft: false
+draft: true
 cover: ../../post/nmlt/feature.png
 
 authors:

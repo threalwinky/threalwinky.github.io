@@ -1,6 +1,6 @@
 baseURL = 'https://lephuduc.github.io/'
 languageCode = 'en-us'
-title = "Welcome to my site. I'm winky 👋"
+title = "Welcome to my blog. I'm winky 👋"
 theme = 'hugo-theme-reimu'
 
 [markup.highlight]

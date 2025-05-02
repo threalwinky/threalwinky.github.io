@@ -504,6 +504,11 @@ player:
     enable: true
     options:
       audio: 
+        - name: "たぶん"
+          artist: "YOASOBI"
+          url: /songs/tabun.mp3
+          cover: /songs/tabun.png
+          lrc: /songs/tabun.lrc
         - name: "Without Knowing (feat. Akala Kai)"
           artist: "MIMI"
           url: /songs/without.mp3
@@ -524,11 +529,6 @@ player:
         #   url: /songs/dfu.mp3
         #   cover: /songs/dfu.png
         #   lrc: /songs/dfu.lrc
-        - name: "Lemon"
-          artist: "yurisa"
-          url: /songs/lemon.mp3
-          cover: /songs/lemon.jpg
-          lrc: /songs/lemon.lrc
         - name: "Espresso"
           artist: "Sabrina Carpenter"
           url: /songs/espresso.mp3
