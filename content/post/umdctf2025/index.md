@@ -14,7 +14,7 @@ authors:
 
 
 
-Last weekend, I played UMDCTF with team aespaFanClub. There were 4 web challenges, but there is nothing to talk about the first three. Only the last web challenge was related to HTTP/3 and Rust, which I had never learned about before. I spent three days researching and redoing that challenge. there are many things new and great so i write this blog to save something benefitical for my future.
+Last weekend, I join UMDCTF with team aespaFanClub. There were 4 web challenges, but there is nothing to talk about the first three. Only the last web challenge was related to HTTP/3 and Rust, which I had never learned about before. I spent three days researching and redoing that challenge. there are many things new and great so i write this blog to save something benefitical for my future.
 
 ![image](https://hackmd.io/_uploads/SJNEKiWlee.png)
 
