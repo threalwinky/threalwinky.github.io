@@ -13,11 +13,6 @@ authors:
   - winky
 ---
 
-Last weekend, I participated in NahamCon CTF with my team laevatain and we got 62nd place. There were many web challenges, but I only solved 11 of them (too many guessy black-box challenges ＞︿＜). I got close to solving a few others, so I’m writing these short writeups to go over my approach and complete the partially solved challenges. Hopefully, this helps me reflect on what I learned — and maybe help others who got stuck like I did!
-
-
-![image](https://hackmd.io/_uploads/Skc9ZBbGel.png)
-
 ## SNAD
 
 ![image](https://hackmd.io/_uploads/BJTx-BWGxg.png)
