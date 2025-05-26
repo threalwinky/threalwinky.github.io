@@ -31,7 +31,7 @@ The source is too long so i will summarize it:
 * checkFlag(): to check if if all positions in targetPositions have true color and give the flag
 * injectSand(x, y, colorHue): inject a color at the position (x, y)
 
-So i will use a simple script to inject proper things
+So I will use a simple script to perform the necessary injections.
 
 ```js
 for (a of targetPositions){ injectSand(a.x, a.y, a.colorHue) }
