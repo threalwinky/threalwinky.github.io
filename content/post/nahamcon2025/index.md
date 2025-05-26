@@ -13,6 +13,8 @@ authors:
   - winky
 ---
 
+Solutions for all challenges I solved during and after the CTF.
+
 ## SNAD
 
 ![image](https://hackmd.io/_uploads/BJTx-BWGxg.png)
