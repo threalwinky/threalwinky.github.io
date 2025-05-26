@@ -14,4 +14,3 @@ I'm a student from [VNUHCM - University of Information Technology](https://en.ui
 
 I love playing **CTFs** and I'm already diving into **Web exploitation**
 
-For further details, please visit my personal page: https://threalwinky.id.vn/
