@@ -1,4 +1,0 @@
-{{ $covers := .Site.Data.covers }}
-{{ $randIndex := mod (now.UnixNano | int) (len $covers) }}
-{{ $cover := index $covers $randIndex }}
-{{ return $cover }}

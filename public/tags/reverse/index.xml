@@ -3,17 +3,41 @@
   <channel>
     <title>Reverse on Welcome to my blog. I&#39;m winky 👋</title>
     <link>http://localhost:1313/tags/reverse/</link>
-    <description>Recent content in Reverse on Welcome to my blog. I&#39;m winky 👋</description>
+    <description>Recent content from Welcome to my blog. I&#39;m winky 👋</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    
+    <managingEditor>xxx@example.com (Yuki Shiroi)</managingEditor>
+    <webMaster>xxx@example.com (Yuki Shiroi)</webMaster>
+    
+    <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
+    
     <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/reverse/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <atom:link href="http://localhost:1313/tags/reverse/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
     <item>
       <title>ACECTF 1.0</title>
       <link>http://localhost:1313/post/acectf2025/</link>
-      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/acectf2025/</guid>
-      <description>ACECTF 1.0 writeup</description>
+      <description>
+        <![CDATA[<h1>ACECTF 1.0</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          ACECTF 1.0 writeup
+        
+        <hr><p>Published on 2025-02-28 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-02-28</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
   </channel>
 </rss>

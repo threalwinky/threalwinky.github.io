@@ -3,157 +3,221 @@
   <channel>
     <title>Web on Welcome to my blog. I&#39;m winky 👋</title>
     <link>http://localhost:1313/tags/web/</link>
-    <description>Recent content in Web on Welcome to my blog. I&#39;m winky 👋</description>
+    <description>Recent content from Welcome to my blog. I&#39;m winky 👋</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    <managingEditor>xxx@example.com (Yuki Shiroi)</managingEditor>
+    <webMaster>xxx@example.com (Yuki Shiroi)</webMaster>
+    
+    <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
+    
+    <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/tags/web/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Iframe injection to XSS</title>
+      <link>http://localhost:1313/post/bi0s2025/</link>
+      <pubDate>Tue, 10 Jun 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
+      <guid>http://localhost:1313/post/bi0s2025/</guid>
+      <description>
+        <![CDATA[<h1>Iframe injection to XSS</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          bi0sCTF 2025 writeup
+        
+        <hr><p>Published on 2025-06-10 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-06-10</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>NahamCon CTF 2025</title>
+      <link>http://localhost:1313/post/nahamcon2025/</link>
+      <pubDate>Mon, 26 May 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
+      <guid>http://localhost:1313/post/nahamcon2025/</guid>
+      <description>
+        <![CDATA[<h1>NahamCon CTF 2025</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          NahamCon CTF 2025 writeup
+        
+        <hr><p>Published on 2025-05-26 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-05-26</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
+    </item>
+    
+    
+
     <item>
       <title>HTTP/3 and IP spoofing</title>
       <link>http://localhost:1313/post/umdctf2025/</link>
-      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 02 May 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/umdctf2025/</guid>
-      <description>HTTP/3 and IP spoofing</description>
+      <description>
+        <![CDATA[<h1>HTTP/3 and IP spoofing</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          HTTP/3 and IP spoofing
+        
+        <hr><p>Published on 2025-05-02 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-05-02</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
+    
+
     <item>
       <title>OverTheWire Natas</title>
       <link>http://localhost:1313/post/natas/</link>
-      <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 08 Apr 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/natas/</guid>
-      <description>OverTheWire Natas writeup</description>
+      <description>
+        <![CDATA[<h1>OverTheWire Natas</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          OverTheWire Natas writeup
+        
+        <hr><p>Published on 2025-04-08 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-04-08</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
+    
+
     <item>
       <title>picoCTF 2025</title>
       <link>http://localhost:1313/post/picoctf2025/</link>
-      <pubDate>Sun, 23 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Mar 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/picoctf2025/</guid>
-      <description>picoCTF 2025 writeup</description>
+      <description>
+        <![CDATA[<h1>picoCTF 2025</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          picoCTF 2025 writeup
+        
+        <hr><p>Published on 2025-03-23 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-03-23</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
+    
+
     <item>
       <title>WatCTF W25</title>
       <link>http://localhost:1313/post/watctf/</link>
-      <pubDate>Tue, 18 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 18 Mar 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/watctf/</guid>
-      <description>WatCTF W25 writeup</description>
+      <description>
+        <![CDATA[<h1>WatCTF W25</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          WatCTF W25 writeup
+        
+        <hr><p>Published on 2025-03-18 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-03-18</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
+    
+
     <item>
       <title>KalmarCTF 2025</title>
       <link>http://localhost:1313/post/kalmar2025/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/kalmar2025/</guid>
-      <description>KalmarCTF 2025 writeup</description>
+      <description>
+        <![CDATA[<h1>KalmarCTF 2025</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          KalmarCTF 2025 writeup
+        
+        <hr><p>Published on 2025-03-10 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-03-10</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
+    
+
     <item>
       <title>PWNME CTF Quals 2025</title>
       <link>http://localhost:1313/post/pwnmequals2025/</link>
-      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/pwnmequals2025/</guid>
-      <description>PWNME CTF Quals 2025 writeup</description>
+      <description>
+        <![CDATA[<h1>PWNME CTF Quals 2025</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          PWNME CTF Quals 2025 writeup
+        
+        <hr><p>Published on 2025-03-04 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-03-04</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
+    
+
     <item>
       <title>ACECTF 1.0</title>
       <link>http://localhost:1313/post/acectf2025/</link>
-      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/acectf2025/</guid>
-      <description>ACECTF 1.0 writeup</description>
+      <description>
+        <![CDATA[<h1>ACECTF 1.0</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          ACECTF 1.0 writeup
+        
+        <hr><p>Published on 2025-02-28 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-02-28</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
+    
+
     <item>
       <title>EHAX CTF 2025</title>
       <link>http://localhost:1313/post/ehaxctf2025/</link>
-      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/ehaxctf2025/</guid>
-      <description>EHAX CTF 2025 writeup</description>
+      <description>
+        <![CDATA[<h1>EHAX CTF 2025</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          EHAX CTF 2025 writeup
+        
+        <hr><p>Published on 2025-02-17 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-02-17</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
-    <item>
-      <title>LA CTF 2025</title>
-      <link>http://localhost:1313/post/lactf2025/</link>
-      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/lactf2025/</guid>
-      <description>LA CTF 2025 writeup</description>
-    </item>
-    <item>
-      <title>Nullcon HackIM CTF Goa 2025</title>
-      <link>http://localhost:1313/post/nullcon/</link>
-      <pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/nullcon/</guid>
-      <description>Nullcon HackIM CTF Goa 2025 writeup</description>
-    </item>
-    <item>
-      <title>Shell and something else</title>
-      <link>http://localhost:1313/post/shell/</link>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/shell/</guid>
-      <description>Shell and something else</description>
-    </item>
-    <item>
-      <title>TUCTF 2024</title>
-      <link>http://localhost:1313/post/tuctf2024/</link>
-      <pubDate>Wed, 29 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/tuctf2024/</guid>
-      <description>TUCTF 2024 writeup</description>
-    </item>
-    <item>
-      <title>Insecure deserialization and process memory exploit</title>
-      <link>http://localhost:1313/post/insecure-deserialization-and-process-memory/</link>
-      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/insecure-deserialization-and-process-memory/</guid>
-      <description>Insecure deserialization and process memory exploit</description>
-    </item>
-    <item>
-      <title>KnightCTF 2025</title>
-      <link>http://localhost:1313/post/knight2024/</link>
-      <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/knight2024/</guid>
-      <description>KnightCTF 2025 writeup</description>
-    </item>
-    <item>
-      <title>HTB University CTF 2024</title>
-      <link>http://localhost:1313/post/htbuni2024/</link>
-      <pubDate>Mon, 16 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/htbuni2024/</guid>
-      <description>HTB University CTF 2024 writeup</description>
-    </item>
-    <item>
-      <title>TSG CTF 2024</title>
-      <link>http://localhost:1313/post/tsgctf2024/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/tsgctf2024/</guid>
-      <description>TSG CTF 2024 writeup</description>
-    </item>
-    <item>
-      <title>WannaGame Championship 2024</title>
-      <link>http://localhost:1313/post/w1champ2024/</link>
-      <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/w1champ2024/</guid>
-      <description>WannaGame Championship 2024 writeup</description>
-    </item>
-    <item>
-      <title>1337UP LIVE CTF 2024</title>
-      <link>http://localhost:1313/post/1337up2024/</link>
-      <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/1337up2024/</guid>
-      <description>1337UP LIVE CTF 2024 writeup</description>
-    </item>
-    <item>
-      <title>USC CTF FALL 2024</title>
-      <link>http://localhost:1313/post/usc2024/</link>
-      <pubDate>Fri, 08 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/usc2024/</guid>
-      <description>USC CTF FALL 2024 writeup</description>
-    </item>
-    <item>
-      <title>Dreamhack Wargame</title>
-      <link>http://localhost:1313/post/dreamhack/</link>
-      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/dreamhack/</guid>
-      <description>Dreamhack Wargame writeup</description>
-    </item>
-    <item>
-      <title>picoCTF</title>
-      <link>http://localhost:1313/post/picoctf/</link>
-      <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/picoctf/</guid>
-      <description>picoCTF writeup</description>
-    </item>
+    
   </channel>
 </rss>

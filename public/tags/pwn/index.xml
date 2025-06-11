@@ -3,24 +3,61 @@
   <channel>
     <title>Pwn on Welcome to my blog. I&#39;m winky 👋</title>
     <link>http://localhost:1313/tags/pwn/</link>
-    <description>Recent content in Pwn on Welcome to my blog. I&#39;m winky 👋</description>
+    <description>Recent content from Welcome to my blog. I&#39;m winky 👋</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    
+    <managingEditor>xxx@example.com (Yuki Shiroi)</managingEditor>
+    <webMaster>xxx@example.com (Yuki Shiroi)</webMaster>
+    
+    <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
+    
     <lastBuildDate>Sun, 23 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <atom:link href="http://localhost:1313/tags/pwn/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
     <item>
       <title>picoCTF 2025</title>
       <link>http://localhost:1313/post/picoctf2025/</link>
-      <pubDate>Sun, 23 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Mar 2025 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/picoctf2025/</guid>
-      <description>picoCTF 2025 writeup</description>
+      <description>
+        <![CDATA[<h1>picoCTF 2025</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          picoCTF 2025 writeup
+        
+        <hr><p>Published on 2025-03-23 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2025-03-23</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
+    
+
     <item>
       <title>1337UP LIVE CTF 2024</title>
       <link>http://localhost:1313/post/1337up2024/</link>
-      <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Nov 2024 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (Yuki Shiroi)</author>
       <guid>http://localhost:1313/post/1337up2024/</guid>
-      <description>1337UP LIVE CTF 2024 writeup</description>
+      <description>
+        <![CDATA[<h1>1337UP LIVE CTF 2024</h1><p>Author: Yuki Shiroi(xxx@example.com)</p>
+        
+          1337UP LIVE CTF 2024 writeup
+        
+        <hr><p>Published on 2024-11-18 at <a href='http://localhost:1313/'>Welcome to my blog. I'm winky 👋</a>, last modified on 2024-11-18</p>]]>
+      </description>
+      
+        <category>Writeup</category>
+      
     </item>
+    
   </channel>
 </rss>
