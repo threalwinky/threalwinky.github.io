@@ -1,5 +1,5 @@
 ---
-title: "Iframe injection to XSS"
+title: "iframe injection to XSS"
 description: "bi0sCTF 2025 writeup"
 summary: "bi0sCTF 2025 writeup"
 categories: ["Writeup"]
