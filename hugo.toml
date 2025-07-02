@@ -1,0 +1,17 @@
+baseURL = 'https://threalwinky.github.io/'
+languageCode = 'en-us'
+title = "Welcome to my blog. I'm winky 👋"
+theme = "reimu"
+
+[markup.highlight]
+guessSyntax = true
+noClasses = false
+
+[outputs]
+home = ["Algolia", "HTML", "RSS"]
+
+[outputFormats.Algolia]
+baseName = "algolia"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
