@@ -14,26 +14,26 @@ authors:
 
 ## Introduction
 
-**Phar Deserialization** is a popular bug related to file upload vulnerability and insecure serialization. Although this bug nearly fixed in the latest version of PHP, some functions is still available to trigger this bug and get harm to your server.
+**Phar Deserialization** is a popular bug related to file upload vulnerability and unsafe object deserialization. While this issue is mostly resolved in the latest PHP versions, some functions can still trigger it and pose a risk to our server.
 
 ### Phar
 
-**PHAR** are like JARs of Java but for PHP, compatible with 3 formats (Phar, Tar, Zip). In other words, PHAR - PHP Archive is a form of compressing PHP application into a single executable file. A Phar file can be loaded via phar wrapper phar:// . For example: `phar://relative/path/to/phar/file.xyz/.inc`. Moreover, a Phar file have 4 parts: 
+**PHAR - PHP Archive** are like JARs of Java but for PHP, compatible with 3 formats (Phar, Tar, Zip). In other words, PHAR is a form of compressing PHP application into a single executable file. A Phar file can be loaded using phar wrapper phar:// . For example: `phar://relative/path/to/phar/file.xyz/.inc`. A Phar file consists of 4 parts:
 
-* Stub: The first part includes php code but must have `__HALT_COMPILER();` in the end
-* Manifest: The manifest details the contents of the archive (object type)
+* Stub: The first part includes PHP code, ending with **__HALT_COMPILER();**
+* Manifest: The manifest details the contents of the archive (**object** type)
 * File Contents: The original files that are included in the archive
-* Signature: this is a hash function for verifying PHAR integrity.
+* Signature: A hash verifying the PHAR integrity
 
 ![image](https://hackmd.io/_uploads/HJpzbTWOxx.png)
 
-This is the detailed structure for this file
+This is the detailed structure of this file
 
 ![image](https://hackmd.io/_uploads/By2TMa-uxl.png)
 
 ### How to make a phar file
 
-A simple template to make a phar file is
+A simple template to make a Phar file is
 
 ```php
 <?php
@@ -55,13 +55,11 @@ In this code, stub is `<?php __HALT_COMPILER(); ?>`, manifest or Phar Metadata i
 
 `php -d phar.readonly=0 phar.php`
 
-what is phar.readonly ? For secured, this setting will allow us to create and modify using phar stream, by default this is enable: [phar.readonly option](https://www.php.net/manual/en/phar.configuration.php#:~:text=the%20configuration%20directives.-,phar.readonly%20bool,-This%20option%20disables)
+What is phar.readonly ? For security, this setting will allow us to create and modify using phar stream, by default this is enable: [phar.readonly option](https://www.php.net/manual/en/phar.configuration.php#:~:text=the%20configuration%20directives.-,phar.readonly%20bool,-This%20option%20disables)
 
 ### File upload vulnerability
 
-File upload vulnerability or [CWE-434](https://cwe.mitre.org/data/definitions/434.html) is a common weakness in a web server. A user may upload unexpected or non-standard files, which can alter the server’s behavior and potentially lead to serious issues such as Remote Code Execution (RCE).
-
-POC:
+File upload vulnerability or [CWE-434](https://cwe.mitre.org/data/definitions/434.html) is a common weakness in a web server. A user may upload unexpected or non-standard files, which can alter the server’s behavior and potentially lead to serious issues such as Remote Code Execution (RCE). POC:
 
 A user can upload a simple shell if the server don't strictly filter it
 
@@ -78,13 +76,11 @@ And we can run php file in apache server
 
 ### Insecure Deserialization
 
-Insecure Deserialization or [CWE-502](https://cwe.mitre.org/data/definitions/502.html) is a weakness about using untrusted data. Attackers can modify unexpected objects or data that was assumed to be safe from modification. Deserialized data or code could be modified without using the provided accessor functions, or unexpected functions could be invoked.
-
-Magic functions: Magic methods are special methods which override PHP's default's action when certain actions are performed on an object. The attacker can exploit magic methods to execute arbitrary code, manipulate object behavior, or trigger unintended functionality — especially during object deserialization or when user-controlled data is passed into magic methods like __wakeup(), __destruct(), or __toString().
+Insecure Deserialization or [CWE-502](https://cwe.mitre.org/data/definitions/502.html) covers insecure deserialization of untrusted data. Attackers can manipulate serialized objects to execute arbitrary code, especially using magic methods like __wakeup(), __destruct(), and __toString().
 
 POC:
 
-Imagine we have a simple class will create a json file based on the $name argument of class
+Imagine we have a simple class that will create a JSON file based on the $name argument passed to the class.
 
 ```php
 <?php
@@ -128,17 +124,15 @@ echo serialize($ser);
 
 ## Phar Deserialization
 
-From PHP version 7.4 and earlier, most of file accessing  function will trigger the deserialization if we pass a phar:// wrapper file. It will deserial the metadata in phar file which is an object that we can manipulate to override default class
-
-These functions are 
+In PHP <= 7.4, many file-related functions will automatically deserialize a Phar's metadata if accessed via phar://. Those functions are 
 
 ![image](https://hackmd.io/_uploads/rynpNRZdel.png)
 
-bonus: move_uploaded_file, mime_content_type
+and move_uploaded_file, mime_content_type, etc.
 
 POC: 
 
-if i use previous context, and i create a phar file like
+If I use the previous context and create a PHAR file like:
 
 ```php
 <?php
@@ -160,7 +154,7 @@ $phar->stopBuffering();
 ?>
 ```
 
-Use one of above function to trigger, for example filesize()
+You can use one of the functions mentioned above to trigger it — for example, filesize()
 
 PHP8:
 
@@ -170,11 +164,11 @@ PHP7.4:
 
 ![image](https://hackmd.io/_uploads/HkRjKA-ull.png)
 
-So this bug is still available in PHP7.4 and have been fixed in PHP8
+=> So this bug is still present in PHP 7.4 and has been fixed in PHP 8.
 
 ## CVE-2023-28115 and CVE-2023-41330
 
-Those CVE all have high score from snyk 9.8
+Both CVEs have a high score of 9.8 according to Snyk.
 
 ![image](https://hackmd.io/_uploads/HJpU9R-_lx.png)
 
@@ -183,7 +177,7 @@ Those CVE all have high score from snyk 9.8
 
 ### knplabs/knp-snappy
 
-This is a PHP library for converting a HTML website to a pdf file. We can use this library like: 
+This is a PHP library for converting an HTML website to a PDF file. We can use this library like this:
 
 ```php
 <?php
@@ -198,11 +192,11 @@ $snappy->generateFromHtml('<h1>Hello</h1>', 'a.pdf');
 
 ### Vulnerable function
 
-From the version 1.4.1 and early, the generateFromHTML will call the this function to generate to check if 'a.pdf' is existed ([file_exist function in Snappy](https://github.com/KnpLabs/snappy/blob/5126fb5b335ec929a226314d40cd8dad497c3d67/src/Knp/Snappy/AbstractGenerator.php#L670)). So what if we pass a phar wrapper stream into it ?
+From version 1.4.1 and earlier, the generateFromHtml() function calls ([file_exist function in Snappy](https://github.com/KnpLabs/snappy/blob/5126fb5b335ec929a226314d40cd8dad497c3d67/src/Knp/Snappy/AbstractGenerator.php#L670)). So, what happens if we pass a phar:// wrapper stream to it?
 
 ### POC
 
-This bug require PHP7.4. Use old context we can have the vulneable code like this
+This bug requires PHP 7.4. Using the previous context, we can write vulneable code like this:
 
 ```php
 <?php
@@ -234,17 +228,16 @@ try{
 
 ### Is it fixed?
 
-This path was committed on the version 1.4.2 to fix CVE-2023-28115
-
-https://github.com/KnpLabs/snappy/commit/1ee6360cbdbea5d09705909a150df7963a88efd6
+This patch was committed on the version 1.4.2 to fix CVE-2023-28115: [CVE-2023-28115 fix](https://github.com/KnpLabs/snappy/commit/1ee6360cbdbea5d09705909a150df7963a88efd6)
 
 ![image](https://hackmd.io/_uploads/HkLAW1MOxl.png)
 
-but the bug is still there. Because wrapper scheme is case-insensitive according to [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986#section-6.2.2.1) so we can use uppercase wrapper. For example:
+But the bug is still there. This is because the wrapper scheme is case-insensitive, according to [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986#section-6.2.2.1) Therefore, we can use an uppercase wrapper — for example, PHAR://.
 
 ![image](https://hackmd.io/_uploads/SJ8B7yGuxx.png)
 
-So the strpos is case-insensitive then we can bypass by using PHAR://
+
+If the vulnerable code uses strpos() for wrapper checks without normalizing the case, the check becomes bypassable. So, using PHAR:// instead of phar:// allows us to bypass the filter.
 
 POC:
 
@@ -278,7 +271,7 @@ try{
 
 And this is CVE-2023-41330. After that a commit to use parse_url on version 1.4.3 have fixed both above CVE
 
-https://github.com/KnpLabs/snappy/commit/d3b742d61a68bf93866032c2c0a7f1486128b67e
+[CVE-2023-41330 fix](https://github.com/KnpLabs/snappy/commit/d3b742d61a68bf93866032c2c0a7f1486128b67e)
 
 ## CVE-2024-34515
 
@@ -286,7 +279,7 @@ https://github.com/KnpLabs/snappy/commit/d3b742d61a68bf93866032c2c0a7f1486128b67
 
 ### image-optimizer
 
-[image-optimizer](https://github.com/spatie/image-optimizer) is a PHP library to optimize an image if it is large. The simple syntax is
+[image-optimizer](https://github.com/spatie/image-optimizer) is a PHP library for optimizing images, especially if they are large. The simple syntax is:
 
 ```php
 <?php
@@ -304,9 +297,9 @@ $optimizerChain->optimize($pathToImage);
 
 ### Vulnerable function
 
-The optimize function use this function to check is an image existed https://github.com/Sonicrrrr/image-optimizer/blob/284a082b1814a846560ee1c91360bbdf3b4cb885/src/Image.php#L19
+In version 1.7.2, the optimize() function uses this function to check whether the image exists. https://github.com/Sonicrrrr/image-optimizer/blob/284a082b1814a846560ee1c91360bbdf3b4cb885/src/Image.php#L19
 
-However, it also triggers phar deserialization
+And it also triggers phar deserialization
 
 ### POC
 
@@ -337,7 +330,7 @@ $optimizerChain->optimize($pathToImage);
 ?>
 ```
 
-There are lots of warnings but it also get RCE on the server:
+There are lots of warnings, but it still results in RCE on the server.
 
 ![image](https://hackmd.io/_uploads/HyblPJMOlg.png)
 
@@ -347,26 +340,42 @@ I also made a challenge related to this CVE and uploaded it in Dreamhack: [optim
 
 ## Phar image?
 
-Phar deserialization in PHP does not care about the file extension. So that, if we rename a phar file this bugs also works.
+Phar deserialization in PHP does not depend on the file extension. That means even if we rename a .phar file, the vulnerability still works.
 
 POC:
 
 ![image](https://hackmd.io/_uploads/rJ1jukG_le.png)
 
-But you can't use a file without a proper extension (e.g., test,abc, test, abc)
+However, you can't use a file without a proper extension (e.g., test, abc, or test,abc), because PHP functions like pathinfo() rely on file extensions to determine behavior.
 
-=> Bypass the pathinfo() function
+`Rename the file with a valid image extension (like .gif, .png, etc.) while keeping the internal structure as a Phar. => Bypass the pathinfo() function`
+
+We can also bypass mime_content_type() checks by adding fake image magic bytes (e.g., for a GIF file) in the Phar stub. Here's how:
+
+```php
+$obj = new User();
+$phar = new Phar("test.phar");
+$phar->startBuffering();
+$phar->addFromString('test.txt', 'text');
+$phar->setStub("GIF89A<?php __HALT_COMPILER(); ?>");
+$phar->setMetadata($obj);
+$phar->stopBuffering();
+```
+
+![image](https://hackmd.io/_uploads/HJ8zx4Gule.png)
+
+`Add appropriate magic bytes to fool MIME detection. => Bypass the mime_content_type() function`
 
 ## Phar deserialization and gadget chains
 
-Because this bug works in PHP7.4 with also have other old library bug like some gadget chains in monolog, laravel, symfony, etc. You can find them at https://github.com/ambionics/phpggc
+This bug still works in PHP 7.4 so can be combined with vulnerabilities in older libraries like Monolog, Laravel, Symfony, etc. Those libraries often contain gadget chains that can be abused for RCE via deserialization.You can find a collection of known gadget chains here: https://github.com/ambionics/phpggc
 
-how to exploit phar deserialization with gcc? 
+How to Exploit Phar Deserialization with PHPGGC ? 
 
-### Using command 
+### Using the CLI tool 
 
-* First, clone phpgcc repo
-* Next, create a phar file using this command 
+* First, clone the phpggc repository:
+* Next, generate a Phar file with a gadget chain using this command
 `phpggc -f Monolog/RCE1 exec 'touch pwned' -p phar -o exploit.phar`
 * Now you can work with it
 
@@ -377,8 +386,8 @@ You can notice that there are two files was created exploit.phar and pwned
 ### Manually
 
 * Choose your gadget chain, for example [monolog/RCE1](https://github.com/ambionics/phpggc/tree/master/gadgetchains/Monolog/RCE/1)
-* Use both files in directory
-* Change the chain.php to
+* Use both files chain.php and gadgets.php in directory
+* Update chain.php to the following:
 
 ```php
 <?php
@@ -411,31 +420,28 @@ $phar->setMetadata($obj);
 $phar->stopBuffering();
 ```
 
-Now use `php -d phar.readonly=0 chain.php` to create phar file and yeah now you get RCE
+Now use `php -d phar.readonly=0 chain.php` to create phar file and you will get RCE
 
 ![image](https://hackmd.io/_uploads/rkkZayzOxl.png)
 
 
 ## Fixing
 
-From PHP8, this bug is not more available
+Starting from PHP 8, this Phar deserialization bug is no longer exploitable in the same way. https://www.php.net/manual/en/migration80.incompatible.php#migration80.incompatible.phar
 
-https://www.php.net/manual/en/migration80.incompatible.php#migration80.incompatible.phar:~:text=with%20zero%20rows.-,Phar,-%C2%B6
+Pull Request for the fix: [php/php-src#5855](https://github.com/php/php-src/pull/5855/commits/28417b781c5f112c667b596957289f752ee99259)
 
-PR for that fix:
+However, the Phar::getMetadata() function still performs unserialize() on the internal metadata — so you must be careful when using this function, especially with user-controlled input.
 
-https://github.com/php/php-src/pull/5855/commits/28417b781c5f112c667b596957289f752ee99259
-
-However, getMetadata() is still unserialize phar file so be careful when work with this function
-
-![image](https://hackmd.io/_uploads/rkIQfIsvxx.png)
-
+![image](https://hackmd.io/_uploads/Sy_rW4Mdgx.png)
 
 ## Prevention
 
 + Upgrade to PHP8
-+ Filter all wrapper when pass it to file accessed function
-+ Be careful when work with getMetadata() function
++ Filter and validate stream wrappers
++ Be careful when work with Phar::getMetadata() function
++ Harden file upload locations
++ Set phar.readonly = 1 in php.ini
 
 ## References
 
@@ -445,4 +451,3 @@ However, getMetadata() is still unserialize phar file so be careful when work wi
 * https://srcincite.io/assets/out-of-hand-attacks-against-php-environments.pdf
 * https://www.synacktiv.com/ressources/modern_php_security_sec4dev.pdf
 * https://www.sonarsource.com/blog/phpbb3-phar-deserialization-to-remote-code-execution/
-
