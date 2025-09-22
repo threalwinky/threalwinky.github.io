@@ -7,7 +7,7 @@ tags: ["Web", "Pwn"]
 #externalUrl: ""
 date: 2025-03-23
 draft: false
-cover: ../../post/picoctf/feature.jpg
+cover: ../../post/picoctf2025/feature.jpg
 authors:
   - winky
 ---
