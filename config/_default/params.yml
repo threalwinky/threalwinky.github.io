@@ -308,9 +308,9 @@ giscus:
 
 algolia_search:
   enable: true
-  appID: S76PU4OFR0
-  apiKey: c502de81a2fe3451434faa92f0aa1143
-  indexName: algolia
+  appID: 0KDBEY8RT5
+  apiKey: 4b950643fb4582fbabe2d964e8131f1f
+  indexName: blog
   hits:
     per_page: 5
   labels:

@@ -19,7 +19,7 @@ Last weekend, I played CrewCTF 2025 with my team laevatain. There is a challenge
 
 ![image](https://hackmd.io/_uploads/H1bNUyy2gx.png)
 
-And I'm the fifth one to solve it.
+And I was the fifth one to solve it.
 
 ![image](https://hackmd.io/_uploads/r1cBU113xl.png)
 
