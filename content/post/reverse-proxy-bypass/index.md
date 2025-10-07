@@ -453,7 +453,19 @@ We will have a small test with `trim` function like this
 
 So after trim the byte `\xa0` is deleted acting like    `\x20`. Now if we send `\xa0` to nginx, it bypasses ACL rule ad keeps the byte then forward to express then trim and execute. That is the vulnerability.
 
-![image](https://hackmd.io/_uploads/HkQk_LM6xe.png)
+With flask, we might think that it will use strip() function but not. Let's debug a bit in `werkzeug/serving.py`
+
+When a request is made, it will create a `WSGIRequestHandler` object which inherites from `BaseHTTPRequestHandler` 
+
+![image](https://hackmd.io/_uploads/rkIG5if6lx.png)
+
+jump into `BaseHTTPRequestHandler` and we can see that it uses `split` function to split requestline and somehow `\xa0` again deleted.
+
+![image](https://hackmd.io/_uploads/r1jz6sGall.png)
+
+So now, we understand that nginx keeps bytes in URL but web services may delete them so we can bypass
+
+![image](https://hackmd.io/_uploads/BknsyefTxl.png)
 
 For PHP-FPM, we can also bypass use the simple trick
 
