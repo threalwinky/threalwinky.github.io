@@ -453,7 +453,7 @@ We will have a small test with `trim` function like this
 
 So after trim the byte `\xa0` is deleted acting like    `\x20`. Now if we send `\xa0` to nginx, it bypasses ACL rule ad keeps the byte then forward to express then trim and execute. That is the vulnerability.
 
-![image](https://hackmd.io/_uploads/BknsyefTxl.png)
+![image](https://hackmd.io/_uploads/HkQk_LM6xe.png)
 
 For PHP-FPM, we can also bypass use the simple trick
 
