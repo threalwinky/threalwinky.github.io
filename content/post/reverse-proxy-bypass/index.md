@@ -230,7 +230,7 @@ we can also hide the nginx version with `server_tokens off;` which is not easily
 
 Now it seems safer. Now we can config another server just using `listen` and `proxy_pass` in this nginx config file. 
 
-Weakness: Bypass, Sensitive Data Exposure or LFI, RCE, etc.
+Weakness: Bypass, Sensitive Data Exposure or LFI, etc.
 
 * Caching
 
@@ -453,7 +453,7 @@ We will have a small test with `trim` function like this
 
 So after trim the byte `\xa0` is deleted acting like    `\x20`. Now if we send `\xa0` to nginx, it bypasses ACL rule ad keeps the byte then forward to express then trim and execute. That is the vulnerability.
 
-![image](https://hackmd.io/_uploads/HyQseS62ex.png)
+![image](https://hackmd.io/_uploads/BknsyefTxl.png)
 
 For PHP-FPM, we can also bypass use the simple trick
 
@@ -841,7 +841,7 @@ The normal request path can be described here:
 
 When using HTTP/1.1, we will send each request individually. So now what we can do ?
 
-We can upgrade the connection to HTTP/2 so that the tunnal between client and backend opens and `/flag` can be sent after the first request sent. Moreover, it also bypasses the reverse proxy.
+We can upgrade the connection to HTTP/2 so that the tunnal between client and backend opens and `/flag` can be sent after using HTTP/2 multiplexing. So that, it also bypasses the reverse proxy.
 
 ![image](https://hackmd.io/_uploads/HJ7NBfxale.png)
 
