@@ -6,7 +6,7 @@ categories: ["Writeup"]
 tags: ["Web"]
 #externalUrl: ""
 date: 2023-10-20
-draft: false
+draft: true
 cover: ../../post/ctf/f.png
 authors:
   - winky
