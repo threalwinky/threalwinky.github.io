@@ -5,8 +5,8 @@ summary: "CTF"
 categories: ["Writeup"]
 tags: ["Web"]
 #externalUrl: ""
-date: 2025-10-20
-draft: true
+date: 2023-10-20
+draft: false
 cover: ../../post/ctf/f.png
 authors:
   - winky
