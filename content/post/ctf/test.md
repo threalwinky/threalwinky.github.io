@@ -1,25 +1,10 @@
----
-title: "CTF"
-description: "CTF"
-summary: "CTF"
-categories: ["Writeup"]
-tags: ["Web"]
-#externalUrl: ""
-date: 2025-10-20
-draft: false
-cover: ../../post/crewctf2025/feature.png
-authors:
-  - winky
----
-
-
 
 
 ## HDBANK / The Old Trick Revenge
 
 Bài này thì em first blood trong cuộc thi HDBANK Hackathon
 
-![image](https://hackmd.io/_uploads/ryOjPZmCex.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image0.png)
 
 Source: https://github.com/threalwinky/CTF-archive/tree/main/The%20Old%20Trick%20-%20Revenger
 
@@ -27,15 +12,15 @@ Em sẽ trình bày hướng giải revenger vì trong lúc thi thì em đã fol
 
 Nói qua về trang web thì nó sẽ trông như thế này
 
-![image](https://hackmd.io/_uploads/By2a6bQAxx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image1.png)
 
 Điền vào và ta có
 
-![image](https://hackmd.io/_uploads/H12hTb7Rxx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image2.png)
 
 Ở đây có vuln XSS nhưng không khai thác được gì thêm. Ngoài ra còn có một trang profile.php để thay đổi class Red, Green, Blue, ... Và chỗ này chúng ta có thể khai bằng cách gọi một class khác của PHP như Error, SplFileObject, ...
 
-![image](https://hackmd.io/_uploads/Hy4VCb7Rgx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image3.png)
 
 
 Đầu tiên để có flag thì ta sẽ cần thoả mãn đoạn PHP sau
@@ -53,7 +38,7 @@ Có thể thấy cả 3 đều liên quan đến session nên mình sẽ tìm c�
 
 Và session nó sẽ được locate ở `/tmp`
 
-![image](https://hackmd.io/_uploads/r1wLa-7Rxe.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image4.png)
 
 Vậy chỉ cần mình overwrite được file này thì mình sẽ solve được. 
 
@@ -72,11 +57,11 @@ RUN apt-get update && apt-get install -y \
 
 Em thử xài class của thư viện này
 
-![image](https://hackmd.io/_uploads/S1j90ZQRlx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image5.png)
 
 Và quả nhiên là xài được và trả ra lỗi
 
-![image](https://hackmd.io/_uploads/ryciR-m0ge.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image6.png)
 
 Việc thêm dư thư viện này chắc chắn là có ý đồ gì trong bài này nên em research về `imagick php exploit` và phát hiện một post sau
 
@@ -128,21 +113,21 @@ write()
 
 Request thành công và server đã lấy được image
 
-![image](https://hackmd.io/_uploads/r1yx44QAlg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image7.png)
 
 Và ghi vào file `/tmp/abcd`
 
-![image](https://hackmd.io/_uploads/HJDC7VXRee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image8.png)
 
 Nhưng ở dạng này thì PHP session không thể unserialize được nên em tìm cách write file khác.
 
 Sau khi đọc doc của imagick thì em phát hiện có một mode khá hay dùng để chuyển dữ liệu base64 sang image https://imagemagick.org/script/formats.php#:~:text=this%20expensive%20operation.-,INLINE,-RW
 
-![image](https://hackmd.io/_uploads/BkWeSSQ0ll.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image9.png)
 
 Và ta có thể lợi dụng để truyền vào plaintext. Để sử dụng thì ta cần thêm một format cho data và ta có thể sử dụng các dạng binary như 8bim, app1, iptc, ...
 
-![image](https://hackmd.io/_uploads/BJgPrS7Cle.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image10.png)
 
 Sử dụng mode inline và format app1 là có session để thoả yêu cầu challenge. 
 
@@ -185,7 +170,7 @@ trigger()
 write()
 ```
 
-![image](https://hackmd.io/_uploads/BJC2BSQ0xx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image11.png)
 
 Solve script cuối cùng của em:
 
@@ -245,7 +230,7 @@ get_flag()
 ```
 
 
-![image](https://hackmd.io/_uploads/ByKMuHQRxl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image12.png)
 
 ### Note
 
@@ -273,15 +258,15 @@ SplFileObject
 php://filter/convert.base64-encode/resource=/var/www/html/config.php
 ```
 
-![image](https://hackmd.io/_uploads/Hy0F5HXAlx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image13.png)
 
 Vào lại index.php
 
-![image](https://hackmd.io/_uploads/HJK99BmRgl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image14.png)
 
 base64 decode string này là ta có flag
 
-![image](https://hackmd.io/_uploads/Hyk6crmRxe.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image15.png)
 
 ## Dreamhack / Secret Document Storage
 
@@ -289,7 +274,7 @@ Link challenge: https://dreamhack.io/wargame/challenges/1053
 
 Giao diện của trang web
 
-![image](https://hackmd.io/_uploads/rkqkRwm0xx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image16.png)
 
 Ta có thể thấy 3 feature:
 
@@ -297,25 +282,25 @@ Ta có thể thấy 3 feature:
 
 Endpoint này sẽ upload lên một file có title và details, file tải lên phải có đuôi jpg hoặc png
 
-![image](https://hackmd.io/_uploads/r1tKRv7Axl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image17.png)
 
 Tên file sẽ được random
 
-![image](https://hackmd.io/_uploads/Hkzby_7Rgg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image18.png)
 
 Và lưu ở folder `uploads`
 
-![image](https://hackmd.io/_uploads/Bk38yOX0xe.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image19.png)
 
 * delete
 
 Nhập vào tên file ảnh sẽ xoá trong folder `uploads`
 
-![image](https://hackmd.io/_uploads/HkGtkO7All.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image20.png)
 
 * admin
 
-![image](https://hackmd.io/_uploads/H1PGl_mRlx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image21.png)
 
 Nhập vào một admin code và so sánh md5 với một code mà author cho (chưa biết). 
 
@@ -327,14 +312,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
-	$input_code = $_POST['access_code'];
-	session_start();
+    $input_code = $_POST['access_code'];
+    session_start();
         if (md5($input_code) === '{{REDACTED}}' && $_SERVER['REMOTE_ADDR'] === '127.0.0.1') { 
-		$_SESSION['admin'] = true;
-		echo "An access code has been issued upon correct access.";
-		echo "Administrator privileges have been granted.";
+        $_SESSION['admin'] = true;
+        echo "An access code has been issued upon correct access.";
+        echo "Administrator privileges have been granted.";
         }
-	else {
+    else {
             echo "<script>alert('The access code is incorrect. Administrator registration is only possible on local host.');</script>";
             echo "<script>location.href='/index.php'</script>";
         }
@@ -361,13 +346,13 @@ require("db.php");
 session_start();
 
 if ($_SESSION['admin']) {
-	if ($_POST['filename']) {
-		include "./templates/dashboard.html";
-		include ($_POST['filename']);
-    	}
-	else {
-		include "./templates/dashboard.html";
-	}
+    if ($_POST['filename']) {
+        include "./templates/dashboard.html";
+        include ($_POST['filename']);
+        }
+    else {
+        include "./templates/dashboard.html";
+    }
 }
 else {
     echo "<div class='center-text'>You are not admin.</div>";
@@ -395,16 +380,16 @@ Và file đó được đưa vào đây
 
 Vậy phải có một bug LFI để đọc, tiếp theo ta thấy có một class `Requests` trong `delete.php` có hàm `__destruct` được khai báo nhưng không xài nên chắc chắn có ý đồ gì đó ở đây. Ta test với `file://` protocol và nó works
 
-![image](https://hackmd.io/_uploads/B1ZvEOXAee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image22.png)
 
 Vậy thì phải có cách để trigger class này. Đoạn code phía dưới đã trả lời tất cả. Ta thấy có một hàm `file_get_contents` sau:
 
 ```php
-	    if (!in_array(strtolower($imageType), $allowedTypes)) {
-    		echo "Invalid image type.";
-    		exit(-1);
-	    }
-	    $imageData = file_get_contents($filePath);
+        if (!in_array(strtolower($imageType), $allowedTypes)) {
+            echo "Invalid image type.";
+            exit(-1);
+        }
+        $imageData = file_get_contents($filePath);
 ```
 
 Cộng với việc server sử dụng PHP7.4
@@ -447,28 +432,28 @@ $phar->stopBuffering();
 
 * Đổi tên để bypass
 
-![image](https://hackmd.io/_uploads/B1PBKdX0le.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image23.png)
 
 * Upload file phar lên
 
-![image](https://hackmd.io/_uploads/Hy0SIoXAeg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image24.png)
 
 Vào check thì thấy file đã ở trong uploads
 
-![image](https://hackmd.io/_uploads/HkSt8sm0gg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image25.png)
 
 * Trigger phar deserializa thì ta có secret
 
-![image](https://hackmd.io/_uploads/SyDPDsQRgl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image26.png)
 
 Lên remote thì ta có md5 của admin `99519c9e6b550cf4644151331e3639c0`
 
-![image](https://hackmd.io/_uploads/HJeedjQCex.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image27.png)
 
 
 * Đem lên crack station thì ta có admin code là `accesscode` và flag2 là `under_the_red_house_roof!}`
 
-![image](https://hackmd.io/_uploads/H1Kzuj7Ale.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image28.png)
 
 * Sử dụng tiếp phar deserialization để bắt class `Requests` gửi đến `admin.php` thoả mãn `$_SERVER['REMOTE_ADDR'] === '127.0.0.1'`
 
@@ -495,19 +480,19 @@ $phar->stopBuffering();
 
 * Upload lại và trigger phar deserialization
 
-![image](https://hackmd.io/_uploads/ByFdFoQ0lx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image29.png)
 
 * Vậy là đã lên quyền admin, tiến hành vào dashboard.php
 
-![image](https://hackmd.io/_uploads/SJfsKomRxl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image30.png)
 
 * Ở đây ta sử dụng php filter chain để lấy RCE
 
-![image](https://hackmd.io/_uploads/rJu59iQRgg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image31.png)
 
 paste vào nhưng không lấy được flag
 
-![image](https://hackmd.io/_uploads/rkCXjs70lx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image32.png)
 
 Ở đây mình đọc lại đoạn docker và thấy rằng /readflag chỉ được đọc bởi root, nhưng hàm find cũng được SUID
 
@@ -523,9 +508,9 @@ Lúc này thì ta sẽ leo thang bằng payload sau
 
 `find /readflag -exec cat {} \;`
 
-![image](https://hackmd.io/_uploads/HJHtsjXAeg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image33.png)
 
-![image](https://hackmd.io/_uploads/H1pjsjX0xx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image34.png)
 
 Flag của bài: `DH{M3rRy_ChristM4s!_th3_G1fT_1s_under_the_red_house_roof!}`
 
@@ -546,35 +531,35 @@ CMD service mysql start && \
 
 Nhưng chúng ta có thể bypass sử dụng unicode như sau
 
-![image](https://hackmd.io/_uploads/HystAi7Rlg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image35.png)
 
 Vậy là `ò` có thể thế cho `o`
 
-![image](https://hackmd.io/_uploads/ry63Aj7Cxe.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image36.png)
 
 Crack md5 này ta có access_code là `windows`
 
-![image](https://hackmd.io/_uploads/B1uA0sXCge.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image37.png)
 
 Có access code thì upload phar file như bài trên là được
 
-![image](https://hackmd.io/_uploads/B1u6J37Rle.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image38.png)
 
-![image](https://hackmd.io/_uploads/B1wCJn7Reg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image39.png)
 
 Sử dụng `find /readflag -exec cat {} \;` để đọc flag1
 
-![image](https://hackmd.io/_uploads/SkGGl2XCex.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image40.png)
 
 `DH{S0rRy_I_w4nTed_Mod1fi3D_`
 
 Đọc db.php để lấy creds
 
-![image](https://hackmd.io/_uploads/SJxeGb3XRxx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image41.png)
 
 Đọc flag2 sử dụng `mysql -h 127.0.0.1 -u x-mas -p"qwer1234" -e "select * from secret;" document 2>/dev/null`
 
-![image](https://hackmd.io/_uploads/B1iN43mRee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image42.png)
 
 Flag của bài: `DH{S0rRy_I_w4nTed_Mod1fi3D_Un1nt3ndeD_vu1n3r4bl1tY}`
 
@@ -584,13 +569,13 @@ Link challenge: https://dreamhack.io/wargame/challenges/230
 
 Giao diện trang web: 
 
-![image](https://hackmd.io/_uploads/Bk8AAn7Rgx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image43.png)
 
-![image](https://hackmd.io/_uploads/rJIxk6mCex.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image44.png)
 
 Sau khi đăng nhập ta sẽ có một session được lưu trong redis
 
-![image](https://hackmd.io/_uploads/rJKugpmReg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image45.png)
 
 
 Ta cũng thấy flag cũng nằm trong redis với key random. Nên mình có nhiệm vụ là leak key và lấy flag thông qua key.
@@ -764,14 +749,14 @@ test()
 
 Sau khi chạy có thể thấy isRender đã bị override thành True và endpoint `/` sẽ tiến hành `curl`
 
-![image](https://hackmd.io/_uploads/S1VbuTmRee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image46.png)
 
 * chặn nếu host `!profile_URL.host.endsWith(config.HOST)`
 
 Sau khi đã test được link profile thì ta sẽ test với `gopher`, có một vấn để là khi parse ra thì host của ta là `redis:6379` nhưng mục tiêu là phải có đuôi `127.0.0.1:8000`
 
 
-![image](https://hackmd.io/_uploads/HJ_e5pQ0xg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image47.png)
 
 Làm sao để bypass ? Sau một hồi research thì mình đọc được một blog khá hữu ích như sau:
 
@@ -792,7 +777,7 @@ for (let i=0; i<100000; i++){
 }
 ```
 
-![image](https://hackmd.io/_uploads/r1dpz0XCxl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image48.png)
 
 Sau khi test thì ta có một số unicode char để bypass dấu `:`
 
@@ -846,17 +831,17 @@ add()
 test()
 ```
 
-![image](https://hackmd.io/_uploads/B14KE07Agg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image49.png)
 
 Lúc này host của mình truyền vào bằng unicode đã bị parse thành ascii
 
 và bumphhh
 
-![image](https://hackmd.io/_uploads/Hyg1SAQRgx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image50.png)
 
 Chạy trên remote:
 
-![image](https://hackmd.io/_uploads/ryjMBRQAlg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image51.png)
 
 Ok và ta đã leak dược key của flag. Script lấy flag:
 
@@ -902,7 +887,7 @@ add()
 test()
 ```
 
-![image](https://hackmd.io/_uploads/S1qvH0XCxx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image52.png)
 
 Flag: `FLAG{6d07a5334a9d12ee2020a4c074526875}`
 
@@ -911,10 +896,10 @@ Flag: `FLAG{6d07a5334a9d12ee2020a4c074526875}`
 
 Giải này em clear web nhưng chỉ có một bài whitebox
 
-![image](https://hackmd.io/_uploads/ry65TUQAlg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image53.png)
 
 
-![image](https://hackmd.io/_uploads/H1S56ImCxl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image54.png)
 
 Source của challenge: 
 
@@ -1011,23 +996,23 @@ https://cookiearena.org/penetration-testing/dns-rebinding-la-gi/
 
 Tóm tắt thì đây là một domain có thể thay đổi DNS liên tục
 
-![image](https://hackmd.io/_uploads/By-JWDQCee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image55.png)
 
 Do đó ta có thể bypass hàm phân giải nhưng vẫn giữ khả năng trỏ về 127.0.0.1 được. Để solve thì em đăng ký URL sau. Vì trong challenge đang mở port 5001 để lấy flag
 
-![image](https://hackmd.io/_uploads/S1hmWv7Rgx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image56.png)
 
 Đăng ký thành công
 
-![image](https://hackmd.io/_uploads/Syl8-vXAxg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image57.png)
 
 Trigger
 
-![image](https://hackmd.io/_uploads/rybKZDQRlx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image58.png)
 
 Sau một vài lần thử thì ta sẽ có được flag
 
-![image](https://hackmd.io/_uploads/BkRYbwQAle.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image59.png)
 
 
 
@@ -1185,37 +1170,37 @@ POC:
 
 * Đăng ký account với role editor
 
-![image](https://hackmd.io/_uploads/ryFpuxZTll.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image60.png)
 
 * Bây giờ ta có thể dễ dàng đọc thông tin thông qua UUID
 
-![image](https://hackmd.io/_uploads/B1lbKl-Teg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image61.png)
 
 * Thử publish với collaborator là `admin`
 
-![image](https://hackmd.io/_uploads/rkKrYl-axg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image62.png)
 
 * Vào `collaborations` và thấy một request collaborator
  
-![image](https://hackmd.io/_uploads/HkDDFlWale.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image63.png)
 
 * Accept bằng 1 post request như sau
  
-![image](https://hackmd.io/_uploads/SJSJsebaeg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image64.png)
 
 * Tới đây ta vào post vừa mới đăng và có amdin collab và đã leak được UUID
  
-![image](https://hackmd.io/_uploads/HJpmsxZagg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image65.png)
  
-![image](https://hackmd.io/_uploads/BJsGjeWpxg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image66.png)
 
 * Đọc thông tin của user admin
 
-![image](https://hackmd.io/_uploads/Sykvigbaex.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image67.png)
 
 * Đăng nhập vào admin
 
-![image](https://hackmd.io/_uploads/BkO9jxbale.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image68.png)
 
 Vậy là ta đã vào được admin panel. Tới đây thì mình thấy có endpoint bị SSTI nhưng mà filter này nohope quá nên mình skip
 
@@ -1260,29 +1245,29 @@ def ban_user():
 
 Ta cũng thấy có `/db` và `/data` khá khả nghi nên mình thử vào
 
-![image](https://hackmd.io/_uploads/HyEP2gZTgx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image69.png)
 
 
-![image](https://hackmd.io/_uploads/BkPIhlW6le.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image70.png)
 
  
 File `secrets.zip` cần password nên mình khá chắc flag nằm trong này. Lúc này chỉ cần tìm password thui
 
-![image](https://hackmd.io/_uploads/Bk2Yng-pgg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image71.png)
 
 Thông tin trong old.db có phần password nhưng bị hash hết rồi nên mình skip
 
-![image](https://hackmd.io/_uploads/HkWypeZ6gg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image72.png)
 
 Thử tìm trong file `dbconnect.exe` xem
 
-![image](https://hackmd.io/_uploads/Bkpuaeb6xe.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image73.png)
 
 Password: `PUZZLE+7011_X207+!*`
 
 Đây rồiiii, mình thử extract và đã có flag
 
-![image](https://hackmd.io/_uploads/ry1JAeWTgx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image74.png)
 
 Flag: Securinets{777_P13c3_1T_Up_T0G3Th3R}
 
@@ -1290,11 +1275,11 @@ Flag: Securinets{777_P13c3_1T_Up_T0G3Th3R}
 
 Last weekend, I played CrewCTF 2025 with my team laevatain. There is a challenge related to CSS injection and Content Security Policy (CSP) called `Hate Notes`
 
-![image](https://hackmd.io/_uploads/H1bNUyy2gx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image75.png)
 
 And I'm the fifth one to solve it.
 
-![image](https://hackmd.io/_uploads/r1cBU113xl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image76.png)
 
 So let’s jot down what I did. The source is too long so I refer it here : https://github.com/threalwinky/CTF-archive/tree/main/hate-notes/hate-notes
 
@@ -1302,21 +1287,21 @@ So let’s jot down what I did. The source is too long so I refer it here : http
 
 First, let’s take a look at the website.
 
-![image](https://hackmd.io/_uploads/S1PhxYAoee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image77.png)
 
 This is just a normal note making website
 
-![image](https://hackmd.io/_uploads/ryMPhy13xx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image78.png)
 
 ### Recognize
 
 I try to make a simple note that contains XSS payload
 
-![image](https://hackmd.io/_uploads/rkG5nkJ2xe.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image79.png)
 
 But it is blocked by the CSP
 
-![image](https://hackmd.io/_uploads/HkBohkynxl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image80.png)
 
 And this is how the server defines CSP rule. It blocks all default-src `Content-Security-Policy: default-src 'none'`
 
@@ -1411,7 +1396,7 @@ if (reviewNoteId) {
 
 So we can easily add HTML via previewNote so that it will render in NoteID instead of creating a new note. I try this payload `<img src=x onerror=alert(1)>`, but I still get blocked by CSP
 
-![image](https://hackmd.io/_uploads/Sylmge12el.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image81.png)
 
 The reason is the server has set CSP rule for all default routes
 
@@ -1428,7 +1413,7 @@ app.use((req, res, next) => {
 
 Let's check with CSP evaluator, we can see that it's such a strong rule.
 
-![image](https://hackmd.io/_uploads/rkNBOlJ3gl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image82.png)
 
 
 ### The key
@@ -1460,7 +1445,7 @@ Now let's have a small test
 
 * create a note with title `* {color: red;}` and any content
 
-![image](https://hackmd.io/_uploads/Hk_vfl1nlg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image83.png)
 
 Copy it's ID and use this html :
 
@@ -1470,15 +1455,15 @@ Copy it's ID and use this html :
 
 Still be blocked
 
-![image](https://hackmd.io/_uploads/rJQTGgyhxg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image84.png)
 
 But what if we add `static/` path before ?
 
-![image](https://hackmd.io/_uploads/S1h17ly2xx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image85.png)
 
 Yeeeee! Now all the text have red color and css injection is completed. Now we can leak content of bot page with @font-face [Using @font-face in CSS injection](https://tripoloski1337.github.io/webex/2024/07/24/exfil-using-only-css.html#:~:text=Since%20there%E2%80%99s%20CSP%20in%20configured%2C%20So%20we%20can%20use%20%40font%2Dface%20and%20check%20if%20the%20unicode%20is%20in%20a%20specific%20range.%20For%20example.). So we need to see what to leak
 
-![image](https://hackmd.io/_uploads/HJhPVly3gg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image86.png)
 
 
 This is a bot POV and we can leak: 
@@ -1596,11 +1581,11 @@ report()
 
 when we run, the bot go to the link that contains CSS injection and it leaks first chars of 2 posts ID
 
-![image](https://hackmd.io/_uploads/SJ-Qwlkhee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image87.png)
 
 Now change `id` to 2 and continue to run script we will have next char. Use the same strategy we will have flag in remote: 
 
-![image](https://hackmd.io/_uploads/r1xSPgknxl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image88.png)
 
 `Flag: crew{now_you_solved_it_in_the_right_way_fBi4WVX1kGzPtavs}`
 
@@ -1608,7 +1593,7 @@ Now change `id` to 2 and continue to run script we will have next char. Use the 
 
 
 
-![image](https://hackmd.io/_uploads/Syg1BEXmee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image89.png)
 
 Source: https://github.com/threalwinky/CTF-archive/tree/main/My%20Flask%20App/
 
@@ -1904,15 +1889,15 @@ def login():
 
 Đăng nhập thành công: 
 
-![image](https://hackmd.io/_uploads/ryx9vEXmll.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image90.png)
 
 Dashboard của admin:
 
-![image](https://hackmd.io/_uploads/ryqoDEQmeg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image91.png)
 
 Để xem được profile thì mình tạo một user winky mới và sử dụng endpoint /users như sau:
 
-![image](https://hackmd.io/_uploads/SyrBjVmmlx.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image92.png)
 
 Ok và ta đã thành công đăng nhập admin và xem được bây giờ làm sao để thực hiện XSS? 
 
@@ -1989,7 +1974,7 @@ Ta ngó lại file render.html:
 
 Để ý răng bio truyền vào có thể là một html tag và được render nên ta có thể chèn vào iframe hoặc script. Nhưng ... bio chỉ chứa các char trong đoạn "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ".
 
-![image](https://hackmd.io/_uploads/SJLdoV77xe.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image93.png)
 
 Vậy làm sao để bypass? Ở đây mình để ý 
 
@@ -2001,9 +1986,9 @@ Khi render iframe thì web sẽ replace các dấu & có trong các attribute c�
 
 Và thành công ta đã chèn được một iframe vào profile như sau:
 
-![image](https://hackmd.io/_uploads/SkO5s47Qxg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image94.png)
 
-![image](https://hackmd.io/_uploads/S1inoVQQll.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image95.png)
 
 Từ đây, ta sẽ có hướng tấn công như sau:
 
@@ -2013,13 +1998,13 @@ Từ đây, ta sẽ có hướng tấn công như sau:
 
 Trước tiên ta sẽ bypass đoạn %26 trước để làm được thì ta add một đoạn bio như sau:
 
-![image](https://hackmd.io/_uploads/Bkah6EX7eg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image96.png)
 
-![image](https://hackmd.io/_uploads/B1N36VQ7ee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image97.png)
 
 Vậy là đã chèn được 2 param lúc này mình cần chỉnh lại param và window.name thành 'admin' như sau:
 
-![image](https://hackmd.io/_uploads/rJPH0NXQex.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image98.png)
 
 ```html!
 <iframe src='http://localhost:5000/render?bio=<iframe src=\"http://localhost:5000/render?bio=<script src=%27http://localhost:5000/static/users.js%27></script>%26js=alert(1)\" name=\"admin\" />' />
@@ -2027,7 +2012,7 @@ Vậy là đã chèn được 2 param lúc này mình cần chỉnh lại param 
 
 Trong đó bio là `<script src=%27http://localhost:5000/static/users.js%27>` để load file js, js là alert(1) để test XSS và window.name='admin' để thỏa yêu cầu. Và bumphhhhh....
 
-![image](https://hackmd.io/_uploads/HJvoCEXQll.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image99.png)
 
 Vậy là đã chạy script tùy ý thành công. Bây giờ ta phải tìm cách để lấy cookie của admin và lưu lại ở đâu đó để ta có thể xem lại vì đó là flag. Nhận ra rằng CSP đã cấm chạy lệnh fetch webhook vì fetch content không thuộc trang web lúc này ta mới nghĩ đến việc lấy cookie và thay đổi bio của admin vì ta cũng đang có thể truy cập tài khoản admin thông qua NoSQL injection.
 
@@ -2069,7 +2054,7 @@ fetch('http://localhost:5000/register', {
 
 Trong đó username là cookie đã được base64 đã bypass filter. Mình tiến hành base64 và có payload như sau:
 
-![image](https://hackmd.io/_uploads/BJoEgSm7xe.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image100.png)
 
 ```request!
 POST /update_bio HTTP/1.1
@@ -2099,13 +2084,13 @@ Connection: keep-alive
 
 Tiến hành report user winky và thấy có 1 request register như sau:
 
-![image](https://hackmd.io/_uploads/r1DseHQmee.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image101.png)
 
-![image](https://hackmd.io/_uploads/SyeP-HXmgl.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image102.png)
 
 Vậy là đã đăng ký được một user có username là flag. Bây giờ chỉ cần tìm user bằng /api/users
 
-![image](https://hackmd.io/_uploads/BkmhZrQ7xg.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image103.png)
 
 Solve script hoàn chỉnh:
 
@@ -2180,7 +2165,7 @@ get_flag(s)
 
 Và ta có flag: 
 
-![image](https://hackmd.io/_uploads/Sy9z_rQ7ge.png)
+![image](https://raw.githubusercontent.com/threalwinky/threalwinky.github.io/refs/heads/main/content/post/ctf/images/image104.png)
 
 `Flag: bi0sCTF{i_d0n't_f1nd_bugs!!_bug5_f1nd_m3:)}`
 
