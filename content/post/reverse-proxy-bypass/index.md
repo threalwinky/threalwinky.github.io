@@ -23,7 +23,7 @@ Reverse proxy is a popular technique for all web servers in the world.  One thin
 
 Reverse Proxy stands in front of the server and handles requests from clients, then forwards them to the appropriate backend server. Applications of Reverse Proxy: Increase security, Load balancing, Caching, SSL termination, etc.
 
-![image](https://hackmd.io/_uploads/H1j50Tn2xx.png)
+![image](./images/image0.png)
 
 Examples: Nginx, Apache, HAProxy, Cloudflare, etc.
 
@@ -156,7 +156,7 @@ Commercial support is available at
 </html>
 ```
 
-![image](https://hackmd.io/_uploads/ByUomi1Tlx.png)
+![image](./images/image1.png)
 
 #### Weakness
 
@@ -203,7 +203,7 @@ app.run('0.0.0.0', 5000)
 
 Without forward, we can see server header 
 
-![image](https://hackmd.io/_uploads/SyIp_A3hel.png)
+![image](./images/image2.png)
 
 With nginx
 
@@ -220,13 +220,13 @@ http {
 }
 ```
 
-![image](https://hackmd.io/_uploads/SJ7wtR3hlx.png)
+![image](./images/image3.png)
 
 we can also hide the nginx version with `server_tokens off;` which is not easily config in Flask
 
-![image](https://hackmd.io/_uploads/rkdBj022ll.png)
+![image](./images/image4.png)
 
-![image](https://hackmd.io/_uploads/Sk_-jR3ngl.png)
+![image](./images/image5.png)
 
 Now it seems safer. Now we can config another server just using `listen` and `proxy_pass` in this nginx config file. 
 
@@ -305,11 +305,11 @@ http {
 
 Now when we request an image file ends with `.png`, nginx will check if the image is cached or not, if not send the `miss` cache header.
 
-![image](https://hackmd.io/_uploads/Skb4PoJale.png)
+![image](./images/image6.png)
 
 Now request again and we got `hit`, this image is served by nginx
 
-![image](https://hackmd.io/_uploads/B1x2vikalg.png)
+![image](./images/image7.png)
 
 So where it stores ?
 
@@ -430,26 +430,26 @@ location = /admin/ {
 }
 ```
 
-![image](https://hackmd.io/_uploads/H1xHwr6hlg.png)
+![image](./images/image8.png)
 
 Now we add `a0` bytes after URL and we can easily bypass
 
-![image](https://hackmd.io/_uploads/BJVUvBp3el.png)
+![image](./images/image9.png)
 
 Now let's test with flask, we are also blocked
 
-![image](https://hackmd.io/_uploads/ByKwwSpneg.png)
+![image](./images/image10.png)
 
 Add `a0` bytes:
 
-![image](https://hackmd.io/_uploads/BkJPwra2lx.png)
+![image](./images/image11.png)
 
 
 So why it works?
 
 We will have a small test with `trim` function like this
 
-![image](https://hackmd.io/_uploads/r1Xesi1pgg.png)
+![image](./images/image12.png)
 
 So after trim the byte `\xa0` is deleted acting like    `\x20`. Now if we send `\xa0` to nginx, it bypasses ACL rule ad keeps the byte then forward to express then trim and execute. That is the vulnerability.
 
@@ -457,15 +457,15 @@ With flask, we might think that it will use strip() function but not. Let's debu
 
 When a request is made, it will create a `WSGIRequestHandler` object which inherites from `BaseHTTPRequestHandler` 
 
-![image](https://hackmd.io/_uploads/rkIG5if6lx.png)
+![image](./images/image13.png)
 
 jump into `BaseHTTPRequestHandler` and we can see that it uses `split` function to split requestline and somehow `\xa0` again deleted.
 
-![image](https://hackmd.io/_uploads/r1jz6sGall.png)
+![image](./images/image14.png)
 
 So now, we understand that nginx keeps bytes in URL but web services may delete them so we can bypass
 
-![image](https://hackmd.io/_uploads/BknsyefTxl.png)
+![image](./images/image15.png)
 
 For PHP-FPM, we can also bypass use the simple trick
 
@@ -485,11 +485,11 @@ For PHP-FPM, we can also bypass use the simple trick
 
 `admin.php` is blocked
 
-![image](https://hackmd.io/_uploads/BJZGx8anee.png)
+![image](./images/image16.png)
 
 Add `index.php` then we can bypass
 
-![image](https://hackmd.io/_uploads/rkjMgITngl.png)
+![image](./images/image17.png)
 
 
 
@@ -560,11 +560,11 @@ http {
 
 Try to request but blocked.
 
-![image](https://hackmd.io/_uploads/B1ZJgD6nxg.png)
+![image](./images/image18.png)
 
 change a to `%61` and we can easily bypass.
 
-![image](https://hackmd.io/_uploads/SyhJlva3ee.png)
+![image](./images/image19.png)
 
 
 #### Angular bypass
@@ -575,11 +575,11 @@ Challenge link: https://github.com/threalwinky/reverse-proxy-bypass/tree/main/tw
 
 There are 2 flags in this CTF challenge, but the second related to SSRF so I don't mention here.
 
-![image](https://hackmd.io/_uploads/SJox-vphge.png)
+![image](./images/image20.png)
 
 The first flag is in `/debug/answer` endpoint
 
-![image](https://hackmd.io/_uploads/SJiz-v6nxg.png)
+![image](./images/image21.png)
 
 But it seems to be blocked by nginx
 
@@ -604,12 +604,12 @@ server {
 }
 ```
 
-![image](https://hackmd.io/_uploads/r15ExDTngx.png)
+![image](./images/image22.png)
 
 So how can we bypass ? We can use `/\%64ebug/answer`
 
 
-![image](https://hackmd.io/_uploads/HJr5bwThxl.png)
+![image](./images/image23.png)
 
 This behavior occurs because Angular interprets the backslash \ as a forward slash / and also performs percent-decoding on the URL. As a result, the request is resolved to the path debug/answer.
 
@@ -620,7 +620,7 @@ GET / HTTP/1.1
 Host: \debug\answer
 ```
 
-![image](https://hackmd.io/_uploads/rywWmD6hge.png)
+![image](./images/image24.png)
 
 When Angular attempts to resolve the route, it constructs the full URL from the combination of PROTOCOL + HOST + PATH. By injecting \debug\answer as the host, Angular interprets the resulting URL as: `http://\debug\answer\`. During parsing, it normalizes the backslashes into forward slashes, extracting the path as `http:///debug/answer`.
 
@@ -645,7 +645,7 @@ Now we can use the feature of Angular that is `primary` segment https://github.c
 
 Angular treats the /(primary:...) expression as the primary outlet segment and normalizes/backslash-to-slash/percent-decodes those segments, resolving them to the route /debug/answer. So we can use `/(primary:debug/answer)` to get flag
 
-![image](https://hackmd.io/_uploads/H1C6AP6neg.png)
+![image](./images/image25.png)
 
 ### CRLF injection
 
@@ -683,11 +683,11 @@ Let's test with this payload:
 
 `/test%0aSet-Cookie:%20a=b`
 
-![image](https://hackmd.io/_uploads/BJm-fgx6ll.png)
+![image](./images/image26.png)
 
 Now we can set arbitrary cookie in the user session
 
-![image](https://hackmd.io/_uploads/HJgzMexage.png)
+![image](./images/image27.png)
 
 
 
@@ -723,17 +723,17 @@ http {
 }
 ```
 
-![image](https://hackmd.io/_uploads/r1XybE02ex.png)
+![image](./images/image28.png)
 
 So what is vuln here. if we query like `/image../secret/flag.txt` then it servers `/var/www/html/static/image/../secret/flag.txt`
 
 `GET /image../secret/flag.txt`
 
-![image](https://hackmd.io/_uploads/BJvxbER2ex.png)
+![image](./images/image29.png)
 
 Let's check the nginx log:
 
-![image](https://hackmd.io/_uploads/By_MbVRhxl.png)
+![image](./images/image30.png)
 
 To avoid this, just remove the slash
 
@@ -745,13 +745,13 @@ So that if request is `/image../secret/flag.txt` then `/var/www/html/static/imag
 
 Delimiter is a special thing that can make behaviour of reverse proxy different with web services. Example:
 
-![image](https://hackmd.io/_uploads/S1LxxFanlg.png)
+![image](./images/image31.png)
 
 POC link: https://github.com/threalwinky/reverse-proxy-bypass/tree/main/delimiter
 
 Now we have a simple tomcat server.
 
-![image](https://hackmd.io/_uploads/S1kSkF1Txe.png)
+![image](./images/image32.png)
 
 But `/manager/html` seems blocked by nginx
 
@@ -774,15 +774,15 @@ http {
 }
 ```
 
-![image](https://hackmd.io/_uploads/rJsSJY1pee.png)
+![image](./images/image33.png)
 
 So now we can use `;` to bypass and get admin access, the URL likes `/manager;test=/html`
 
-![image](https://hackmd.io/_uploads/r1TDkK16gx.png)
+![image](./images/image34.png)
 
 More delimiters can be found here. This can also causes web cache deception. 
 
-![image](https://hackmd.io/_uploads/r1Zcjbxpeg.png)
+![image](./images/image35.png)
 
 
 ### Regex bypass
@@ -808,7 +808,7 @@ location /firefly {
 
 The first regex will blocked all URL have normal characters. But we can easily bypass using newline `%0d%0a`. 
 
-![image](https://hackmd.io/_uploads/S1yO0bg6ex.png)
+![image](./images/image36.png)
 
 Now combine with CRLF injection we will able to read flag. 
 
@@ -818,7 +818,7 @@ POC link: https://github.com/threalwinky/reverse-proxy-bypass/tree/main/h2csmugg
 
 First we have a http/2 server like this
 
-![image](https://hackmd.io/_uploads/S1KRhgeple.png)
+![image](./images/image37.png)
 
 try to access `/flag` but it is blocked by nginx
 
@@ -845,21 +845,21 @@ server {
     }
 }
 ```
-![image](https://hackmd.io/_uploads/Sknp2glalg.png)
+![image](./images/image38.png)
 
 The normal request path can be described here:
 
-![image](https://hackmd.io/_uploads/rkC9Nfxpgx.png)
+![image](./images/image39.png)
 
 When using HTTP/1.1, we will send each request individually. So now what we can do ?
 
 We can upgrade the connection to HTTP/2 so that the tunnal between client and backend opens and `/flag` can be sent after using HTTP/2 multiplexing. So that, it also bypasses the reverse proxy.
 
-![image](https://hackmd.io/_uploads/HJ7NBfxale.png)
+![image](./images/image40.png)
 
 Using the script we can smuggle the request and get flag
 
-![image](https://hackmd.io/_uploads/rJRbogg6xe.png)
+![image](./images/image41.png)
 
 Other reverse proxies have the same behavior: 
 
@@ -880,7 +880,7 @@ Full technical analysis can be found here: https://bishopfox.com/blog/h2c-smuggl
 
 Some ways to bypass proxy using headers that I collected: 
 
-![image](https://hackmd.io/_uploads/ryxbKdUpnlg.png)
+![image](./images/image42.png)
 
 https://gist.github.com/kaimi-/6b3c99538dce9e3d29ad647b325007c1
 

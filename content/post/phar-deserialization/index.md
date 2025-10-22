@@ -26,15 +26,15 @@ authors:
 * File Contents: The original files that are included in the archive
 * Signature: A hash verifying the PHAR integrity
 
-![image](https://hackmd.io/_uploads/HJpzbTWOxx.png)
+![image](./images/image0.png)
 
 This is the detailed structure of this manifest
 
-![image](https://hackmd.io/_uploads/By2TMa-uxl.png)
+![image](./images/image1.png)
 
 Manifest structure of the above phar file: 
 
-![image](https://hackmd.io/_uploads/S1PFKLuuxl.png)
+![image](./images/image2.png)
 
 So there is a serialized object in metadata. We should keep an eye on it.
 
@@ -79,7 +79,7 @@ system($_GET["cmd"]);
 
 And we can run php file in apache server
 
-![image](https://hackmd.io/_uploads/Hybbt6bdll.png)
+![image](./images/image3.png)
 
 
 ### Insecure Deserialization
@@ -108,7 +108,7 @@ class User{
 $a = new User('winky', 18);
 ?>
 ```
-![image](https://hackmd.io/_uploads/r1scipbOgg.png)
+![image](./images/image4.png)
 
 By using unserialize() function we can override $func and $name thereby get RCE
 
@@ -127,7 +127,7 @@ echo serialize($ser);
 ?>
 ```
 
-![image](https://hackmd.io/_uploads/BkNQ1RZuee.png)
+![image](./images/image5.png)
 
 
 ## Phar Deserialization
@@ -136,7 +136,7 @@ echo serialize($ser);
 
 Remember the serialized metadata in phar manifest ? So what if we put a malicious object and deserialize it ? In PHP <= 7.4, many file-related functions will automatically deserialize a Phar's metadata if accessed via phar://. Those functions are 
 
-![image](https://hackmd.io/_uploads/rynpNRZdel.png)
+![image](./images/image6.png)
 
 and move_uploaded_file, mime_content_type, readgzfile, md5_file, gzopen, gzfile, etc.
 
@@ -168,11 +168,11 @@ You can use one of the functions mentioned above to trigger it — for example, 
 
 PHP8:
 
-![image](https://hackmd.io/_uploads/SJAAdA-Ogx.png)
+![image](./images/image7.png)
 
 PHP7.4:
 
-![image](https://hackmd.io/_uploads/Hk2Vdw__eg.png)
+![image](./images/image8.png)
 
 => So this bug is still present in PHP 7.4 and has been fixed in PHP 8.
 
@@ -245,10 +245,10 @@ int phar_parse_metadata(char **buffer, zval *metadata, uint32_t zip_metadata_len
 
 Both CVEs have a high score of 9.8 according to Snyk.
 
-![image](https://hackmd.io/_uploads/HJpU9R-_lx.png)
+![image](./images/image9.png)
 
 
-![image](https://hackmd.io/_uploads/r1dV48oPeg.png)
+![image](./images/image10.png)
 
 ### knplabs/knp-snappy
 
@@ -323,7 +323,7 @@ protected function prepareOutput($filename, $overwrite)
 
 And the fileExists() method internally calls PHP’s native file_exists() function
 
-![image](https://hackmd.io/_uploads/HJ_Jjv__el.png)
+![image](./images/image11.png)
 
 
 file_exists is called and it's one of the file accessed function above. So, what happens if we pass a phar:// wrapper stream to it?
@@ -358,17 +358,17 @@ try{
 ?>
 ```
 
-![image](https://hackmd.io/_uploads/r1XAOwuuxe.png)
+![image](./images/image12.png)
 
 ### Is it fixed?
 
 This patch was committed on the version 1.4.2 to fix CVE-2023-28115: [CVE-2023-28115 fix](https://github.com/KnpLabs/snappy/commit/1ee6360cbdbea5d09705909a150df7963a88efd6). Now prepareOutput function will checks if phar:// is in filename or not
 
-![image](https://hackmd.io/_uploads/HkLAW1MOxl.png)
+![image](./images/image13.png)
 
 But the bug is still there. This is because the wrapper scheme is case-insensitive, according to [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986#section-6.2.2.1) Therefore, we can use an uppercase wrapper — for example, PHAR://.
 
-![image](https://hackmd.io/_uploads/SJ8B7yGuxx.png)
+![image](./images/image14.png)
 
 
 If the vulnerable code uses strpos() for wrapper checks without normalizing the case, the check becomes bypassable. So, using PHAR:// instead of phar:// allows us to bypass the filter.
@@ -389,7 +389,7 @@ try{
 ?>
 ```
 
-![image](https://hackmd.io/_uploads/Sy26hD_uxx.png)
+![image](./images/image15.png)
 
 And this is CVE-2023-41330. After that a commit to use parse_url on version 1.4.3 have fixed both above CVE
 
@@ -397,7 +397,7 @@ And this is CVE-2023-41330. After that a commit to use parse_url on version 1.4.
 
 ## CVE-2024-34515
 
-![image](https://hackmd.io/_uploads/BJnU48sDle.png)
+![image](./images/image16.png)
 
 ### image-optimizer
 
@@ -490,7 +490,7 @@ $optimizerChain->optimize("phar://test.phar");
 
 There are lots of warnings, but it still results in RCE on the server.
 
-![image](https://hackmd.io/_uploads/r1T90wudgl.png)
+![image](./images/image17.png)
 
 ### Fixing
 
@@ -528,7 +528,7 @@ Phar deserialization in PHP does not depend on the file extension. That means ev
 
 POC:
 
-![image](https://hackmd.io/_uploads/SkB3bdOull.png)
+![image](./images/image18.png)
 
 However, you can't use a file without a proper extension (e.g., test, abc, or test,abc), because PHP functions like pathinfo() rely on file extensions to determine behavior.
 
@@ -546,7 +546,7 @@ $phar->setMetadata($obj);
 $phar->stopBuffering();
 ```
 
-![image](https://hackmd.io/_uploads/HklUGddugl.png)
+![image](./images/image19.png)
 
 `Add appropriate magic bytes to fool MIME detection. => Bypass the mime_content_type() function`
 
@@ -575,7 +575,7 @@ $dom->loadXML($xml,LIBXML_NOENT);
 
 ### POC
 
-![image](https://hackmd.io/_uploads/Sk4rkFudee.png)
+![image](./images/image20.png)
 
 ### Root cause
 
@@ -661,7 +661,7 @@ How to Exploit Phar Deserialization with PHPGGC ?
 `phpggc -f Monolog/RCE1 exec 'touch pwned' -p phar -o exploit.phar`
 * Now you can work with it
 
-![image](https://hackmd.io/_uploads/rJe9a1fOex.png)
+![image](./images/image21.png)
 
 You can notice that there are two files was created exploit.phar and pwned 
 
@@ -704,7 +704,7 @@ $phar->stopBuffering();
 
 Now use `php -d phar.readonly=0 chain.php` to create phar file and you will get RCE
 
-![image](https://hackmd.io/_uploads/rkkZayzOxl.png)
+![image](./images/image22.png)
 
 ## Phar Stub Bypass with gzip
 
@@ -728,17 +728,17 @@ $phar->stopBuffering();
 
 So it still works to run PHP code
 
-![image](https://hackmd.io/_uploads/H1FxW9OOxl.png)
+![image](./images/image23.png)
 
 But what if we gzip this file ??
 
-![image](https://hackmd.io/_uploads/SJSNbqddel.png)
+![image](./images/image24.png)
 
 Yeah it keeps working. 
 
 How about gzip of gzip ????
 
-![image](https://hackmd.io/_uploads/rJeD-cOull.png)
+![image](./images/image25.png)
 
 This is really cool. So we can use this to include and run php code without `<?php?>` tag
 
@@ -750,7 +750,7 @@ Pull Request for the fix: [php/php-src#5855](https://github.com/php/php-src/pull
 
 However, the Phar::getMetadata() function still performs unserialize() on the internal metadata — so you must be careful when using this function, especially with user-controlled input.
 
-![image](https://hackmd.io/_uploads/Sy_rW4Mdgx.png)
+![image](./images/image26.png)
 
 ## Prevention
 
