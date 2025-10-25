@@ -30,7 +30,7 @@ Giải này mình đánh với team aespaFanClub và đạt top 70 thế giới 
 | Web      | Global Backups | Hard |
 ## Lost Program
 
-![image](https://hackmd.io/_uploads/H1zr20Ifke.png)
+![image](./images/image0.png)
 
 
 #### Hints
@@ -40,14 +40,14 @@ Giải này mình đánh với team aespaFanClub và đạt top 70 thế giới 
 #### Solution
 
 Sau khi vào trang mình tìm những keyword liên quan đến todo như kiwi, bug, game và có một program có cả 3 keyword đó
-![image](https://hackmd.io/_uploads/Sy7M6RUfkg.png)
+![image](./images/image1.png)
 Truy cập vào trang và mình có tên company cần tìm
-![image](https://hackmd.io/_uploads/SytQpAIf1l.png)
+![image](./images/image2.png)
 Flag : INTIGRITI{ninja_kiwi_games}
 
 ## BabyFlow
 
-![image](https://hackmd.io/_uploads/HkHoTCIMkg.png)
+![image](./images/image3.png)
 
 #### Source
 
@@ -61,21 +61,21 @@ https://drive.google.com/file/d/1dcY6ek9Pj-bUg4OxYG2-AyTMIOZUpGPU/view?usp=shari
 
 Sau khi đọc file babyflow bằng IDA mình nhận được hàm main như sau
 
-![image](https://hackmd.io/_uploads/H1qpaAIfyx.png)
+![image](./images/image4.png)
 
 Ở đây có hai điều kiện để có flag là chuỗi s nhập vào có 16 ký tự đầu trùng với **SuPeRsEcUrEPaSsWoRd123** và biến **v5** khác 0
 
 
 Nên mình sẽ nhập 16 ký tự đầu trùng với yêu cầu và chuỗi sau để buffer overflow xuống v5
 
-![image](https://hackmd.io/_uploads/BklO43YPzke.png)
+![image](./images/image5.png)
 
 Flag : INTIGRITI{b4bypwn_9cdfb439c7876e703e307864c9167a15}
 
 
 ## Pizza Paradise
 
-![image](https://hackmd.io/_uploads/BJ-5JyPGke.png)
+![image](./images/image6.png)
 
 #### Hints
 
@@ -85,48 +85,48 @@ Flag : INTIGRITI{b4bypwn_9cdfb439c7876e703e307864c9167a15}
 
 Trang web yêu cầu đọc một thứ gì đó được ẩn trong web này
 
-![image](https://hackmd.io/_uploads/ryV-gyvf1g.png)
+![image](./images/image7.png)
 
 Mình thử dirsearch trang web này và có thấy 2 file có thể vào được
 
-![image](https://hackmd.io/_uploads/rJdCf1Pfkg.png)
+![image](./images/image8.png)
 
 Vì login.php chặn quyền truy cập nên mình xem thử file robots.txt và cũng bị chặn bởi một file secret_172346606e1d24062e891d537e917a90.html
 
-![image](https://hackmd.io/_uploads/Hk0HlkPM1x.png)
+![image](./images/image9.png)
 
 Vào thử file trên và bắt chúng ta phải đăng nhập 
-![image](https://hackmd.io/_uploads/SkMV7kPG1e.png)
+![image](./images/image10.png)
 
 Mình thử bật devtool lên và xem được 2 file này
 
-![image](https://hackmd.io/_uploads/Skmnm1vzJl.png)
+![image](./images/image11.png)
 
 
-![image](https://hackmd.io/_uploads/BJCaXJvMJx.png)
+![image](./images/image12.png)
 
 Có lẽ là username là agent_1337 và mật khẩu đã được mã hoá sha256 nên mình sẽ thực hiện crack password trên
 
-![image](https://hackmd.io/_uploads/SJxWhJvz1e.png)
+![image](./images/image13.png)
 
 Sau khi có được mật khẩu là intel420, mình đăng nhập vào và đến được 1 trang download ảnh như sau
 
-![image](https://hackmd.io/_uploads/rJ-tBkwGkx.png)
+![image](./images/image14.png)
 
 Mình thử tài xuống một ảnh và nhận được request như sau
-![image](https://hackmd.io/_uploads/HJrSLkvM1g.png)
+![image](./images/image15.png)
 Sau khi thử gửi request để lấy file /etc/passwd thì mình xác nhận trang web này đã dính lỗi path traversal
-![image](https://hackmd.io/_uploads/r1iYIkDMJx.png)
+![image](./images/image16.png)
 
 Mình thử truy cập vào các file trước và đã có flag tại file top secret
 
-![image](https://hackmd.io/_uploads/HyWrwyvzke.png)
+![image](./images/image17.png)
 
 Flag : INTIGRITI{70p_53cr37_m15510n_c0mpl373}
 
 ## BioCorp
 
-![image](https://hackmd.io/_uploads/r14-rxvGyx.png)
+![image](./images/image18.png)
 
 #### Source
 https://drive.google.com/file/d/1B9AMaY2-SG8MwUwvoDGKXxWDJaWUZjQN/view?usp=sharing
@@ -141,49 +141,49 @@ Sau khi đọc hết source code của web thì mình thấy ba điều
 
 * File flag.txt được đặt trong file system
 
-![image](https://hackmd.io/_uploads/SymOSeDMkl.png)
+![image](./images/image19.png)
 
 * Server sẽ đọc và load XML trong input của request
 
-![image](https://hackmd.io/_uploads/r1L0rgvfye.png)
+![image](./images/image20.png)
 
 * Server sẽ trả ra các thông tin đã được load từ XML
 
-![image](https://hackmd.io/_uploads/HkMG8xDfke.png)
+![image](./images/image21.png)
 
 Từ đây mình có ý tưởng là sẽ đọc file /flag.txt từ XML và load vào PHP để đọc
 
 Đầu tiên mình vào trang panel.php và bị chặn 
 
-![image](https://hackmd.io/_uploads/Hy_0UePzkx.png)
+![image](./images/image22.png)
 
 Mình đọc lại file và thấy để request được thì phải là POST request, có header X-BIOCORP-VPN có giá trị 80.187.61.102, có header CONTENT-TYPE là application/xml và phía dưới sẽ có input dạng XML
 
-![image](https://hackmd.io/_uploads/HkYlPgvGkl.png)
+![image](./images/image23.png)
 
 Nên mình sửa lại thành request như sau
 
-![image](https://hackmd.io/_uploads/rJYgtePzye.png)
+![image](./images/image24.png)
 
 
 Sau khi chạy chúng ta thấy các trường thông tin từ XML đã được load vào trang 
 
-![image](https://hackmd.io/_uploads/BJBftlDzye.png)
+![image](./images/image25.png)
     
 Từ đây ta sẽ sử dụng xxe để đọc file /flag.txt
 
-![image](https://hackmd.io/_uploads/HyHOFeDzye.png)
+![image](./images/image26.png)
 
 Và chúng ta đã có được flag
 
-![image](https://hackmd.io/_uploads/ry_ttgPf1l.png)
+![image](./images/image27.png)
 
 Flag :
 INTIGRITI{c4r3ful_w17h_7h053_c0n7r0l5_0r_7h3r3_w1ll_b3_4_m3l7d0wn}
 
 ## Quick Recovery
 
-![image](https://hackmd.io/_uploads/rJclqevGJg.png)
+![image](./images/image28.png)
 
 #### Source
 https://drive.google.com/file/d/1yVnv3QzzBJn8FGedbhvmP6EL7J6xgNgB/view?usp=sharing
@@ -196,7 +196,7 @@ https://drive.google.com/file/d/1yVnv3QzzBJn8FGedbhvmP6EL7J6xgNgB/view?usp=shari
 
 Đề bài cho mình một file ảnh và một file python như sau
 
-![image](https://hackmd.io/_uploads/rkcSqgDG1l.png)
+![image](./images/image29.png)
 
 <details><summary>gen.py</summary>
     
@@ -271,17 +271,17 @@ Có lẽ đề muốn mình sắp xếp lại ảnh để scan ra flag qua hai b
 
 Sau một hồi brute force thì mình nhận ra a_order là sắp xếp của 4 tam giác trái trên và b_order là ngược lại nên mình sắp xếp lại như sau
 
-![image](https://hackmd.io/_uploads/r11zjlwGJg.png)
+![image](./images/image30.png)
 
 Và có được QR hoàn chỉnh như sau
 
-![image](https://hackmd.io/_uploads/BkpAjevGye.png)
+![image](./images/image31.png)
 
 Flag : INTIGRITI{7h475_h0w_y0u_r3c0n57ruc7_qr_c0d3}
 
 ## Triage Bot v2
 
-![image](https://hackmd.io/_uploads/S1X43lPMyx.png)
+![image](./images/image32.png)
 
 
 #### Hints
@@ -292,25 +292,25 @@ Flag : INTIGRITI{7h475_h0w_y0u_r3c0n57ruc7_qr_c0d3}
 
 Bài này mình sẽ vào discord của BTC và tìm một tính năng mới của bot
 
-![image](https://hackmd.io/_uploads/SkdZ5KvM1l.png)
+![image](./images/image33.png)
 
 Sau khi thử lệnh read_report thì cần yêu cầu phải có role triage
 
 Nên mình sẽ mời bot này về server riêng của mình để cấp role và chạy lại
 
-![image](https://hackmd.io/_uploads/rkpL9FvGkl.png)
+![image](./images/image34.png)
 
 Sau khi chạy với role triage thì mình nhận được thông tin của một CVE ngẫu nhiên và với một CVE có 1 id ngẫu nhiên
 
 Sau đó mình brute force các id của CVE và nhận được flag khi có id là 0
 
-![image](https://hackmd.io/_uploads/HJYscYPzyg.png)
+![image](./images/image35.png)
 
 Flag : INTIGRITI{4n07h3r_y34r_4n07h3r_7r1463_b07}
 
 ## Cat Club
 
-![image](https://hackmd.io/_uploads/By-B519Xye.png)
+![image](./images/image36.png)
 
 #### Source
 
@@ -324,14 +324,14 @@ https://drive.google.com/file/d/1exDMJIHVMS4oBx_zfiDIdy5auxZCnSuS/view?usp=shari
 
 Bài này cho ta một trang web sau : 
 
-![image](https://hackmd.io/_uploads/Hy1Qcyqmyl.png)
+![image](./images/image37.png)
 Mình thử đăng ký vào trang web này
-![image](https://hackmd.io/_uploads/SJLo3g57Jx.png)
-![image](https://hackmd.io/_uploads/Hyk0nx5myg.png)
+![image](./images/image38.png)
+![image](./images/image39.png)
 
 Mở thử devtools và phát hiện trang web sử dụng JWT để quản lý 
 
-![image](https://hackmd.io/_uploads/Sk7pug9QJe.png)
+![image](./images/image40.png)
 
 
 Sau khi đọc hết source code thì mình để ý đến 2 router này : 
@@ -366,7 +366,7 @@ router.get("/jwks.json", async (req, res) => {
 
 Mình thử truy cập vào router này và nhận được  json sau : 
 
-![image](https://hackmd.io/_uploads/SkHE2J5QJe.png)
+![image](./images/image41.png)
 
 <details>
     <summary>keys</summary>
@@ -435,7 +435,7 @@ fT5HJjSRu/JmGlYCrFSof5p/E0WPyCUbAV5rfgTm2CewF7vIP1neI5jwlcm22X2t
 dwIDAQAB
 -----END PUBLIC KEY-----
 ```
-![image](https://hackmd.io/_uploads/B1UWIeqX1l.png)
+![image](./images/image42.png)
 
 Sau khi tìm được public key mình nghĩ là sẽ liên quan đến khai thác việc thay đổi người dùng và yeah khi nhìn vào endpoint /cats và file pug sau : 
 
@@ -495,13 +495,13 @@ block content
 Để ý dòng **template = template.replace(/guest/g, req.user);** và **h1 Welcome to the Cat Gallery, guest!** thì mình xác nhận trang web đã bị lỗi server side template injection(honestly, lúc đầu chưa biết lỗi của trang web này là gì nhưng nhìn chữ template mới phát hiện ra :)) )
 
 Mình thử decode đoạn JWT của trang web sau khi login thì nhận được như sau
-![image](https://hackmd.io/_uploads/Byhgx-9Qkg.png)
+![image](./images/image43.png)
 có lẽ trang web sẽ lấy trường username và load vào file cats.pug nên mình thay đổi giá trị lại thành 1+1 để xác nhận 
 
-![image](https://hackmd.io/_uploads/HJRdl-q71l.png)
+![image](./images/image44.png)
 
 Sau khi đổi JWT thì ta nhận được số 2 ở phần welcome and ye có lẽ mình đã tìm được bug 
-![image](https://hackmd.io/_uploads/Sk42eW9XJx.png)
+![image](./images/image45.png)
 
 cuối cùng mình sẽ đọc file flag bằng payload sau : 
 
@@ -525,9 +525,9 @@ https://www.warp.dev/terminus/linux-wildcards#asterisk-and-question-mark-are-the
 
 Cuối cùng ta thay payload vào nhận được JWT mới thay vào cookie của web để nhận được flag 
 
-![image](https://hackmd.io/_uploads/B1_MWb97ye.png)
+![image](./images/image46.png)
 
-![image](https://hackmd.io/_uploads/SyANX-qX1l.png)
+![image](./images/image47.png)
 
 Flag : INTIGRITI{h3y_y0u_c4n7_ch41n_7h053_vuln5_l1k3_7h47}
 
@@ -540,7 +540,7 @@ Dưới đây là các bài mình làm sau contest bao gồm SafeNotes 2.0, Gree
 
 ## SafeNotes 2.0
 
-![image](https://hackmd.io/_uploads/SJ7O1Gl4kx.png)
+![image](./images/image48.png)
 
 
 #### Source
@@ -555,11 +555,11 @@ Cross Site Scripting (XSS) and Client Side Path Traversal (CPST)
 
 Đề bài cho mình một trang web sau có tính năng bao gồm tạo, lưu trữ và chia sẻ note
 
-![image](https://hackmd.io/_uploads/BJb41t1Nkg.png)
+![image](./images/image49.png)
 
 Mình thử đăng ký và đăng nhập và được trang web đưa đến trang dashboard sau bao gồm các tính năng sau : 
 
-![image](https://hackmd.io/_uploads/HJy_kty4Je.png)
+![image](./images/image50.png)
 
 * Create Note : Nhận content của note và tạo một note có id và bao gồm id của user được lưu trong database
 
@@ -594,7 +594,7 @@ class Note(db.Model):
     
 </details>
 
-![image](https://hackmd.io/_uploads/SydNHYJV1e.png)
+![image](./images/image51.png)
 
 
 * View Note : Nhận vào id của note và show ra content của note
@@ -613,7 +613,7 @@ def view_note():
 ``` 
 </details>
 
-![image](https://hackmd.io/_uploads/SkwfHK1V1e.png)
+![image](./images/image52.png)
 
 
 * Contact : Nhận vào name và message để liên hệ 
@@ -778,21 +778,21 @@ Phân tích các endpoint trên :
 <h1>Hello</h1> world
 ```
 Header tag h1 được thực thi
-![image](https://hackmd.io/_uploads/rJ00rF141e.png)
+![image](./images/image53.png)
 
 ```html=
 <script>alert(123)</script>
 ```
 Tag script biến mất nhưng lệnh không được thực thi
 
-![image](https://hackmd.io/_uploads/rkkoIKkVyg.png)
+![image](./images/image54.png)
 
 ```html=
 <img src=winky onerror=alert(123) />
 ```
 
 Tag img hiển thị và bị lỗi nhưng lệnh không được thực thi
-![image](https://hackmd.io/_uploads/SyVQDFJE1e.png)
+![image](./images/image55.png)
 
 * Như vậy các payload thực thi lệnh không khả thi thì làm sao để xss ? Nhìn lại file view.html mà chúng ta dùng để xem note nãy giờ thì phát hiện note content của mình đã được DOM purify xử lí nên không thể thực thi lệnh js qua đó mình có ý tưởng xss qua endpoint khác 
 
@@ -934,12 +934,12 @@ Tag img hiển thị và bị lỗi nhưng lệnh không được thực thi
 
 * Đọc sơ đoạn logNoteAccess có thể thấy nó sẽ fetch /api/notes/log + sanitizedUsername, trong đó sanitizedUsername là để lấy user hiện tại. Nếu user hiện tại là rỗng thì sẽ lấy từ param là name từ đó mình có ý tưởng là path traversal url từ /api/notes/log thành / . Sao để làm được như vậy ? Thì mình sẽ đặt username của web thành "" bằng cách inject html sau vào ```<p id="username"></p>```. 
 
-![image](https://hackmd.io/_uploads/r1c8FcyV1g.png)
+![image](./images/image56.png)
 
 * Kĩ thuật trên là DOM clobbering là dùng html để tác động js của một trang web. Sau đó chúng ta chỉ cần thêm param name=../../../ là có thể path traversal về / . Khoan ! Để tránh điều trên thì ở hàm fetch có sử dụng ```const sanitizedNoteId = decodedNoteId.replace(/\.\.[\/\\]/g, '');``` để biến các "../" thành "". Để dễ dàng bypass được cái này thì mình sẽ double ../ lên cụ thể sẽ thành ....// qua đó qua hàm replace trên thì ..(../)/ sẽ về ../ cuối cùng ta có param sau ```name=....//....//....// + endpoint```
 * Vậy endpoint nào mình sẽ sử dụng ? Có thể thấy chỉ có /contact là lấy thông tin từ url và render ra trường 'name' và nên mình nghĩ có thể tận dụng để truyển vào xss
 
-![image](https://hackmd.io/_uploads/HkWie9yE1e.png)
+![image](./images/image57.png)
 
 ```python=
 if request.is_json:
@@ -959,7 +959,7 @@ if request.is_json:
 
 Sau khi chạy thì mình nhận được lỗi sau 
 
-![image](https://hackmd.io/_uploads/HJXS_9yV1x.png)
+![image](./images/image58.png)
 
 * Mình tìm error Logging failed và nó ở trong đoạn code này 
 
@@ -982,11 +982,11 @@ Sau khi chạy thì mình nhận được lỗi sau
 </div> -->
 ```
 
-![image](https://hackmd.io/_uploads/ByUmYq1EJg.png)
+![image](./images/image59.png)
 
 * Sau khi tạo lại note mới và sử dụng payload cũ thì mình nhận được kết quả sau
 
-![image](https://hackmd.io/_uploads/HkPEt5y4Jg.png)
+![image](./images/image60.png)
 
 * Yeah ! Everything works fine. Việc của mình là chỉnh lại payload để fetch cookie từ bot thông qua /report thôi 
 
@@ -994,12 +994,12 @@ Sau khi chạy thì mình nhận được lỗi sau
 
 Kết quả sau khi submit
 
-![image](https://hackmd.io/_uploads/ryvyockNJl.png)
+![image](./images/image61.png)
 
 
 Well, có vấn đề sau khi mình submit nên mình sẽ đọc lại /report
 
-![image](https://hackmd.io/_uploads/H1t4oqJE1l.png)
+![image](./images/image62.png)
 
 có thể thấy noteid sẽ lấy 36 ký tự cuối của url nên mình sẽ đổi payload lại là 
 
@@ -1007,17 +1007,17 @@ có thể thấy noteid sẽ lấy 36 ký tự cuối của url nên mình sẽ 
 
 Sau khi chạy lại thì mình cũng submit thành công
 
-![image](https://hackmd.io/_uploads/HkkZ29JEke.png)
+![image](./images/image63.png)
 
 Kiểm tra server ở đây mình dùng webhook để catch request và nhận được request sau chứa flag 
 
-![image](https://hackmd.io/_uploads/H1QX39k41e.png)
+![image](./images/image64.png)
 
 Flag : INTIGRITI{plz_solve_locally_first_THEN_repeat_on_remote_server}
 
 ## Greetings
 
-![image](https://hackmd.io/_uploads/Skb2XBrNyg.png)
+![image](./images/image65.png)
 
 #### Source
 
@@ -1031,9 +1031,9 @@ Proxy FTP request and CR-LF injection
 
 Đề bài cho mình một trang web sau có chức năng là nhập vào tên và hiển thị tên mà mình vừa nhập
 
-![image](https://hackmd.io/_uploads/S1c_gw7Nke.png)
+![image](./images/image66.png)
 
-![image](https://hackmd.io/_uploads/rkWJbDQEyx.png)
+![image](./images/image67.png)
 
 Sau khi mình thử các lỗi xss và ssti không thành công nên mình đọc lại source code và phân tích : 
 
@@ -1120,7 +1120,7 @@ app.listen(3000, () => {
  
 Thêm nữa, input đã được filter bằng hàm **req.path.replace(/^\/+|\/+$/g, "")** để xoá các ký tự "/" ở đầu hoặc cuối request. Hình như filter này dùng để ngăn lỗi liên quan đến path hay gì đó mình cũng không rõ
 
-![image](https://hackmd.io/_uploads/Skl0mKBHNJl.png)
+![image](./images/image68.png)
 
 * Cuối cùng, ta nhìn qua service php và phân tích những thứ thú vị trong file này. Đầu tiên, php nhận vào POST data và gán vào session bao gồm các trường name, protocol, options.
 
@@ -1209,17 +1209,17 @@ if(isset($_POST['hello']))
 
 https://www.php.net/manual/en/function.fopen.php
 
-![image](https://hackmd.io/_uploads/ryexNwHN1g.png)
+![image](./images/image69.png)
 
 Vì vậy mình search những protocols có các context options khả dụng trong php
 
-![image](https://hackmd.io/_uploads/SkfCpwH4kg.png)
+![image](./images/image70.png)
 
 Và mình có search FTP context options trong php sẽ bao gồm phần proxy là 
 
 https://www.php.net/manual/en/context.ftp.php
 
-![image](https://hackmd.io/_uploads/HJI_VvHVkg.png)
+![image](./images/image71.png)
 
 OK thì mình có thể sẽ sử dụng ftp request để proxy qua port 5000 và endpoint /flag được truyền thông qua param name thông qua host là port 3000
 
@@ -1258,13 +1258,13 @@ Vậy payload cuối cùng ta có là
 
 Send request và ta có flag
 
-![image](https://hackmd.io/_uploads/Sy8q7vrN1e.png)
+![image](./images/image72.png)
 
 Flag : INTIGRITI{fake_flag}
 
 ## Sushi Search 
 
-![image](https://hackmd.io/_uploads/Bkwahd84kg.png)
+![image](./images/image73.png)
 
 #### Source 
 
@@ -1278,9 +1278,9 @@ XSS, Missing charset, Boost character set
 
 Đề bài cho mình một trang web sau
 
-![image](https://hackmd.io/_uploads/S1VJ_uYEye.png)
+![image](./images/image74.png)
 
-![image](https://hackmd.io/_uploads/ryVNOOFN1l.png)
+![image](./images/image75.png)
 
 Source code của web :
 
@@ -1503,22 +1503,22 @@ Phân tích :
 * Nhưng mà làm gì dễ thế... các url khi ta truyền vào bị sanitized trước khi render nên mình không thể thực hiện xss như bình thường được nên phải thông qua một cách nào đó 
 * Và có một vấn đề mình có thể khai thác đó là trang web bị thiếu charset trong các response mình gửi lên 
 
-![image](https://hackmd.io/_uploads/rk9XvFANke.png)
+![image](./images/image76.png)
 
 * Vậy làm sao để mình exploit vấn đề này. Sau khi đọc blog của sonarsource về missang charset https://www.sonarsource.com/blog/encoding-differentials-why-charset-matters/ thì mình đã có ý tưởng để bypass hàm sanitize. Giả sử payload của mình trong các bài XSS cơ bản là ```<img src=x onerror=alert(1) />``` sẽ bị sanitize nhưng khi ta truyền như thế này ```<a id="><img src=a onerror=alert(1)>">``` thì trong nhiều bộ encoding khác sẽ encode thành ```<a id=\"><img src=a onerror=alert(1)>\">``` và browser sẽ hiểu rằng đây là một id string thông thường nhưng khi ta sử dụng bộ encoding ISO-JP-2022 thì sẽ trờ thành ```<a id=¥"><img src=a onerror=alert(1)>¥">``` và tag img đã thoát ra ngoài có thể thực thi. Từ đó ta có thể element a được tách ra thành 2 element và ta có thể bypass được sanitize.
 * Ok vấn đề thứ 2 là khi mình check charset của trang web thì mình nhận được kết quả là windows-1252 chứ không phải là ISO-JP-2022 mà ta mong muốn. 
 
-![image](https://hackmd.io/_uploads/r1LNPYAVkl.png)
+![image](./images/image77.png)
 
 * Mình có thử tìm hiểu thì khi trang web không có charset encoding thì browser sẽ tự detect xem charset nào được nên sử dụng và trường hợp ở đây là windows-1252. Mình có ngó qua source và frontend thì có chỗ sau là chứa ký tự đặc biệt nên chắc browser detect ra. 
 
-![image](https://hackmd.io/_uploads/Bkxgki0NJe.png)
+![image](./images/image78.png)
 
 * Vậy làm sao để chuyển đổi charset ? Mình có thử đọc qua source của chromium mới biết có cái gọi là boost dùng để tăng value của bộ encode. Sau đó browser sẽ dựa vào bộ nào có value cao nhất sẽ sử dụng cho web.
 
-![image](https://hackmd.io/_uploads/B1YeZiANkg.png)
+![image](./images/image79.png)
 
-![image](https://hackmd.io/_uploads/SJx2KF041l.png)
+![image](./images/image80.png)
 
 * Vậy ý tưởng của mình là sẽ spam cho bộ ISO-JP-2022 lên để chuyển đổi. Nhưng bằng cách nào? thì như hình trên chỉ cần trong web có các ký tự <esc>(B, <esc>(J, <esc>\$@, <esc>\$B là sẽ boost được điểm của ISO-JP-2022. Các ký tự trên là escape character để chuyển đổi các bộ charsets. Từ đó ý tưởng của mình là swap 2 bộ charset liên tục sao cho tăng điẻm lên nhưng ở đây phải sử dụng <esc>(B cuối cùng để sử dụng ASCII. Qua đó mình có thể truyền vào payload sau để boost ở dây mình xài <esc>\$@
 
@@ -1530,7 +1530,7 @@ Sau khi sử dụng payload trên thì mình đã chuyển đổi được encod
 
 
     
-![image](https://hackmd.io/_uploads/r1XGjM1Skl.png)
+![image](./images/image81.png)
 
 Kết hợp với payload XSS trên thì mình có payload sau 
     
@@ -1540,11 +1540,11 @@ Kết hợp với payload XSS trên thì mình có payload sau
 
 Nhập vào và mình đã thành công XSS trang web và cho nó hiện alert(1)
     
-![image](https://hackmd.io/_uploads/SywJpMyHJl.png)
+![image](./images/image82.png)
 
 Tiếp theo công việc đơn giản là report link đã được thêm vào fetch webhook để lấy cookie thôi
     
-![image](https://hackmd.io/_uploads/rkHClQkHJg.png)
+![image](./images/image83.png)
 
 Và đây là payload của mình
 
@@ -1554,7 +1554,7 @@ Và đây là payload của mình
 
 Sau khi mình report thì đã có flag
 
-![image](https://hackmd.io/_uploads/SJAYxXkHye.png)
+![image](./images/image84.png)
 
 Flag : INTIGRITI{fake_flag}  
 
@@ -1572,7 +1572,7 @@ Bun shell, Wildcard injection, crack session id, path traversal, argument inject
 
 Đề bài cho mình một trang web sau giống với trang đăng nhập windows 10
 
-![image](https://hackmd.io/_uploads/B1hWrQ1S1l.png)
+![image](./images/image85.png)
 
 Ok sau khi đọc source thì đây là những file mình cần lưu ý 
 
@@ -2020,10 +2020,10 @@ export function sanitize(s: string): string {
 Cụ thể thì là khi mình nhập vào username thì nó sẽ parse vào ```await $`echo ${username} failed to log in >> /tmp/auth.log`;``` Vậy nếu giả sử mình truyển vào tên file và một asterisk thì như thế nào giả sử như /etc/passwd*
 
 Thì nó sẽ tìm các file có dạng /etc/passwd ở đầu tên và yeah chắc chắn tồn tại file đó trên mọi máy linux 
-![image](https://hackmd.io/_uploads/SJWGhPeBke.png)
+![image](./images/image86.png)
 
 Nhưng nếu mình truyền vào một file không tồn tại thì sao như là /etc/passwd1    
-![image](https://hackmd.io/_uploads/BJwKnwxr1l.png)
+![image](./images/image87.png)
 
 Thì nó sẽ báo lỗi shell do không tìm thấy được file nào có dạng như vậy, từ đó mình có ý tưởng sẽ brute force kiểu kiểu giống như blind sqli để tìm ra file session của admin
     
@@ -2051,7 +2051,7 @@ for i in range(100):
 print("Found : ", s)
 ```
     
-![image](https://hackmd.io/_uploads/BkTGn_lBJl.png)
+![image](./images/image88.png)
 
 * Ok thì mình đã có một file session của admin bây giờ chỉ cần tìm secret là có được session vào trong web, và mình nhận ra SECRET sử dụng một biến $RANDOM của bash
 
@@ -2061,13 +2061,13 @@ export SECRET=$RANDOM
     
 Mình có đọc doc của biến này thì chỉ chứa giá trị từ 0 đến 32767 là khoảng hợp lý để ta có thể brute force.
     
-![image](https://hackmd.io/_uploads/S1dG-OeSJg.png)
+![image](./images/image89.png)
 
 Nhưng brute bằng cách nào ?
     
 Thì mình thấy web có thể tận dụng express session có sẵn khi ta vào web
     
-![image](https://hackmd.io/_uploads/H1dgz_gH1g.png)
+![image](./images/image90.png)
 
 Ok thì làm sau để brute force thì mình có đọc qua doc của hàm tạo signature dựa vào cookie và secret 
     
@@ -2100,7 +2100,7 @@ for (let i=0; i<40000; i++){
     
 Khi chạy thì ta có kết quả secret là 30918></40000;>
                                 
-![image](https://hackmd.io/_uploads/ryWFjdlHJx.png)
+![image](./images/image91.png)
 
 Từ file session và secret mình có thể tạo ra cookie để login vào bằng hàm sign đã xài ở trên
     
@@ -2120,13 +2120,13 @@ secret="30918"
 console.log("s:"+sign(data, secret))    
 ```
     
-![image](https://hackmd.io/_uploads/HyYch_gHJg.png)
+![image](./images/image92.png)
 
 Và boom khi thay vào thì mình đã đăng nhập được
     
-![image](https://hackmd.io/_uploads/S15phOxH1l.png)
+![image](./images/image93.png)
 
-![image](https://hackmd.io/_uploads/rywA3OxHJx.png)
+![image](./images/image94.png)
 
 Ok thì mình đọc lại source của các hàm trong web thì có function upload sau
     
@@ -2197,42 +2197,42 @@ Vậy làm sao để tạo một user mới? Ở đây mình có thể tải lê
     
 
     
-![image](https://hackmd.io/_uploads/Sy5tXgZHkl.png)
+![image](./images/image95.png)
 
 Sử dụng script lúc nãy để tạo session id có session file là ../files/admin/fake
 
-![image](https://hackmd.io/_uploads/rJX3QlWBJx.png)
+![image](./images/image96.png)
 
 Dán vào browser và mình đã đổi được tên username    
     
-![image](https://hackmd.io/_uploads/r13-VebS1x.png)
+![image](./images/image97.png)
     
 Ok ngon rồi, thì giờ mình sẽ đổi tên thành * để thực hiện argument injection
 
-![image](https://hackmd.io/_uploads/SyE3NxWH1e.png)
+![image](./images/image98.png)
 
 Giờ mình sẽ upload lên 3 files trên để thực hiện RCE
     
-![image](https://hackmd.io/_uploads/H1Yd5eZByx.png)
+![image](./images/image99.png)
     
-![image](https://hackmd.io/_uploads/S1Sg9lWrJe.png)
+![image](./images/image100.png)
 
 Ấn backup và restore để chạy lệnh scp và ta đã thành công tạo được file a
 
-![image](https://hackmd.io/_uploads/r1_K9xbH1e.png)
+![image](./images/image101.png)
 
 OK và mình đã RCE thành công, giờ mình sẽ chạy readflag và lấy kết quả trả về 
 Payload : `echo $(/readflag) > b`
     
-![image](https://hackmd.io/_uploads/HykDAxZHkg.png)
+![image](./images/image102.png)
 
 Sau khi thực hiện backup và restore thì trên file explorer có một file b như sau 
     
-![image](https://hackmd.io/_uploads/rkB4AxbS1e.png)
+![image](./images/image103.png)
 
 Download về và mình có được flag
 
-![image](https://hackmd.io/_uploads/ryOXClZBke.png)
+![image](./images/image104.png)
 
 
 Flag : CTF{f4k3_fl4g_f0r_t3st1ng}

@@ -15,23 +15,23 @@ authors:
 
 ImaginaryCTF 2025 has just ended. I cleared all the web challenges and this is my writeup for them.
 
-![image](https://hackmd.io/_uploads/SJxT6Dpceg.png)
+![image](./images/image0.png)
 
 ## imaginary-notes
 
-![image](https://hackmd.io/_uploads/BJvjIc65le.png)
+![image](./images/image1.png)
 
 This is a blackbox web challenge and the flag is stored as password of `admin` account. We are given a register form: 
 
-![image](https://hackmd.io/_uploads/SkS-vcacge.png)
+![image](./images/image2.png)
 
 After registration, we can access a note-making website. However, there is no XSS vulnerability here.
 
-![image](https://hackmd.io/_uploads/B1yUwcacll.png)
+![image](./images/image3.png)
 
 When relogin, we can see an interesting request here:
 
-![image](https://hackmd.io/_uploads/S1f6Dqpcge.png)
+![image](./images/image4.png)
 
 So it takes my username and password then submit to cloud supabase to authenticate. The result is the JSON includes our identity and an uuid. So, the query paremeters is something like a SQL query statement.
 
@@ -41,7 +41,7 @@ select * from users where username=winky1234 and password=winky1234
 
 I deleted my password and use only `eq` and errors started to appear.
 
-![image](https://hackmd.io/_uploads/HyYi55T9ge.png)
+![image](./images/image5.png)
 
 So the eq is one of supabase operators, let's search for it 
 
@@ -55,7 +55,7 @@ So what we can do? we can change the password to neq.dummy. This way, the query 
 
 POC:
 
-![image](https://hackmd.io/_uploads/Bk3k2qaqle.png)
+![image](./images/image6.png)
 
 `Flag: ictf{why_d1d_1_g1v3_u_my_@p1_k3y???}`
 
@@ -63,19 +63,19 @@ POC:
 
 We can also delete the password param like this:
 
-![image](https://hackmd.io/_uploads/ByYv3qT9eg.png)
+![image](./images/image7.png)
 
 ## certificate
 
-![image](https://hackmd.io/_uploads/B1gnT5T9xx.png)
+![image](./images/image8.png)
 
 This is just a certificate making website.
 
-![image](https://hackmd.io/_uploads/BkOK6qTqgg.png)
+![image](./images/image9.png)
 
 But the description says that we cannot create a flag for the user `Eth007`. I tried creating it, and the system returned `REDACTED`.
 
-![image](https://hackmd.io/_uploads/HJDVC9a9ge.png)
+![image](./images/image10.png)
 
 So let's deep down to the source code
 
@@ -197,13 +197,13 @@ The name will go to `buildCertificateSVG` as `participant` attribute. After that
 
 So what if we use makeFlag in console so that the replace condition is not work. And this is our flag
 
-![image](https://hackmd.io/_uploads/SyUIyjaqlx.png)
+![image](./images/image11.png)
 
 `Flag: ictf{7b4b3965}`
 
 ## passwordless
 
-![image](https://hackmd.io/_uploads/SyBojs6qel.png)
+![image](./images/image12.png)
 
 Source code:
 
@@ -368,7 +368,7 @@ app.listen(port, () => {
 
 The website:
 
-![image](https://hackmd.io/_uploads/HJVYr3T9eg.png)
+![image](./images/image13.png)
 
 When we register, the system is supposed to send a temporary password by email. However, this feature seems like under development.
 
@@ -389,7 +389,7 @@ db.run(query, [nEmail, hash], (err) => {
 })
 ```
 
-![image](https://hackmd.io/_uploads/SklTrnT9el.png)
+![image](./images/image14.png)
 
 Now the thing I could see is it uses bcrypt to hash password, store it, and use `bcrypt.compareSync` to check the password. Moreover, we can research that bcrypt only has 72 characters limit.
 
@@ -409,7 +409,7 @@ bcrypt.hash(b, 10, (err, hash) => {
 })
 ```
 
-![image](https://hackmd.io/_uploads/rko1t669lg.png)
+![image](./images/image15.png)
 
 ### The problem
 
@@ -424,7 +424,7 @@ if (nEmail.length > 64) {
 
 From this blog https://www.monterail.com/blog/more-secure-passwords-bcrypt, we can use unicode characters to bypass because it can have more than 1 byte per char.
 
-![image](https://hackmd.io/_uploads/HJAo9pT9ex.png)
+![image](./images/image16.png)
 
 POC:
 
@@ -441,7 +441,7 @@ bcrypt.hash(b, 10, (err, hash) => {
 })
 ```
 
-![image](https://hackmd.io/_uploads/HyhUspa9gg.png)
+![image](./images/image17.png)
 
 ### Solve script
 
@@ -460,35 +460,35 @@ m = re.findall(r'ictf{.*}', r.text)
 print(m[0])
 ```
 
-![image](https://hackmd.io/_uploads/BJ9U2aa9eg.png)
+![image](./images/image18.png)
 
 `Flag: ictf{8ee2ebc4085927c0dc85f07303354a05}`
 
 ## pearl
 
-![image](https://hackmd.io/_uploads/Sywa2669lg.png)
+![image](./images/image19.png)
 
 The website: 
 
-![image](https://hackmd.io/_uploads/S11J6T69eg.png)
+![image](./images/image20.png)
 
 When I tried to access an arbitrary endpoint, the server returned a 500 error. However, the open file message suggests that it might be using the `open` function in `Perl`.
 
-![image](https://hackmd.io/_uploads/HJ5zppp5xl.png)
+![image](./images/image21.png)
 
 From this blog, `open` function in Perl can run system command https://www.shlomifish.org/lecture/Perl/Newbies/lecture4/processes/opens.html
 
 I try to add | after command and still 500
 
-![image](https://hackmd.io/_uploads/S1CiApT5ee.png)
+![image](./images/image22.png)
 
 After fuzzing a while, we can bypass using %0a
 
-![image](https://hackmd.io/_uploads/HkdfyAp5gl.png)
+![image](./images/image23.png)
 
 Now read the flag : `http://pearl.chal.imaginaryctf.org/%0acat%20/flag*%7C`
 
-![image](https://hackmd.io/_uploads/Hy-D106cxl.png)
+![image](./images/image24.png)
 
 
 `Flag: ictf{uggh_why_do_people_use_perl_1f023b129a22}`
@@ -522,9 +522,9 @@ Perl’s open sees the second line alone, and since it ends with |, it’s treat
 
 ## pwntools
 
-![image](https://hackmd.io/_uploads/ByhsXC6qxx.png)
+![image](./images/image25.png)
 
-![image](https://hackmd.io/_uploads/ryTDThyige.png)
+![image](./images/image26.png)
 
 Source code: https://github.com/ImaginaryCTF/ImaginaryCTF-2025-Challenges/tree/main/Web/pwntools/challenge/challenge
 
@@ -620,7 +620,7 @@ for _ in range(200):
 
 When the bot visits, the last socket have local address
 
-![image](https://hackmd.io/_uploads/Sk3fnAkoxe.png)
+![image](./images/image27.png)
 
 Now the strategy is that 
 
@@ -716,7 +716,7 @@ for _ in range(200):
 get_flag()
 ```
 
-![image](https://hackmd.io/_uploads/S1P6V0yjxe.png)
+![image](./images/image28.png)
 
 Now use the solve script, we will have the real flag in remote
 
@@ -724,7 +724,7 @@ Now use the solve script, we will have the real flag in remote
 
 ## codenames-1
 
-![image](https://hackmd.io/_uploads/Bya5zz1jgx.png)
+![image](./images/image29.png)
 
 The source is too long so I refer to it here :
 
@@ -732,52 +732,52 @@ https://github.com/ImaginaryCTF/ImaginaryCTF-2025-Challenges/tree/main/Web/coden
 
 First, let’s look at what the website is. It is a game where players guess cells.
 
-![image](https://hackmd.io/_uploads/rycAWjksxl.png)
+![image](./images/image30.png)
 
 In the lobby, there are two modes. In hard mode, if you click on the opposite color, you immediately lose.
 
-![image](https://hackmd.io/_uploads/SyTgfjkoel.png)
+![image](./images/image31.png)
 
 We can play with friends using code or add a bot to play with.
 
-![image](https://hackmd.io/_uploads/S1ubGs1ige.png)
+![image](./images/image32.png)
 
 And this is the game:
 
-![image](https://hackmd.io/_uploads/H1UCXi1sxx.png)
+![image](./images/image33.png)
 
 Now let’s spot what we can do. When we create a game, we can control the language that is sent to the server.
 
-![image](https://hackmd.io/_uploads/rkCGEsksxe.png)
+![image](./images/image34.png)
 
 Then the server reads the language file in the code, takes all the words, and randomly chooses 25 of them to add to the game.
 
-![image](https://hackmd.io/_uploads/BkCYVj1iex.png)
+![image](./images/image35.png)
 
 So it uses `os.path.join()` to concat the filename. Let's deep down to its behavior here: https://www.geeksforgeeks.org/python/python-os-path-join-method/ . As we can see, if there is root directory or file, it will start from there:
 
-![image](https://hackmd.io/_uploads/BJqWro1olx.png)
+![image](./images/image36.png)
 
 So we can send `language=/flag` to read `/flag.txt` and add it to `word_list`
 
-![image](https://hackmd.io/_uploads/HyrB_oJieg.png)
+![image](./images/image37.png)
 
-![image](https://hackmd.io/_uploads/SypvSsksgl.png)
+![image](./images/image38.png)
 
 Start the game and we will have flag1
 
-![image](https://hackmd.io/_uploads/BJoQ_skjxl.png)
+![image](./images/image39.png)
 
 Flag1 in remote
 
-![image](https://hackmd.io/_uploads/By3n5sJjgg.png)
+![image](./images/image40.png)
 
 `Flag: ictf{common_os_path_join_L_b19d35ca}`
 
 
 ## codenames-2
 
-![image](https://hackmd.io/_uploads/BJTjfMyoxg.png)
+![image](./images/image41.png)
 
 Now we need to win the game in hard mode with a bot to get flag2.
 
@@ -794,7 +794,7 @@ emit('update', payload, room=code)
 
 So it's difficult to play and win except bruteforcing but I think it's not a good idea. So I come up with an XSS bug because the bot will access to the game. Here is the bot's POV, so if we know the bot's board colors we can win: 
 
-![image](https://hackmd.io/_uploads/B1Hwsokill.png)
+![image](./images/image42.png)
 
 Where can we have XSS? As we saw above, the bot’s username is rendered. However, since it is random, just ignore it.
 
@@ -824,19 +824,19 @@ for (var i = 0; i < board.length; i++) {
 
 So what if we can control what is displayed? We can notice that every user created will have their information saved in the `profiles` folder.
 
-![image](https://hackmd.io/_uploads/BJYMAsJigl.png)
+![image](./images/image43.png)
 
 And if we create a `.txt` username. Its information will be written to that file.
 
-![image](https://hackmd.io/_uploads/H1FwAjJoee.png)
+![image](./images/image44.png)
 
 Log in as `hihi.txt` and create the game with language `/app/profiles/hihi` and we have
 
-![image](https://hackmd.io/_uploads/Hyoj0jkile.png)
+![image](./images/image45.png)
 
 Ok. Now try with `<img src=x onerror=alert(1) >.txt`
 
-![image](https://hackmd.io/_uploads/BJ4M12Jsgx.png)
+![image](./images/image46.png)
 
 Good! Now we have XSS now use this to fetch the document.body of bot page
 
@@ -852,15 +852,15 @@ Before that, we use base64 form because the server blocks `.` and `/`
 
 When we add a bot and start the game in hard mode, many requests are sent. However, we should notice that the response includes the bot’s identification.
 
-![image](https://hackmd.io/_uploads/BkcJV3yilx.png)
+![image](./images/image47.png)
 
 Try to render: 
 
-![image](https://hackmd.io/_uploads/SkFAm2yjgx.png)
+![image](./images/image48.png)
 
 OK! now that we have the board, just play and win.
 
-![image](https://hackmd.io/_uploads/HJqT72Joxg.png)
+![image](./images/image49.png)
 
 Using the same strategy we will have the real flag in remote
 

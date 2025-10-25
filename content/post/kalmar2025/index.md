@@ -16,7 +16,7 @@ authors:
 
 ## RWX - Bronze
 
-![image](https://hackmd.io/_uploads/H1qJHQhsyl.png)
+![image](./images/image0.png)
 
 ### Solution
 
@@ -108,25 +108,25 @@ int main(int argc, char *argv[]) {
 
 Vì thế để đọc được flag ta phải thực hiện lệnh sau `/would you be so kind to provide me with a flag` nhưng lại không thỏa yêu cầu tối đa 7 char. Lúc này mình sẽ sử dụng endpoint /write tạo ra một shell script và chạy lệnh `sh ~/a` chỉ có 6 char nên sẽ bypass thành công. Đầu tiên ta xác định vị trí thư mục ~ là ở /home/user 
 
-![image](https://hackmd.io/_uploads/S1ZfB92oyg.png)
+![image](./images/image1.png)
 
 Tiến hành ghi vào file shell lệnh read flag trên
 
-![image](https://hackmd.io/_uploads/HJeLSc2s1g.png)
+![image](./images/image2.png)
 
 Kiểm tra nội dung file shell và thấy rằng lệnh shell đã ghi vào thành công
 
-![image](https://hackmd.io/_uploads/ryYPBc2jke.png)
+![image](./images/image3.png)
 
 Bây giờ chỉ cần thực thi shell script bằng sh là xong 
 
-![image](https://hackmd.io/_uploads/S1Lqr5nike.png)
+![image](./images/image4.png)
 
 `kalmar{ok_you_demonstrated_your_rwx_abilities_but_let_us_put_you_to_the_test_for_real_now}`
 
 ## RWX - Silver
 
-![image](https://hackmd.io/_uploads/H1qJHQhsyl.png)
+![image](./images/image0.png)
 
 ### Solution
 
@@ -174,39 +174,39 @@ if __name__ == '__main__':
 
 Ở đây chúng ta cần biết rằng `.` là một shell builtin tương đương với lệnh source của linux
 
-![image](https://hackmd.io/_uploads/rkFJUjho1e.png)
+![image](./images/image6.png)
 
 Từ đó mình sẽ thực hiện như bài Bronze nhưng ở bước cuối mình sẽ thực hiện lệnh sau `. ~/a` để bypass 
 
-![image](https://hackmd.io/_uploads/BJYnI92i1e.png)
+![image](./images/image7.png)
 
 `kalmar{impressive_that_you_managed_to_get_this_far_but_surely_silver_is_where_your_rwx_adventure_ends_b4284b024113}`
 
 ## babyKalmarCTF
 
-![image](https://hackmd.io/_uploads/rklMPq2oJl.png)
+![image](./images/image8.png)
 
 ### Solution
 
 Challenge cho mình một trang web CTF như sau
 
-![image](https://hackmd.io/_uploads/H1lKw9hjJl.png)
+![image](./images/image9.png)
 
 Ở đây web sẽ có các challenge impossible với tổng điểm 4000 và các challenge dễ hơn.
 
-![image](https://hackmd.io/_uploads/HkeAwqhjkl.png)
+![image](./images/image10.png)
 
 Để lấy được flag chúng ta phải lấy được top 1 của web này.
 
-![image](https://hackmd.io/_uploads/HkNJuq2okg.png)
+![image](./images/image11.png)
 
 Lúc này mình đọc source của hàm get_score mà trang web này dùng thì thấy rằng hàm tính value đã bị đổi và nhận vào team_count là maxSolves tức càng nhiều team thì điểm challenge càng cao.
 
-![image](https://hackmd.io/_uploads/S17CK53skx.png)
+![image](./images/image12.png)
 
 Ok thì mình đã xác định được hướng giải là tạo thật nhiều account để buff điểm các bài dễ lên, với số lượng là 5 bài và hơn 900 điểm mỗi bài thì ta chắc chắn sẽ có top 1. Có 1 vấn đề là khi register nó đã dính CSP để chống CSRF nên ta không thể spam request được.
 
-![image](https://hackmd.io/_uploads/HJ1-h93sJl.png)
+![image](./images/image13.png)
 
 Lúc này mình chỉ cần sử dụng webdriver để tạo là được. Đây là script để tạo 100 user bằng selenium.
 
@@ -263,7 +263,7 @@ for i in range(100):
 
 Ok trong lúc đợi tạo user thì ta sẽ bắt đầu giải các challenge. Đầu tiên là một bài crypto về RSA.
 
-![image](https://hackmd.io/_uploads/rJPuJs3oyl.png)
+![image](./images/image14.png)
 
 Challenge cho ta một file script và output như sau
 
@@ -324,19 +324,19 @@ print(flag)
 
 Và ta đã có flag đầu tiên
 
-![image](https://hackmd.io/_uploads/S1yMJoniyl.png)
+![image](./images/image15.png)
 
 `babykalmar{wow_you_are_an_rsa_master!!!!!}`
 
-![image](https://hackmd.io/_uploads/SkRYkjhoJl.png)
+![image](./images/image16.png)
 
 Ở bài rev này mình bật ghidra lên đọc và có luôn flag
 
-![image](https://hackmd.io/_uploads/SJqayo2ikx.png)
+![image](./images/image17.png)
 
 `babykalmar{string_compare_rev_ayoooooooo}`
 
-![image](https://hackmd.io/_uploads/Hk8Jgs2iyg.png)
+![image](./images/image18.png)
 
 
 Challenge cho mình một bức ảnh 
@@ -345,11 +345,11 @@ Challenge cho mình một bức ảnh
 
 Sử dụng google lens và mình có luôn city của chỗ này là Aarhus
 
-![image](https://hackmd.io/_uploads/S1r0_j2i1l.png)
+![image](./images/image19.png)
 
 `babykalmar{aarhus}`
 
-![image](https://hackmd.io/_uploads/H1x1bs2sJe.png)
+![image](./images/image20.png)
 
 Challenge cho ta các một đoạn chữ Braille
 
@@ -357,11 +357,11 @@ Challenge cho ta các một đoạn chữ Braille
 
 Sử dụng tool decode online và mình cos được flag
 
-![image](https://hackmd.io/_uploads/rJnt-j2okx.png)
+![image](./images/image21.png)
 
 `babykalmar{superoriginalmorsecodechallenge}`
 
-![image](https://hackmd.io/_uploads/SkKobjnoJg.png)
+![image](./images/image22.png)
 
 Challenge welcome này đã tự cho ta flag
 
@@ -369,21 +369,21 @@ Challenge welcome này đã tự cho ta flag
 
 Tiếp theo ta submit cả 5 bài và đều có điểm trên 900
 
-![image](https://hackmd.io/_uploads/Hy1Mfj3jkg.png)
+![image](./images/image23.png)
 
 Cộng lại và mình đã top 1 server
 
-![image](https://hackmd.io/_uploads/BJy7MshoJg.png)
+![image](./images/image24.png)
 
 Bây giờ chỉ việc lấy flag thôi
 
-![image](https://hackmd.io/_uploads/SkCmGo2jJx.png)
+![image](./images/image25.png)
 
 `Flag: kalmar{w0w_y0u_b34t_k4lm4r_1n_4_c7f?!?}`
 
 ## Ez ⛳ v3
 
-![image](https://hackmd.io/_uploads/Hk5AYbpske.png)
+![image](./images/image26.png)
 
 ### Hints
 
@@ -452,15 +452,15 @@ Phân tích:
 
 * Ở đây ta sẽ quan tâm `strict_sni_host insecure_off` là một option cho phép ta sử dụng Host header khong cần match với url tức là chúng ta có thể sử dụng url từ nguồn khác.
 
-![image](https://hackmd.io/_uploads/H1aqZfTo1g.png)
+![image](./images/image27.png)
 
 Ở đầy mình thay đổi host thành public.caddy.chal-kalmarc.tf và có được respond như trong file chứ không còn redirect nữa
 
-![image](https://hackmd.io/_uploads/Syx_kzfpoyg.png)
+![image](./images/image28.png)
 
 Ok đến đây thì mình chỉ cần vào endpoint /flag của private.caddy.chal-kalmarc.tf
 
-![image](https://hackmd.io/_uploads/B1TWSf6j1x.png)
+![image](./images/image29.png)
 
 Nhưng không web đã giới hạn ip gửi request phải là từ localhost túc là từ chính máy đang chạy server
 
@@ -477,7 +477,7 @@ respond /fetch/* `{{ httpInclude "/{http.request.orig_uri.path.1}" }}`
 
 Lúc này mình sẽ sử dụng /fetch/flag để lấy nội dung từ /flag và đã thành công
 
-![image](https://hackmd.io/_uploads/r1z4rMajkg.png)
+![image](./images/image30.png)
 
 Nhưng nó lại không trả ra flag vì bị chặn bởi 
 
@@ -488,15 +488,15 @@ respond @denied2 "Would be too easy, right?"
 
 Ok lúc này thì hết cách bypass rồi chúng ta quan sát và thấy /headers đùng để trả ra các header mà request của mình gửi tới server
 
-![image](https://hackmd.io/_uploads/SktIHfpiyx.png)
+![image](./images/image31.png)
 
 Lúc này mình mới research và biết rằng có template có thể lấy biến từ environment mà flag thì nằm trong đó. https://caddyserver.com/docs/modules/http.handlers.templates
 
-![image](https://hackmd.io/_uploads/rJ8i55HnJx.png)
+![image](./images/image32.png)
 
 Craft payload vào header và ta đã thực hiện SSTI thành công.
 
-![image](https://hackmd.io/_uploads/HyA9UMaoye.png)
+![image](./images/image33.png)
 
 `FLag: kalmar{4n0th3r_K4lmarCTF_An0Th3R_C4ddy_Ch4ll}`
 

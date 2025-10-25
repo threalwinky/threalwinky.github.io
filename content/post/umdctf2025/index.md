@@ -16,7 +16,7 @@ authors:
 
 Last weekend, I played UMDCTF with team aespaFanClub. There were four web challenges, but there is nothing to talk about the first three. Only the last web challenge was related to HTTP/3 and Rust, which I had never learned about before. I spent three days researching and redoing that challenge. There are many new and great things so I write this blog to save something beneficial for my future.
 
-![image](https://hackmd.io/_uploads/SJNEKiWlee.png)
+![image](./images/image0.png)
 
 Before talking about the challenge we must know something about QUIC and HTTP/3 
 
@@ -24,7 +24,7 @@ Before talking about the challenge we must know something about QUIC and HTTP/3
 
 QUIC and HTTP/3 are newer internet technologies designed to make online communication faster, safer, and more reliable. In the past, most of websites used a system called TCP to send and receive data. TCP is dependable but can be slow at times. QUIC, on the other hand, uses a different system called UDP. This helps it avoid some delays while still keeping things reliable. Plus, QUIC has built-in security using TLS 1.3 encryption. 
 
-![image](https://hackmd.io/_uploads/BJ-qCiZlle.png)
+![image](./images/image1.png)
 
 In HTTP (TCP), all data packets must arrive in order. If one packet is delayed or lost, everything waits causing a head-of-line blocking problem. In QUIC (UDP), packets are sent independently. If one is delayed, others can still be processed making it faster and more efficient, especially on unreliable networks.
 
@@ -38,15 +38,15 @@ More specified details can be read at https://portswigger.net/daily-swig/http-3-
 
 ## web/gambling challenge
 
-![image](https://hackmd.io/_uploads/Hkz_tjZlxx.png)
+![image](./images/image2.png)
 
 The web gave us two back-end files written in Rust. The hard thing started when I used Burpsuite proxy to catch request but ...
 
-![image](https://hackmd.io/_uploads/S1Esqs-exg.png)
+![image](./images/image3.png)
 
 It says something like the web browser we use must use a browser which supports HTTP/3 and no custom HTTP client. Moreover, HTTP/3 is created using QUIC which uses UDP protocol in transport layer and Burpsuite only catch TCP request. But why can't the website load ? That is because BurpSuite can only catch HTTP/1.1 and HTTP/2 in my current version now. And when I turned off the proxy: 
 
-![image](https://hackmd.io/_uploads/HJe4cioZggg.png)
+![image](./images/image4.png)
 
 So in this challenge, we will use script to automate and perform some method to website. First, we will read the source code to find out how the web works.
 
@@ -425,7 +425,7 @@ impl Router {
 
 we can create a new account and login with it
 
-![image](https://hackmd.io/_uploads/S1daFTWeee.png)
+![image](./images/image5.png)
 
 #### - redeem code
 
@@ -507,35 +507,35 @@ To exploit this website using Burpsuite, we can use some available extension scr
 
 To test if the web uses HTTP/3, we will use try_http3_proxy.py.  First, we run this script to open a proxy on port 8081 
 
-![image](https://hackmd.io/_uploads/BJVnznZegl.png)
+![image](./images/image6.png)
 
 In Firefox or other browsers, we set the proxy to the above address
 
-![image](https://hackmd.io/_uploads/rkfJ73bxgx.png)
+![image](./images/image7.png)
 
 Now when we go to the web challenge we will see data come from 
 
-![image](https://hackmd.io/_uploads/HkCIXhWxeg.png)
+![image](./images/image8.png)
 
 OK, so HTTP/3 requests are supported, how can I "play" with it? 
 
 In the blog, the author also explains how to send a request using minimal_http3_client.py and how it works. It is as the pictures below
 
-![image](https://hackmd.io/_uploads/S14KS2bxgx.png)
+![image](./images/image9.png)
 
 HOW WAS THE IP SPOOFED IN THE DATAGRAM ABOVE?
 
 The author of this challenge told me that when sending headers, the code starts to run and after that we can pause to change IP
 
-![image](https://hackmd.io/_uploads/SkhQmGzexl.png)
+![image](./images/image10.png)
 
 Ok, for short the attack can be displayed: 
 
-![image](https://hackmd.io/_uploads/Sy68FnZxgl.png)
+![image](./images/image11.png)
 
 So the insertion point in the datagram is 
 
-![image](https://hackmd.io/_uploads/By9XqhZgxl.png)
+![image](./images/image12.png)
 
 ## Solution
 
@@ -741,9 +741,9 @@ class H3ClientProtocol(QuicConnectionProtocol):
 
 To perform a post request we will see how the api works based on the source code and browser. For example, when I register, I see a request as 
 
-![image](https://hackmd.io/_uploads/rJFkypbgel.png)
+![image](./images/image13.png)
 
-![image](https://hackmd.io/_uploads/SkIC0hWeeg.png)
+![image](./images/image14.png)
 
 So the register uses application/json Content-Type to use for body request. It requires two parameters, which are username and password. So the register function i can perform as
 
@@ -766,9 +766,9 @@ async def register(url: str, debug: bool = False):
 
 Like the register api, the redeem api also requires application/json data. It also includes an authorization header to find the user to add money.
 
-![image](https://hackmd.io/_uploads/HkF3lpWexx.png)
+![image](./images/image15.png)
 
-![image](https://hackmd.io/_uploads/BJcol6blxg.png)
+![image](./images/image16.png)
 
 The redeem function can be used as
 
@@ -1009,7 +1009,7 @@ if __name__ == "__main__":
 
 If you don't change the IP while the script is running as default the result is
 
-![image](https://hackmd.io/_uploads/HJBBEpZelg.png)
+![image](./images/image17.png)
 
 
 
@@ -1017,31 +1017,31 @@ If you don't change the IP while the script is running as default the result is
 
 First, the script will pause at
 
-![image](https://hackmd.io/_uploads/r1rlUpZlgx.png)
+![image](./images/image18.png)
 
 Use warp to change IP
 
-![image](https://hackmd.io/_uploads/SkvZUa-llx.png)
+![image](./images/image19.png)
 
 And the result is
 
-![image](https://hackmd.io/_uploads/r15Q86Zelx.png)
+![image](./images/image20.png)
 
 YEEEEE, the status code is 204 which tells us that the IP was spoofed and the code was redeemed for the second time
 
 Before the third redeem's data transmited we must disconnect from VPN and connect again. The end result is that we will get three status 204 responses. 
 
-![image](https://hackmd.io/_uploads/SJ5jDTWxxl.png)
+![image](./images/image21.png)
 
 ## Get flag
 
 Go to the web and login with the above admin and we have 300 credits.
 
-![image](https://hackmd.io/_uploads/BJwRv6-lxl.png)
+![image](./images/image22.png)
 
 Click buy flag and we finally solve the challenge
 
-![image](https://hackmd.io/_uploads/r1KZOabgll.png)
+![image](./images/image23.png)
 
 ## Conclusion
 

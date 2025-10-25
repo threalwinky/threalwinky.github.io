@@ -17,11 +17,11 @@ authors:
 
 Last weekend, I played CrewCTF 2025 with my team laevatain. There is a challenge related to CSS injection and Content Security Policy (CSP) called `Hate Notes`
 
-![image](https://hackmd.io/_uploads/H1bNUyy2gx.png)
+![image](./images/image0.png)
 
 And I was the fifth one to solve it.
 
-![image](https://hackmd.io/_uploads/r1cBU113xl.png)
+![image](./images/image1.png)
 
 So let’s jot down what I did. The source is too long so I refer it here : https://github.com/threalwinky/CTF-archive/tree/main/hate-notes/hate-notes
 
@@ -29,21 +29,21 @@ So let’s jot down what I did. The source is too long so I refer it here : http
 
 First, let’s take a look at the website.
 
-![image](https://hackmd.io/_uploads/S1PhxYAoee.png)
+![image](./images/image2.png)
 
 This is just a normal note making website
 
-![image](https://hackmd.io/_uploads/ryMPhy13xx.png)
+![image](./images/image3.png)
 
 ### Recognize
 
 I try to make a simple note that contains XSS payload
 
-![image](https://hackmd.io/_uploads/rkG5nkJ2xe.png)
+![image](./images/image4.png)
 
 But it is blocked by the CSP
 
-![image](https://hackmd.io/_uploads/HkBohkynxl.png)
+![image](./images/image5.png)
 
 And this is how the server defines CSP rule. It blocks all default-src `Content-Security-Policy: default-src 'none'`
 
@@ -138,7 +138,7 @@ if (reviewNoteId) {
 
 So we can easily add HTML via previewNote so that it will render in NoteID instead of creating a new note. I try this payload `<img src=x onerror=alert(1)>`, but I still get blocked by CSP
 
-![image](https://hackmd.io/_uploads/Sylmge12el.png)
+![image](./images/image6.png)
 
 The reason is the server has set CSP rule for all default routes
 
@@ -155,7 +155,7 @@ app.use((req, res, next) => {
 
 Let's check with CSP evaluator, we can see that it's such a strong rule.
 
-![image](https://hackmd.io/_uploads/rkNBOlJ3gl.png)
+![image](./images/image7.png)
 
 
 ### The key
@@ -187,7 +187,7 @@ Now let's have a small test
 
 * create a note with title `* {color: red;}` and any content
 
-![image](https://hackmd.io/_uploads/Hk_vfl1nlg.png)
+![image](./images/image8.png)
 
 Copy it's ID and use this html :
 
@@ -197,15 +197,15 @@ Copy it's ID and use this html :
 
 Still be blocked
 
-![image](https://hackmd.io/_uploads/rJQTGgyhxg.png)
+![image](./images/image9.png)
 
 But what if we add `static/` path before ?
 
-![image](https://hackmd.io/_uploads/S1h17ly2xx.png)
+![image](./images/image10.png)
 
 Yeeeee! Now all the text have red color and css injection is completed. Now we can leak content of bot page with @font-face [Using @font-face in CSS injection](https://tripoloski1337.github.io/webex/2024/07/24/exfil-using-only-css.html#:~:text=Since%20there%E2%80%99s%20CSP%20in%20configured%2C%20So%20we%20can%20use%20%40font%2Dface%20and%20check%20if%20the%20unicode%20is%20in%20a%20specific%20range.%20For%20example.). So we need to see what to leak
 
-![image](https://hackmd.io/_uploads/HJhPVly3gg.png)
+![image](./images/image11.png)
 
 
 This is a bot POV and we can leak: 
@@ -323,17 +323,17 @@ report()
 
 when we run, the bot go to the link that contains CSS injection and it leaks first chars of 2 posts ID
 
-![image](https://hackmd.io/_uploads/SJ-Qwlkhee.png)
+![image](./images/image12.png)
 
 Now change `id` to 2 and continue to run script we will have next char. Use the same strategy we will have flag in remote: 
 
-![image](https://hackmd.io/_uploads/r1xSPgknxl.png)
+![image](./images/image13.png)
 
 `Flag: crew{now_you_solved_it_in_the_right_way_fBi4WVX1kGzPtavs}`
 
 ## love-notes
 
-![image](https://hackmd.io/_uploads/rkJjlF0olg.png)
+![image](./images/image14.png)
 
 This challenge can be solved using the CSS injection strategy from the above challenge.  but it has more solves, so what is the difference here ?
 
@@ -341,13 +341,13 @@ https://github.com/threalwinky/CTF-archive/blob/ed06a34939fa2979c6335d4948ddef97
 
 The CSP is missing so we can run arbitrary JS code -> Now it turns to normal XSS challenge
 
-![image](https://hackmd.io/_uploads/H1tbbKColx.png)
+![image](./images/image15.png)
 
 
 As we have XSS run in `/api/notes` but the bot will go to `/dashboard?reviewNote` so we need to redirect the bot. However, the CSP in default routes has blocked our script running. After the CTF ended, I read some writeups and find out that we can use `<meta>` tag to redirect
 
 
-![image](https://hackmd.io/_uploads/H1-B9l12ee.png)
+![image](./images/image16.png)
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections#html_redirections:~:text=via%20the%20DOM-,HTML%20redirections,-HTTP%20redirects%20are
 
@@ -357,7 +357,7 @@ Craft a simple payload and it works. Remember to set the timeout for redirect to
 <meta http-equiv="refresh" content="1; url=api/notes/c2a45b58-406c-4250-be3d-08791d3356b6">
 ```
 
-![image](https://hackmd.io/_uploads/SJMuVFAsxl.png)
+![image](./images/image17.png)
 
 Now to get the bot's notes we have this XSS payload
 
@@ -369,15 +369,15 @@ report with `<meta>` tag and we successfully get XSS. we can see the word `REDAC
 
 `<meta http-equiv="refresh" content="1; url=api/notes/db6a1420-4250-4739-8ff5-30b307d7fef1">`
 
-![image](https://hackmd.io/_uploads/BJTeW-khlx.png)
+![image](./images/image18.png)
 
 Now use the same strategy we will exploit the remote
 
-![image](https://hackmd.io/_uploads/rkEkM-Jhee.png)
+![image](./images/image19.png)
 
 Let's decode it
 
-![image](https://hackmd.io/_uploads/rkKQMbynle.png)
+![image](./images/image20.png)
 
 `Flag: crew{csp_trick_with_a_bit_of_css_spices_fBi4WVX1kGzPtavs}`
 

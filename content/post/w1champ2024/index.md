@@ -14,7 +14,7 @@ authors:
 
 ## re gekco 
 
-![image](https://hackmd.io/_uploads/BkQo7BsE1l.png)
+![image](./images/image0.png)
 
 #### Source
 
@@ -28,7 +28,7 @@ https://drive.google.com/file/d/10SJuyHYi2WXhhY2DworT6LGPVQHWp3jv/view?usp=shari
 
 Đề bài cho mình một trang web như sau
 
-![image](https://hackmd.io/_uploads/HJPY4SjVJg.png)
+![image](./images/image1.png)
 
 Sau khi đọc source thì đây là 3 file mình cần lưu ý
 
@@ -215,36 +215,36 @@ Phân tích :
 
 OK đầu tiên mình thử request đến /firefly và nhận được kết quả sau
 
-![image](https://hackmd.io/_uploads/Sk-jeLjEyl.png)
+![image](./images/image2.png)
 
 Có thể thấy endpoint bị dính regex của location đầu tiên và trả ra i catch you. Vậy làm sao để bypass và qua được location / ? Thì mình có thể sử dụng CR-LF injection bằng cách thêm các ký tự %0A(new line) và %0D(carriage return) để insert một line trên firefly từ đó bypass được regex
 
-![image](https://hackmd.io/_uploads/Hygy-UsNJx.png)
+![image](./images/image3.png)
 
 OK và ta đã proxy_pass qua được server inner. Vậy bây giờ ta chỉ cần path traversal thôi mình sẽ thử payload sau để vào /jxx
 
 /firefly/../firefly/jxx%0a%0d
 
-![image](https://hackmd.io/_uploads/HyBM-LoEyx.png)
+![image](./images/image4.png)
 
 Well... Kết quả trả ra 404, mình thử đọc thử source code js thì nó có một đoạn check regex sau ```const regex = new RegExp(/^[A-z0-9.\s_-]+$/i);``` qua đó mình không thể sử dụng / trong url được và % cũng không. Vậy không có cách nào bypass ư? Khoan... Nhìn kĩ lại regex thì nó lấy cả characters từ A-z có nghĩa là lấy luôn cả \ trong bảng ASCII 
 
-![image](https://hackmd.io/_uploads/HkbL0rj41e.png)
+![image](./images/image5.png)
 
 Từ đó mình có thể thay / bằng \ thế là lại path traversal được thôi 😎 Mình thử test với payload sau
 
 /firefly\\\..\firefly\jxx%0a%0d
 
-![image](https://hackmd.io/_uploads/HkkVb8iVyg.png)
+![image](./images/image6.png)
 
 Bumppph, it works. So now, mình chỉ cần redirect tới flag thôi. Cơ mà, phải lưu ý có đoạn replace regex chữ flag nên mình chỉ cần bypass bằng flflagag, ez man
 
 /firefly\\\..\firefly\jxx\\\..\\\..\flflagag%0a%0d
 
-![image](https://hackmd.io/_uploads/ryytb8iVye.png)
+![image](./images/image7.png)
 
 Ok và mình có flag ở local. Bây giờ chỉ cần submit lên remote là xong 
 
-![image](https://hackmd.io/_uploads/SkEwG8jNyx.png)
+![image](./images/image8.png)
 
 Flag : W1{gud_job_bro_e54b01b73a966f9315913357ceb98305}

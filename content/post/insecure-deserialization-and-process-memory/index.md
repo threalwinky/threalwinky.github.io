@@ -252,7 +252,7 @@ $ans = $arr_json_encode;
 
 Khi chạy thì ta có đoạn app_cookies như sau
 
-![image](https://hackmd.io/_uploads/HJWM2sxuyl.png)
+![image](./images/image0.png)
 
 Code python để gửi request đến web 
 
@@ -274,7 +274,7 @@ print(x.text)
 
 Có thể thấy khi chạy thì bên docker báo là INTERNAL_INCLUDING đã được define, điều này do khi expire_time < time hiện tại thì sẽ gọi __destruct cộng thêm việc __destruct tự gọi sau khi chương trình kết thúc nên tổng cộng là gọi 2 lần nên khi chạy sẽ Warning. Nhưng điều quan trọng là ta đã thực hiện insecure deserialization thành công.
 
-![image](https://hackmd.io/_uploads/Byi_aseuJe.png)
+![image](./images/image1.png)
 
 
 Từ đó mình xây dụng Object serialization cho bước 2 và 3 và ta có đoạn php sau
@@ -401,7 +401,7 @@ $ans = $arr_json_encode;
 
 Khi chạy thì ta đã vào được backend của web và reach được /garbage_collect 
 
-![image](https://hackmd.io/_uploads/SymQx2x_Jx.png)
+![image](./images/image2.png)
 
 Ok vậy là đã hoàn thành bước 1
 
@@ -563,7 +563,7 @@ $ans = $arr_json_encode;
 </details>
 
 
-![image](https://hackmd.io/_uploads/HyMLG3edJg.png)
+![image](./images/image3.png)
 
 Có thể thấy khi chạy thì nó sẽ reach / và chúng ta đã thành công.
 
@@ -690,7 +690,7 @@ $ans = $arr_json_encode;
 
 And yeah we finally did it
 
-![image](https://hackmd.io/_uploads/ByaZQ3gOkl.png)
+![image](./images/image4.png)
 
 
 #### Vào internal/read của backend để đọc file /proc/self/maps 
@@ -746,7 +746,7 @@ Từ đây mình mới đọc hàm internal_debug và thấy return là "for deb
 
 Giả dụ ta host một server backend y chang vậy và sử dụng curl để print flush như sau
 
-![image](https://hackmd.io/_uploads/HyvRN3gdyg.png)
+![image](./images/image5.png)
 
 Sử dụng đoạn code sau để dump file mem của server này về
 
@@ -774,7 +774,7 @@ Trong đó $PID là pid của proccess python đang được sử dụng
 
 Khi dump ra thì ta tìm được msg đã print flush khi nãy
 
-![image](https://hackmd.io/_uploads/Hkbor2eu1g.png)
+![image](./images/image6.png)
 
 Ok thì bây giờ ta đã biết được file để eval nhung còn offset và length ???
 
@@ -808,7 +808,7 @@ print(x.text)
 
 File mem trên được chia thành nhiều thread và ta có thể đọc được thông qua file /proc/mem/maps
 
-![image](https://hackmd.io/_uploads/ryMjI2gOke.png)
+![image](./images/image7.png)
 
 Ok thì mình chắc chắn msg nằm trong những thread này nên mình có thể brute force xem nó nằm ở thread nào 
 
@@ -826,11 +826,11 @@ with open("/proc/$PID/maps", "r") as f:
             pass
 ```
 
-![image](https://hackmd.io/_uploads/rJi43ne_kl.png)
+![image](./images/image8.png)
 
 Có thể thấy thread ta cần xài là phần đầu của heap
 
-![image](https://hackmd.io/_uploads/Sko233lu1g.png)
+![image](./images/image9.png)
 
 Ok thì bây giờ ta đã biết được thread cần sử dụng nhưng offset thì chưa biết 
 
@@ -883,7 +883,7 @@ x = requests.get("http://4.216.196.42:1337/", cookies=cookie)
 print(x.text)
 ```
 
-![image](https://hackmd.io/_uploads/B1GRC2g_1l.png)
+![image](./images/image10.png)
 
 
 * offset sẽ chạy từ 470000 đến 530000 với mỗi offset sẽ đọc len(cmd_to_run) kí tự, nếu lệnh đó được thực thi thì chắc chắn đó là cmd_to_run mà ta truyền vào
@@ -910,5 +910,5 @@ print(x.text)
 
 Và chúng ta đã lấy được flag
 
-![image](https://hackmd.io/_uploads/HkywJ6eu1e.png)
+![image](./images/image11.png)
 

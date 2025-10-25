@@ -13,7 +13,7 @@ authors:
   - winky
 ---
 
-![image](https://hackmd.io/_uploads/Syg1BEXmee.png)
+![image](./images/image0.png)
 
 Bài này có flag khi ta report admin bot và lấy được cookie của bot:
 
@@ -307,15 +307,15 @@ def login():
 
 Đăng nhập thành công: 
 
-![image](https://hackmd.io/_uploads/ryx9vEXmll.png)
+![image](./images/image1.png)
 
 Dashboard của admin:
 
-![image](https://hackmd.io/_uploads/ryqoDEQmeg.png)
+![image](./images/image2.png)
 
 Để xem được profile thì mình tạo một user winky mới và sử dụng endpoint /users như sau:
 
-![image](https://hackmd.io/_uploads/SyrBjVmmlx.png)
+![image](./images/image3.png)
 
 Ok và ta đã thành công đăng nhập admin và xem được bây giờ làm sao để thực hiện XSS? 
 
@@ -392,7 +392,7 @@ Ta ngó lại file render.html:
 
 Để ý răng bio truyền vào có thể là một html tag và được render nên ta có thể chèn vào iframe hoặc script. Nhưng ... bio chỉ chứa các char trong đoạn "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ".
 
-![image](https://hackmd.io/_uploads/SJLdoV77xe.png)
+![image](./images/image4.png)
 
 Vậy làm sao để bypass? Ở đây mình để ý 
 
@@ -404,9 +404,9 @@ Khi render iframe thì web sẽ replace các dấu & có trong các attribute c�
 
 Và thành công ta đã chèn được một iframe vào profile như sau:
 
-![image](https://hackmd.io/_uploads/SkO5s47Qxg.png)
+![image](./images/image5.png)
 
-![image](https://hackmd.io/_uploads/S1inoVQQll.png)
+![image](./images/image6.png)
 
 Từ đây, ta sẽ có hướng tấn công như sau:
 
@@ -416,13 +416,13 @@ Từ đây, ta sẽ có hướng tấn công như sau:
 
 Trước tiên ta sẽ bypass đoạn %26 trước để làm được thì ta add một đoạn bio như sau:
 
-![image](https://hackmd.io/_uploads/Bkah6EX7eg.png)
+![image](./images/image7.png)
 
-![image](https://hackmd.io/_uploads/B1N36VQ7ee.png)
+![image](./images/image8.png)
 
 Vậy là đã chèn được 2 param lúc này mình cần chỉnh lại param và window.name thành 'admin' như sau:
 
-![image](https://hackmd.io/_uploads/rJPH0NXQex.png)
+![image](./images/image9.png)
 
 ```html
 <iframe src='http://localhost:5000/render?bio=<iframe src=\"http://localhost:5000/render?bio=<script src=%27http://localhost:5000/static/users.js%27></script>%26js=alert(1)\" name=\"admin\" />' />
@@ -430,7 +430,7 @@ Vậy là đã chèn được 2 param lúc này mình cần chỉnh lại param 
 
 Trong đó bio là `<script src=%27http://localhost:5000/static/users.js%27>` để load file js, js là alert(1) để test XSS và window.name='admin' để thỏa yêu cầu. Và bumphhhhh....
 
-![image](https://hackmd.io/_uploads/HJvoCEXQll.png)
+![image](./images/image10.png)
 
 Vậy là đã chạy script tùy ý thành công. Bây giờ ta phải tìm cách để lấy cookie của admin và lưu lại ở đâu đó để ta có thể xem lại vì đó là flag. Nhận ra rằng CSP đã cấm chạy lệnh fetch webhook vì fetch content không thuộc trang web lúc này ta mới nghĩ đến việc lấy cookie và thay đổi bio của admin vì ta cũng đang có thể truy cập tài khoản admin thông qua NoSQL injection.
 
@@ -472,7 +472,7 @@ fetch('http://localhost:5000/register', {
 
 Trong đó username là cookie đã được base64 đã bypass filter. Mình tiến hành base64 và có payload như sau:
 
-![image](https://hackmd.io/_uploads/BJoEgSm7xe.png)
+![image](./images/image11.png)
 
 ```request
 POST /update_bio HTTP/1.1
@@ -502,13 +502,13 @@ Connection: keep-alive
 
 Tiến hành report user winky và thấy có 1 request register như sau:
 
-![image](https://hackmd.io/_uploads/r1DseHQmee.png)
+![image](./images/image12.png)
 
-![image](https://hackmd.io/_uploads/SyeP-HXmgl.png)
+![image](./images/image13.png)
 
 Vậy là đã đăng ký được một user có username là flag. Bây giờ chỉ cần tìm user bằng /api/users
 
-![image](https://hackmd.io/_uploads/BkmhZrQ7xg.png)
+![image](./images/image14.png)
 
 Solve script hoàn chỉnh:
 
@@ -583,6 +583,6 @@ get_flag(s)
 
 Và ta có flag: 
 
-![image](https://hackmd.io/_uploads/Sy9z_rQ7ge.png)
+![image](./images/image15.png)
 
 `Flag: bi0sCTF{i_d0n't_f1nd_bugs!!_bug5_f1nd_m3:)}` 

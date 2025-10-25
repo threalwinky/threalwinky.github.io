@@ -30,9 +30,9 @@ Path traversal
 
 Challenge cho mình một trang web sau dùng để lưu profile
 
-![image](https://hackmd.io/_uploads/Sy8Zp0XoJg.png)
+![image](./images/image0.png)
 
-![image](https://hackmd.io/_uploads/rkkETRmsyx.png)
+![image](./images/image1.png)
 
 Nhìn qua mình thấy không có gì sú cả nên xem source 
 
@@ -57,11 +57,11 @@ def show_profile():
 
 Ở đây web sẽ lấy file tại đường dẫn `'profile/' + session.get('username')` nên mình có thể tạo một user tên là ../flag.txt và web sẽ mở file profile/../flag.txt 
 
-![image](https://hackmd.io/_uploads/H14n4E7j1x.png)
+![image](./images/image2.png)
 
 Từ đó mình có flag
 
-![image](https://hackmd.io/_uploads/HJL6E4miJe.png)
+![image](./images/image3.png)
 
 ## Hack the bot 1 
 
@@ -259,7 +259,7 @@ function searchArticles(searchInput = document.getElementById('search-input').va
 
 Challenge sẽ cho ta một trang web như sau
 
-![image](https://hackmd.io/_uploads/ry6n8Emjye.png)
+![image](./images/image4.png)
 
  Đọc source thì mình thấy có nút report nên mình nghĩ đến những bug xss hoặc csrf và mình thấy có một chỗ chúng ta có thể chèn payload
 
@@ -273,19 +273,19 @@ Challenge sẽ cho ta một trang web như sau
  
  Ok thì chèn như thế nào ? ở đây nếu chúng ta query một từ nào đó thì web sẽ kiếm những article có chứa từ đó.
  
-![image](https://hackmd.io/_uploads/rJIQ3N7i1x.png)
+![image](./images/image5.png)
 
 Nhưng nếu không tìm thấy thì sao? web sẽ thông báo lỗi từ đó và đây là nguồn cơn của vấn đề.
 
-![image](https://hackmd.io/_uploads/HJWNhV7iJx.png)
+![image](./images/image6.png)
 
 Ta có thể chèn vào các tag không bị cấm như iframe 
 
-![image](https://hackmd.io/_uploads/rkjBn4moyx.png)
+![image](./images/image7.png)
 
 Và từ đó challenge trở thành bypass xss
 
-![image](https://hackmd.io/_uploads/ryHAJB7jkl.png)
+![image](./images/image8.png)
 
 Ok thì mình tìm và thử các payload và thấy cái này là xài ngon
 
@@ -295,23 +295,23 @@ Ok thì mình tìm và thử các payload và thấy cái này là xài ngon
 
 Đưa vào và ta có thể triệu hồi prompt. Ở đây mình không xài alert vì đã bị filter rồi 
 
-![image](https://hackmd.io/_uploads/ryrQbLmi1x.png)
+![image](./images/image9.png)
 
 Ngay cả fetch cũng bị filter...
 
-![image](https://hackmd.io/_uploads/SkToML7ikx.png)
+![image](./images/image10.png)
 
 Vậy là hết cứu rồi sao? Không sao mình sẽ tiếp tục debug và thấy rằng nó sẽ split payload và lấy các word của mình thông qua một lệnh regex 
 
-![image](https://hackmd.io/_uploads/rksYMI7o1x.png)
+![image](./images/image11.png)
 
 Ví dụ như sau : 
 
-![image](https://hackmd.io/_uploads/S1NAM8Xo1x.png)
+![image](./images/image12.png)
 
 Ok từ đây mình có ý tưởng là sử dụng từ fetch kết hợp với một từ nào đó để cho thằng regex split ra nhưng không thể tìm được sau đó mình thực hiện replace hoặc split là xong 
 
-![image](https://hackmd.io/_uploads/Bkc4m8mi1x.png)
+![image](./images/image13.png)
 
 Ok và ta sẽ thử payload sau
 
@@ -319,7 +319,7 @@ Ok và ta sẽ thử payload sau
 <input type=hidden oncontentvisibilityautostatechange="console.log(`fetchabc`.replace(`abc`, ``)" style=content-visibility:auto>
 ```
 
-![image](https://hackmd.io/_uploads/H1BYmUXsJl.png)
+![image](./images/image14.png)
 
 Ok và ta đã lấy được chữ fetch mà không bị filter. Để automatic thì mình viết script để làm y chang với từng ký tự luôn.
 
@@ -337,11 +337,11 @@ print(payload.replace("+", "%2b"))
 
 Sau khi chạy thì ta có một payload như sau
 
-![image](https://hackmd.io/_uploads/ryDOrLXokg.png)
+![image](./images/image15.png)
 
 Nhìn dài vậy nhưng nó chỉ là một lệnh fetch thôi
 
-![image](https://hackmd.io/_uploads/SyFtBLQikg.png)
+![image](./images/image16.png)
 
 Ok cuối cùng chúng ta có payload sau để thực hiện XSS và mình đã thành công catch được webhook
 
@@ -350,14 +350,14 @@ Ok cuối cùng chúng ta có payload sau để thực hiện XSS và mình đã
 ```
 
 
-![image](https://hackmd.io/_uploads/Hy2ID8mi1e.png)
+![image](./images/image17.png)
 
 Ok thì mình tiến hành gửi report nhưng không có cookie nào được gửi về cả
 
-![image](https://hackmd.io/_uploads/Hyc5wLQiJl.png)
+![image](./images/image18.png)
 
 
-![image](https://hackmd.io/_uploads/BybqwLQiJl.png)
+![image](./images/image19.png)
 
 Có mọt điểm đáng chú ý mà mình đã dành 2 tiếng để debug ra chính là bot sẽ vào rồi mới set cookie. Theo race condition thì mình sẽ lấy cookie khi nó chưa set nên nó trống. 
 
@@ -400,7 +400,7 @@ async function startBot(url, name) {
 
 Từ đó mình có ý tưởng sử dụng setTimeout nhưng payload của mình sẽ bị lowercase... Nên mình mới nghĩ ra cách sẽ host payload và gọi lệnh để eval và ta không đụng đến chữ in hoa nào cả hehe
 
-![image](https://hackmd.io/_uploads/BJN__8Qi1x.png)
+![image](./images/image20.png)
 
 Chúng ta thay đổi payload lại như sau
 
@@ -422,9 +422,9 @@ print(payload.replace("+", "%2b"))
 
 Ok sau khi gửi payload này cho report thì mình có flag. 
 
-![image](https://hackmd.io/_uploads/S1IoK87jyl.png)
+![image](./images/image21.png)
 
-![image](https://hackmd.io/_uploads/BJeRKUXoye.png)
+![image](./images/image22.png)
 
 ## Say my name 
 
@@ -440,13 +440,13 @@ XSS and format string
 
 Challenge cho mình một trang web như sau
 
-![image](https://hackmd.io/_uploads/rkPehLQoye.png)
+![image](./images/image23.png)
 
-![image](https://hackmd.io/_uploads/SyGb28Xjkl.png)
+![image](./images/image24.png)
 
 Ok nó chỉ hiện text thôi nhưng mà mình đọc devtool thì thấy chữ hello là một tag a và khi focus vào thì mình sẽ đi đến một trang web nào đó.
 
-![image](https://hackmd.io/_uploads/rkI12x4jke.png)
+![image](./images/image25.png)
 
 Lúc làm bài này thì mình không nghĩ đến tận dụng thằng onfocus :) Nhưng mà nó sẽ đơn giản như thế này
 
@@ -454,7 +454,7 @@ Lúc làm bài này thì mình không nghĩ đến tận dụng thằng onfocus 
 
 Payload trên sẽ trigger một cái alert khi mình focus cụ thể là click vào. 
 
-![image](https://hackmd.io/_uploads/BkIpJZ4jyg.png)
+![image](./images/image26.png)
 
 Ok và mình xác nhận trang web có thể XSS. Nhưng có một vấn đề payload của ta sẽ bị filter nghiêm ngặt.
 
@@ -475,7 +475,7 @@ Không sao chúng ta có thể bypass như sau và lấy được cookie ez
 
 
 
-![image](https://hackmd.io/_uploads/rJ4PDWNiyl.png)
+![image](./images/image27.png)
 
 Từ request đó ta có thể tạo một POC để report
 
@@ -514,7 +514,7 @@ Ok payload trên chắc chắn không chạy được vì tag a chỉ được t
 ```
 
 
-![image](https://hackmd.io/_uploads/rJx4dbEo1g.png)
+![image](./images/image28.png)
 
 Ok và ta đã có X-Admin-Token và mình sẽ xem hàm sau.
 
@@ -534,28 +534,28 @@ Có thể thấy từ query prompt sẽ được render ra web nên mình thử 
 ```{0}```
 
 
-![image](https://hackmd.io/_uploads/SyQ75WViyl.png)
+![image](./images/image29.png)
 
 Từ đây mình có nhiều hướng để khai thác như lấy các biến có trong app flask
 
 ```{0.__globals__}```
 
-![image](https://hackmd.io/_uploads/HywPTbNjyx.png)
+![image](./images/image30.png)
 
 Nhảy vào app flask và gọi hàm nguyên thủy của nó
 
 ```{0.__globals__[app].__init__}```
 
-![image](https://hackmd.io/_uploads/rJAjA-EjJx.png)
+![image](./images/image31.png)
 
 Lấy các biến có trong môi trường python
 
 ```{0.__globals__[app].__init__.__globals__}```
 
-![image](https://hackmd.io/_uploads/HJ1TCWEo1x.png)
+![image](./images/image32.png)
 
 Lấy lệnh sys và lấy environment của máy. Và từ đó ta có flag được add vào environment từ trước.
 
 ```{0.__globals__[app].__init__.__globals__[sys].modules[os].environ}```
 
-![image](https://hackmd.io/_uploads/H1G11M4skg.png)
+![image](./images/image33.png)
